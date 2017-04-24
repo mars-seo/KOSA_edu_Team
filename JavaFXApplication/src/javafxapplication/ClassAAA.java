@@ -2,7 +2,6 @@
 package javafxapplication;
 
 
-
 public class ClassAAA {
     int a;
 
