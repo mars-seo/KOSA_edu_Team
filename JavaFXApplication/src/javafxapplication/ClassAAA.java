@@ -3,7 +3,7 @@ package javafxapplication;
 public class ClassAAA {
 
     int a;
-    boolean aa;
+//    boolean aa;
     String aaa="dddd";
     
 
