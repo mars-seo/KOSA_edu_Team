@@ -1,6 +1,10 @@
+
 package javafxapplication;
 
-public class ClassAAA {
 
+public class ClassAAA {
+    int a;
+    int b;
+    int c;
     
 }
