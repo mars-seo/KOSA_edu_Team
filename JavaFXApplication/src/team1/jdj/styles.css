@@ -1,0 +1,13 @@
+.menu {
+    -menu-color: red;
+}
+.menu-item {
+    -icon-background-color: black;
+    -icon-color           : pink;
+}
+.rotating-button {
+    -button-color: #cbff4d;
+}
+.cross {
+    -cross-color: yellow;
+}
