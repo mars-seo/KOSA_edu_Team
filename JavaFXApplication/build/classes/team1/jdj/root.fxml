@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.embed.swing.*?>
+<?import javafx.scene.chart.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -7,4 +9,4 @@
 <?import javafx.scene.layout.*?>
 
 
-<BorderPane prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+<Region maxHeight="1024.0" maxWidth="1024.0" minHeight="35.0" minWidth="200.0" prefHeight="70.0" prefWidth="400.0" styleClass="fun-menu" stylesheets="@funmenu.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.jdj.RootController" />
