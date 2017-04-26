@@ -13,8 +13,6 @@ public class AppMain extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		Parent parent = FXMLLoader.load(getClass().getResource("root.fxml"));
 		Scene scene = new Scene(parent);
-		scene.getStylesheets().add(getClass().getResource("funmenu.css").toString());
-        scene.getStylesheets().setAll("fun-menu");
 		
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("창제목");
