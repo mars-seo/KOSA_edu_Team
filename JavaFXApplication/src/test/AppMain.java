@@ -1,4 +1,4 @@
-package team1.kcm;
+package test;
 
 
 import javafx.application.Application;
@@ -12,15 +12,12 @@ public class AppMain extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent parent = FXMLLoader.load(getClass().getResource("root1.fxml")); 
+        Parent parent = FXMLLoader.load(getClass().getResource("tet.fxml")); 
         
         Scene scene = new Scene(parent);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Panel"); 
         primaryStage.show();
-				primaryStage.setMaxWidth(800);
-				primaryStage.setMaxHeight(480);
-				
        
     }
     
