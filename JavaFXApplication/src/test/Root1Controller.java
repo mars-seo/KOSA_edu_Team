@@ -1,4 +1,9 @@
-package team1.kcm;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package test;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -12,6 +17,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
+/**
+ * FXML Controller class
+ *
+ * @author Administrator
+ */
 public class Root1Controller implements Initializable {
 
 	@FXML
@@ -25,8 +35,6 @@ public class Root1Controller implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		menu.setTranslateY(200);
-		
 		background.setOnMouseClicked(event -> {
 			count = count * (-1);
 			if (count == 1) {
@@ -36,14 +44,14 @@ public class Root1Controller implements Initializable {
 			}
 		});
 		
-	}
-
-
+	}	
+	
+	
 	private void open() {
 		System.out.println("open");
 		//sstackPane.getChildren().add(menu);
-		
-		KeyValue keyValue = new KeyValue(menu.translateYProperty(), 0);
+		menu.setTranslateY(0);
+		KeyValue keyValue = new KeyValue(menu.translateYProperty(), 200);
 	KeyFrame keyFrame = new KeyFrame(Duration.millis(1000), keyValue);
 	Timeline timeline = new Timeline();
 	timeline.getKeyFrames().add(keyFrame);
@@ -51,18 +59,16 @@ public class Root1Controller implements Initializable {
 	}
 
 	private void close() {
-		System.out.println("close");
-		KeyValue keyValue = new KeyValue(menu.translateYProperty(),200);
-       // KeyFrame keyFrame = new KeyFrame(Duration.millis(1000),
-       //         (event) -> {
-         //           sstackPane.getChildren().remove(menu);
-          //      },
-        //        keyValue);
-				KeyFrame keyFrame = new KeyFrame(Duration.millis(1000),keyValue);
+		
+		KeyValue keyValue = new KeyValue(menu.translateYProperty(),500);
+        KeyFrame keyFrame = new KeyFrame(Duration.millis(1000),
+                (event) -> {
+                    sstackPane.getChildren().remove(menu);
+                },
+                keyValue);
         Timeline timeline = new Timeline();
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
 
-	}	
-	
+	}
 }
