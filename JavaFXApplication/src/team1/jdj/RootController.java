@@ -2,9 +2,14 @@ package team1.jdj;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.StackPane;
 
 public class RootController implements Initializable {
+
+	@FXML
+	private StackPane stackPane;
 
 	
 	

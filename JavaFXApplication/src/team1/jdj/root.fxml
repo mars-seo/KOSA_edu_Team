@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.embed.swing.*?>
 <?import javafx.scene.chart.*?>
 <?import java.lang.*?>
@@ -8,5 +9,22 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<Region maxHeight="1024.0" maxWidth="1024.0" minHeight="35.0" minWidth="200.0" prefHeight="70.0" prefWidth="400.0" styleClass="fun-menu" stylesheets="@funmenu.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.jdj.RootController" />
+<StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" style="-fx-background-color: #825ECB;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.jdj.RootController">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <center>
+            <ListView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </center>
+         <left>
+            <TableView prefHeight="440.0" prefWidth="107.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="요금조회" />
+              </columns>
+            </TableView>
+         </left>
+      </BorderPane>
+   </children>
+</StackPane>
