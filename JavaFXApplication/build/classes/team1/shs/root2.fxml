@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
@@ -67,4 +68,11 @@
          </children>
       </StackPane>
    </bottom>
+   <center>
+      <StackPane BorderPane.alignment="BOTTOM_CENTER">
+         <children>
+            <Sphere fx:id="sphere" cullFace="NONE" drawMode="LINE" radius="100.0" />
+         </children>
+      </StackPane>
+   </center>
 </BorderPane>

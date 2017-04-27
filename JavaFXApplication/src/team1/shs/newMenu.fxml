@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane alignment="BOTTOM_CENTER" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.shs.NewMenuController">
+   <children>
+      <ImageView fx:id="menu1" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/facebook.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="menu2" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/instagram.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="menu3" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/google-plus.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="menu4" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/pinterest.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="menu5" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/tumblr.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="menu6" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/twitter.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="menuBtn" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/flickr.png" />
+         </image></ImageView>
+   </children>
+</StackPane>
