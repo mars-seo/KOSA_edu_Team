@@ -14,7 +14,7 @@
             <Image url="@images/background.jpg" />
          </image>
       </ImageView>
-      <HBox fx:id="menu" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <HBox fx:id="menu" alignment="BOTTOM_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
