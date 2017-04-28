@@ -54,21 +54,18 @@ public class ControlController implements Initializable {
     private void handleBtnLight(ActionEvent e) {
         rootPane.getChildren().clear();
         stackPane.getChildren().add(parent[0]);
-        parent[0].setTranslateX(800);
-        // parent.translateXProperty() 을 0까지             
+        
+        parent[0].setTranslateX(800);    
         KeyValue keyValue = new KeyValue(parent[0].translateXProperty(), 0);
-        // 0.1초간 진행
         KeyFrame keyFrame = new KeyFrame(Duration.millis(100), keyValue);
-        // 아래 두개를 쌍으로
         Timeline timeline = new Timeline();
-        // 애니메이션을 여러개 정의해 놓고 진행 가능
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
     }
 
     private void handleBtnGas(ActionEvent e) {
         stackPane.getChildren().clear();
-        stackPane.getChildren().add(parent[1]);
+        stackPane.getChildren().add(parent[1]);        
     }
 
     private void handleBtnDoor(ActionEvent e) {

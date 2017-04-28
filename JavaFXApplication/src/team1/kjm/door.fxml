@@ -9,19 +9,19 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" >
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.kjm.DoorController">
    <children>
-      <ImageView fx:id="imgGasState" fitHeight="150.0" fitWidth="200.0" layoutX="225.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgDoorState" fitHeight="150.0" fitWidth="200.0" layoutX="225.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/gasoff.png" />
+            <Image url="@images/lock1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgGasOn" fitHeight="150.0" fitWidth="200.0" layoutX="75.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgDoorOpen" fitHeight="150.0" fitWidth="200.0" layoutX="75.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/on.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgGasOff" fitHeight="150.0" fitWidth="200.0" layoutX="318.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgDoorClose" fitHeight="150.0" fitWidth="200.0" layoutX="318.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/off.png" />
          </image>
