@@ -1,4 +1,4 @@
-package team1.kcm;
+package test;
 
 
 import javafx.application.Application;
@@ -8,11 +8,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class AppMain extends Application{
+public class AppMain1_1 extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent parent = FXMLLoader.load(getClass().getResource("root1.fxml")); 
+        Parent parent = FXMLLoader.load(getClass().getResource("tet.fxml")); 
         
         Scene scene = new Scene(parent);
         primaryStage.setScene(scene);

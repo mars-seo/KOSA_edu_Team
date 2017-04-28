@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="icon" maxHeight="10.0" maxWidth="10.0" minHeight="10.0" minWidth="10.0" prefHeight="10.0" prefWidth="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.kcm.IconController">
+   <children>
+      <HBox layoutX="-395.0" layoutY="-68.0" prefHeight="85.0" prefWidth="800.0" AnchorPane.bottomAnchor="-7.0">
+         <children>
+            <ImageView fx:id="menu" fitHeight="150.0" fitWidth="150.0" onMouseMoved="#image1" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+               <image>
+                  <Image url="@images/alarm.PNG" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="150.0" onMouseMoved="#image2" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/camera.PNG" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="150.0" onMouseMoved="#image3" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/camera.PNG" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="150.0" onMouseMoved="#image4" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/camera.PNG" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="150.0" onMouseMoved="#image5" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/camera.PNG" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
