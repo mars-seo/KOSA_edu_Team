@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.embed.swing.*?>
 <?import javafx.scene.chart.*?>
@@ -19,12 +20,20 @@
             <ListView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
          </center>
          <left>
-            <TableView prefHeight="440.0" prefWidth="107.0" BorderPane.alignment="CENTER">
+            <TableView BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="요금조회" />
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
               </columns>
             </TableView>
          </left>
+         <top>
+            <Label contentDisplay="CENTER" text="요금조회" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="System Bold Italic" size="23.0" />
+               </font>
+            </Label>
+         </top>
       </BorderPane>
    </children>
 </StackPane>
