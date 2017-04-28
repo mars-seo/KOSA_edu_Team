@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<<<<<<< HEAD
 <?import javafx.scene.text.*?>
-=======
->>>>>>> b02ff728157e2ab3473f319af4804171b98bce2f
 <?import javafx.geometry.*?>
 <?import javafx.embed.swing.*?>
 <?import javafx.scene.chart.*?>
@@ -19,11 +16,12 @@
    </padding>
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0">
+<<<<<<< HEAD
+=======
          <center>
             <ListView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
          </center>
          <left>
-<<<<<<< HEAD
             <TableView BorderPane.alignment="CENTER">
               <columns>
                 <TableColumn prefWidth="75.0" text="C1" />
@@ -31,6 +29,7 @@
               </columns>
             </TableView>
          </left>
+>>>>>>> origin/master
          <top>
             <Label contentDisplay="CENTER" text="요금조회" BorderPane.alignment="CENTER">
                <font>
@@ -38,14 +37,21 @@
                </font>
             </Label>
          </top>
-=======
-            <TableView prefHeight="440.0" prefWidth="107.0" BorderPane.alignment="CENTER">
-              <columns>
-                <TableColumn maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="요금조회" />
-              </columns>
-            </TableView>
+<<<<<<< HEAD
+         <center>
+            <ListView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </center>
+         <left>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="GasFee" mnemonicParsing="false" prefHeight="150.0" prefWidth="100.0" text="난방" />
+                  <Button fx:id="electricFee" mnemonicParsing="false" prefHeight="150.0" prefWidth="100.0" text="전기" />
+                  <Button fx:id="waterFee" mnemonicParsing="false" prefHeight="150.0" prefWidth="100.0" text="수도" />
+               </children>
+            </VBox>
          </left>
->>>>>>> b02ff728157e2ab3473f319af4804171b98bce2f
+=======
+>>>>>>> origin/master
       </BorderPane>
    </children>
 </StackPane>
