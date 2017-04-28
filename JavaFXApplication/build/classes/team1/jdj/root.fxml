@@ -38,6 +38,7 @@
             </Label>
          </top>
 <<<<<<< HEAD
+<<<<<<< HEAD
          <center>
             <ListView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
          </center>
@@ -50,6 +51,8 @@
                </children>
             </VBox>
          </left>
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
       </BorderPane>
