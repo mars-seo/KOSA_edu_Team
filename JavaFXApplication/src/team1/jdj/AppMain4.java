@@ -24,6 +24,11 @@ public class AppMain4 extends Application {
 		System.exit(0);
 	}
 
+	@Override
+	public void init() throws Exception {
+		super.init(); //To change body of generated methods, choose Tools | Templates.
+	}
+
 
 
 	
