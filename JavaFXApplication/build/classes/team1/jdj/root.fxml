@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<<<<<<< HEAD
 <?import javafx.scene.text.*?>
-=======
->>>>>>> b02ff728157e2ab3473f319af4804171b98bce2f
 <?import javafx.geometry.*?>
 <?import javafx.embed.swing.*?>
 <?import javafx.scene.chart.*?>
@@ -23,7 +20,6 @@
             <ListView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
          </center>
          <left>
-<<<<<<< HEAD
             <TableView BorderPane.alignment="CENTER">
               <columns>
                 <TableColumn prefWidth="75.0" text="C1" />
@@ -38,14 +34,6 @@
                </font>
             </Label>
          </top>
-=======
-            <TableView prefHeight="440.0" prefWidth="107.0" BorderPane.alignment="CENTER">
-              <columns>
-                <TableColumn maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="요금조회" />
-              </columns>
-            </TableView>
-         </left>
->>>>>>> b02ff728157e2ab3473f319af4804171b98bce2f
       </BorderPane>
    </children>
 </StackPane>
