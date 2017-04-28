@@ -100,6 +100,7 @@ public class NewMenuController implements Initializable {
 		timeline.getKeyFrames().add(keyFrame1);
 		
 		timeline.play();
+		menuBtn.setOnMouseClicked(e->handleMenu());
 	}
 	
 }

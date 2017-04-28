@@ -1,7 +1,6 @@
 package tema1.kcmtest;
 
 
-import team1.kcm.*;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
