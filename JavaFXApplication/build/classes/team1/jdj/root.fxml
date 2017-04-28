@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.embed.swing.*?>
 <?import javafx.scene.chart.*?>
@@ -18,27 +19,6 @@
          <center>
             <ListView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
          </center>
-         <top>
-            <MenuBar BorderPane.alignment="CENTER">
-              <menus>
-                <Menu mnemonicParsing="false" text="File">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
-                  </items>
-                </Menu>
-              </menus>
-            </MenuBar>
-         </top>
          <left>
             <TableView BorderPane.alignment="CENTER">
               <columns>
@@ -47,6 +27,13 @@
               </columns>
             </TableView>
          </left>
+         <top>
+            <Label contentDisplay="CENTER" text="요금조회" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="System Bold Italic" size="23.0" />
+               </font>
+            </Label>
+         </top>
       </BorderPane>
    </children>
 </StackPane>
