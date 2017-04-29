@@ -2,6 +2,8 @@ package team1.kjm;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -28,15 +30,15 @@ public class ControlController implements Initializable {
     @FXML
     private StackPane stackPane;
 
-    private static StackPane rootPane; 
-    private Parent parent[] = new Parent[4];
+    private static StackPane rootPane;
+    private List<Parent> parent = new ArrayList<>();
 
     public ControlController() {
         try {
-            this.parent[0] = FXMLLoader.load(getClass().getResource("lighting.fxml"));
-            this.parent[1] = FXMLLoader.load(getClass().getResource("gas.fxml"));
-            this.parent[2] = FXMLLoader.load(getClass().getResource("door.fxml"));
-            this.parent[3] = FXMLLoader.load(getClass().getResource("sound.fxml"));
+            this.parent.add(FXMLLoader.load(getClass().getResource("light.fxml")));
+            this.parent.add(FXMLLoader.load(getClass().getResource("gas.fxml")));
+            this.parent.add(FXMLLoader.load(getClass().getResource("security.fxml")));
+            this.parent.add(FXMLLoader.load(getClass().getResource("sound.fxml")));
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -45,37 +47,24 @@ public class ControlController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         rootPane = stackPane;
-        btnLight.setOnAction(e -> handleBtnLight(e));
-        btnGas.setOnAction(e -> handleBtnGas(e));
-        btnDoor.setOnAction(e -> handleBtnDoor(e));
-        btnSound.setOnAction(e -> handleBtnSound(e));
+        btnLight.setOnAction(e -> handleBtn(e, 0));
+        btnGas.setOnAction(e -> handleBtn(e, 1));
+        btnDoor.setOnAction(e -> handleBtn(e, 2));
+        btnSound.setOnAction(e -> handleBtn(e, 3));
     }
 
-    private void handleBtnLight(ActionEvent e) {
+    private void handleBtn(ActionEvent e, int num) {
         rootPane.getChildren().clear();
-        stackPane.getChildren().add(parent[0]);
-        
-        parent[0].setTranslateX(800);    
-        KeyValue keyValue = new KeyValue(parent[0].translateXProperty(), 0);
+        stackPane.getChildren().add(parent.get(num));
+        translateX(num);
+    }
+
+    private void translateX(int num) {
+        parent.get(num).setTranslateX(800);
+        KeyValue keyValue = new KeyValue(parent.get(num).translateXProperty(), 0);
         KeyFrame keyFrame = new KeyFrame(Duration.millis(100), keyValue);
         Timeline timeline = new Timeline();
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
     }
-
-    private void handleBtnGas(ActionEvent e) {
-        stackPane.getChildren().clear();
-        stackPane.getChildren().add(parent[1]);        
-    }
-
-    private void handleBtnDoor(ActionEvent e) {
-        stackPane.getChildren().clear();
-        stackPane.getChildren().add(parent[2]);
-    }
-
-    private void handleBtnSound(ActionEvent e) {
-        stackPane.getChildren().clear();
-        stackPane.getChildren().add(parent[3]);
-    }
-
 }
