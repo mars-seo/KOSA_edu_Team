@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane prefHeight="350.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane>
+         <right>
+            <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" prefWidth="80.0" text="통화" />
+                  <Button mnemonicParsing="false" prefWidth="80.0" text="문열림" />
+                  <Button mnemonicParsing="false" prefWidth="80.0" text="나가기" />
+               </children>
+            </VBox>
+         </right>
+         <top>
+            <Label text="공동현관" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </top>
+         <center>
+            <StackPane maxHeight="-Infinity" maxWidth="-Infinity" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+               <children>
+                  <MediaView fitHeight="250.0" fitWidth="310.0" />
+               </children>
+            </StackPane>
+         </center>
+      </BorderPane>
+   </children>
+</StackPane>
