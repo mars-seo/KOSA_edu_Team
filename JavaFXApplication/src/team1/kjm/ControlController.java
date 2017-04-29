@@ -28,7 +28,7 @@ public class ControlController implements Initializable {
     @FXML
     private StackPane stackPane;
 
-    private static StackPane rootPane;
+    private static StackPane rootPane; 
     private Parent parent[] = new Parent[4];
 
     public ControlController() {
