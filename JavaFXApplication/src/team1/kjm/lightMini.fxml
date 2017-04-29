@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="240.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.kjm.LightMiniController">
+	<children>
+		<HBox prefHeight="240.0" prefWidth="300.0">
+			<children>
+				<StackPane prefHeight="150.0" prefWidth="200.0">
+					<children>
+						<AnchorPane prefHeight="480.0" prefWidth="600.0">
+							<children>
+								<BorderPane fx:id="borderRoom3" layoutX="14.0" prefHeight="30.0" prefWidth="30.0">
+									<center>
+										<ImageView fx:id="imgRoom3" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+											<image>
+												<Image url="@images/bulb-icon.png" />
+											</image>
+										</ImageView>
+									</center>
+                           <left>
+                              <Label text="안방" BorderPane.alignment="CENTER" />
+                           </left>
+								</BorderPane>
+								<BorderPane fx:id="borderRoom4" layoutX="107.0" layoutY="56.0" prefHeight="30.0" prefWidth="30.0">
+									<center>
+      										<ImageView fx:id="imgRoom4" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+      											<image>
+      												<Image url="@images/bulb-icon.png" />
+      											</image>
+      										</ImageView>
+									</center>
+                           <left>
+                              <Label text="부엌" BorderPane.alignment="CENTER" />
+                           </left>
+								</BorderPane>
+								<BorderPane fx:id="borderRoom5" layoutX="107.0" prefHeight="30.0" prefWidth="30.0">
+									<center>
+										<ImageView fx:id="imgRoom5" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+											<image>
+												<Image url="@images/bulb-icon.png" />
+											</image>
+										</ImageView>
+									</center>
+                           <left>
+                              <Label text="거실" BorderPane.alignment="CENTER" />
+                           </left>
+								</BorderPane>
+								<BorderPane fx:id="borderRoom6" layoutX="107.0" layoutY="117.0" prefHeight="30.0" prefWidth="30.0">
+									<center>
+										<ImageView fx:id="imgRoom6" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+											<image>
+												<Image url="@images/bulb-icon.png" />
+											</image>
+										</ImageView>
+									</center>
+                           <left>
+                              <Label text="욕실" BorderPane.alignment="CENTER" />
+                           </left>
+								</BorderPane>
+								<BorderPane fx:id="borderRoom7" layoutX="195.0" prefHeight="30.0" prefWidth="30.0">
+									<center>
+										<ImageView fx:id="imgRoom7" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+											<image>
+												<Image url="@images/bulb-icon.png" />
+											</image>
+										</ImageView>
+									</center>
+                           <left>
+                              <Label text="현관" BorderPane.alignment="CENTER" />
+                           </left>
+								</BorderPane>
+								<BorderPane fx:id="borderRoom8" layoutX="-6.0" layoutY="56.0" prefHeight="30.0" prefWidth="30.0">
+									<center>
+										<ImageView fx:id="imgRoom8" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+											<image>
+												<Image url="@images/bulb-icon.png" />
+											</image>
+										</ImageView>
+									</center>
+                           <left>
+                              <Label text="작은방1" BorderPane.alignment="CENTER" />
+                           </left>
+								</BorderPane>
+								<BorderPane fx:id="borderRoom9" layoutX="-4.0" layoutY="117.0" prefHeight="30.0" prefWidth="30.0">
+									<center>
+										<ImageView fx:id="imgRoom9" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+											<image>
+												<Image url="@images/bulb-icon.png" />
+											</image>
+										</ImageView>
+									</center>
+                           <left>
+                              <Label text="작은방2" BorderPane.alignment="CENTER" />
+                           </left>
+								</BorderPane>
+								<ImageView fx:id="imgLightOn" fitHeight="50.0" fitWidth="40.0" layoutX="132.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+									<image>
+										<Image url="@images/light-bulb-icon.png" />
+									</image>
+								</ImageView>
+								<ImageView fx:id="imgLightOff" fitHeight="50.0" fitWidth="40.0" layoutX="219.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+									<image>
+										<Image url="@images/bulb-icon.png" />
+									</image>
+								</ImageView>
+								<Label layoutX="76.0" layoutY="177.0" text="All">
+									<font>
+										<Font name="System Bold" size="20.0" />
+									</font>
+								</Label>
+                  								<BorderPane fx:id="borderRoom1" layoutX="171.0" layoutY="56.0" prefHeight="30.0" prefWidth="30.0">
+                  									<center>
+                  										<ImageView fx:id="imgRoom1" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                  											<image>
+                  												<Image url="@images/bulb-icon.png" />
+                  											</image>
+                  										</ImageView>
+                  									</center>
+                           <left>
+                              <Label text="보일러실" BorderPane.alignment="CENTER" />
+                           </left>
+                  								</BorderPane>
+                  								<BorderPane fx:id="borderRoom2" layoutX="171.0" layoutY="117.0" prefHeight="30.0" prefWidth="30.0">
+                  									<center>
+                  										<ImageView fx:id="imgRoom2" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                  											<image>
+                  												<Image url="@images/bulb-icon.png" />
+                  											</image>
+                  										</ImageView>
+                  									</center>
+                           <left>
+                              <Label text="다용도실" BorderPane.alignment="CENTER" />
+                           </left>
+                  								</BorderPane>
+                        <Label layoutX="112.0" layoutY="182.0" text="On" />
+                        <Label layoutX="197.0" layoutY="182.0" text="Off" />
+							</children>
+							<StackPane.margin>
+								<Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+							</StackPane.margin>
+						</AnchorPane>
+					</children>
+				</StackPane>
+			</children>
+		</HBox>
+	</children>
+</AnchorPane>

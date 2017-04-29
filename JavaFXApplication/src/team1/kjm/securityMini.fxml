@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="240.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.kjm.SecurityMiniController">
+   <children>
+      <ImageView fx:id="imgSecurityState" fitHeight="100.0" fitWidth="150.0" layoutX="40.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/securityo.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgScurityOnoff" fitHeight="100.0" fitWidth="100.0" layoutX="150.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/on1.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblSecurityState" alignment="CENTER" layoutY="150.0" prefHeight="40.0" prefWidth="300.0" text="보안이 작동중입니다.">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

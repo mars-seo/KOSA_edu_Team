@@ -12,28 +12,27 @@
 
 <AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.kjm.SoundController">
    <children>
-      <ListView fx:id="listView" layoutX="378.0" layoutY="10.0" prefHeight="333.0" prefWidth="211.0" />
-      <Button fx:id="btnOpen" layoutX="378.0" layoutY="351.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="70.0" text="OPEN" />
-      <Slider fx:id="sliderVolume" layoutX="35.0" layoutY="290.0" prefHeight="24.0" prefWidth="185.0" showTickMarks="true" />
-      <Button fx:id="btnStop" disable="true" layoutX="150.0" layoutY="261.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="70.0" text="STOP" />
-      <Button fx:id="btnPause" disable="true" layoutX="80.0" layoutY="261.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="70.0" text="PAUSE" />
-      <Button fx:id="btnPlay" disable="true" layoutX="10.0" layoutY="261.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="70.0" text="PLAY" />
-      <StackPane layoutX="10.0" layoutY="10.0" prefHeight="220.0" prefWidth="360.0">
+      <ListView fx:id="listView" layoutX="379.0" layoutY="39.0" prefHeight="300.0" prefWidth="211.0" />
+      <Slider fx:id="sliderVolume" layoutX="36.0" layoutY="319.0" prefHeight="24.0" prefWidth="185.0" showTickMarks="true" />
+      <Button fx:id="btnStop" disable="true" layoutX="151.0" layoutY="290.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="70.0" text="STOP" />
+      <Button fx:id="btnPause" disable="true" layoutX="81.0" layoutY="290.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="70.0" text="PAUSE" />
+      <Button fx:id="btnPlay" disable="true" layoutX="11.0" layoutY="290.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="70.0" text="PLAY" />
+      <StackPane layoutX="11.0" layoutY="39.0" prefHeight="220.0" prefWidth="360.0">
          <children>
             <ImageView fitHeight="220.0" fitWidth="360.0" pickOnBounds="true">
                <image>
-                  <Image url="@../../../../../TestRepository/JavaFXProgramming/src/ch17/exam25/media/audio.png" />
+                  <Image url="@media/audio.png" />
                </image>
             </ImageView>
             <MediaView fx:id="mediaView" fitHeight="220.0" fitWidth="360.0" preserveRatio="false" />
          </children>
       </StackPane>
-      <ImageView fx:id="imgSound" fitHeight="20.0" fitWidth="20.0" layoutX="14.0" layoutY="287.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgSound" fitHeight="20.0" fitWidth="20.0" layoutX="15.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/sound.png" />
          </image>
       </ImageView>
-      <Label fx:id="labelTime" alignment="CENTER" layoutX="10.0" layoutY="238.0" prefHeight="20.0" prefWidth="70.0" text="00:00:00" />
-      <Slider fx:id="progressSlider" layoutX="82.0" layoutY="241.0" prefHeight="14.0" prefWidth="288.0" />
+      <Label fx:id="labelTime" alignment="CENTER" layoutX="11.0" layoutY="267.0" prefHeight="20.0" prefWidth="70.0" text="00:00:00" />
+      <Slider fx:id="progressSlider" layoutX="83.0" layoutY="270.0" prefHeight="14.0" prefWidth="288.0" />
    </children>
 </AnchorPane>

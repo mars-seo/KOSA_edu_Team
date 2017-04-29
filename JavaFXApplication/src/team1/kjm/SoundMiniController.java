@@ -19,7 +19,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.util.Duration;
 
-public class SoundController implements Initializable {
+public class SoundMiniController implements Initializable {
 
     @FXML
     private ListView<String> listView;
@@ -39,7 +39,7 @@ public class SoundController implements Initializable {
     private Label labelTime;
     @FXML
     private ImageView imgSound;
-    
+
     private boolean mute;
     private Media media;
     private MediaPlayer mediaPlayer;
@@ -176,4 +176,5 @@ public class SoundController implements Initializable {
             }
         });
     }
+
 }
