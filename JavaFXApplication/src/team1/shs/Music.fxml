@@ -31,7 +31,7 @@
                      <children>
                         <Button mnemonicParsing="false">
                            <graphic>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@images/backward.png" />
                                  </image>
@@ -40,7 +40,7 @@
                         </Button>
                         <Button mnemonicParsing="false">
                            <graphic>
-                              <ImageView fitHeight="50.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@images/pause.png" />
                                  </image>
@@ -49,7 +49,7 @@
                         </Button>
                         <Button mnemonicParsing="false">
                            <graphic>
-                              <ImageView fitHeight="50.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@images/play.png" />
                                  </image>
@@ -58,7 +58,7 @@
                         </Button>
                         <Button mnemonicParsing="false">
                            <graphic>
-                              <ImageView fitHeight="50.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@images/stop.png" />
                                  </image>
@@ -67,7 +67,7 @@
                         </Button>
                         <Button mnemonicParsing="false">
                            <graphic>
-                              <ImageView fitHeight="50.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@images/fast-forward.png" />
                                  </image>
