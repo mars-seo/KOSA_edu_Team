@@ -1,0 +1,4 @@
+.txtInput:focused{
+    -fx-border-color:skyblue;
+    -fx-background-color:#FFFF00;
+}
