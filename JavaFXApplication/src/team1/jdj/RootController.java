@@ -51,7 +51,7 @@ public class RootController implements Initializable {
         try {
             rootPane.getChildren().clear();
 
-            Parent scene = FXMLLoader.load(getClass().getResource("gas.fxml"));
+            Parent scene = FXMLLoader.load(getClass().getResource("mini.fxml"));
             rootPane.getChildren().add(scene);
             scene.setTranslateX(840);
             Timeline timeline = new Timeline();
