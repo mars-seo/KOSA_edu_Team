@@ -15,9 +15,14 @@
          <bottom>
             <BorderPane BorderPane.alignment="CENTER">
                <right>
-                  <AnchorPane prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="49.0" prefWidth="117.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Slider layoutX="12.0" layoutY="27.0" prefHeight="14.0" prefWidth="176.0" />
+                        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/speaker.png" />
+                           </image>
+                        </ImageView>
+                        <Slider layoutX="49.0" layoutY="27.0" prefHeight="14.0" prefWidth="139.0" />
                      </children>
                   </AnchorPane>
                </right>
@@ -26,7 +31,7 @@
                      <children>
                         <Button mnemonicParsing="false">
                            <graphic>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@images/backward.png" />
                                  </image>
@@ -35,7 +40,7 @@
                         </Button>
                         <Button mnemonicParsing="false">
                            <graphic>
-                              <ImageView fitHeight="50.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@images/pause.png" />
                                  </image>
@@ -44,7 +49,7 @@
                         </Button>
                         <Button mnemonicParsing="false">
                            <graphic>
-                              <ImageView fitHeight="50.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@images/play.png" />
                                  </image>
@@ -53,7 +58,7 @@
                         </Button>
                         <Button mnemonicParsing="false">
                            <graphic>
-                              <ImageView fitHeight="50.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@images/stop.png" />
                                  </image>
@@ -62,7 +67,7 @@
                         </Button>
                         <Button mnemonicParsing="false">
                            <graphic>
-                              <ImageView fitHeight="50.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@images/fast-forward.png" />
                                  </image>
