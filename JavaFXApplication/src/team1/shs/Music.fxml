@@ -8,7 +8,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <StackPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane prefHeight="450.0" prefWidth="800.0">
@@ -26,32 +25,55 @@
                      <children>
                         <Button mnemonicParsing="false">
                            <graphic>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/backward.png" />
+                                 </image>
+                              </ImageView>
                            </graphic>
                         </Button>
                         <Button mnemonicParsing="false">
                            <graphic>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="50.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/pause.png" />
+                                 </image>
+                              </ImageView>
                            </graphic>
                         </Button>
                         <Button mnemonicParsing="false">
                            <graphic>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="50.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/play.png" />
+                                 </image>
+                              </ImageView>
                            </graphic>
                         </Button>
                         <Button mnemonicParsing="false">
                            <graphic>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="50.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/stop.png" />
+                                 </image>
+                              </ImageView>
                            </graphic>
                         </Button>
                         <Button mnemonicParsing="false">
                            <graphic>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="50.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/fast-forward.png" />
+                                 </image>
+                              </ImageView>
                            </graphic>
                         </Button>
                      </children>
                   </HBox>
                </center>
+               <top>
+                  <Slider prefHeight="14.0" prefWidth="550.0" BorderPane.alignment="CENTER" />
+               </top>
             </BorderPane>
          </bottom>
          <center>
