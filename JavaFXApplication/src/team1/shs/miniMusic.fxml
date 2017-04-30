@@ -8,7 +8,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <StackPane prefHeight="240.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane>
@@ -17,6 +16,11 @@
                <right>
                   <AnchorPane prefHeight="33.0" prefWidth="66.0" BorderPane.alignment="CENTER">
                      <children>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="99.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/speaker.png" />
+                           </image>
+                        </ImageView>
                         <Slider layoutX="72.0" layoutY="19.0" prefHeight="14.0" prefWidth="74.0" />
                      </children>
                   </AnchorPane>

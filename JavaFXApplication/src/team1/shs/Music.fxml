@@ -15,9 +15,14 @@
          <bottom>
             <BorderPane BorderPane.alignment="CENTER">
                <right>
-                  <AnchorPane prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="49.0" prefWidth="117.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Slider layoutX="12.0" layoutY="27.0" prefHeight="14.0" prefWidth="176.0" />
+                        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/speaker.png" />
+                           </image>
+                        </ImageView>
+                        <Slider layoutX="49.0" layoutY="27.0" prefHeight="14.0" prefWidth="139.0" />
                      </children>
                   </AnchorPane>
                </right>
