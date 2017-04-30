@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.kjm.GasController">
+   <children>
+      <ImageView fx:id="imgGasState" fitHeight="150.0" fitWidth="200.0" layoutX="225.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/gason.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGasOnoff" fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="292.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/on1.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblGasState" alignment="CENTER" layoutX="93.0" layoutY="242.0" prefHeight="42.0" prefWidth="415.0" text="가스 밸브가 열려있습니다.">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
