@@ -9,6 +9,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
@@ -21,6 +23,12 @@ public class InternetController implements Initializable {
 
     @FXML
     private WebView newsWebView;
+    @FXML
+    private ToggleButton newsButton;
+    @FXML
+    private ToggleGroup SelectGroup;
+    @FXML
+    private ToggleButton youtubeButton;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
