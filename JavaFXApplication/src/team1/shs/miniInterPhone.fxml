@@ -14,11 +14,20 @@
    <children>
       <BorderPane>
          <right>
-            <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+            <VBox alignment="BOTTOM_CENTER" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" prefWidth="80.0" text="통화" />
-                  <Button mnemonicParsing="false" prefWidth="80.0" text="문열림" />
-                  <Button mnemonicParsing="false" prefWidth="80.0" text="나가기" />
+                  <Button mnemonicParsing="false" prefWidth="80.0" text="통화">
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin></Button>
+                  <Button mnemonicParsing="false" prefWidth="80.0" text="문열림">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin></Button>
+                  <Button mnemonicParsing="false" prefWidth="80.0" text="나가기">
+                     <VBox.margin>
+                        <Insets bottom="20.0" top="30.0" />
+                     </VBox.margin></Button>
                </children>
             </VBox>
          </right>
