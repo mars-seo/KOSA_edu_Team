@@ -33,11 +33,12 @@ public class NewMenuController implements Initializable {
 	@FXML
 	private StackPane stackPane;
 
-//	private Parent parent[] = new Parent[1];
-//	
-//	NewMenuController() throws IOException{
-//		parent[0] = FXMLLoader.load(getClass().getResource("interPhone.fxml"));
-//	}
+	private Parent parent[] = new Parent[2];
+	
+	NewMenuController() throws IOException{
+		parent[0] = FXMLLoader.load(getClass().getResource("interPhone.fxml"));
+		parent[1] = FXMLLoader.load(getClass().getResource("media.fxml"));
+	}
 	private double[] x = {-150, -120, -50};
 	private double[] y = {-80, -120};
 
@@ -53,6 +54,7 @@ public class NewMenuController implements Initializable {
 		menu6.setOnMouseMoved(e -> handleMenuAction(menu6));
 
 		menu2.setOnMouseClicked(e -> handlesubMenu2(menu2));
+		menu3.setOnMouseClicked(e -> handlesubMenu3(menu3));
 
 	}
 
@@ -177,25 +179,34 @@ public class NewMenuController implements Initializable {
 	private void handlesubMenu2(ImageView img) {
 		KeyValue keyX1 = new KeyValue(img.translateXProperty(), 0);
 		KeyValue keyY1 = new KeyValue(img.translateYProperty(), 0);
+		
+		stackPane.getChildren().add(parent[0]);
 
-		Parent parent;
-		try {
-			parent = FXMLLoader.load(getClass().getResource("interPhone.fxml"));
-			stackPane.getChildren().add(parent);
-			
-			KeyValue key = new KeyValue(parent.translateYProperty(), 480);
+		KeyValue key = new KeyValue(parent[0].translateYProperty(), 480);
 
-			KeyFrame keyFrame1 = new KeyFrame(Duration.millis(50), keyX1, keyY1);
-			KeyFrame keyFrame2 = new KeyFrame(Duration.millis(300), key);
+		KeyFrame keyFrame1 = new KeyFrame(Duration.millis(50), keyX1, keyY1);
+		KeyFrame keyFrame2 = new KeyFrame(Duration.millis(300), key);
 
-			Timeline timeline = new Timeline();
-			timeline.getKeyFrames().add(keyFrame2);
-			timeline.getKeyFrames().add(keyFrame1);
+		Timeline timeline = new Timeline();
+		timeline.getKeyFrames().add(keyFrame2);
+		timeline.getKeyFrames().add(keyFrame1);
 
-		} catch (IOException ex) {
-			Logger.getLogger(NewMenuController.class.getName()).log(Level.SEVERE, null, ex);
-		}
+	}
 
+	private void handlesubMenu3(ImageView img) {
+		KeyValue keyX1 = new KeyValue(img.translateXProperty(), 0);
+		KeyValue keyY1 = new KeyValue(img.translateYProperty(), 0);
+		
+		stackPane.getChildren().add(parent[1]);
+
+		KeyValue key = new KeyValue(parent[1].translateYProperty(), 480);
+
+		KeyFrame keyFrame1 = new KeyFrame(Duration.millis(50), keyX1, keyY1);
+		KeyFrame keyFrame2 = new KeyFrame(Duration.millis(300), key);
+
+		Timeline timeline = new Timeline();
+		timeline.getKeyFrames().add(keyFrame2);
+		timeline.getKeyFrames().add(keyFrame1);
 	}
 
 }
