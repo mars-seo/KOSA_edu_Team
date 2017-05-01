@@ -2,6 +2,8 @@ package team1.jdj;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -23,7 +25,7 @@ public class RootController implements Initializable {
     private Button btnElectricFee;
     @FXML
     private Button btnWaterFee;
-
+    private List<Parent> parent = new ArrayList<>();
     private static StackPane rootPane;
     @FXML
     private StackPane changeableStackPane;
@@ -33,68 +35,88 @@ public class RootController implements Initializable {
         rootPane = changeableStackPane;
 
         btnGasFee.setOnAction((event) -> {
-            handlerBtnGasFee(event);
+            handlerBtn(event,0);
         });
         btnElectricFee.setOnAction((event) -> {
-            handlerBtnElectricFee(event);
+            handlerBtn(event,1);
         });
         btnWaterFee.setOnAction((event) -> {
-            handlerBtnWaterFee(event);
+            handlerBtn(event,2);
         });
     }
 
     public RootController() {
-
-    }
-
-    private void handlerBtnGasFee(ActionEvent event) {
         try {
-            rootPane.getChildren().clear();
-
-            Parent scene = FXMLLoader.load(getClass().getResource("gas.fxml"));
-            rootPane.getChildren().add(scene);
-            scene.setTranslateX(840);
-            Timeline timeline = new Timeline();
-            KeyValue keyValue = new KeyValue(scene.translateXProperty(), 0);
-            KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
-            timeline.getKeyFrames().add(keyFrame);
-            timeline.play();
+            this.parent.add(FXMLLoader.load(getClass().getResource("gas.fxml")));
+            this.parent.add(FXMLLoader.load(getClass().getResource("electric.fxml")));
+            this.parent.add(FXMLLoader.load(getClass().getResource("water.fxml")));
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+
     }
 
-    private void handlerBtnElectricFee(ActionEvent event) {
-        try {
-            rootPane.getChildren().clear();
-            Parent scene = FXMLLoader.load(getClass().getResource("electric.fxml"));
-            rootPane.getChildren().add(scene);
-            scene.setTranslateX(840);
-            Timeline timeline = new Timeline();
-            KeyValue keyValue = new KeyValue(scene.translateXProperty(), 0);
-            KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
-            timeline.getKeyFrames().add(keyFrame);
-            timeline.play();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+//    private void handlerBtnGasFee(ActionEvent event) {
+//        try {
+//            rootPane.getChildren().clear();
+//
+//            Parent scene = FXMLLoader.load(getClass().getResource("gas.fxml"));
+//            rootPane.getChildren().add(scene);
+//            scene.setTranslateX(840);
+//            Timeline timeline = new Timeline();
+//            KeyValue keyValue = new KeyValue(scene.translateXProperty(), 0);
+//            KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
+//            timeline.getKeyFrames().add(keyFrame);
+//            timeline.play();
+//        } catch (IOException ex) {
+//            ex.printStackTrace();
+//        }
+//    }
+//
+//    private void handlerBtnElectricFee(ActionEvent event) {
+//        try {
+//            rootPane.getChildren().clear();
+//            Parent scene = FXMLLoader.load(getClass().getResource("electric.fxml"));
+//            rootPane.getChildren().add(scene);
+//            scene.setTranslateX(840);
+//            Timeline timeline = new Timeline();
+//            KeyValue keyValue = new KeyValue(scene.translateXProperty(), 0);
+//            KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
+//            timeline.getKeyFrames().add(keyFrame);
+//            timeline.play();
+//        } catch (IOException ex) {
+//            ex.printStackTrace();
+//        }
+//    }
+//
+//    private void handlerBtnWaterFee(ActionEvent event) {
+//        try {
+//            rootPane.getChildren().clear();
+//            Parent scene = FXMLLoader.load(getClass().getResource("water.fxml"));
+//            rootPane.getChildren().add(scene);
+//
+//            scene.setTranslateX(840);
+//            Timeline timeline = new Timeline();
+//            KeyValue keyValue = new KeyValue(scene.translateXProperty(), 0);
+//            KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
+//            timeline.getKeyFrames().add(keyFrame);
+//            timeline.play();
+//        } catch (IOException ex) {
+//            ex.printStackTrace();
+//        }
+//    }
+    private void handlerBtn(ActionEvent e, int num) {
+        rootPane.getChildren().clear();
+        changeableStackPane.getChildren().add(parent.get(num));
+        translateX(num);
     }
 
-    private void handlerBtnWaterFee(ActionEvent event) {
-        try {
-            rootPane.getChildren().clear();
-            Parent scene = FXMLLoader.load(getClass().getResource("water.fxml"));
-            rootPane.getChildren().add(scene);
-
-            scene.setTranslateX(840);
-            Timeline timeline = new Timeline();
-            KeyValue keyValue = new KeyValue(scene.translateXProperty(), 0);
-            KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
-            timeline.getKeyFrames().add(keyFrame);
-            timeline.play();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+    private void translateX(int num) {
+        parent.get(num).setTranslateX(840);
+        KeyValue keyValue = new KeyValue(parent.get(num).translateXProperty(), 0);
+        KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
+        Timeline timeline = new Timeline();
+        timeline.getKeyFrames().add(keyFrame);
+        timeline.play();
     }
-
 }
