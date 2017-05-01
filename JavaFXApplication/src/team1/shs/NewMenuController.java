@@ -37,7 +37,7 @@ public class NewMenuController implements Initializable {
 
 	private List<Parent> parent = new ArrayList<>();
 	
-	NewMenuController() {
+	public NewMenuController() {
 		
 		try {
 			this.parent.add(FXMLLoader.load(getClass().getResource("interPhone.fxml")));
@@ -192,8 +192,7 @@ public class NewMenuController implements Initializable {
 		// 이미지와 로드할 parent 인덱스 객체를 넘겨줘서 선택할 수 있게 함
 		KeyValue keyX1 = new KeyValue(img.translateXProperty(), 0);
 		KeyValue keyY1 = new KeyValue(img.translateYProperty(), 0);
-		
-		
+				
 		stackPane.getChildren().add(parent.get(index));
 
 		KeyValue key = new KeyValue(parent.get(index).translateYProperty(), 480);
