@@ -7,6 +7,8 @@ package team1.jdj;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ToggleButton;
@@ -32,8 +34,22 @@ public class InternetController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        WebEngine engine= newsWebView.getEngine();
-        
-    }    
-    
+        WebEngine engine = newsWebView.getEngine();
+
+        newsButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                engine.load("http://m.news.naver.com/");
+            }
+        });
+
+        youtubeButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                engine.load("https://m.youtube.com");
+            }
+        });
+
+    }
+
 }
