@@ -11,7 +11,11 @@
    <children>
       <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0">
          <children>
-            <ToggleButton mnemonicParsing="false" text="ToggleButton" />
+            <ToggleButton fx:id="newsButton" mnemonicParsing="false" text="News">
+               <toggleGroup>
+                  <ToggleGroup fx:id="SelectGroup" />
+               </toggleGroup></ToggleButton>
+            <ToggleButton fx:id="youtubeButton" layoutX="72.0" mnemonicParsing="false" text="Youtube" toggleGroup="$SelectGroup" />
             <WebView fx:id="newsWebView" layoutY="38.0" prefHeight="362.0" prefWidth="600.0" />
          </children>
       </AnchorPane>
