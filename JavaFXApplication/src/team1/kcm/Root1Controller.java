@@ -14,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -171,10 +172,10 @@ public class Root1Controller implements Initializable {
 
         try {
             Parent secretview = FXMLLoader.load(getClass().getResource("newpassword.fxml"));
-          stackPane.getChildren().add(secretview); //이런식으로 하면 겹치는것
-   /*           secretview.setTranslateX(800);
-            KeyValue keyValue = new KeyValue(secretview.translateXProperty(), 0);//무엇을 x를 0으로
-            KeyFrame keyFrame = new KeyFrame(Duration.millis(100), keyValue); //애니메이션 진행시간 0.1초
+          stackPane.getChildren().add(secretview);
+              secretview.setTranslateX(800);
+            KeyValue keyValue = new KeyValue(secretview.translateXProperty(), 0);
+            KeyFrame keyFrame = new KeyFrame(Duration.millis(1000), keyValue);
             Timeline timeline = new Timeline();
             timeline.getKeyFrames().add(keyFrame);
             timeline.play();
@@ -182,7 +183,7 @@ public class Root1Controller implements Initializable {
             Label txt1 = (Label) secretview.lookup("#txt1");
             Label txt2 = (Label) secretview.lookup("#txt2");
             PasswordField password1 = (PasswordField) secretview.lookup("#password1");
-            Button btnOk = (Button) secretview.lookup("#btnOk");
+            
             
             if (secretCount > 0) {
                 txt1.setText("기존 비밀번호");
@@ -192,7 +193,7 @@ public class Root1Controller implements Initializable {
           //  Parent parent = FXMLLoader.load(getClass().getResource("login.fxml"));
          //   stackPane.getChildren().add(parent); 
 
-            */
+           
             
         } catch (IOException ex) {
         }

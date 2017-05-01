@@ -38,15 +38,20 @@ public class NewpasswordController implements Initializable {
     private ImageView zero;
 
     private String input = "";
-    
+
     @FXML
     private AnchorPane secret;
-    
+
     public static Popup popup;
+    @FXML
+    private AnchorPane keypadroot;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       popup= new Popup();
+        keypadroot.setTranslateX(200);
+        keypadroot.setTranslateY(0);
+        
+        
         btnok.setOnAction(event -> handleOk());
         //zero.setOnMouseClicked(event->handleZero());
         password1.focusedProperty().addListener((observable) -> {
@@ -68,7 +73,6 @@ public class NewpasswordController implements Initializable {
                 Root1Controller.password = passwordValue2;
                 //Root1Controller.popup.hide();
                 secret.setOpacity(1);
-
                 secret.setTranslateX(0);
                 KeyValue keyValue = new KeyValue(secret.opacityProperty(), 0);
                 //KeyValue keyValue = new KeyValue(login.translateXProperty(),200);//무엇을 x를 0으로
@@ -76,8 +80,7 @@ public class NewpasswordController implements Initializable {
                         (event) -> {
                             Root1Controller.stackPane.getChildren().remove(secret);
                         },
-                        keyValue); //애니메이션 진행시간 0.1초
-
+                        keyValue);
                 Timeline timeline = new Timeline();
                 timeline.getKeyFrames().add(keyFrame);
                 timeline.play();
@@ -91,20 +94,16 @@ public class NewpasswordController implements Initializable {
                 secretCount += 1;
 
                 secret.setOpacity(1);
-
                 secret.setTranslateX(0);
                 KeyValue keyValue = new KeyValue(secret.opacityProperty(), 0);
-                //KeyValue keyValue = new KeyValue(login.translateXProperty(),200);//무엇을 x를 0으로
                 KeyFrame keyFrame = new KeyFrame(Duration.millis(1000),
                         (event) -> {
                             Root1Controller.stackPane.getChildren().remove(secret);
                         },
-                        keyValue); //애니메이션 진행시간 0.1초
-
+                        keyValue);
                 Timeline timeline = new Timeline();
                 timeline.getKeyFrames().add(keyFrame);
                 timeline.play();
-
             } else {
                 warning.setText("패스워드를 정확히 입력해주세요.");
             }
@@ -131,32 +130,28 @@ public class NewpasswordController implements Initializable {
 
         System.out.println(input);
         // password1.setText(input.getValue());
+        System.out.println("KEYPAD1 마우스ZERO");
     }
 
     private void keypad() {
 
-        AnchorPane keypad;
-
-        try {
-
-            keypad = (AnchorPane) FXMLLoader.load(getClass().getResource("keypad.fxml"));
-            popup.getContent().addAll(keypad);
-            popup.setAutoHide(false);
-
-            popup.show(AppMain1.primaryStage, 200, 200);
-
-            System.out.println("keypad1");
-        } catch (IOException ex) {
-            System.out.println("예외");
-        }
+         KeyValue keyValue = new KeyValue(keypadroot.translateXProperty(),-100);
+        KeyFrame keyFrame = new KeyFrame(Duration.millis(1000), keyValue);
+        Timeline timeline = new Timeline();
+        timeline.getKeyFrames().add(keyFrame);
+        timeline.play();
+       zero.setOnMouseClicked(event->handleZero());
 
     }
 
     private void keypad2() {
-        zero.setOnMouseClicked((event) -> {
-            handleZero();
-        });
+        
         System.out.println("keypad2");
+        zero.setOnMouseClicked(event->handleZero1());
+    }
+
+    private void handleZero1() {
+       System.out.println("KEYPAD2 마우스ZERO");
     }
 
 }
