@@ -31,7 +31,7 @@ import javafx.util.Duration;
 public class Root1Controller implements Initializable {
 
     @FXML
-    private StackPane stackPane;
+    public static StackPane stackPane;
     @FXML
     private ImageView background;
     @FXML
@@ -60,6 +60,8 @@ public class Root1Controller implements Initializable {
     private Label clock;
     
     public static Popup popup;
+    public static String password;
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -156,6 +158,10 @@ public class Root1Controller implements Initializable {
         //    });
     }
 
+   
+    
+    
+
     private void menuOpen() {
         System.out.println("open");
         //sstackPane.getChildren().add(menu);
@@ -181,6 +187,8 @@ public class Root1Controller implements Initializable {
         timeline.play();
 
     }
+
+    
 
     private void secretClicked() {
 
