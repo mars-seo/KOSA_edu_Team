@@ -198,12 +198,13 @@ public class Root1Controller implements Initializable {
             Label txt2 = (Label) secretview.lookup("#txt2");
             PasswordField password1 = (PasswordField) secretview.lookup("#password1");
             Button btnOk = (Button) secretview.lookup("#btnOk");
+            
+            
+            
             if (secretCount > 0) {
                 txt1.setText("기존 비밀번호");
                 txt2.setText("신규 비밀번호");
                 popup.getContent().add(secretview);
-                
-
                 popup.setAutoHide(false);
                 popup.show(AppMain1.primaryStage, 400, 200);
                 
@@ -217,6 +218,8 @@ public class Root1Controller implements Initializable {
 
                 //  imgMessage.setImage(new Image(getClass().getResource("images/dialog-info.png").toString()));
             }
+            
+            
             
         } catch (IOException ex) {
         }

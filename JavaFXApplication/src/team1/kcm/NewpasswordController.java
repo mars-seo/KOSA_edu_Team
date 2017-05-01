@@ -5,10 +5,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -35,16 +40,19 @@ public class NewpasswordController implements Initializable {
     @FXML
     private ImageView zero;
     
+    private String input="";
+    
     
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         btnok.setOnAction(event->handleOk());
-        zero.setOnMouseClicked(event->handleZero());
-        
-    }    
-    
-
+        //zero.setOnMouseClicked(event->handleZero());
+        password1.focusedProperty().addListener((observable) -> {keypad();
+        });
+        password2.focusedProperty().addListener((observable) -> {keypad2();
+        });
+    }
     private void handleOk() {
         System.out.println("sdf");
         
@@ -65,7 +73,7 @@ public class NewpasswordController implements Initializable {
                 secretCount+=1;
             Root1Controller.popup.hide();
             }else{warning.setText("패스워드를 정확히 입력해주세요.");}
-            System.out.println("하잇");
+            
         
         }
        
@@ -83,19 +91,23 @@ public class NewpasswordController implements Initializable {
     }
 
     private void handleZero() {
-        String zeroo="0";
-        Scanner scanner= new Scanner(zeroo);
-        
-        char zeero=80;
-       InputStream is=System.in;
+       
+       input+=zero.getUserData().toString();
       
-        try {
-            OutputStream os = System.out;
-            os.write(48);
-            os.flush();
-        } catch (IOException ex) {
-           
-        }
+        System.out.println(input);
+       // password1.setText(input.getValue());
+    }
+
+    private void keypad() {
+        zero.setOnMouseClicked((event) -> {handleZero();
+        });
+
+
+    }
+
+    private void keypad2() {
+        zero.setOnMouseClicked((event) -> {handleZero();
+        });
     }
 
 
