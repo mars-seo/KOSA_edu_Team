@@ -28,15 +28,14 @@ public class NewpasswordController implements Initializable {
     @FXML
     private PasswordField password2;
 
-    private String passwordValue; //임시
-    private String passwordValue2; //임시
+    
     private String password;
 
     @FXML
     private Label warning;
-    private ImageView zero;
 
-    private String input = "";
+    private String field1pswd = "";
+    private String field2pswd = "";
 
     @FXML
     private AnchorPane secret;
@@ -69,10 +68,10 @@ public class NewpasswordController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        keypadroot.setTranslateX(200);
-        keypadroot.setTranslateY(0);
-        
-        
+        keypadroot.setOpacity(0);
+        secret.setTranslateX(0);
+        secret.setTranslateY(-150);
+
         btnok.setOnAction(event -> handleOk());
         //zero.setOnMouseClicked(event->handleZero());
         password1.focusedProperty().addListener((observable) -> {
@@ -85,6 +84,8 @@ public class NewpasswordController implements Initializable {
 
     private void handleOk() {
         System.out.println("sdf");
+        String passwordValue; //임시
+        String passwordValue2; //임시
 
         passwordValue = password1.getText();
         passwordValue2 = password2.getText();
@@ -137,42 +138,49 @@ public class NewpasswordController implements Initializable {
         System.out.println(Root1Controller.password);
     }
 
-    public String getPasswordValue() {
-        return passwordValue;
-    }
 
-    public String getPasswordValue2() {
-        return passwordValue2;
-    }
+    private String zeroClicked() {
+        String input="";
 
-    private void handleZero() {
-
-        input += zero.getUserData().toString();
+        input += key0.getUserData().toString();
 
         System.out.println(input);
         // password1.setText(input.getValue());
         System.out.println("KEYPAD1 마우스ZERO");
+        return input;
+    }
+    private String oneClicked(){
+        String input="";
+
+        input += key1.getUserData().toString();
+        System.out.println(input);
+        System.out.println("KEYPAD1 마우스one");
+        return input;
+        
     }
 
     private void keypad() {
 
-         KeyValue keyValue = new KeyValue(keypadroot.translateXProperty(),-100);
+        
+        keypadroot.setTranslateX(0);
+        KeyValue keyValue = new KeyValue(keypadroot.opacityProperty(), 1);
         KeyFrame keyFrame = new KeyFrame(Duration.millis(1000), keyValue);
         Timeline timeline = new Timeline();
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
-       zero.setOnMouseClicked(event->handleZero());
+        key0.setOnMouseClicked(event ->{field1pswd+=zeroClicked();password1.setText(field1pswd);});
+        key1.setOnMouseClicked(event ->{field1pswd+=oneClicked();password1.setText(field1pswd);});
 
     }
 
     private void keypad2() {
-        
+
         System.out.println("keypad2");
-        zero.setOnMouseClicked(event->handleZero1());
+        key0.setOnMouseClicked(event -> zeroClicked1());
     }
 
-    private void handleZero1() {
-       System.out.println("KEYPAD2 마우스ZERO");
+    private void zeroClicked1() {
+        System.out.println("KEYPAD2 마우스ZERO");
     }
 
 }

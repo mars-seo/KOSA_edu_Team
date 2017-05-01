@@ -173,9 +173,11 @@ public class Root1Controller implements Initializable {
         try {
             Parent secretview = FXMLLoader.load(getClass().getResource("newpassword.fxml"));
           stackPane.getChildren().add(secretview);
-              secretview.setTranslateX(800);
-            KeyValue keyValue = new KeyValue(secretview.translateXProperty(), 0);
-            KeyFrame keyFrame = new KeyFrame(Duration.millis(1000), keyValue);
+              secretview.setTranslateX(0);
+              
+              secretview.setOpacity(0);
+            KeyValue keyValue = new KeyValue(secretview.opacityProperty(),1);
+            KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
             Timeline timeline = new Timeline();
             timeline.getKeyFrames().add(keyFrame);
             timeline.play();
