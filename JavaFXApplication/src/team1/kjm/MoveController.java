@@ -18,8 +18,7 @@ public class MoveController implements Initializable {
 
     @FXML
     private ImageView imgSun;
-    PathTransition pathTransition = new PathTransition();
-    PathTransition pathTransition2 = new PathTransition();
+    PathTransition pathTransition = new PathTransition();    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
