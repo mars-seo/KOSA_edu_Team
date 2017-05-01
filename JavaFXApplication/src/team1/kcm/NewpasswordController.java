@@ -34,7 +34,6 @@ public class NewpasswordController implements Initializable {
 
     @FXML
     private Label warning;
-    @FXML
     private ImageView zero;
 
     private String input = "";
@@ -45,6 +44,28 @@ public class NewpasswordController implements Initializable {
     public static Popup popup;
     @FXML
     private AnchorPane keypadroot;
+    @FXML
+    private ImageView key0;
+    @FXML
+    private ImageView key1;
+    @FXML
+    private ImageView key2;
+    @FXML
+    private ImageView key3;
+    @FXML
+    private ImageView key4;
+    @FXML
+    private ImageView key5;
+    @FXML
+    private ImageView key6;
+    @FXML
+    private ImageView key7;
+    @FXML
+    private ImageView key8;
+    @FXML
+    private ImageView key9;
+    @FXML
+    private ImageView keydelete;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
