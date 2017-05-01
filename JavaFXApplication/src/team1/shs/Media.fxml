@@ -92,7 +92,7 @@
             </BorderPane>
          </bottom>
          <right>
-            <ListView fx:id="mediaLIst" prefHeight="350.0" prefWidth="180.0" BorderPane.alignment="CENTER" />
+            <ListView fx:id="mediaList" prefHeight="350.0" prefWidth="180.0" BorderPane.alignment="CENTER" />
          </right>
          <center>
             <AnchorPane BorderPane.alignment="CENTER">
