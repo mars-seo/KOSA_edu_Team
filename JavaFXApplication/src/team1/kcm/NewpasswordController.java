@@ -1,4 +1,3 @@
-
 package team1.kcm;
 
 import java.io.IOException;
@@ -26,60 +25,64 @@ public class NewpasswordController implements Initializable {
 
     @FXML
     private Button btnok;
-   
+
     @FXML
     private PasswordField password1;
     @FXML
     private PasswordField password2;
-    
+
     private String passwordValue; //임시
     private String passwordValue2; //임시
-    private String oldpasswordValue; //실제 저장된 패스워드
+    private String password;
+
     @FXML
     private Label warning;
     @FXML
     private ImageView zero;
-    
-    private String input="";
-    
-    
+
+    private String input = "";
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        btnok.setOnAction(event->handleOk());
+        btnok.setOnAction(event -> handleOk());
         //zero.setOnMouseClicked(event->handleZero());
-        password1.focusedProperty().addListener((observable) -> {keypad();
+        password1.focusedProperty().addListener((observable) -> {
+            keypad();
         });
-        password2.focusedProperty().addListener((observable) -> {keypad2();
+        password2.focusedProperty().addListener((observable) -> {
+            keypad2();
         });
     }
+
     private void handleOk() {
         System.out.println("sdf");
-        
-        passwordValue=password1.getText();
-        passwordValue2=password2.getText();
-        
-        
-        if(Root1Controller.secretCount>0){
-            
-            if(passwordValue.equals(oldpasswordValue)){
-                oldpasswordValue=passwordValue2;
+
+        passwordValue = password1.getText();
+        passwordValue2 = password2.getText();
+
+        if (Root1Controller.secretCount > 0) {
+            if (passwordValue.equals(Root1Controller.password)) {
+                Root1Controller.password = passwordValue2;
                 Root1Controller.popup.hide();
-            }else{warning.setText("패스워드를 정확히 입력해주세요.");}
-        
-        }else{
-            if(passwordValue.equals(passwordValue2)){
-                oldpasswordValue=passwordValue;
-                secretCount+=1;
-            Root1Controller.popup.hide();
-            }else{warning.setText("패스워드를 정확히 입력해주세요.");}
-            
-        
+            } else {
+                warning.setText("패스워드를 정확히 입력해주세요.");
+            }
+
+        } else {
+            if (passwordValue.equals(passwordValue2)) {
+                Root1Controller.password = passwordValue;
+                secretCount += 1;
+                Root1Controller.popup.hide();
+            } else {
+                warning.setText("패스워드를 정확히 입력해주세요.");
+            }
+
         }
-       
+
         System.out.println(passwordValue);
         System.out.println(passwordValue2);
         System.out.println(passwordValue.equals(passwordValue2));
+        System.out.println(Root1Controller.password);
     }
 
     public String getPasswordValue() {
@@ -91,24 +94,24 @@ public class NewpasswordController implements Initializable {
     }
 
     private void handleZero() {
-       
-       input+=zero.getUserData().toString();
-      
+
+        input += zero.getUserData().toString();
+
         System.out.println(input);
-       // password1.setText(input.getValue());
+        // password1.setText(input.getValue());
     }
 
     private void keypad() {
-        zero.setOnMouseClicked((event) -> {handleZero();
+        zero.setOnMouseClicked((event) -> {
+            handleZero();
         });
-
 
     }
 
     private void keypad2() {
-        zero.setOnMouseClicked((event) -> {handleZero();
+        zero.setOnMouseClicked((event) -> {
+            handleZero();
         });
     }
-
 
 }
