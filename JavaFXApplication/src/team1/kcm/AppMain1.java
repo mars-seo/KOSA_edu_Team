@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 
 public class AppMain1 extends Application {
     public static Stage primaryStage;
+    
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -28,4 +29,6 @@ public class AppMain1 extends Application {
         launch(args);
     }
 
+
+    
 }
