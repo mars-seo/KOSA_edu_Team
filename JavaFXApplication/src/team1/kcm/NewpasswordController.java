@@ -50,6 +50,8 @@ public class NewpasswordController implements Initializable {
         //zero.setOnMouseClicked(event->handleZero());
         password1.focusedProperty().addListener((observable) -> {keypad();
         });
+        password2.focusedProperty().addListener((observable) -> {keypad2();
+        });
     }
     private void handleOk() {
         System.out.println("sdf");
@@ -101,6 +103,11 @@ public class NewpasswordController implements Initializable {
         });
 
 
+    }
+
+    private void keypad2() {
+        zero.setOnMouseClicked((event) -> {handleZero();
+        });
     }
 
 
