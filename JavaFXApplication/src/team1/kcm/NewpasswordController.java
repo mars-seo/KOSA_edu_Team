@@ -40,7 +40,6 @@ public class NewpasswordController implements Initializable {
     @FXML
     private AnchorPane secret;
 
-    public static Popup popup;
     @FXML
     private AnchorPane keypadroot;
     @FXML
