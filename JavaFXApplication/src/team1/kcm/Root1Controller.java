@@ -5,6 +5,8 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -53,9 +55,16 @@ public class Root1Controller implements Initializable {
     
     public static String password;
     public static StackPane stackPane;
+    public static boolean menu1PasswordChk=false;
+    private Parent secretview;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        try {
+            secretview = FXMLLoader.load(getClass().getResource("newpassword.fxml"));
+        } catch (IOException ex) {
+        }
         stackPane=sstackPane;
         //clock start
         Thread thread = new Thread() {
@@ -80,7 +89,8 @@ public class Root1Controller implements Initializable {
         ////////////////////////////clock end
 
         //아이콘 눌렀을때
-        menuIcon1.setOnMouseClicked(event -> secretClicked());
+        menuIcon1.setOnMouseClicked(event -> secretClicked()); //암호설정 서브메뉴이동
+        menuIcon2.setOnMouseClicked(event->boilerClicked());
         
 
         //////////아이콘눌렀을때 끝
@@ -103,18 +113,7 @@ public class Root1Controller implements Initializable {
         //            event.consume();
         //        }
         //   });
-        //  menu.setOnMouseReleased(new EventHandler<MouseEvent>() {
-        //     @Override
-        //      public void handle(MouseEvent event) {
-        //          System.out.println("mousereleased");
-        //          menu.setTranslateX(menu.getTranslateX() + event.getX());
-        //          menu.setTranslateY(menu.getTranslateY() + event.getY());
-        //          event.consume();
-        //      }
-        //   });
-        //   menu.setOnMouseReleased((event) -> {
-        //      System.out.println("mousereleased");
-        // });
+
         menu.setOnMousePressed((event) -> {
             xValue = event.getSceneX();
             System.out.println(xValue);
@@ -135,7 +134,6 @@ public class Root1Controller implements Initializable {
             }
 
         });
-
         //      menu.setOnMouseDragOver((event) -> {
         //         System.out.println("mousereleased1");
         //    });
@@ -144,7 +142,6 @@ public class Root1Controller implements Initializable {
     private void menuOpen() {
         System.out.println("open");
         //sstackPane.getChildren().add(menu);
-
         KeyValue keyValue = new KeyValue(menu.translateYProperty(), 0);
         KeyFrame keyFrame = new KeyFrame(Duration.millis(1000), keyValue);
         Timeline timeline = new Timeline();
@@ -170,11 +167,8 @@ public class Root1Controller implements Initializable {
     private void secretClicked() {
         System.out.println("clicked");
 
-        try {
-            Parent secretview = FXMLLoader.load(getClass().getResource("newpassword.fxml"));
           stackPane.getChildren().add(secretview);
               secretview.setTranslateX(0);
-              
               secretview.setOpacity(0);
             KeyValue keyValue = new KeyValue(secretview.opacityProperty(),1);
             KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
@@ -192,14 +186,12 @@ public class Root1Controller implements Initializable {
                 txt2.setText("신규 비밀번호");
                 
             } 
-          //  Parent parent = FXMLLoader.load(getClass().getResource("login.fxml"));
-         //   stackPane.getChildren().add(parent); 
+       
 
-           
-            
-        } catch (IOException ex) {
-        }
+    }
 
+    private void boilerClicked() {
+       System.out.println(menu1PasswordChk);
     }
 
 }
