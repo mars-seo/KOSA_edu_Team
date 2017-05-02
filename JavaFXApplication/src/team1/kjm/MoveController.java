@@ -3,8 +3,6 @@ package team1.kjm;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.animation.Interpolator;
 import javafx.animation.PathTransition;
 import javafx.animation.PathTransition.OrientationType;
@@ -18,25 +16,35 @@ import javafx.scene.shape.Path;
 import javafx.util.Duration;
 
 public class MoveController implements Initializable {
-    
+
     @FXML
     private ImageView imgSun;
-    PathTransition pathTransition = new PathTransition();
     @FXML
     private ImageView imgMoon;
-    PathTransition pathTransition2 = new PathTransition();
     @FXML
     private ImageView imgBack;
-    boolean img = false;
-    
+
+    private PathTransition pathTransition = new PathTransition();
+    private PathTransition pathTransition2 = new PathTransition();
+    private LocalDateTime now = LocalDateTime.now();
+    private int hour = now.getHour();
+    private int minute = now.getMinute();
+    private int sec = now.getSecond();
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        LocalDateTime now = LocalDateTime.now();
-        int hour = now.getHour();
-        int minute = now.getMinute();
-        int sec = now.getSecond();
-        
+
+        // 해와 달을 이동시키는 메소드 호출
+        handleSunMoonChange();
+
+        // 시간에 따라 배경을 변경시키는 메소드 호출
+        handleBackChange();
+
+    }
+
+    // 해와 달을 이동시키는 메소드
+    private void handleSunMoonChange() {
+
         Path path = new Path();
         // MoveTo (x , y)    시작 위치 좌표
         path.getElements().add(new MoveTo(400, 700));
@@ -50,8 +58,8 @@ public class MoveController implements Initializable {
 
         // 실제
 //        pathTransition.setDuration(Duration.hours(24));
-        // 테스트 24초 (하루를 24초로 정함)
-        pathTransition.setDuration(Duration.seconds(24));
+        // 테스트 60초 (하루를 60초로 정함)
+        pathTransition.setDuration(Duration.seconds(60));
         pathTransition.setNode(imgSun);
         pathTransition.setPath(path);
         pathTransition.setOrientation(OrientationType.NONE);
@@ -62,8 +70,8 @@ public class MoveController implements Initializable {
         pathTransition.play();
         // 실제 시간에 맞는 곳에서 시작
 //        pathTransition.jumpTo(Duration.minutes(hour * 60 + minute));
-        // 테스트 6시 기준 시작 (6초)
-        pathTransition.jumpTo(Duration.seconds(6));
+        // 테스트 현재 초를 기준(0초: 0시 / 30초: 12시)
+        pathTransition.jumpTo(Duration.seconds(sec));
 
         // 달 
         Path path2 = new Path();
@@ -78,8 +86,8 @@ public class MoveController implements Initializable {
 
         // 실제
 //        pathTransition2.setDuration(Duration.hours(24));
-        // 테스트 24초 (하루를 24초로 정함)
-        pathTransition2.setDuration(Duration.seconds(24));
+        // 테스트 60초 (하루를 60초로 정함)
+        pathTransition2.setDuration(Duration.seconds(60));
         pathTransition2.setNode(imgMoon);
         pathTransition2.setPath(path2);
         pathTransition2.setOrientation(OrientationType.NONE);
@@ -90,27 +98,64 @@ public class MoveController implements Initializable {
         pathTransition2.play();
         // 실제 시간에 맞는 곳에서 시작
 //        pathTransition2.jumpTo(Duration.minutes(hour * 60 + minute));
-        // 테스트 6시 기준 시작 (6초)
-        pathTransition2.jumpTo(Duration.seconds(6));
-        
+        // 테스트 현재 초를 기준(0초: 0시 / 30초: 12시)
+        pathTransition2.jumpTo(Duration.seconds(sec));
+
+    }
+    
+    // 시간에 따라 배경을 변경시키는 메소드
+    private void handleBackChange() {
         // 시간에 따른 배경 변경
         // 현재는 6시와 18시를 기준으로 2번만 변경됨
         // 이미지가 충분히 존재한다면 더 쪼갤 수 있음
+        // 배경의 투명도 설정
         imgBack.setOpacity(0.8);
+
         Thread thread = new Thread(() -> {
+            String imgTime = "";
             while (true) {
-                if (LocalDateTime.now().getHour() >= 6 && LocalDateTime.now().getHour() <= 18) {
-                    imgBack.setImage(new Image(getClass().getResource("images/1.png").toString()));
-                } else {
-                    imgBack.setImage(new Image(getClass().getResource("images/2.png").toString()));
+                // 현재는 하루가 60초인 경우로 나타낸 것, 5초가 2시간
+                // 24시 기준으로 하려면 getHour() <=2 
+                // 2시간 단위로 하면 됨
+                if (LocalDateTime.now().getSecond() <= 5) {
+                    imgTime = "images/2.png";
+                } else if (LocalDateTime.now().getSecond() <= 10) {
+                    imgTime = "images/2.png";
+                } else if (LocalDateTime.now().getSecond() <= 15) {
+                    imgTime = "images/2.png";
+                } else if (LocalDateTime.now().getSecond() <= 20) {
+                    imgTime = "images/1.png";
+                } else if (LocalDateTime.now().getSecond() <= 25) {
+                    imgTime = "images/1.png";
+                } else if (LocalDateTime.now().getSecond() <= 30) {
+                    imgTime = "images/1.png";
+                } else if (LocalDateTime.now().getSecond() <= 35) {
+                    imgTime = "images/1.png";
+                } else if (LocalDateTime.now().getSecond() <= 40) {
+                    imgTime = "images/1.png";
+                } else if (LocalDateTime.now().getSecond() <= 45) {
+                    imgTime = "images/1.png";
+                } else if (LocalDateTime.now().getSecond() <= 50) {
+                    imgTime = "images/2.png";
+                } else if (LocalDateTime.now().getSecond() <= 55) {
+                    imgTime = "images/2.png";
+                } else if (LocalDateTime.now().getSecond() <= 60) {
+                    imgTime = "images/2.png";
                 }
+                imgBack.setImage(new Image(getClass().getResource(imgTime).toString()));
+                // 현재 60초 기준
+                System.out.println(LocalDateTime.now().getSecond() + "초");
                 try {
-                    Thread.sleep(1000 * 60 * 60 * 12);
+                    // 테스트시 1초마다 검사
+                    Thread.sleep(1000);
+                    // 실제는 10분마다 검사
+//                    Thread.sleep(1000 * 60 * 10);
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }
             }
         });
+        thread.setDaemon(true);
         thread.start();
     }
 }

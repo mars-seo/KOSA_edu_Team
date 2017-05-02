@@ -9,7 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
-public class GasMiniController implements Initializable {
+public class GasContController implements Initializable {
 
     @FXML
     private ImageView imgGasState;
@@ -37,5 +37,4 @@ public class GasMiniController implements Initializable {
         }
         gasState = !gasState;
     }
-
 }

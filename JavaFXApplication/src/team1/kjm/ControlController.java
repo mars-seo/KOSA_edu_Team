@@ -36,7 +36,7 @@ public class ControlController implements Initializable {
     public ControlController() {
         try {
             this.parent.add(FXMLLoader.load(getClass().getResource("light.fxml")));
-            this.parent.add(FXMLLoader.load(getClass().getResource("gas.fxml")));
+            this.parent.add(FXMLLoader.load(getClass().getResource("gasCont.fxml")));
             this.parent.add(FXMLLoader.load(getClass().getResource("security.fxml")));
             this.parent.add(FXMLLoader.load(getClass().getResource("sound.fxml")));
         } catch (IOException ex) {
@@ -50,7 +50,7 @@ public class ControlController implements Initializable {
         btnLight.setOnAction(e -> handleBtn(e, 0));
         btnGas.setOnAction(e -> handleBtn(e, 1));
         btnDoor.setOnAction(e -> handleBtn(e, 2));
-        btnSound.setOnAction(e -> handleBtn(e, 3));
+//        btnSound.setOnAction(e -> handleBtn(e, 3));
     }
 
     private void handleBtn(ActionEvent e, int num) {
