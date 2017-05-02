@@ -61,7 +61,6 @@ public class MediaController implements Initializable {
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		uploadBtn.setOnAction(e->handleAddList(e));
-		handleMedia(mediaFileList, 0);
 	}	
 	private void handleAddList(ActionEvent e) {
 		
@@ -71,13 +70,7 @@ public class MediaController implements Initializable {
 			//파일을 확장자 필터로 걸러서 받고 객체로 받기
 			FileChooser fileChooser = new FileChooser();
 			fileChooser.getExtensionFilters().addAll(
-				new ExtensionFilter("video files", "*.mp4"),
-				new ExtensionFilter("video files", "*.avi"),
-				new ExtensionFilter("video files", "*.mkv"),
-				new ExtensionFilter("video files", "*.m4v"),
-				new ExtensionFilter("music files", "*.wav"),
-				new ExtensionFilter("music files", "*.mp3"),
-				new ExtensionFilter("music files", "*.wmv")
+				new ExtensionFilter("media files", "*.mp4","*.avi","*.mkv","*.m4v","*.wav","*.mp3","*.wmv")
 			);
 			File mediaFile = fileChooser.showOpenDialog(((Button)e.getSource()).getScene().getWindow());
 			//받은 파일을 파일 리스트에 넣기
@@ -86,15 +79,16 @@ public class MediaController implements Initializable {
 			String mediaName = mediaFile.getName();
 			nameList.add(mediaName);
 			mediaList.setItems(nameList);
+			handleMedia(mediaFileList, 0);
 	}
 
 	private void handleMedia(ObservableList<File> mediaFile, int index) {
 		
 		//파일이 비었을 때 처리 하는 작업
-		if(mediaFileList.isEmpty() || nameList.isEmpty()){
+		if(mediaFileList.isEmpty() || nameList.isEmpty()|| mediaFile == null){
 			//팝업을 띄어주는 작업 (지금은 그냥 콘솔에)
 			System.out.println("미디어 파일을 업로드 해주세요");
-			return ;
+//			return ;
 			
 		}else{
 				
@@ -131,9 +125,9 @@ public class MediaController implements Initializable {
 				mediaPlayer.pause();
 			});
 			stopBtn.setOnAction(e->{
-//				if(mediaPlayer!=null){
+				if(mediaPlayer!=null){
 					mediaPlayer.stop();
-//				}else System.out.println("파일을 업로드 하세요");
+				}else System.out.println("파일을 업로드 하세요");
 			});
 			nextBtn.setOnAction(e->handleMedia(mediaFileList, index+1));
 			previousBtn.setOnAction(e->handleMedia(mediaFileList, index-1));
@@ -206,6 +200,5 @@ public class MediaController implements Initializable {
 			});
 		}
 	}
-	
 	
 }

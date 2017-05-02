@@ -39,7 +39,7 @@ public class NewMenuController implements Initializable {
 		
 		try {
 			this.parent.add(FXMLLoader.load(getClass().getResource("interPhone.fxml")));
-			this.parent.add(FXMLLoader.load(getClass().getResource("media.fxml")));
+			this.parent.add(FXMLLoader.load(getClass().getResource("Media.fxml")));
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		}
