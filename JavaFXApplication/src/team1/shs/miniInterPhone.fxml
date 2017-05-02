@@ -16,15 +16,15 @@
          <right>
             <VBox alignment="BOTTOM_CENTER" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" prefWidth="80.0" text="통화">
+                  <Button fx:id="phoneBtn" mnemonicParsing="false" prefWidth="80.0" text="통화">
                      <VBox.margin>
                         <Insets bottom="20.0" />
                      </VBox.margin></Button>
-                  <Button mnemonicParsing="false" prefWidth="80.0" text="문열림">
+                  <Button fx:id="openBtn" mnemonicParsing="false" prefWidth="80.0" text="문열림">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin></Button>
-                  <Button mnemonicParsing="false" prefWidth="80.0" text="나가기">
+                  <Button fx:id="closeBtn" mnemonicParsing="false" prefWidth="80.0" text="나가기">
                      <VBox.margin>
                         <Insets bottom="20.0" top="30.0" />
                      </VBox.margin></Button>

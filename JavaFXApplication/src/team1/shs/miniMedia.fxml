@@ -18,7 +18,7 @@
                      <children>
                         <ImageView fx:id="imgSound" fitHeight="20.0" fitWidth="20.0" layoutX="46.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/speaker.png" />
+                              <Image url="@images/mute.png" />
                            </image>
                         </ImageView>
                         <Slider fx:id="volumeSlider" layoutX="73.0" layoutY="12.0" prefHeight="14.0" prefWidth="74.0" />
