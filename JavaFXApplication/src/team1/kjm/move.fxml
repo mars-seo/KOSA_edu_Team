@@ -10,9 +10,19 @@
 
 <AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.kjm.MoveController">
    <children>
+      <ImageView fx:id="imgBack" fitHeight="450.0" fitWidth="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@images/1.png" />
+         </image>
+      </ImageView>
       <ImageView fx:id="imgSun" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/sun.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgMoon" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/moon.png" />
          </image>
       </ImageView>
    </children>

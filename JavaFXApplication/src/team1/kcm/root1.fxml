@@ -11,9 +11,10 @@
    <children>
       <ImageView fx:id="background" fitHeight="480.0" fitWidth="800.0" pickOnBounds="true">
          <image>
-            <Image url="@images/background.jpg" />
+            <Image url="@images/graybackground.jpg" />
          </image>
       </ImageView>
+      <Label fx:id="clock" text="00:00:00" />
       <HBox fx:id="menu" alignment="BOTTOM_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
             <ImageView fx:id="menuIcon1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -53,6 +54,5 @@
             </ImageView>
          </children>
       </HBox>
-      <Label fx:id="clock" text="00:00:00" />
    </children>
 </StackPane>
