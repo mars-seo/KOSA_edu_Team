@@ -25,9 +25,9 @@
          <left>
             <VBox fillWidth="false" prefHeight="450.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="btnGasFee" mnemonicParsing="false" prefHeight="150.0" prefWidth="100.0" text="난방" />
-                  <Button fx:id="btnElectricFee" mnemonicParsing="false" prefHeight="150.0" prefWidth="100.0" text="전기" />
-                  <Button fx:id="btnWaterFee" mnemonicParsing="false" prefHeight="150.0" prefWidth="100.0" text="수도" />
+                  <Button fx:id="btnGasFee" focusTraversable="false" mnemonicParsing="false" prefHeight="150.0" prefWidth="100.0" text="난방" />
+                  <Button fx:id="btnElectricFee" focusTraversable="false" mnemonicParsing="false" prefHeight="150.0" prefWidth="100.0" text="전기" />
+                  <Button fx:id="btnWaterFee" focusTraversable="false" mnemonicParsing="false" prefHeight="150.0" prefWidth="100.0" text="수도" />
                </children>
             </VBox>
          </left>

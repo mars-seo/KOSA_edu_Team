@@ -5,41 +5,32 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
-import javafx.concurrent.Task;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.SwipeEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Popup;
 import javafx.util.Duration;
 
 public class Root1Controller implements Initializable {
 
     @FXML
-    public static StackPane stackPane;
+    private StackPane sstackPane;
     @FXML
     private ImageView background;
     @FXML
     private HBox menu;
 
     public static int secretCount = 0;
-    private String newPassword;
-
+    
     private static int count = -1;
     private static double xValue;
     @FXML
@@ -59,16 +50,13 @@ public class Root1Controller implements Initializable {
     @FXML
     private Label clock;
     
-    public static Popup popup;
-    public static String password;
     
+    public static String password;
+    public static StackPane stackPane;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        Popup pop = new Popup();
-        popup=pop;
-
+        stackPane=sstackPane;
         //clock start
         Thread thread = new Thread() {
             @Override
@@ -93,12 +81,7 @@ public class Root1Controller implements Initializable {
 
         //아이콘 눌렀을때
         menuIcon1.setOnMouseClicked(event -> secretClicked());
-        menuIcon1.setOnMouseClicked(event -> secretClicked());
-        menuIcon1.setOnMouseClicked(event -> secretClicked());
-        menuIcon1.setOnMouseClicked(event -> secretClicked());
-        menuIcon1.setOnMouseClicked(event -> secretClicked());
-        menuIcon1.setOnMouseClicked(event -> secretClicked());
-        menuIcon1.setOnMouseClicked(event -> secretClicked());
+        
 
         //////////아이콘눌렀을때 끝
         menu.setTranslateX(0);
@@ -158,10 +141,6 @@ public class Root1Controller implements Initializable {
         //    });
     }
 
-   
-    
-    
-
     private void menuOpen() {
         System.out.println("open");
         //sstackPane.getChildren().add(menu);
@@ -188,46 +167,35 @@ public class Root1Controller implements Initializable {
 
     }
 
-    
-
     private void secretClicked() {
+        System.out.println("clicked");
 
-        //     try {
-        //         Parent parent = FXMLLoader.load(getClass().getResource("newpassword.fxml"));
-        //   } catch (IOException ex) {
-        //    }
-        
         try {
-            AnchorPane secretview;
-
-            secretview = (AnchorPane) FXMLLoader.load(getClass().getResource("newpassword.fxml"));
+            Parent secretview = FXMLLoader.load(getClass().getResource("newpassword.fxml"));
+          stackPane.getChildren().add(secretview);
+              secretview.setTranslateX(0);
+              
+              secretview.setOpacity(0);
+            KeyValue keyValue = new KeyValue(secretview.opacityProperty(),1);
+            KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
+            Timeline timeline = new Timeline();
+            timeline.getKeyFrames().add(keyFrame);
+            timeline.play();
 
             Label txt1 = (Label) secretview.lookup("#txt1");
             Label txt2 = (Label) secretview.lookup("#txt2");
             PasswordField password1 = (PasswordField) secretview.lookup("#password1");
-            Button btnOk = (Button) secretview.lookup("#btnOk");
-            
             
             
             if (secretCount > 0) {
                 txt1.setText("기존 비밀번호");
                 txt2.setText("신규 비밀번호");
-                popup.getContent().add(secretview);
-                popup.setAutoHide(false);
-                popup.show(AppMain1.primaryStage, 400, 200);
                 
+            } 
+          //  Parent parent = FXMLLoader.load(getClass().getResource("login.fxml"));
+         //   stackPane.getChildren().add(parent); 
 
-            } else {
-                popup.getContent().add(secretview);
-
-                popup.setAutoHide(false);
-                popup.show(AppMain1.primaryStage, 400, 200);
-                
-
-                //  imgMessage.setImage(new Image(getClass().getResource("images/dialog-info.png").toString()));
-            }
-            
-            
+           
             
         } catch (IOException ex) {
         }
