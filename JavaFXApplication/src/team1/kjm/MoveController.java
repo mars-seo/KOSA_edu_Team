@@ -3,11 +3,14 @@ package team1.kjm;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.animation.Interpolator;
 import javafx.animation.PathTransition;
 import javafx.animation.PathTransition.OrientationType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.ArcTo;
 import javafx.scene.shape.MoveTo;
@@ -15,21 +18,25 @@ import javafx.scene.shape.Path;
 import javafx.util.Duration;
 
 public class MoveController implements Initializable {
-
+    
     @FXML
     private ImageView imgSun;
     PathTransition pathTransition = new PathTransition();
     @FXML
     private ImageView imgMoon;
     PathTransition pathTransition2 = new PathTransition();
-
+    @FXML
+    private ImageView imgBack;
+    boolean img = false;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        
         LocalDateTime now = LocalDateTime.now();
         int hour = now.getHour();
         int minute = now.getMinute();
-
+        int sec = now.getSecond();
+        
         Path path = new Path();
         // MoveTo (x , y)    시작 위치 좌표
         path.getElements().add(new MoveTo(400, 700));
@@ -85,6 +92,25 @@ public class MoveController implements Initializable {
 //        pathTransition2.jumpTo(Duration.minutes(hour * 60 + minute));
         // 테스트 6시 기준 시작 (6초)
         pathTransition2.jumpTo(Duration.seconds(6));
+        
+        // 시간에 따른 배경 변경
+        // 현재는 6시와 18시를 기준으로 2번만 변경됨
+        // 이미지가 충분히 존재한다면 더 쪼갤 수 있음
+        imgBack.setOpacity(0.8);
+        Thread thread = new Thread(() -> {
+            while (true) {
+                if (LocalDateTime.now().getHour() >= 6 && LocalDateTime.now().getHour() <= 18) {
+                    imgBack.setImage(new Image(getClass().getResource("images/1.png").toString()));
+                } else {
+                    imgBack.setImage(new Image(getClass().getResource("images/2.png").toString()));
+                }
+                try {
+                    Thread.sleep(1000 * 60 * 60 * 12);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+        thread.start();
     }
-
 }
