@@ -197,15 +197,15 @@ public class Root1Controller implements Initializable {
 
             }
         } else {
-            passwordChk();
+            passwordChk(2);
             
         }
 
     }
 
-    private void passwordChk() {
+    private void passwordChk(int value) { //각각의 menuicon들의 번호를 넘겨받음, passwordcontroll에서 암호가 맞을시에 창띄울때 사용
         Parent chkView;
-        secretCount=2;
+        secretCount=value;
         try {
             chkView = FXMLLoader.load(getClass().getResource("newpassword.fxml"));
             stackPane.getChildren().add(chkView);

@@ -205,24 +205,72 @@ public class NewpasswordController implements Initializable {
             }
 
         }else if(Root1Controller.secretCount == 3){
+            if (passwordValue.equals(Root1Controller.password)) {
+                secretCount = 1;
+                off();
+                ////////////////합칠때 추가해야함
+            } else {
+                warning.setText("패스워드를 정확히 입력해주세요.");
+            }
         
         
         }else if(Root1Controller.secretCount == 4){
+            if (passwordValue.equals(Root1Controller.password)) {
+                secretCount = 1;
+                off();
+                ////////////////합칠때 추가해야함
+            } else {
+                warning.setText("패스워드를 정확히 입력해주세요.");
+            }
         
         
         }else if(Root1Controller.secretCount == 5){
+            if (passwordValue.equals(Root1Controller.password)) {
+                secretCount = 1;
+                off();
+                ////////////////합칠때 추가해야함
+            } else {
+                warning.setText("패스워드를 정확히 입력해주세요.");
+            }
         
         
         }else if(Root1Controller.secretCount == 6){
-        
+            if (passwordValue.equals(Root1Controller.password)) {
+                secretCount = 1;
+                off();
+                ////////////////합칠때 추가해야함
+            } else {
+                warning.setText("패스워드를 정확히 입력해주세요.");
+            }
         
         }else if(Root1Controller.secretCount == 7){
+            if (passwordValue.equals(Root1Controller.password)) {
+                secretCount = 1;
+                off();
+                ////////////////합칠때 추가해야함
+            } else {
+                warning.setText("패스워드를 정확히 입력해주세요.");
+            }
         
         
         }else if(Root1Controller.secretCount == 8){
+            if (passwordValue.equals(Root1Controller.password)) {
+                secretCount = 1;
+                off();
+                ////////////////합칠때 추가해야함
+            } else {
+                warning.setText("패스워드를 정확히 입력해주세요.");
+            }
         
         
         } else if(Root1Controller.secretCount == 9){
+            if (passwordValue.equals(Root1Controller.password)) {
+                secretCount = 1;
+                off();
+                ////////////////합칠때 추가해야함
+            } else {
+                warning.setText("패스워드를 정확히 입력해주세요.");
+            }
         
         
         } else if(Root1Controller.secretCount == 0){    // secretCount=0번일때는 비번설정 처음띄웠을때(비번설정안되있을때),1은 비번설정된상태,2번은 비번설정된 상태에서 2번메뉴아이콘 눌렀을때
