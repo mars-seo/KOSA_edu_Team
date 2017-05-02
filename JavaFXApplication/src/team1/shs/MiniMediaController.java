@@ -1,7 +1,9 @@
 package team1.shs;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -35,11 +37,15 @@ public class MiniMediaController implements Initializable {
 	@FXML
 	private Label playTime;
 	@FXML
-	private MediaView media;
+	private MediaView mediaView;
 	@FXML
-	private ListView<?> playList;
+	private ListView<String> mediaList;
 
-
+	private ObservableList<String> nameList;
+	private ObservableList<File> mediaFileList;
+	private boolean mute;
+	private double volume;
+	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		

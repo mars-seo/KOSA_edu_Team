@@ -92,12 +92,12 @@
                <children>
                   <Slider fx:id="mediaSlider" layoutX="64.0" layoutY="187.0" prefHeight="14.0" prefWidth="256.0" />
                   <Label fx:id="playTime" layoutX="5.0" layoutY="187.0" text="00:00:00" />
-                  <MediaView fx:id="media" fitHeight="180.0" fitWidth="310.0" layoutX="5.0" layoutY="6.0" />
+                  <MediaView fx:id="mediaView" fitHeight="180.0" fitWidth="310.0" layoutX="5.0" layoutY="6.0" />
                </children>
             </AnchorPane>
          </center>
          <right>
-            <ListView fx:id="playList" maxHeight="-Infinity" prefHeight="190.0" prefWidth="90.0" BorderPane.alignment="CENTER" />
+            <ListView fx:id="mediaList" maxHeight="-Infinity" prefHeight="190.0" prefWidth="90.0" BorderPane.alignment="CENTER" />
          </right>
       </BorderPane>
    </children>

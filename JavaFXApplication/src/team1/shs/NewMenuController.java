@@ -5,8 +5,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -41,7 +39,7 @@ public class NewMenuController implements Initializable {
 		
 		try {
 			this.parent.add(FXMLLoader.load(getClass().getResource("interPhone.fxml")));
-			this.parent.add(FXMLLoader.load(getClass().getResource("media.fxml")));
+			this.parent.add(FXMLLoader.load(getClass().getResource("Media.fxml")));
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		}
@@ -62,7 +60,7 @@ public class NewMenuController implements Initializable {
 
 		menu2.setOnMouseClicked(e -> handlesubMenu(menu2, 0));
 		menu3.setOnMouseClicked(e -> handlesubMenu(menu3, 1));
-
+		
 	}
 
 	private void handleMainMenu() {

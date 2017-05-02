@@ -10,8 +10,8 @@ public class AppMain3 extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-//       Parent parent = FXMLLoader.load(getClass().getResource("move.fxml"));
-       Parent parent = FXMLLoader.load(getClass().getResource("control.fxml"));
+       Parent parent = FXMLLoader.load(getClass().getResource("move.fxml"));
+//       Parent parent = FXMLLoader.load(getClass().getResource("control.fxml"));
 //        Parent parent = FXMLLoader.load(getClass().getResource("controlMini.fxml"));
 
         Scene scene = new Scene(parent);

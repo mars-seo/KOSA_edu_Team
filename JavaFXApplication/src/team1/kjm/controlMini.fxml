@@ -30,11 +30,13 @@
                         <Font size="10.0" />
                      </font>
                   </Button>
+<!--									
                   <Button fx:id="btnSound" alignment="CENTER" layoutX="20.0" layoutY="147.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="60.0" text="Sound">
                      <font>
                         <Font size="10.0" />
                      </font>
                   </Button>
+									-->
                </children>
             </AnchorPane>
             <StackPane fx:id="stackPane" prefHeight="150.0" prefWidth="200.0" />

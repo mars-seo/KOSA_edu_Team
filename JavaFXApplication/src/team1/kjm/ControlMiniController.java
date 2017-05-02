@@ -38,7 +38,7 @@ public class ControlMiniController implements Initializable {
     public ControlMiniController() {
         try {
             this.parent.add(FXMLLoader.load(getClass().getResource("lightMini.fxml")));
-            this.parent.add(FXMLLoader.load(getClass().getResource("gasMini.fxml")));
+            this.parent.add(FXMLLoader.load(getClass().getResource("gasContMini.fxml")));
             this.parent.add(FXMLLoader.load(getClass().getResource("securityMini.fxml")));
             this.parent.add(FXMLLoader.load(getClass().getResource("soundMini.fxml")));
         } catch (IOException ex) {
@@ -52,7 +52,7 @@ public class ControlMiniController implements Initializable {
         btnLight.setOnAction(e -> handleBtn(e, 0));
         btnGas.setOnAction(e -> handleBtn(e, 1));
         btnDoor.setOnAction(e -> handleBtn(e, 2));
-        btnSound.setOnAction(e -> handleBtn(e, 3));
+//        btnSound.setOnAction(e -> handleBtn(e, 3));
     }
 
     private void handleBtn(ActionEvent e, int num) {
