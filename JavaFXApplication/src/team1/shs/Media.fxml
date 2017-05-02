@@ -97,7 +97,7 @@
          <center>
             <AnchorPane BorderPane.alignment="CENTER">
                <children>
-                  <MediaView fx:id="media" fitHeight="375.0" fitWidth="610.0" layoutX="5.0" layoutY="6.0" />
+                  <MediaView fx:id="mediaView" fitHeight="375.0" fitWidth="610.0" layoutX="5.0" layoutY="6.0" />
                   <Slider fx:id="mediaSlider" layoutX="72.0" layoutY="381.0" prefHeight="14.0" prefWidth="534.0" />
                   <Label fx:id="playTime" layoutX="14.0" layoutY="381.0" text="00:00:00" />
                </children>
