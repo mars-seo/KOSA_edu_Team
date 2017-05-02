@@ -5,8 +5,6 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -20,6 +18,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
 public class Root1Controller implements Initializable {
@@ -32,7 +31,7 @@ public class Root1Controller implements Initializable {
     private HBox menu;
 
     public static int secretCount = 0;
-    
+
     private static int count = -1;
     private static double xValue;
     @FXML
@@ -51,21 +50,22 @@ public class Root1Controller implements Initializable {
     private ImageView menuIcon7;
     @FXML
     private Label clock;
-    
-    
+
     public static String password;
     public static StackPane stackPane;
-    public static boolean menu1PasswordChk=false;
-    private Parent secretview;
+    public static boolean menu1PasswordChk = false;
+    public static boolean menu2PasswordChk = false;
+    public static boolean menu3PasswordChk = false;
+    public static boolean menu4PasswordChk = false;
+    public static boolean menu5PasswordChk = false;
+    public static boolean menu6PasswordChk = false;
+    public static boolean menu7PasswordChk = false;
+    public static boolean menu8PasswordChk = false;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        try {
-            secretview = FXMLLoader.load(getClass().getResource("newpassword.fxml"));
-        } catch (IOException ex) {
-        }
-        stackPane=sstackPane;
+
+        stackPane = sstackPane;
         //clock start
         Thread thread = new Thread() {
             @Override
@@ -90,10 +90,9 @@ public class Root1Controller implements Initializable {
 
         //아이콘 눌렀을때
         menuIcon1.setOnMouseClicked(event -> secretClicked()); //암호설정 서브메뉴이동
-        menuIcon2.setOnMouseClicked(event->boilerClicked());
-        
+        menuIcon2.setOnMouseClicked(event -> boilerClicked());
 
-        //////////아이콘눌렀을때 끝
+        //아이콘눌렀을때 끝
         menu.setTranslateX(0);
         menu.setTranslateY(200);
 ////////////////
@@ -106,14 +105,13 @@ public class Root1Controller implements Initializable {
             }
         });
 
-        //      menu.setOnSwipeRight(new EventHandler<SwipeEvent>() {
+        //      menu.setOnSwipeRight(new EventHandler<SwipeEvent>() {   //터치패드사용
         //         @Override
         //        public void handle(SwipeEvent event) {
         //            System.out.println("swipeRight");
         //            event.consume();
         //        }
         //   });
-
         menu.setOnMousePressed((event) -> {
             xValue = event.getSceneX();
             System.out.println(xValue);
@@ -134,9 +132,6 @@ public class Root1Controller implements Initializable {
             }
 
         });
-        //      menu.setOnMouseDragOver((event) -> {
-        //         System.out.println("mousereleased1");
-        //    });
     }
 
     private void menuOpen() {
@@ -152,25 +147,21 @@ public class Root1Controller implements Initializable {
     private void menuClose() {
         System.out.println("close");
         KeyValue keyValue = new KeyValue(menu.translateYProperty(), 200);
-        // KeyFrame keyFrame = new KeyFrame(Duration.millis(1000),
-        //         (event) -> {
-        //           sstackPane.getChildren().remove(menu);
-        //      },
-        //        keyValue);
         KeyFrame keyFrame = new KeyFrame(Duration.millis(1000), keyValue);
         Timeline timeline = new Timeline();
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
-
     }
 
     private void secretClicked() {
         System.out.println("clicked");
-
-          stackPane.getChildren().add(secretview);
-              secretview.setTranslateX(0);
-              secretview.setOpacity(0);
-            KeyValue keyValue = new KeyValue(secretview.opacityProperty(),1);
+        Parent secretview;
+        try {
+            secretview = FXMLLoader.load(getClass().getResource("newpassword.fxml"));
+            stackPane.getChildren().add(secretview);
+            secretview.setTranslateX(0);
+            secretview.setOpacity(0);
+            KeyValue keyValue = new KeyValue(secretview.opacityProperty(), 1);
             KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
             Timeline timeline = new Timeline();
             timeline.getKeyFrames().add(keyFrame);
@@ -179,19 +170,76 @@ public class Root1Controller implements Initializable {
             Label txt1 = (Label) secretview.lookup("#txt1");
             Label txt2 = (Label) secretview.lookup("#txt2");
             PasswordField password1 = (PasswordField) secretview.lookup("#password1");
-            
-            
+
             if (secretCount > 0) {
                 txt1.setText("기존 비밀번호");
                 txt2.setText("신규 비밀번호");
-                
-            } 
-       
 
+            }
+        } catch (IOException ex) {
+
+        }
     }
 
     private void boilerClicked() {
-       System.out.println(menu1PasswordChk);
+        if (menu2PasswordChk == false) {
+            try {
+                Parent boilerview = FXMLLoader.load(getClass().getResource("boiler.fxml"));
+                stackPane.getChildren().add(boilerview);
+                boilerview.setTranslateX(0);
+                boilerview.setOpacity(0);
+                KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
+                KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
+                Timeline timeline = new Timeline();
+                timeline.getKeyFrames().add(keyFrame);
+                timeline.play();
+            } catch (IOException ex) {
+
+            }
+        } else {
+            passwordChk();
+            
+        }
+
+    }
+
+    private void passwordChk() {
+        Parent chkView;
+        secretCount=2;
+        try {
+            chkView = FXMLLoader.load(getClass().getResource("newpassword.fxml"));
+            stackPane.getChildren().add(chkView);
+            chkView.setTranslateX(0);
+            chkView.setOpacity(0);
+            KeyValue keyValue = new KeyValue(chkView.opacityProperty(), 1);
+            KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
+            Timeline timeline = new Timeline();
+            timeline.getKeyFrames().add(keyFrame);
+            timeline.play();
+
+            VBox chkboxview = (VBox) chkView.lookup("#chkboxview");
+            Label txt1 = (Label) chkView.lookup("#txt1");
+            Label txt2 = (Label) chkView.lookup("#txt2");
+            PasswordField password2= (PasswordField)chkView.lookup("#password2");
+            
+             txt1.setText("비밀번호");
+             txt2.setText("");
+
+            KeyValue keyValue1 = new KeyValue(chkboxview.opacityProperty(), 0);
+            KeyFrame keyFrame1 = new KeyFrame(Duration.millis(100), keyValue1);
+            Timeline timeline1 = new Timeline();
+            timeline1.getKeyFrames().add(keyFrame1);
+            timeline1.play();
+            
+            KeyValue keyValue2 = new KeyValue(password2.opacityProperty(), 0);
+            KeyFrame keyFrame2 = new KeyFrame(Duration.millis(100), keyValue2);
+            Timeline timeline2 = new Timeline();
+            timeline2.getKeyFrames().add(keyFrame2);
+            timeline2.play();
+
+        } catch (IOException ex) {
+
+        }
     }
 
 }
