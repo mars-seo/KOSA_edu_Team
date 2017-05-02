@@ -15,5 +15,10 @@
             <Image url="@images/sun.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="imgMoon" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/moon.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
