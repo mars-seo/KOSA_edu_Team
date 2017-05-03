@@ -12,7 +12,7 @@ public class AppMain2 extends Application{
     @Override
     public void start(Stage primaryStage) {
 		try {
-			Parent parent = FXMLLoader.load(getClass().getResource("Media.fxml"));
+			Parent parent = FXMLLoader.load(getClass().getResource("miniMedia.fxml"));
 			Scene scene = new Scene(parent);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Team Project");
