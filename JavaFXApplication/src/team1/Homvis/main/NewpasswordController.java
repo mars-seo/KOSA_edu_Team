@@ -291,7 +291,7 @@ public class NewpasswordController implements Initializable {
         Timeline timeline = new Timeline();
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
-        Root1Controller.menuicon2.setImage(new Image(getClass().getResource("images/secret_default.png").toString()));
+        Root1Controller.menuicon8.setImage(new Image(getClass().getResource("images/main_secret_default.png").toString()));
     }
 
     private String zeroClicked() {

@@ -38,9 +38,9 @@ public class Root1Controller implements Initializable {
     @FXML
     private ImageView menuIcon1;
     @FXML
-    private ImageView menuIcon2;
-    @FXML
-    private ImageView menuIcon3;
+   private ImageView menuIcon2;
+   @FXML
+   private ImageView menuIcon3;
     @FXML
     private ImageView menuIcon4;
     @FXML
@@ -76,9 +76,10 @@ public class Root1Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        //나중에 디폴트로 만들기위해
         menuicon1 = menuIcon1;
-        menuicon2 = menuIcon2;
-        menuicon3 = menuIcon3;
+      menuicon2 = menuIcon2;
+       menuicon3 = menuIcon3;
         menuicon4 = menuIcon4;
         menuicon5 = menuIcon5;
         menuicon6 = menuIcon6;
@@ -112,10 +113,10 @@ public class Root1Controller implements Initializable {
         //아이콘 눌렀을때
         menuIcon1.setOnMousePressed(event -> homePressed());
         menuIcon1.setOnMouseClicked(event -> homeClicked());
-        menuIcon2.setOnMousePressed(event -> boilerPressed());
+       menuIcon2.setOnMousePressed(event -> boilerPressed());
         menuIcon2.setOnMouseClicked(event -> boilerClicked());
         menuIcon3.setOnMousePressed(event -> elecNgasPressed());
-        menuIcon3.setOnMouseClicked(event -> elecNgasClicked());
+       menuIcon3.setOnMouseClicked(event -> elecNgasClicked());
         menuIcon4.setOnMousePressed(event -> interphonePressed());
         menuIcon4.setOnMouseClicked(event -> interphoneClicked());
         menuIcon5.setOnMousePressed(event -> internetPressed());
@@ -228,20 +229,22 @@ public class Root1Controller implements Initializable {
     }
 
     private void homePressed() {
+        menuIcon1.setImage(new Image(getClass().getResource("images/main_home_pressed.png").toString()));
 
     }
 
     private void homeClicked() {
+        menuIcon1.setImage(new Image(getClass().getResource("images/main_home_clicked.png").toString()));
 
     }
 
     private void boilerPressed() {
-        menuIcon3.setImage(new Image(getClass().getResource("images/boiler_pressed.png").toString()));
+     menuIcon2.setImage(new Image(getClass().getResource("images/main_boiler_pressed.png").toString()));
     }
 
     private void boilerClicked() {
-        menuIcon3.setImage(new Image(getClass().getResource("images/boiler_clicked.png").toString()));
-        if (menu3PasswordChk == false) {
+       menuIcon2.setImage(new Image(getClass().getResource("images/main_boiler_clicked.png").toString()));
+        if (menu2PasswordChk == false) {
             try {
                 Parent boilerview = FXMLLoader.load(getClass().getResource("boiler.fxml"));
                 stackPane.getChildren().add(boilerview);
@@ -263,19 +266,21 @@ public class Root1Controller implements Initializable {
     }
 
     private void elecNgasPressed() {
+        menuIcon3.setImage(new Image(getClass().getResource("images/main_elecNgas_pressed.png").toString()));
 
     }
 
     private void elecNgasClicked() {
+        menuIcon3.setImage(new Image(getClass().getResource("images/main_elecNgas_clicked.png").toString()));
 
     }
 
     private void interphonePressed() {
-
+menuIcon4.setImage(new Image(getClass().getResource("images/main_interphone_pressed.png").toString()));
     }
 
     private void interphoneClicked() {
-
+menuIcon4.setImage(new Image(getClass().getResource("images/main_interphone_clicked.png").toString()));
     }
 
     private void internetPressed() {
@@ -287,27 +292,27 @@ public class Root1Controller implements Initializable {
     }
 
     private void playerPressed() {
-
+menuIcon6.setImage(new Image(getClass().getResource("images/main_player_pressed.png").toString()));
     }
 
     private void playerClicked() {
-
+menuIcon6.setImage(new Image(getClass().getResource("images/main_player_clicked.png").toString()));
     }
 
     private void tariffPressed() {
-
+menuIcon7.setImage(new Image(getClass().getResource("images/main_tariff_pressed.png").toString()));
     }
 
     private void tariffClicked() {
-
+menuIcon7.setImage(new Image(getClass().getResource("images/main_tafiff_clicked.png").toString()));
     }
 
     private void secretPressed() {
-        menuIcon2.setImage(new Image(getClass().getResource("images/secret_pressed.png").toString()));
+        menuIcon8.setImage(new Image(getClass().getResource("images/main_secret_pressed.png").toString()));
     }
 
     private void secretClicked() {
-        menuIcon2.setImage(new Image(getClass().getResource("images/secret_clicked.png").toString()));
+        menuIcon8.setImage(new Image(getClass().getResource("images/main_secret_clicked.png").toString()));
         System.out.println("clicked");
         Parent secretview;
         try {

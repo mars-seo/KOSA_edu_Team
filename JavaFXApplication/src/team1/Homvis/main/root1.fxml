@@ -15,44 +15,40 @@
          </image>
       </ImageView>
       <Label fx:id="clock" text="00:00:00" />
-      <HBox fx:id="menu" alignment="BOTTOM_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <HBox fx:id="menu" alignment="BOTTOM_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="101.0" prefWidth="800.0">
          <children>
-            <ImageView fx:id="menuIcon1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="menuIcon1" fitHeight="120.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/main_home_default.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="menuIcon2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="menuIcon2" fitHeight="120.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/main_boiler_default.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="menuIcon3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="menuIcon3" fitHeight="120.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/main_elecNgas_default.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="menuIcon4" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="menuIcon4" fitHeight="120.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/main_interphone_default.PNG" />
+                  <Image url="@images/main_interphone_default.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="menuIcon5" fitHeight="75.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="menuIcon5" fitHeight="75.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="menuIcon6" fitHeight="120.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/main_internet_default.PNG" />
+                  <Image url="@images/main_player_default.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="menuIcon6" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="menuIcon7" fitHeight="120.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/main_media_default.PNG" />
+                  <Image url="@images/main_tariff_default.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="menuIcon7" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/main_tariff_default.PNG" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="menuIcon8" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="menuIcon8" fitHeight="120.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/main_secret_default.png" />
                </image>
