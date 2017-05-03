@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.kjm.MoveController">
+<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.move.MoveController">
    <children>
       <ImageView fx:id="imgBack" fitHeight="450.0" fitWidth="800.0" pickOnBounds="true">
          <image>

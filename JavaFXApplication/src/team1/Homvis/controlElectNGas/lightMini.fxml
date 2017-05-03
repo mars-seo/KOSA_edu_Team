@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="240.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.kjm.LightMiniController">
+<AnchorPane id="AnchorPane" prefHeight="240.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.controlElectNGas.LightMiniController">
 	<children>
 		<HBox prefHeight="240.0" prefWidth="300.0">
 			<children>
