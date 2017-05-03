@@ -148,7 +148,7 @@ public class MediaController implements Initializable {
 			
 			//실행시 처음 볼륨값과 이미지 세팅
 			volumeSlider.setValue(50);
-			imgSound.setImage(new Image(getClass().getResource("images/speaker.png").toString()));
+			imgSound.setImage(new Image(getClass().getResource("playerImg/speaker.png").toString()));
 			
 			//슬라이더 속성감시로 볼륨의 크기 세팅
 			volumeSlider.valueProperty().addListener(new ChangeListener<Number>() {
@@ -156,17 +156,17 @@ public class MediaController implements Initializable {
 				public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
 					mediaPlayer.setVolume(newValue.doubleValue()/100.0);
 					volume = oldValue.doubleValue(); // 음소거 해제 시 전 설정값 세팅
-					imgSound.setImage(new Image(getClass().getResource("images/speaker.png").toString()));
+					imgSound.setImage(new Image(getClass().getResource("playerImg/speaker.png").toString()));
 				}
 			});
 			//음소거와 음소거 해제를 이미지 클릭으로 설정
 			imgSound.setOnMouseClicked(e->{
 				if(!mute){
 					volumeSlider.setValue(0);
-					imgSound.setImage(new Image(getClass().getResource("images/mute.png").toString()));
+					imgSound.setImage(new Image(getClass().getResource("playerImg/mute.png").toString()));
 				}else{
 					volumeSlider.setValue(volume);
-					imgSound.setImage(new Image(getClass().getResource("images/speaker.png").toString()));
+					imgSound.setImage(new Image(getClass().getResource("playerImg/speaker.png").toString()));
 				}
 				mute = !mute;
 			});

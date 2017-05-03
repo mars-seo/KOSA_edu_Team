@@ -19,7 +19,7 @@
                      <children>
                         <ImageView fx:id="imgSound" fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/mute.png" />
+                              <Image url="@playerImg/mute.png" />
                            </image>
                         </ImageView>
                         <Slider fx:id="volumeSlider" layoutX="49.0" layoutY="27.0" prefHeight="14.0" prefWidth="139.0" />
@@ -27,7 +27,7 @@
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/substract.png" />
+                                    <Image url="@playerImg/substract.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -42,7 +42,7 @@
                            <graphic>
                               <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/backward.png" />
+                                    <Image url="@playerImg/backward.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -51,7 +51,7 @@
                            <graphic>
                               <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/pause.png" />
+                                    <Image url="@playerImg/pause.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -60,7 +60,7 @@
                            <graphic>
                               <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/play.png" />
+                                    <Image url="@playerImg/play.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -69,7 +69,7 @@
                            <graphic>
                               <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/stop.png" />
+                                    <Image url="@playerImg/stop.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -78,7 +78,7 @@
                            <graphic>
                               <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/fast-forward.png" />
+                                    <Image url="@playerImg/fast-forward.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -87,7 +87,7 @@
                            <graphic>
                               <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/eject.png" />
+                                    <Image url="@playerImg/eject.png" />
                                  </image>
                               </ImageView>
                            </graphic>
