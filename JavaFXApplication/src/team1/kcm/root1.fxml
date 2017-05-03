@@ -11,7 +11,7 @@
    <children>
       <ImageView fx:id="background" fitHeight="480.0" fitWidth="800.0" pickOnBounds="true">
          <image>
-            <Image url="@images/graybackground.jpg" />
+            <Image url="@images/main.png" />
          </image>
       </ImageView>
       <Label fx:id="clock" text="00:00:00" />
@@ -19,17 +19,17 @@
          <children>
             <ImageView fx:id="menuIcon1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/alarm.PNG" />
+                  <Image url="@images/home_default.png" />
                </image>
             </ImageView>
             <ImageView fx:id="menuIcon2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/camera.PNG" />
+                  <Image url="@images/secret_default.png" />
                </image>
             </ImageView>
             <ImageView fx:id="menuIcon3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/alarm.PNG" />
+                  <Image url="@images/boiler_default.png" />
                </image>
             </ImageView>
             <ImageView fx:id="menuIcon4" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -48,6 +48,11 @@
                </image>
             </ImageView>
             <ImageView fx:id="menuIcon7" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/alarm.PNG" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="menuIcon8" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/alarm.PNG" />
                </image>

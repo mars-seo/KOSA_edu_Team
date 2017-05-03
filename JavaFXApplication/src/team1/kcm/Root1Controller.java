@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -50,6 +51,17 @@ public class Root1Controller implements Initializable {
     private ImageView menuIcon7;
     @FXML
     private Label clock;
+    
+    public static ImageView menuicon1;
+    public static ImageView menuicon2;
+    public static ImageView menuicon3;
+    public static ImageView menuicon4;
+    public static ImageView menuicon5;
+    public static ImageView menuicon6;
+    public static ImageView menuicon7;
+    public static ImageView menuicon8;
+    
+    
 
     public static String password;
     public static StackPane stackPane;
@@ -61,9 +73,20 @@ public class Root1Controller implements Initializable {
     public static boolean menu6PasswordChk = false;
     public static boolean menu7PasswordChk = false;
     public static boolean menu8PasswordChk = false;
+    @FXML
+    private ImageView menuIcon8;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        menuicon1=menuIcon1;
+        menuicon2=menuIcon2;
+        menuicon3=menuIcon3;
+        menuicon4=menuIcon4;
+        menuicon5=menuIcon5;
+        menuicon6=menuIcon6;
+        menuicon7=menuIcon7;
+        menuicon8=menuIcon8;
+        
 
         stackPane = sstackPane;
         //clock start
@@ -89,8 +112,10 @@ public class Root1Controller implements Initializable {
         ////////////////////////////clock end
 
         //아이콘 눌렀을때
-        menuIcon1.setOnMouseClicked(event -> secretClicked()); //암호설정 서브메뉴이동
-        menuIcon2.setOnMouseClicked(event -> boilerClicked());
+        menuIcon2.setOnMouseClicked(event -> secretClicked()); //암호설정 서브메뉴이동
+        menuIcon2.setOnMousePressed(event->secretPressed());
+        menuIcon3.setOnMouseClicked(event -> boilerClicked());
+        menuIcon3.setOnMousePressed(event -> boilerPressed());
 
         //아이콘눌렀을때 끝
         menu.setTranslateX(0);
@@ -152,8 +177,13 @@ public class Root1Controller implements Initializable {
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
     }
+    
+        private void secretPressed() {
+        menuIcon2.setImage(new Image(getClass().getResource("images/secret_pressed.png").toString()));
+    }
 
     private void secretClicked() {
+        menuIcon2.setImage(new Image(getClass().getResource("images/secret_clicked.png").toString()));
         System.out.println("clicked");
         Parent secretview;
         try {
@@ -182,7 +212,8 @@ public class Root1Controller implements Initializable {
     }
 
     private void boilerClicked() {
-        if (menu2PasswordChk == false) {
+        menuIcon3.setImage(new Image(getClass().getResource("images/boiler_clicked.png").toString()));
+        if (menu3PasswordChk == false) {
             try {
                 Parent boilerview = FXMLLoader.load(getClass().getResource("boiler.fxml"));
                 stackPane.getChildren().add(boilerview);
@@ -198,14 +229,18 @@ public class Root1Controller implements Initializable {
             }
         } else {
             passwordChk(2);
-            
+
         }
 
     }
 
+    private void boilerPressed() {
+        menuIcon3.setImage(new Image(getClass().getResource("images/boiler_pressed.png").toString()));
+    }
+
     private void passwordChk(int value) { //각각의 menuicon들의 번호를 넘겨받음, passwordcontroll에서 암호가 맞을시에 창띄울때 사용
         Parent chkView;
-        secretCount=value;
+        secretCount = value;
         try {
             chkView = FXMLLoader.load(getClass().getResource("newpassword.fxml"));
             stackPane.getChildren().add(chkView);
@@ -220,17 +255,17 @@ public class Root1Controller implements Initializable {
             VBox chkboxview = (VBox) chkView.lookup("#chkboxview");
             Label txt1 = (Label) chkView.lookup("#txt1");
             Label txt2 = (Label) chkView.lookup("#txt2");
-            PasswordField password2= (PasswordField)chkView.lookup("#password2");
-            
-             txt1.setText("비밀번호");
-             txt2.setText("");
+            PasswordField password2 = (PasswordField) chkView.lookup("#password2");
+
+            txt1.setText("비밀번호");
+            txt2.setText("");
 
             KeyValue keyValue1 = new KeyValue(chkboxview.opacityProperty(), 0);
             KeyFrame keyFrame1 = new KeyFrame(Duration.millis(100), keyValue1);
             Timeline timeline1 = new Timeline();
             timeline1.getKeyFrames().add(keyFrame1);
             timeline1.play();
-            
+
             KeyValue keyValue2 = new KeyValue(password2.opacityProperty(), 0);
             KeyFrame keyFrame2 = new KeyFrame(Duration.millis(100), keyValue2);
             Timeline timeline2 = new Timeline();
@@ -241,5 +276,7 @@ public class Root1Controller implements Initializable {
 
         }
     }
+
+
 
 }

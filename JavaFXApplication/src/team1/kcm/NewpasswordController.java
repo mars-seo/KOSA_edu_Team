@@ -18,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
@@ -184,8 +185,8 @@ public class NewpasswordController implements Initializable {
             } else {
                 warning.setText("패스워드를 정확히 입력해주세요.");
             }
-
-        } else if (Root1Controller.secretCount == 2) {
+         //////////보일러
+        } else if (Root1Controller.secretCount == 2) {            
             if (passwordValue.equals(Root1Controller.password)) {
                 secretCount = 1;
                 off();
@@ -203,8 +204,8 @@ public class NewpasswordController implements Initializable {
             } else {
                 warning.setText("패스워드를 정확히 입력해주세요.");
             }
-
-        }else if(Root1Controller.secretCount == 3){
+/////////전기가스제어
+        }else if(Root1Controller.secretCount == 3){ 
             if (passwordValue.equals(Root1Controller.password)) {
                 secretCount = 1;
                 off();
@@ -213,8 +214,8 @@ public class NewpasswordController implements Initializable {
                 warning.setText("패스워드를 정확히 입력해주세요.");
             }
         
-        
-        }else if(Root1Controller.secretCount == 4){
+        ///인터폰
+        }else if(Root1Controller.secretCount == 4){         
             if (passwordValue.equals(Root1Controller.password)) {
                 secretCount = 1;
                 off();
@@ -223,8 +224,8 @@ public class NewpasswordController implements Initializable {
                 warning.setText("패스워드를 정확히 입력해주세요.");
             }
         
-        
-        }else if(Root1Controller.secretCount == 5){
+        ///인터넷
+        }else if(Root1Controller.secretCount == 5){          //
             if (passwordValue.equals(Root1Controller.password)) {
                 secretCount = 1;
                 off();
@@ -233,7 +234,7 @@ public class NewpasswordController implements Initializable {
                 warning.setText("패스워드를 정확히 입력해주세요.");
             }
         
-        
+        //미디어플레이어
         }else if(Root1Controller.secretCount == 6){
             if (passwordValue.equals(Root1Controller.password)) {
                 secretCount = 1;
@@ -242,7 +243,7 @@ public class NewpasswordController implements Initializable {
             } else {
                 warning.setText("패스워드를 정확히 입력해주세요.");
             }
-        
+        //사용량조회
         }else if(Root1Controller.secretCount == 7){
             if (passwordValue.equals(Root1Controller.password)) {
                 secretCount = 1;
@@ -252,18 +253,8 @@ public class NewpasswordController implements Initializable {
                 warning.setText("패스워드를 정확히 입력해주세요.");
             }
         
-        
+        ///CCTV
         }else if(Root1Controller.secretCount == 8){
-            if (passwordValue.equals(Root1Controller.password)) {
-                secretCount = 1;
-                off();
-                ////////////////합칠때 추가해야함
-            } else {
-                warning.setText("패스워드를 정확히 입력해주세요.");
-            }
-        
-        
-        } else if(Root1Controller.secretCount == 9){
             if (passwordValue.equals(Root1Controller.password)) {
                 secretCount = 1;
                 off();
@@ -302,6 +293,7 @@ public class NewpasswordController implements Initializable {
         Timeline timeline = new Timeline();
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
+        Root1Controller.menuicon2.setImage(new Image(getClass().getResource("images/secret_default.png").toString()));
     }
 
     private String zeroClicked() {
