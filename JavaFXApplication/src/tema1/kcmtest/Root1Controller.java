@@ -1,6 +1,5 @@
 package tema1.kcmtest;
 
-import team1.kcm.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
