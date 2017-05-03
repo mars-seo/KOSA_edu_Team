@@ -3,7 +3,9 @@ package team1.Homvis.main;
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -38,9 +40,9 @@ public class Root1Controller implements Initializable {
     @FXML
     private ImageView menuIcon1;
     @FXML
-   private ImageView menuIcon2;
-   @FXML
-   private ImageView menuIcon3;
+    private ImageView menuIcon2;
+    @FXML
+    private ImageView menuIcon3;
     @FXML
     private ImageView menuIcon4;
     @FXML
@@ -49,6 +51,8 @@ public class Root1Controller implements Initializable {
     private ImageView menuIcon6;
     @FXML
     private ImageView menuIcon7;
+    @FXML
+    private ImageView menuIcon8;
     @FXML
     private Label clock;
 
@@ -71,15 +75,13 @@ public class Root1Controller implements Initializable {
     public static boolean menu6PasswordChk = false;
     public static boolean menu7PasswordChk = false;
     public static boolean menu8PasswordChk = false;
-    @FXML
-    private ImageView menuIcon8;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //나중에 디폴트로 만들기위해
         menuicon1 = menuIcon1;
-      menuicon2 = menuIcon2;
-       menuicon3 = menuIcon3;
+        menuicon2 = menuIcon2;
+        menuicon3 = menuIcon3;
         menuicon4 = menuIcon4;
         menuicon5 = menuIcon5;
         menuicon6 = menuIcon6;
@@ -113,10 +115,10 @@ public class Root1Controller implements Initializable {
         //아이콘 눌렀을때
         menuIcon1.setOnMousePressed(event -> homePressed());
         menuIcon1.setOnMouseClicked(event -> homeClicked());
-       menuIcon2.setOnMousePressed(event -> boilerPressed());
+        menuIcon2.setOnMousePressed(event -> boilerPressed());
         menuIcon2.setOnMouseClicked(event -> boilerClicked());
         menuIcon3.setOnMousePressed(event -> elecNgasPressed());
-       menuIcon3.setOnMouseClicked(event -> elecNgasClicked());
+        menuIcon3.setOnMouseClicked(event -> elecNgasClicked());
         menuIcon4.setOnMousePressed(event -> interphonePressed());
         menuIcon4.setOnMouseClicked(event -> interphoneClicked());
         menuIcon5.setOnMousePressed(event -> internetPressed());
@@ -189,6 +191,7 @@ public class Root1Controller implements Initializable {
         timeline.play();
     }
 
+
     private void passwordChk(int value) { //각각의 menuicon들의 번호를 넘겨받음, passwordcontroll에서 암호가 맞을시에 창띄울때 사용
         Parent chkView;
         secretCount = value;
@@ -239,11 +242,11 @@ public class Root1Controller implements Initializable {
     }
 
     private void boilerPressed() {
-     menuIcon2.setImage(new Image(getClass().getResource("images/main_boiler_pressed.png").toString()));
+        menuIcon2.setImage(new Image(getClass().getResource("images/main_boiler_pressed.png").toString()));
     }
 
     private void boilerClicked() {
-       menuIcon2.setImage(new Image(getClass().getResource("images/main_boiler_clicked.png").toString()));
+        menuIcon2.setImage(new Image(getClass().getResource("images/main_boiler_clicked.png").toString()));
         if (menu2PasswordChk == false) {
             try {
                 Parent boilerview = FXMLLoader.load(getClass().getResource("boiler.fxml"));
@@ -276,11 +279,11 @@ public class Root1Controller implements Initializable {
     }
 
     private void interphonePressed() {
-menuIcon4.setImage(new Image(getClass().getResource("images/main_interphone_pressed.png").toString()));
+        menuIcon4.setImage(new Image(getClass().getResource("images/main_interphone_pressed.png").toString()));
     }
 
     private void interphoneClicked() {
-menuIcon4.setImage(new Image(getClass().getResource("images/main_interphone_clicked.png").toString()));
+        menuIcon4.setImage(new Image(getClass().getResource("images/main_interphone_clicked.png").toString()));
     }
 
     private void internetPressed() {
@@ -292,19 +295,19 @@ menuIcon4.setImage(new Image(getClass().getResource("images/main_interphone_clic
     }
 
     private void playerPressed() {
-menuIcon6.setImage(new Image(getClass().getResource("images/main_player_pressed.png").toString()));
+        menuIcon6.setImage(new Image(getClass().getResource("images/main_player_pressed.png").toString()));
     }
 
     private void playerClicked() {
-menuIcon6.setImage(new Image(getClass().getResource("images/main_player_clicked.png").toString()));
+        menuIcon6.setImage(new Image(getClass().getResource("images/main_player_clicked.png").toString()));
     }
 
     private void tariffPressed() {
-menuIcon7.setImage(new Image(getClass().getResource("images/main_tariff_pressed.png").toString()));
+        menuIcon7.setImage(new Image(getClass().getResource("images/main_tariff_pressed.png").toString()));
     }
 
     private void tariffClicked() {
-menuIcon7.setImage(new Image(getClass().getResource("images/main_tafiff_clicked.png").toString()));
+        menuIcon7.setImage(new Image(getClass().getResource("images/main_tariff_clicked.png").toString()));
     }
 
     private void secretPressed() {
