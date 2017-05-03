@@ -62,7 +62,7 @@ public class MediaController implements Initializable {
 	private double volume;
 	private Media playMedia;
 	private MediaPlayer mediaPlayer;
-	
+	private int index;
 	
 	
 	@Override
@@ -76,15 +76,15 @@ public class MediaController implements Initializable {
 		previousBtn.setOnAction(e->fileCheck(e));
 		
 		// listView 속성 감시하여 시작
-//		mediaList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-//            @Override
-//            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-//                mediaPlayer.stop();
-//                System.out.println(newValue);
-//                handleMedia(mediaFileList, newValue.indexOf(newValue));
-//                mediaPlayer.play();
-//            }
-//        });
+		mediaList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                mediaPlayer.stop();
+                System.out.println(newValue);
+                handleMedia(mediaFileList, nameList.indexOf(newValue));
+                mediaPlayer.play();
+            }
+        });
 	}	
 	private void handleAddList(ActionEvent e) {
 		
@@ -101,17 +101,18 @@ public class MediaController implements Initializable {
 			String mediaName = mediaFile.getName();
 			nameList.add(mediaName);
 			mediaList.setItems(nameList);
-			handleMedia(mediaFileList, 0);
+			handleMedia(mediaFileList, index);
+			index+=1;
 		}else fileChooserCheck(e);
 		
 	}
 
 	private void handleMedia(ObservableList<File> mediaFileList, int index) {
-		
-			playMedia = new Media(getClass().getResource("media/video.mp4").toString());
+			System.out.println(mediaFileList.get(index).toURI().toString());
+			playMedia = new Media(mediaFileList.get(index).toURI().toString());
 			mediaPlayer = new MediaPlayer(playMedia);
 			mediaView.setMediaPlayer(mediaPlayer);
-
+			
 			mediaPlayer.setOnReady(()->{
 				playBtn.setDisable(false);
 				pauseBtn.setDisable(true);
