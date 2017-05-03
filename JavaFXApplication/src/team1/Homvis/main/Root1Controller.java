@@ -51,7 +51,7 @@ public class Root1Controller implements Initializable {
     private ImageView menuIcon7;
     @FXML
     private Label clock;
-    
+
     public static ImageView menuicon1;
     public static ImageView menuicon2;
     public static ImageView menuicon3;
@@ -60,8 +60,6 @@ public class Root1Controller implements Initializable {
     public static ImageView menuicon6;
     public static ImageView menuicon7;
     public static ImageView menuicon8;
-    
-    
 
     public static String password;
     public static StackPane stackPane;
@@ -78,15 +76,14 @@ public class Root1Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        menuicon1=menuIcon1;
-        menuicon2=menuIcon2;
-        menuicon3=menuIcon3;
-        menuicon4=menuIcon4;
-        menuicon5=menuIcon5;
-        menuicon6=menuIcon6;
-        menuicon7=menuIcon7;
-        menuicon8=menuIcon8;
-        
+        menuicon1 = menuIcon1;
+        menuicon2 = menuIcon2;
+        menuicon3 = menuIcon3;
+        menuicon4 = menuIcon4;
+        menuicon5 = menuIcon5;
+        menuicon6 = menuIcon6;
+        menuicon7 = menuIcon7;
+        menuicon8 = menuIcon8;
 
         stackPane = sstackPane;
         //clock start
@@ -112,10 +109,22 @@ public class Root1Controller implements Initializable {
         ////////////////////////////clock end
 
         //아이콘 눌렀을때
-        menuIcon2.setOnMouseClicked(event -> secretClicked()); //암호설정 서브메뉴이동
-        menuIcon2.setOnMousePressed(event->secretPressed());
-        menuIcon3.setOnMouseClicked(event -> boilerClicked());
-        menuIcon3.setOnMousePressed(event -> boilerPressed());
+        menuIcon1.setOnMousePressed(event -> homePressed());
+        menuIcon1.setOnMouseClicked(event -> homeClicked());
+        menuIcon2.setOnMousePressed(event -> boilerPressed());
+        menuIcon2.setOnMouseClicked(event -> boilerClicked());
+        menuIcon3.setOnMousePressed(event -> elecNgasPressed());
+        menuIcon3.setOnMouseClicked(event -> elecNgasClicked());
+        menuIcon4.setOnMousePressed(event -> interphonePressed());
+        menuIcon4.setOnMouseClicked(event -> interphoneClicked());
+        menuIcon5.setOnMousePressed(event -> internetPressed());
+        menuIcon5.setOnMouseClicked(event -> internetClicked());
+        menuIcon6.setOnMousePressed(event -> playerPressed());
+        menuIcon6.setOnMouseClicked(event -> playerClicked());
+        menuIcon7.setOnMousePressed(event -> tariffPressed());
+        menuIcon7.setOnMouseClicked(event -> tariffClicked());
+        menuIcon8.setOnMousePressed(event -> secretPressed());
+        menuIcon8.setOnMouseClicked(event -> secretClicked()); //암호설정 서브메뉴이동
 
         //아이콘눌렀을때 끝
         menu.setTranslateX(0);
@@ -177,66 +186,6 @@ public class Root1Controller implements Initializable {
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
     }
-    
-        private void secretPressed() {
-        menuIcon2.setImage(new Image(getClass().getResource("images/secret_pressed.png").toString()));
-    }
-
-    private void secretClicked() {
-        menuIcon2.setImage(new Image(getClass().getResource("images/secret_clicked.png").toString()));
-        System.out.println("clicked");
-        Parent secretview;
-        try {
-            secretview = FXMLLoader.load(getClass().getResource("newpassword.fxml"));
-            stackPane.getChildren().add(secretview);
-            secretview.setTranslateX(0);
-            secretview.setOpacity(0);
-            KeyValue keyValue = new KeyValue(secretview.opacityProperty(), 1);
-            KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
-            Timeline timeline = new Timeline();
-            timeline.getKeyFrames().add(keyFrame);
-            timeline.play();
-
-            Label txt1 = (Label) secretview.lookup("#txt1");
-            Label txt2 = (Label) secretview.lookup("#txt2");
-            PasswordField password1 = (PasswordField) secretview.lookup("#password1");
-
-            if (secretCount > 0) {
-                txt1.setText("기존 비밀번호");
-                txt2.setText("신규 비밀번호");
-
-            }
-        } catch (IOException ex) {
-
-        }
-    }
-
-    private void boilerClicked() {
-        menuIcon3.setImage(new Image(getClass().getResource("images/boiler_clicked.png").toString()));
-        if (menu3PasswordChk == false) {
-            try {
-                Parent boilerview = FXMLLoader.load(getClass().getResource("boiler.fxml"));
-                stackPane.getChildren().add(boilerview);
-                boilerview.setTranslateX(0);
-                boilerview.setOpacity(0);
-                KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
-                KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
-                Timeline timeline = new Timeline();
-                timeline.getKeyFrames().add(keyFrame);
-                timeline.play();
-            } catch (IOException ex) {
-
-            }
-        } else {
-            passwordChk(2);
-
-        }
-
-    }
-
-    private void boilerPressed() {
-        menuIcon3.setImage(new Image(getClass().getResource("images/boiler_pressed.png").toString()));
-    }
 
     private void passwordChk(int value) { //각각의 menuicon들의 번호를 넘겨받음, passwordcontroll에서 암호가 맞을시에 창띄울때 사용
         Parent chkView;
@@ -277,6 +226,113 @@ public class Root1Controller implements Initializable {
         }
     }
 
+    private void homePressed() {
 
+    }
+
+    private void homeClicked() {
+
+    }
+    
+    private void boilerPressed() {
+        menuIcon3.setImage(new Image(getClass().getResource("images/boiler_pressed.png").toString()));
+    }
+    
+    private void boilerClicked() {
+        menuIcon3.setImage(new Image(getClass().getResource("images/boiler_clicked.png").toString()));
+        if (menu3PasswordChk == false) {
+            try {
+                Parent boilerview = FXMLLoader.load(getClass().getResource("boiler.fxml"));
+                stackPane.getChildren().add(boilerview);
+                boilerview.setTranslateX(0);
+                boilerview.setOpacity(0);
+                KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
+                KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
+                Timeline timeline = new Timeline();
+                timeline.getKeyFrames().add(keyFrame);
+                timeline.play();
+            } catch (IOException ex) {
+
+            }
+        } else {
+            passwordChk(2);
+
+        }
+
+    }
+
+
+    private void elecNgasPressed() {
+
+    }
+
+    private void elecNgasClicked() {
+
+    }
+
+    private void interphonePressed() {
+
+    }
+
+    private void interphoneClicked() {
+
+    }
+
+    private void internetPressed() {
+
+    }
+
+    private void internetClicked() {
+
+    }
+
+    private void playerPressed() {
+
+    }
+
+    private void playerClicked() {
+
+    }
+
+    private void tariffPressed() {
+        
+    }
+
+    private void tariffClicked() {
+       
+    }
+    
+    private void secretPressed() {
+        menuIcon2.setImage(new Image(getClass().getResource("images/secret_pressed.png").toString()));
+    }
+
+    private void secretClicked() {
+        menuIcon2.setImage(new Image(getClass().getResource("images/secret_clicked.png").toString()));
+        System.out.println("clicked");
+        Parent secretview;
+        try {
+            secretview = FXMLLoader.load(getClass().getResource("newpassword.fxml"));
+            stackPane.getChildren().add(secretview);
+            secretview.setTranslateX(0);
+            secretview.setOpacity(0);
+            KeyValue keyValue = new KeyValue(secretview.opacityProperty(), 1);
+            KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
+            Timeline timeline = new Timeline();
+            timeline.getKeyFrames().add(keyFrame);
+            timeline.play();
+
+            Label txt1 = (Label) secretview.lookup("#txt1");
+            Label txt2 = (Label) secretview.lookup("#txt2");
+            PasswordField password1 = (PasswordField) secretview.lookup("#password1");
+
+            if (secretCount > 0) {
+                txt1.setText("기존 비밀번호");
+                txt2.setText("신규 비밀번호");
+
+            }
+        } catch (IOException ex) {
+
+        }
+    }
 
 }
