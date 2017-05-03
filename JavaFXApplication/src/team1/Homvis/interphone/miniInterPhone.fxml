@@ -10,29 +10,36 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane prefHeight="240.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane prefHeight="240.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.interphone.MiniInterPhoneController">
    <children>
       <BorderPane>
          <right>
             <VBox alignment="BOTTOM_CENTER" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="phoneBtn" mnemonicParsing="false" prefWidth="80.0" text="통화">
+                  <ImageView fx:id="phoneBtn" fitHeight="20.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button mnemonicParsing="false" prefWidth="80.0" text="통화">
                      <VBox.margin>
                         <Insets bottom="20.0" />
                      </VBox.margin></Button>
-                  <Button fx:id="openBtn" mnemonicParsing="false" prefWidth="80.0" text="문열림">
+                  <ImageView fx:id="openBtn" fitHeight="20.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button mnemonicParsing="false" prefWidth="80.0" text="문열림">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin></Button>
-                  <Button fx:id="closeBtn" mnemonicParsing="false" prefWidth="80.0" text="나가기">
+                  <ImageView fx:id="closeBtn" fitHeight="20.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
-                        <Insets bottom="20.0" top="30.0" />
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <Button mnemonicParsing="false" prefWidth="80.0" text="나가기">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
                      </VBox.margin></Button>
                </children>
             </VBox>
          </right>
          <top>
-            <Label text="공동현관" BorderPane.alignment="CENTER">
+            <Label fx:id="locationlb" text="공동현관" BorderPane.alignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>

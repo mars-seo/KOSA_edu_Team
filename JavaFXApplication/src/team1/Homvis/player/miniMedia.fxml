@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.media.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
@@ -28,60 +29,48 @@
                <center>
                   <HBox BorderPane.alignment="CENTER">
                      <children>
-                        <Button fx:id="previousBtn" mnemonicParsing="false">
-                           <graphic>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@playerImg/backward.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button fx:id="pauseBtn" mnemonicParsing="false">
-                           <graphic>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@playerImg/pause.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button fx:id="playBtn" mnemonicParsing="false">
-                           <graphic>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@playerImg/play.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button fx:id="stopBtn" mnemonicParsing="false">
-                           <graphic>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@playerImg/stop.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button fx:id="nextBtn" mnemonicParsing="false">
-                           <graphic>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@playerImg/fast-forward.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button fx:id="uploadBtn" mnemonicParsing="false">
-                           <graphic>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@playerImg/eject.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
+                        <ImageView fx:id="previousBtn" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@playerImg/backward.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="2.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fx:id="pauseBtn" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@playerImg/pause.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="playBtn" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@playerImg/play.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="2.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fx:id="stopBtn" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@playerImg/stop.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="2.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fx:id="nextBtn" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@playerImg/fast-forward.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="2.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fx:id="uploadBtn" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@playerImg/eject.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </HBox>
                </center>
@@ -99,16 +88,12 @@
          <right>
             <AnchorPane>
                <children>
-                  <ListView fx:id="mediaList" maxHeight="-Infinity" prefHeight="180.0" prefWidth="90.0" BorderPane.alignment="TOP_CENTER" />
-                  <Button fx:id="deleteBtn" layoutX="62.0" layoutY="182.0" mnemonicParsing="false">
-                     <graphic>
-                        <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true">
-                           <image>
-                              <Image url="@playerImg/substract.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
+                  <ListView fx:id="mediaList" maxHeight="-Infinity" prefHeight="190.0" prefWidth="90.0" BorderPane.alignment="TOP_CENTER" />
+                  <ImageView fx:id="deleteBtn" fitHeight="20.0" fitWidth="20.0" layoutX="70.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@playerImg/substract.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </right>

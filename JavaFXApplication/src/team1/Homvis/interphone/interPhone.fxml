@@ -10,26 +10,37 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.interphone.InterPhoneController">
    <children>
       <ImageView fitHeight="450.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" />
       <BorderPane>
          <right>
             <VBox alignment="BOTTOM_CENTER" BorderPane.alignment="BOTTOM_CENTER">
                <children>
-                  <Button fx:id="phoneBtn" mnemonicParsing="false" prefHeight="30.0" prefWidth="119.0" text="통화" />
-                  <Button fx:id="openBtn" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="문열림">
+                  <ImageView fx:id="phoneBtn" fitHeight="30.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="119.0" text="통화" />
+                  <ImageView fx:id="openBtn" fitHeight="30.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="문열림">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin></Button>
+                  <ImageView fx:id="closeBtn" fitHeight="30.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
                         <Insets top="40.0" />
-                     </VBox.margin></Button>
-                  <Button fx:id="closeBtn" mnemonicParsing="false" prefHeight="20.0" prefWidth="120.0" text="나가기">
+                     </VBox.margin>
+                  </ImageView>
+                  <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="120.0" text="나가기">
                      <VBox.margin>
-                        <Insets bottom="30.0" top="50.0" />
+                        <Insets bottom="30.0" />
                      </VBox.margin></Button>
                </children></VBox>
          </right>
          <top>
-            <Label alignment="TOP_CENTER" text="공동 현관" BorderPane.alignment="CENTER">
+            <Label fx:id="locationlb" alignment="TOP_CENTER" text="공동 현관" BorderPane.alignment="CENTER">
                <font>
                   <Font size="30.0" />
                </font>
