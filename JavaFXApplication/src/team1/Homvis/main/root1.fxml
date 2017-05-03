@@ -7,11 +7,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane fx:id="sstackPane" alignment="BOTTOM_LEFT" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.kcm.Root1Controller">
+<StackPane fx:id="sstackPane" alignment="BOTTOM_LEFT" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.main.Root1Controller">
    <children>
       <ImageView fx:id="background" fitHeight="480.0" fitWidth="800.0" pickOnBounds="true">
          <image>
-            <Image url="@images/main.png" />
+            <Image url="@images/main_background.png" />
          </image>
       </ImageView>
       <Label fx:id="clock" text="00:00:00" />
@@ -19,42 +19,42 @@
          <children>
             <ImageView fx:id="menuIcon1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/home_default.png" />
+                  <Image url="@images/main_home_default.png" />
                </image>
             </ImageView>
             <ImageView fx:id="menuIcon2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/secret_default.png" />
+                  <Image url="@images/main_boiler_default.png" />
                </image>
             </ImageView>
             <ImageView fx:id="menuIcon3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/boiler_default.png" />
+                  <Image url="@images/main_elecNgas_default.png" />
                </image>
             </ImageView>
             <ImageView fx:id="menuIcon4" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/alarm.PNG" />
+                  <Image url="@images/main_interphone_default.PNG" />
                </image>
             </ImageView>
-            <ImageView fx:id="menuIcon5" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="menuIcon5" fitHeight="75.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/alarm.PNG" />
+                  <Image url="@images/main_internet_default.PNG" />
                </image>
             </ImageView>
             <ImageView fx:id="menuIcon6" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/alarm.PNG" />
+                  <Image url="@images/main_media_default.PNG" />
                </image>
             </ImageView>
             <ImageView fx:id="menuIcon7" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/alarm.PNG" />
+                  <Image url="@images/main_tariff_default.PNG" />
                </image>
             </ImageView>
             <ImageView fx:id="menuIcon8" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/alarm.PNG" />
+                  <Image url="@images/main_secret_default.png" />
                </image>
             </ImageView>
          </children>
