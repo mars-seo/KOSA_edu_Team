@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane fx:id="sstackPane" alignment="BOTTOM_LEFT" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.kcm.Root1Controller">
+<StackPane fx:id="sstackPane" alignment="BOTTOM_LEFT" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.main.Root1Controller">
    <children>
       <ImageView fx:id="background" fitHeight="480.0" fitWidth="800.0" pickOnBounds="true">
          <image>

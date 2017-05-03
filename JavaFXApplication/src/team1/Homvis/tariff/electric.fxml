@@ -10,7 +10,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane fx:id="mainStackPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.jdj.ElectricController">
+<StackPane fx:id="mainStackPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.tariff.ElectricController">
    <children>
       <AnchorPane id="AnchorPane" fx:id="gasMainAnchorPane" prefHeight="400.0" prefWidth="600.0">
          <children>

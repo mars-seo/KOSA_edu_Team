@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="400.0"
-            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.jdj.MiniController">
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.tariff.MiniController">
    <children>
       <Label layoutX="112.0" layoutY="162.0" text="전기요금" />
       <Label layoutX="112.0" layoutY="188.0" text="가스요금" />

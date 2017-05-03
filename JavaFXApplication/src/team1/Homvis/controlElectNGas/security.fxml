@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.kjm.SecurityController">
+<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.controlElectNGas.SecurityController">
    <children>
       <ImageView fx:id="imgSecurityState" fitHeight="200.0" fitWidth="200.0" layoutX="226.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
          <image>
