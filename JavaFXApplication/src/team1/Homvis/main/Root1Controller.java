@@ -191,7 +191,6 @@ public class Root1Controller implements Initializable {
         timeline.play();
     }
 
-
     private void passwordChk(int value) { //각각의 menuicon들의 번호를 넘겨받음, passwordcontroll에서 암호가 맞을시에 창띄울때 사용
         Parent chkView;
         secretCount = value;
@@ -275,6 +274,11 @@ public class Root1Controller implements Initializable {
 
     private void elecNgasClicked() {
         menuIcon3.setImage(new Image(getClass().getResource("images/main_elecNgas_clicked.png").toString()));
+        if (menu3PasswordChk == false) {
+
+        } else {
+            passwordChk(3);
+        }
 
     }
 
@@ -284,6 +288,11 @@ public class Root1Controller implements Initializable {
 
     private void interphoneClicked() {
         menuIcon4.setImage(new Image(getClass().getResource("images/main_interphone_clicked.png").toString()));
+        if (menu4PasswordChk == false) {
+
+        } else {
+            passwordChk(4);
+        }
     }
 
     private void internetPressed() {
@@ -291,6 +300,11 @@ public class Root1Controller implements Initializable {
     }
 
     private void internetClicked() {
+        if (menu5PasswordChk == false) {
+
+        } else {
+            passwordChk(5);
+        }
 
     }
 
@@ -300,6 +314,11 @@ public class Root1Controller implements Initializable {
 
     private void playerClicked() {
         menuIcon6.setImage(new Image(getClass().getResource("images/main_player_clicked.png").toString()));
+        if (menu6PasswordChk == false) {
+
+        } else {
+            passwordChk(6);
+        }
     }
 
     private void tariffPressed() {
@@ -308,6 +327,11 @@ public class Root1Controller implements Initializable {
 
     private void tariffClicked() {
         menuIcon7.setImage(new Image(getClass().getResource("images/main_tariff_clicked.png").toString()));
+        if (menu7PasswordChk == false) {
+
+        } else {
+            passwordChk(7);
+        }
     }
 
     private void secretPressed() {
