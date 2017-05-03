@@ -55,6 +55,8 @@ public class MediaController implements Initializable {
 	private MediaView mediaView;
 	@FXML
 	private ListView<String> mediaList;
+	@FXML
+	private Button deleteBtn;
 	
 	private ObservableList<String> nameList = FXCollections.observableArrayList();
 	private ObservableList<File> mediaFileList = FXCollections.observableArrayList();
@@ -64,7 +66,7 @@ public class MediaController implements Initializable {
 	private MediaPlayer mediaPlayer;
 	private int index;
 	
-	
+		
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 
@@ -85,6 +87,7 @@ public class MediaController implements Initializable {
                 mediaPlayer.play();
             }
         });
+		deleteBtn.setOnAction(e->handleDelete());
 	}	
 	private void handleAddList(ActionEvent e) {
 		
@@ -244,6 +247,10 @@ public class MediaController implements Initializable {
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			}
+	}
+
+	private void handleDelete() {
+		
 	}
 	
 }

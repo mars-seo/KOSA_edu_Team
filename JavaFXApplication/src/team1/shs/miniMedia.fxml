@@ -97,7 +97,20 @@
             </AnchorPane>
          </center>
          <right>
-            <ListView fx:id="mediaList" maxHeight="-Infinity" prefHeight="190.0" prefWidth="90.0" BorderPane.alignment="CENTER" />
+            <AnchorPane>
+               <children>
+                  <ListView fx:id="mediaList" maxHeight="-Infinity" prefHeight="180.0" prefWidth="90.0" BorderPane.alignment="TOP_CENTER" />
+                  <Button fx:id="deleteBtn" layoutX="62.0" layoutY="182.0" mnemonicParsing="false">
+                     <graphic>
+                        <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@images/substract.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
          </right>
       </BorderPane>
    </children>
