@@ -86,6 +86,7 @@ public class Root1Controller implements Initializable {
         menuicon8 = menuIcon8;
 
         stackPane = sstackPane;
+
         //clock start
         Thread thread = new Thread() {
             @Override
@@ -126,7 +127,7 @@ public class Root1Controller implements Initializable {
         menuIcon8.setOnMousePressed(event -> secretPressed());
         menuIcon8.setOnMouseClicked(event -> secretClicked()); //암호설정 서브메뉴이동
 
-        //아이콘눌렀을때 끝
+        //메뉴시작위치
         menu.setTranslateX(0);
         menu.setTranslateY(200);
 ////////////////
@@ -233,11 +234,11 @@ public class Root1Controller implements Initializable {
     private void homeClicked() {
 
     }
-    
+
     private void boilerPressed() {
         menuIcon3.setImage(new Image(getClass().getResource("images/boiler_pressed.png").toString()));
     }
-    
+
     private void boilerClicked() {
         menuIcon3.setImage(new Image(getClass().getResource("images/boiler_clicked.png").toString()));
         if (menu3PasswordChk == false) {
@@ -260,7 +261,6 @@ public class Root1Controller implements Initializable {
         }
 
     }
-
 
     private void elecNgasPressed() {
 
@@ -295,13 +295,13 @@ public class Root1Controller implements Initializable {
     }
 
     private void tariffPressed() {
-        
+
     }
 
     private void tariffClicked() {
-       
+
     }
-    
+
     private void secretPressed() {
         menuIcon2.setImage(new Image(getClass().getResource("images/secret_pressed.png").toString()));
     }
