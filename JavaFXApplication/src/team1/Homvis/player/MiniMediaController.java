@@ -8,7 +8,6 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,6 +17,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -30,17 +30,17 @@ import javafx.util.Duration;
 public class MiniMediaController implements Initializable {
 
 	@FXML
-	private Button previousBtn;
+	private ImageView previousBtn;
 	@FXML
-	private Button pauseBtn;
+	private ImageView pauseBtn;
 	@FXML
-	private Button playBtn;
+	private ImageView playBtn;
 	@FXML
-	private Button stopBtn;
+	private ImageView stopBtn;
 	@FXML
-	private Button nextBtn;
+	private ImageView nextBtn;
 	@FXML
-	private Button uploadBtn;
+	private ImageView uploadBtn;
 	@FXML
 	private ImageView imgSound;
 	@FXML
@@ -54,9 +54,8 @@ public class MiniMediaController implements Initializable {
 	@FXML
 	private ListView<String> mediaList;
 	@FXML
-	private Button deleteBtn;
+	private ImageView deleteBtn;
 	
-
 	private ObservableList<String> nameList = FXCollections.observableArrayList();
 	private ObservableList<File> mediaFileList = FXCollections.observableArrayList();
 	private boolean mute;
@@ -65,17 +64,16 @@ public class MiniMediaController implements Initializable {
 	private MediaPlayer mediaPlayer;
 	private int index;
 	
-	
-	
+		
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-
-		uploadBtn.setOnAction(e->handleAddList(e));	
-		playBtn.setOnAction(e->fileCheck(e));
-		pauseBtn.setOnAction(e->fileCheck(e));
-		stopBtn.setOnAction(e->fileCheck(e));
-		nextBtn.setOnAction(e->fileCheck(e));
-		previousBtn.setOnAction(e->fileCheck(e));
+		
+		uploadBtn.setOnMouseClicked(e->handleAddList(e));
+		playBtn.setOnMouseClicked(e->fileCheck(e));
+		pauseBtn.setOnMouseClicked(e->fileCheck(e));
+		stopBtn.setOnMouseClicked(e->fileCheck(e));
+		nextBtn.setOnMouseClicked(e->fileCheck(e));
+		previousBtn.setOnMouseClicked(e->fileCheck(e));
 		
 		// listView 속성 감시하여 시작
 		mediaList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
@@ -87,15 +85,16 @@ public class MiniMediaController implements Initializable {
                 mediaPlayer.play();
             }
         });
+		deleteBtn.setOnMouseClicked(e->handleDelete());
 	}	
-	private void handleAddList(ActionEvent e) {
+	private void handleAddList(MouseEvent e) {
 		
 		//파일을 확장자 필터로 걸러서 받고 객체로 받기
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.getExtensionFilters().addAll(
 			new FileChooser.ExtensionFilter("media files", "*.mp4","*.avi","*.mkv","*.m4v","*.wav","*.mp3","*.wmv")
 		);
-		File mediaFile = fileChooser.showOpenDialog(((Button)e.getSource()).getScene().getWindow());
+		File mediaFile = fileChooser.showOpenDialog(((ImageView)e.getSource()).getScene().getWindow());
 		if(mediaFile!=null){
 			//받은 파일을 파일 리스트에 넣기
 			mediaFileList.add(mediaFile);
@@ -139,15 +138,15 @@ public class MiniMediaController implements Initializable {
 
 			});
 
-			playBtn.setOnAction(e->mediaPlayer.play());
-			pauseBtn.setOnAction(e->mediaPlayer.pause());
-			stopBtn.setOnAction(e->mediaPlayer.stop());
-			nextBtn.setOnAction(e->handleMedia(mediaFileList, index+1));
-			previousBtn.setOnAction(e->handleMedia(mediaFileList, index-1));
+			playBtn.setOnMouseClicked(e->mediaPlayer.play());
+			pauseBtn.setOnMouseClicked(e->mediaPlayer.pause());
+			stopBtn.setOnMouseClicked(e->mediaPlayer.stop());
+			nextBtn.setOnMouseClicked(e->handleMedia(mediaFileList, index+1));
+			previousBtn.setOnMouseClicked(e->handleMedia(mediaFileList, index-1));
 			
 			//실행시 처음 볼륨값과 이미지 세팅
 			volumeSlider.setValue(50);
-			imgSound.setImage(new Image(getClass().getResource("images/speaker.png").toString()));
+			imgSound.setImage(new Image(getClass().getResource("playerImg/speaker.png").toString()));
 			
 			//슬라이더 속성감시로 볼륨의 크기 세팅
 			volumeSlider.valueProperty().addListener(new ChangeListener<Number>() {
@@ -155,17 +154,17 @@ public class MiniMediaController implements Initializable {
 				public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
 					mediaPlayer.setVolume(newValue.doubleValue()/100.0);
 					volume = oldValue.doubleValue(); // 음소거 해제 시 전 설정값 세팅
-					imgSound.setImage(new Image(getClass().getResource("images/speaker.png").toString()));
+					imgSound.setImage(new Image(getClass().getResource("playerImg/speaker.png").toString()));
 				}
 			});
 			//음소거와 음소거 해제를 이미지 클릭으로 설정
 			imgSound.setOnMouseClicked(e->{
 				if(!mute){
 					volumeSlider.setValue(0);
-					imgSound.setImage(new Image(getClass().getResource("images/mute.png").toString()));
+					imgSound.setImage(new Image(getClass().getResource("playerImg/mute.png").toString()));
 				}else{
 					volumeSlider.setValue(volume);
-					imgSound.setImage(new Image(getClass().getResource("images/speaker.png").toString()));
+					imgSound.setImage(new Image(getClass().getResource("playerImg/speaker.png").toString()));
 				}
 				mute = !mute;
 			});
@@ -220,7 +219,7 @@ public class MiniMediaController implements Initializable {
 	}
 	
 	// 업로드 하지 않은 상태에서 버튼을 누르면 뜨는 팝업
-	private void fileCheck(ActionEvent e) {
+	private void fileCheck(MouseEvent e) {
 		if(mediaPlayer==null) {
 			try {
 				Popup popup = new Popup();
@@ -235,7 +234,7 @@ public class MiniMediaController implements Initializable {
 	}
 	
 	//파일 업로드를 하지 않거나 취소하면 뜨는 팝업
-	private void fileChooserCheck(ActionEvent e) {
+	private void fileChooserCheck(MouseEvent e) {
 		
 			try {
 				Popup popup = new Popup();
@@ -246,6 +245,10 @@ public class MiniMediaController implements Initializable {
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			}
+	}
+
+	private void handleDelete() {
+		
 	}
 	
 }
