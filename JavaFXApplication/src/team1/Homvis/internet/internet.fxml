@@ -18,9 +18,30 @@
                 </ToggleButton>
                 <ToggleButton fx:id="youtubeButton" layoutX="72.0" mnemonicParsing="false" text="Youtube" toggleGroup="$SelectGroup" />
                 <WebView fx:id="newsWebView" layoutX="12.0" layoutY="39.0" prefHeight="410.0" prefWidth="776.0" />
-            <Button fx:id="refresh" layoutX="172.0" mnemonicParsing="false" text="Refresh" />
-            <Button fx:id="backButton" layoutX="261.0" mnemonicParsing="false" text="Back" />
-            <Button fx:id="forwardButton" layoutX="325.0" mnemonicParsing="false" text="forward" />
+                <Button fx:id="refresh" layoutX="172.0" mnemonicParsing="false" text="Refresh" />
+                <Button fx:id="backButton" layoutX="261.0" mnemonicParsing="false" text="Back" />
+                <Button fx:id="forwardButton" layoutX="325.0" mnemonicParsing="false" text="forward" />
+            <ToggleButton fx:id="favoriteToggle" layoutX="414.0" mnemonicParsing="false" text="favorite" />
+                <StackPane fx:id="changeableStackPane" layoutX="529.0" layoutY="14.0" prefHeight="420.0" prefWidth="250.0" visible="false">
+                    <children>
+                  <VBox>
+                     <children>
+                        <HBox prefHeight="45.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="favoritAdd" mnemonicParsing="false" text="즐겨찾기 추가" />
+                              <Button fx:id="favoriteDelete" mnemonicParsing="false" text="즐겨찾기 삭제" />
+                           </children>
+                        </HBox>
+                              <TableView fx:id="table" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="375.0" prefWidth="250.0">
+                                  <columns>
+                                      <TableColumn fx:id="siteColumn" prefWidth="75.0" text="site" />
+                                      <TableColumn fx:id="urlColumn" prefWidth="175.0" text="url" />
+                                  </columns>
+                              </TableView>
+                     </children>
+                  </VBox>
+                    </children>
+                </StackPane>
             </children>
         </AnchorPane>
     </children>
