@@ -1,7 +1,5 @@
 package team1.Homvis.internet;
 
-import team1.Homvis.tariff.*;
-import team1.Homvis.move.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,7 +15,7 @@ public class testAppMain4_2 extends Application{
 //        Parent parent = FXMLLoader.load(getClass().getResource("controlMini.fxml"));
 
         Scene scene = new Scene(parent);
-        primaryStage.setTitle("KJM");
+        primaryStage.setTitle("동주꺼");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

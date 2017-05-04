@@ -1,6 +1,5 @@
 package team1.Homvis.tariff;
 
-import team1.Homvis.move.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,11 +11,9 @@ public class testAppMain4_1 extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
 	      Parent parent = FXMLLoader.load(getClass().getResource("root.fxml"));
-//       Parent parent = FXMLLoader.load(getClass().getResource("control.fxml"));
-//        Parent parent = FXMLLoader.load(getClass().getResource("controlMini.fxml"));
 
         Scene scene = new Scene(parent);
-        primaryStage.setTitle("KJM");
+        primaryStage.setTitle("동주꺼");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
