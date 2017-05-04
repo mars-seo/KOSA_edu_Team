@@ -11,22 +11,52 @@
    <children>
       <ImageView fitHeight="480.0" fitWidth="800.0" pickOnBounds="true">
          <image>
-            <Image url="@images/U1uIcZ.jpg" />
+            <Image url="@images/tex.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="exit" fitHeight="85.0" fitWidth="101.0" layoutX="529.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="exit" fitHeight="62.0" fitWidth="82.0" layoutX="543.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/x.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="100.0" fitWidth="120.0" layoutX="28.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="85.0" fitWidth="96.0" layoutX="21.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/semo.PNG" />
+            <Image url="@images/up.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="8.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="85.0" fitWidth="144.0" layoutX="8.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/wifi.PNG" />
+            <Image url="@images/wifi_1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="100.0" fitWidth="117.0" layoutX="14.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/heat.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="99.0" fitWidth="130.0" layoutX="15.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/down.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="82.0" fitWidth="96.0" layoutX="25.0" layoutY="399.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/timer.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="99.0" fitWidth="108.0" layoutX="481.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/up.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="85.0" fitWidth="96.0" layoutX="501.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/water.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="106.0" fitWidth="155.0" layoutX="464.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/down.png" />
          </image>
       </ImageView>
    </children>
