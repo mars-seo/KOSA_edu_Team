@@ -10,7 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import team1.Homvis.main.mainController;
 
-public class BoilerController implements Initializable {
+public class boilerController implements Initializable {
 
     @FXML
     private AnchorPane boilerRoot;
@@ -113,7 +113,33 @@ public class BoilerController implements Initializable {
         waterOn.setOnMouseClicked(event->waterOn());
         goOut.setOnMouseClicked(event->goOut());
 
+<<<<<<< HEAD
         
+=======
+        XYChart.Series<String, Integer> series1 = new XYChart.Series<>();
+        series1.setName("남자");
+        ObservableList<XYChart.Data<String, Integer>> data2 = FXCollections.observableArrayList();
+
+        data2.add(new XYChart.Data<String, Integer>("0", 10));
+        data2.add(new XYChart.Data<String, Integer>("1", 10));
+        data2.add(new XYChart.Data<String, Integer>("2", 10));
+        data2.add(new XYChart.Data<String, Integer>("3", 10));
+        data2.add(new XYChart.Data<String, Integer>("4", 10));
+        data2.add(new XYChart.Data<String, Integer>("5", 10));
+        data2.add(new XYChart.Data<String, Integer>("6", 10));
+        data2.add(new XYChart.Data<String, Integer>("7", 10));
+        data2.add(new XYChart.Data<String, Integer>("8", 10));
+        data2.add(new XYChart.Data<String, Integer>("9", 10));
+        data2.add(new XYChart.Data<String, Integer>("10", 10));
+        data2.add(new XYChart.Data<String, Integer>("11", 10));
+        data2.add(new XYChart.Data<String, Integer>("12", 10));
+        data2.add(new XYChart.Data<String, Integer>("15", 10));
+        data2.add(new XYChart.Data<String, Integer>("18", 10));
+        data2.add(new XYChart.Data<String, Integer>("21", 10));
+        data2.add(new XYChart.Data<String, Integer>("24", 10));
+        series1.setData(data2);
+        //barChar.getData().add(series1);
+>>>>>>> origin/master
     }
 
     private void exit() {

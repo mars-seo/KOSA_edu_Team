@@ -1,6 +1,5 @@
 package team1.Homvis.secret;
 
-import team1.Homvis.main.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -23,6 +22,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import static team1.Homvis.main.mainController.secretCount;
 import static team1.Homvis.main.mainController.stackPane;
+import team1.Homvis.main.mainController;
 
 public class NewpasswordController implements Initializable {
 
@@ -201,18 +201,17 @@ public class NewpasswordController implements Initializable {
             if (passwordValue.equals(mainController.password)) {
                 secretCount = 1;
                 off();
-                try {
-                    Parent boilerview = FXMLLoader.load(getClass().getResource("../boiler/boiler.fxml"));
-                    stackPane.getChildren().add(boilerview);
-                    boilerview.setTranslateX(0);
-                    boilerview.setOpacity(0);
-                    KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
-                    KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
-                    Timeline timeline = new Timeline();
-                    timeline.getKeyFrames().add(keyFrame);
-                    timeline.play();
-                } catch (IOException ex) {
-                }
+               
+				Parent boilerview = mainController.parent.get(1);
+				stackPane.getChildren().add(boilerview);
+				boilerview.setTranslateX(0);
+				boilerview.setOpacity(0);
+				KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
+				KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
+				Timeline timeline = new Timeline();
+				timeline.getKeyFrames().add(keyFrame);
+				timeline.play();
+              
             } else {
                 warning.setText("패스워드를 정확히 입력해주세요.");
             }
@@ -221,7 +220,15 @@ public class NewpasswordController implements Initializable {
             if (passwordValue.equals(mainController.password)) {
                 secretCount = 1;
                 off();
-                ////////////////합칠때 추가해야함
+                Parent boilerview = mainController.parent.get(2);
+				stackPane.getChildren().add(boilerview);
+				boilerview.setTranslateX(0);
+				boilerview.setOpacity(0);
+				KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
+				KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
+				Timeline timeline = new Timeline();
+				timeline.getKeyFrames().add(keyFrame);
+				timeline.play();
             } else {
                 warning.setText("패스워드를 정확히 입력해주세요.");
             }
@@ -231,7 +238,15 @@ public class NewpasswordController implements Initializable {
             if (passwordValue.equals(mainController.password)) {
                 secretCount = 1;
                 off();
-                ////////////////합칠때 추가해야함
+                Parent boilerview = mainController.parent.get(3);
+				stackPane.getChildren().add(boilerview);
+				boilerview.setTranslateX(0);
+				boilerview.setOpacity(0);
+				KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
+				KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
+				Timeline timeline = new Timeline();
+				timeline.getKeyFrames().add(keyFrame);
+				timeline.play();
             } else {
                 warning.setText("패스워드를 정확히 입력해주세요.");
             }
@@ -241,7 +256,15 @@ public class NewpasswordController implements Initializable {
             if (passwordValue.equals(mainController.password)) {
                 secretCount = 1;
                 off();
-                ////////////////합칠때 추가해야함
+                Parent boilerview = mainController.parent.get(4);
+				stackPane.getChildren().add(boilerview);
+				boilerview.setTranslateX(0);
+				boilerview.setOpacity(0);
+				KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
+				KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
+				Timeline timeline = new Timeline();
+				timeline.getKeyFrames().add(keyFrame);
+				timeline.play();
             } else {
                 warning.setText("패스워드를 정확히 입력해주세요.");
             }
@@ -251,7 +274,15 @@ public class NewpasswordController implements Initializable {
             if (passwordValue.equals(mainController.password)) {
                 secretCount = 1;
                 off();
-                ////////////////합칠때 추가해야함
+                Parent boilerview = mainController.parent.get(5);
+				stackPane.getChildren().add(boilerview);
+				boilerview.setTranslateX(0);
+				boilerview.setOpacity(0);
+				KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
+				KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
+				Timeline timeline = new Timeline();
+				timeline.getKeyFrames().add(keyFrame);
+				timeline.play();
             } else {
                 warning.setText("패스워드를 정확히 입력해주세요.");
             }
@@ -260,7 +291,15 @@ public class NewpasswordController implements Initializable {
             if (passwordValue.equals(mainController.password)) {
                 secretCount = 1;
                 off();
-                ////////////////합칠때 추가해야함
+                Parent boilerview = mainController.parent.get(6);
+				stackPane.getChildren().add(boilerview);
+				boilerview.setTranslateX(0);
+				boilerview.setOpacity(0);
+				KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
+				KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
+				Timeline timeline = new Timeline();
+				timeline.getKeyFrames().add(keyFrame);
+				timeline.play();
             } else {
                 warning.setText("패스워드를 정확히 입력해주세요.");
             }
