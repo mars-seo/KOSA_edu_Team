@@ -88,8 +88,8 @@
          <right>
             <AnchorPane>
                <children>
-                  <ListView fx:id="mediaList" maxHeight="-Infinity" prefHeight="190.0" prefWidth="90.0" BorderPane.alignment="TOP_CENTER" />
-                  <ImageView fx:id="deleteBtn" fitHeight="20.0" fitWidth="20.0" layoutX="70.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true">
+                  <ListView fx:id="mediaList" layoutY="22.0" maxHeight="-Infinity" prefHeight="170.0" prefWidth="90.0" BorderPane.alignment="TOP_CENTER" />
+                  <ImageView fx:id="deleteBtn" fitHeight="19.0" fitWidth="19.0" layoutX="70.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@playerImg/substract.png" />
                      </image>

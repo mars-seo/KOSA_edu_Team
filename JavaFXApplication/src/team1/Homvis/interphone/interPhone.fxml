@@ -10,18 +10,23 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.interphone.InterPhoneController">
+<StackPane maxHeight="-Infinity" prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.interphone.InterPhoneController">
    <children>
       <ImageView fitHeight="450.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" />
-      <BorderPane>
+      <BorderPane maxHeight="450.0">
          <right>
             <VBox alignment="BOTTOM_CENTER" BorderPane.alignment="BOTTOM_CENTER">
                <children>
-                  <ImageView fx:id="phoneBtn" fitHeight="30.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="phoneBtn1" fitHeight="30.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="119.0" text="공동/현관" />
+                  <ImageView fx:id="phoneBtn" fitHeight="30.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin></ImageView>
                   <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="119.0" text="통화" />
                   <ImageView fx:id="openBtn" fitHeight="30.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
-                        <Insets top="30.0" />
+                        <Insets top="20.0" />
                      </VBox.margin>
                   </ImageView>
                   <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="문열림">
@@ -30,32 +35,36 @@
                      </VBox.margin></Button>
                   <ImageView fx:id="closeBtn" fitHeight="30.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
-                        <Insets top="40.0" />
+                        <Insets top="30.0" />
                      </VBox.margin>
                   </ImageView>
                   <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="120.0" text="나가기">
                      <VBox.margin>
-                        <Insets bottom="30.0" />
+                        <Insets bottom="20.0" />
                      </VBox.margin></Button>
                </children></VBox>
          </right>
-         <top>
-            <Label fx:id="locationlb" alignment="TOP_CENTER" text="공동 현관" BorderPane.alignment="CENTER">
-               <font>
-                  <Font size="30.0" />
-               </font>
-               <padding>
-                  <Insets top="10.0" />
-               </padding>
-            </Label>
-         </top>
          <center>
             <StackPane maxHeight="-Infinity" maxWidth="-Infinity" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
                <children>
-                  <MediaView fitHeight="370.0" fitWidth="650.0" />
+                  <MediaView fitHeight="380.0" fitWidth="650.0" />
                </children>
             </StackPane>
          </center>
+         <top>
+            <AnchorPane maxHeight="-Infinity" prefHeight="60.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="locationlb" alignment="TOP_CENTER" layoutX="270.0" layoutY="14.0" prefHeight="20.0" prefWidth="130.0" text="공동 현관">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </top>
       </BorderPane>
    </children>
 </StackPane>
