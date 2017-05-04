@@ -50,8 +50,8 @@ public class mainController implements Initializable {
     private ImageView menuIcon8;
     @FXML
     private Label clock;
-	
-	public static int secretCount = 0;
+
+    public static int secretCount = 0;
     private static int count = -1;
     private static double xValue;
 
@@ -74,33 +74,34 @@ public class mainController implements Initializable {
     public static boolean menu6PasswordChk = false;
     public static boolean menu7PasswordChk = false;
     public static boolean menu8PasswordChk = false;
-	
-	private List<String> menuList = new ArrayList<>();
-	private List<Parent> parent = new ArrayList<>();
-	public mainController(){
-		try {
-			this.parent.add(FXMLLoader.load(getClass().getResource("../newMain/newMenu.fxml")));
+
+    private List<String> menuList = new ArrayList<>();
+    private List<Parent> parent = new ArrayList<>();
+
+    public mainController() {
+        try {
+            this.parent.add(FXMLLoader.load(getClass().getResource("../newMain/newMenu.fxml")));
             this.parent.add(FXMLLoader.load(getClass().getResource("../boiler/boiler.fxml")));
             this.parent.add(FXMLLoader.load(getClass().getResource("../controlElectNGas/control.fxml")));
-			this.parent.add(FXMLLoader.load(getClass().getResource("../interphone/interPhone.fxml")));
-			this.parent.add(FXMLLoader.load(getClass().getResource("../internet/internet.fxml")));
-			this.parent.add(FXMLLoader.load(getClass().getResource("../player/media.fxml")));
-			this.parent.add(FXMLLoader.load(getClass().getResource("../tariff/root.fxml")));
-			//this.parent.add(FXMLLoader.load(getClass().getResource("../fxml")));
-			
-			this.menuList.add("home");
-			this.menuList.add("boiler");
-			this.menuList.add("elecNgas");
-			this.menuList.add("interphone");
-			this.menuList.add("internet");
-			this.menuList.add("player");
-			this.menuList.add("tariff");
-			
+            this.parent.add(FXMLLoader.load(getClass().getResource("../interphone/interPhone.fxml")));
+            this.parent.add(FXMLLoader.load(getClass().getResource("../internet/internet.fxml")));
+            this.parent.add(FXMLLoader.load(getClass().getResource("../player/media.fxml")));
+            this.parent.add(FXMLLoader.load(getClass().getResource("../tariff/root.fxml")));
+            //this.parent.add(FXMLLoader.load(getClass().getResource("../fxml")));
+
+            this.menuList.add("home");
+            this.menuList.add("boiler");
+            this.menuList.add("elecNgas");
+            this.menuList.add("interphone");
+            this.menuList.add("internet");
+            this.menuList.add("player");
+            this.menuList.add("tariff");
+
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-	}
-	
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //나중에 디폴트로 만들기위해
@@ -251,27 +252,28 @@ public class mainController implements Initializable {
 
         }
     }
-	private void menuPressed(ImageView menuIcon, int index) {
-        menuIcon.setImage(new Image(getClass().getResource("images/main_"+menuList.get(index)+"_pressed.png").toString()));
+
+    private void menuPressed(ImageView menuIcon, int index) {
+        menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_pressed.png").toString()));
 
     }
 
     private void menuClicked(ImageView menuIcon, int index) {
-        menuIcon.setImage(new Image(getClass().getResource("images/main_"+menuList.get(index)+"_clicked.png").toString()));
+        menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_clicked.png").toString()));
         if (menu2PasswordChk == false) {
-			
-			Parent boilerview = parent.get(index);
-			stackPane.getChildren().add(boilerview); 
-			boilerview.setTranslateX(0);
-			boilerview.setOpacity(0);
-			KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
-			KeyFrame keyFrame = new KeyFrame(Duration.millis(1000), keyValue);
-			Timeline timeline = new Timeline();
-			timeline.getKeyFrames().add(keyFrame);
-			timeline.play();
-            
+
+            Parent boilerview = parent.get(index);
+            stackPane.getChildren().add(boilerview);
+            boilerview.setTranslateX(0);
+            boilerview.setOpacity(0);
+            KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
+            KeyFrame keyFrame = new KeyFrame(Duration.millis(1000), keyValue);
+            Timeline timeline = new Timeline();
+            timeline.getKeyFrames().add(keyFrame);
+            timeline.play();
+
         } else {
-            passwordChk(index+1);
+            passwordChk(index + 1);
         }
     }
 //    private void homePressed() {
