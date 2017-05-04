@@ -22,7 +22,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
-public class Root1Controller implements Initializable {
+public class mainController implements Initializable {
 
     @FXML
     private StackPane sstackPane;
