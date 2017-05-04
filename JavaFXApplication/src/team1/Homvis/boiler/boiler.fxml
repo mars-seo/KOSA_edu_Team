@@ -158,7 +158,7 @@
                   <Image url="@images/heat.png" />
                </image>
             </ImageView>
-            <Label fx:id="txtHeat" layoutX="78.0" layoutY="145.0" prefHeight="80.0" prefWidth="85.0" text="24">
+            <Label fx:id="txtnowHeat" layoutX="136.0" layoutY="145.0" prefHeight="80.0" prefWidth="85.0" text="24">
                <font>
                   <Font size="61.0" />
                </font>
@@ -173,9 +173,14 @@
                   <Image url="@images/water.png" />
                </image>
             </ImageView>
-            <Label fx:id="txtWater" layoutX="403.0" layoutY="143.0" text="39">
+            <Label fx:id="txtWater" layoutX="403.0" layoutY="143.0">
                <font>
                   <Font size="60.0" />
+               </font>
+            </Label>
+            <Label fx:id="txthopeHeat" layoutX="36.0" layoutY="145.0" prefHeight="80.0" prefWidth="85.0">
+               <font>
+                  <Font size="61.0" />
                </font>
             </Label>
          </children>
