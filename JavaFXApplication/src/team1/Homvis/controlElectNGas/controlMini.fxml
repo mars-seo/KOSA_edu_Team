@@ -10,37 +10,35 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane id="AnchorPane" prefHeight="240.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.controlElectNGas.ControlMiniController">
-   <children>
-      <HBox prefHeight="240.0" prefWidth="400.0">
-         <children>
-            <AnchorPane prefHeight="240.0" prefWidth="100.0">
-               <children>
-                  <Button fx:id="btnLight" alignment="CENTER" layoutX="20.0" layoutY="28.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="60.0" text="Light">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnGas" alignment="CENTER" layoutX="20.0" layoutY="68.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="60.0" text="Gas">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnDoor" alignment="CENTER" layoutX="20.0" layoutY="107.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="60.0" text="Security">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-<!--									
-                  <Button fx:id="btnSound" alignment="CENTER" layoutX="20.0" layoutY="147.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="60.0" text="Sound">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-									-->
-               </children>
-            </AnchorPane>
-            <StackPane fx:id="stackPane" prefHeight="150.0" prefWidth="200.0" />
-         </children>
-      </HBox>
-   </children>
+	<children>
+		<HBox prefHeight="240.0" prefWidth="400.0">
+			<children>
+				<AnchorPane prefHeight="240.0" prefWidth="100.0">
+					<children>
+                  <ImageView fx:id="btnLight" fitHeight="75.0" layoutX="20.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@controlImg/elecNgas_light_default.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="btnGas" fitHeight="75.0" layoutX="19.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@controlImg/elecNgas_gas_default.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="btnDoor" fitHeight="75.0" layoutX="15.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@controlImg/elecNgas_security_default.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="exit" fitHeight="14.0" fitWidth="15.0" layoutX="4.0" layoutY="220.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@controlImg/x.png" />
+                     </image>
+                  </ImageView>
+					</children>
+				</AnchorPane>
+				<StackPane fx:id="stackPane" prefHeight="150.0" prefWidth="200.0" />
+			</children>
+		</HBox>
+	</children>
 </AnchorPane>

@@ -8,37 +8,37 @@ import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 public class ControlController implements Initializable {
 
     @FXML
-    private Button btnLight;
+    private ImageView btnLight;
     @FXML
-    private Button btnGas;
+    private ImageView btnGas;
     @FXML
-    private Button btnDoor;
-    @FXML
-    private Button btnSound;
+    private ImageView btnDoor;
     @FXML
     private StackPane stackPane;
 
     private static StackPane rootPane;
     private List<Parent> parent = new ArrayList<>();
+    @FXML
+    private ImageView exit;
 
     public ControlController() {
         try {
             this.parent.add(FXMLLoader.load(getClass().getResource("light.fxml")));
             this.parent.add(FXMLLoader.load(getClass().getResource("gasCont.fxml")));
             this.parent.add(FXMLLoader.load(getClass().getResource("security.fxml")));
-            this.parent.add(FXMLLoader.load(getClass().getResource("sound.fxml")));
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -47,16 +47,36 @@ public class ControlController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         rootPane = stackPane;
-        btnLight.setOnAction(e -> handleBtn(e, 0));
-        btnGas.setOnAction(e -> handleBtn(e, 1));
-        btnDoor.setOnAction(e -> handleBtn(e, 2));
-//        btnSound.setOnAction(e -> handleBtn(e, 3));
+
+        btnLight.setOnMouseClicked(e -> handleBtn(e, 0));
+        btnGas.setOnMouseClicked(e -> handleBtn(e, 1));
+        btnDoor.setOnMouseClicked(e -> handleBtn(e, 2));
+
+        btnLight.setOnMousePressed(e -> handleBtnPressed(e, 0));
+        btnGas.setOnMousePressed(e -> handleBtnPressed(e, 1));
+        btnDoor.setOnMousePressed(e -> handleBtnPressed(e, 2));
+
+        exit.setOnMouseClicked(e -> exit());
     }
 
-    private void handleBtn(ActionEvent e, int num) {
+    private void handleBtn(MouseEvent e, int num) {
         rootPane.getChildren().clear();
         stackPane.getChildren().add(parent.get(num));
         translateX(num);
+
+        if (num == 0) {
+            btnLight.setImage(new Image(getClass().getResource("controlImg/elecNgas_light_clicked.png").toString()));
+            btnGas.setImage(new Image(getClass().getResource("controlImg/elecNgas_gas_default.png").toString()));
+            btnDoor.setImage(new Image(getClass().getResource("controlImg/elecNgas_security_default.png").toString()));
+        } else if (num == 1) {
+            btnLight.setImage(new Image(getClass().getResource("controlImg/elecNgas_light_default.png").toString()));
+            btnGas.setImage(new Image(getClass().getResource("controlImg/elecNgas_gas_clicked.png").toString()));
+            btnDoor.setImage(new Image(getClass().getResource("controlImg/elecNgas_security_default.png").toString()));
+        } else if (num == 2) {
+            btnLight.setImage(new Image(getClass().getResource("controlImg/elecNgas_light_default.png").toString()));
+            btnGas.setImage(new Image(getClass().getResource("controlImg/elecNgas_gas_default.png").toString()));
+            btnDoor.setImage(new Image(getClass().getResource("controlImg/elecNgas_security_clicked.png").toString()));
+        }
     }
 
     private void translateX(int num) {
@@ -66,5 +86,19 @@ public class ControlController implements Initializable {
         Timeline timeline = new Timeline();
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
+    }
+
+    private void handleBtnPressed(MouseEvent e, int num) {
+        if (num == 0) {
+            btnLight.setImage(new Image(getClass().getResource("controlImg/elecNgas_light_pressed.png").toString()));
+        } else if (num == 1) {
+            btnGas.setImage(new Image(getClass().getResource("controlImg/elecNgas_gas_pressed.png").toString()));
+        } else if (num == 2) {
+            btnDoor.setImage(new Image(getClass().getResource("controlImg/elecNgas_security_pressed.png").toString()));
+        }
+    }
+
+    private void exit() {
+//        mainController.stackPane.getChildren().clear();
     }
 }
