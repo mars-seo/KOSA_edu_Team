@@ -24,7 +24,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
-public class mainController implements Initializable {
+public class MainController implements Initializable {
 
     @FXML
     private StackPane sstackPane;
@@ -78,7 +78,7 @@ public class mainController implements Initializable {
     private List<String> menuList = new ArrayList<>();
     public static List<Parent> parent = new ArrayList<>();
 
-    public mainController() {
+    public MainController() {
         try {
             this.parent.add(FXMLLoader.load(getClass().getResource("../newMain/newMenu.fxml")));
 
@@ -259,9 +259,9 @@ public class mainController implements Initializable {
 
     }
 
-    private void menuClicked(ImageView menuIcon, int index,Boolean passwordChk) {
+    private void menuClicked(ImageView menuIcon, int index,boolean chk) {
         menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_clicked.png").toString()));
-        if (passwordChk == false) {
+        if (chk == false) {
 
             Parent boilerview = parent.get(index);
             stackPane.getChildren().add(boilerview);
