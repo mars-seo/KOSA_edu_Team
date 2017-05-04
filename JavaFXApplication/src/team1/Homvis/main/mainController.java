@@ -76,7 +76,7 @@ public class mainController implements Initializable {
     public static boolean menu8PasswordChk = false;
 	
 	private List<String> menuList = new ArrayList<>();
-	private List<Parent> parent = new ArrayList<>();
+	public static List<Parent> parent = new ArrayList<>();
 	public mainController(){
 		try {
 			this.parent.add(FXMLLoader.load(getClass().getResource("../newMain/newMenu.fxml")));

@@ -7,11 +7,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Popup;
-
+import team1.Homvis.main.mainController;
 
 public class InterPhoneController implements Initializable {
 
@@ -23,13 +25,17 @@ public class InterPhoneController implements Initializable {
 	private ImageView closeBtn;
 	@FXML
 	private Label locationlb;
+	@FXML
+	private StackPane interphoneRoot;
+	@FXML
+	private ImageView phoneBtn1;
 
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		phoneBtn.setOnMouseClicked(e->callNopen(e, "call"));
 		openBtn.setOnMouseClicked(e->callNopen(e, "open"));
-		//closeBtn.setOnMouseClicked(e->{});
+		closeBtn.setOnMouseClicked(e->exit());
 	}	
 	private void callNopen(MouseEvent e, String status) {
 		
@@ -52,4 +58,8 @@ public class InterPhoneController implements Initializable {
 				ex.printStackTrace();
 			}
 	}
+	private void exit() {
+		mainController.menuicon4.setImage(new Image(getClass().getResource("../main/images/main_interphone_default.png").toString()));
+        mainController.stackPane.getChildren().remove(interphoneRoot);
+    }
 }

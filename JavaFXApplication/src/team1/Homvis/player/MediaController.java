@@ -18,12 +18,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.media.*;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Popup;
 import javafx.util.Duration;
-
+import team1.Homvis.main.mainController;
 
 public class MediaController implements Initializable {
 
@@ -61,6 +62,10 @@ public class MediaController implements Initializable {
 	private Media playMedia;
 	private MediaPlayer mediaPlayer;
 	private int index;
+	@FXML
+	private StackPane mediaRoot;
+	@FXML
+	private ImageView exit;
 	
 		
 	@Override
@@ -83,6 +88,7 @@ public class MediaController implements Initializable {
 				deleteBtn.setOnMouseClicked(e->handleDelete(e, newValue));
             }
         });
+		exit.setOnMouseClicked(e->exit());
 	}	
 	private void handleAddList(MouseEvent e) {
 		
@@ -260,5 +266,8 @@ public class MediaController implements Initializable {
 			}
 		}
 	}
-	
+	private void exit() {
+		mainController.menuicon6.setImage(new Image(getClass().getResource("../main/images/main_player_default.png").toString()));
+        mainController.stackPane.getChildren().remove(mediaRoot);
+    }
 }
