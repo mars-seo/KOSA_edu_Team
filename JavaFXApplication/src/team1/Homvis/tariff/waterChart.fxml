@@ -12,7 +12,7 @@
    <children>
       <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0">
          <children>
-            <AreaChart fx:id="AreaChart">
+            <AreaChart fx:id="AreaChart" prefHeight="400.0" prefWidth="500.0">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>

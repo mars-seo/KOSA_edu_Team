@@ -16,23 +16,23 @@
    <children>
       <BorderPane prefHeight="450.0" prefWidth="800.0">
          <top>
-            <Label contentDisplay="CENTER" text="요금조회" BorderPane.alignment="CENTER">
+            <Label contentDisplay="CENTER" minHeight="-Infinity" prefHeight="25.0" prefWidth="100.0" text="요금조회" BorderPane.alignment="CENTER">
                <font>
                   <Font name="System Bold Italic" size="23.0" />
                </font>
             </Label>
          </top>
          <left>
-            <VBox fillWidth="false" prefHeight="450.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="btnGasFee" focusTraversable="false" mnemonicParsing="false" prefHeight="150.0" prefWidth="100.0" text="난방" />
-                  <Button fx:id="btnElectricFee" focusTraversable="false" mnemonicParsing="false" prefHeight="150.0" prefWidth="100.0" text="전기" />
-                  <Button fx:id="btnWaterFee" focusTraversable="false" mnemonicParsing="false" prefHeight="150.0" prefWidth="100.0" text="수도" />
+                  <Button fx:id="btnGasFee" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="140.0" prefWidth="100.0" text="난방" />
+                  <Button fx:id="btnElectricFee" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="140.0" prefWidth="100.0" text="전기" />
+                  <Button fx:id="btnWaterFee" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="140.0" prefWidth="100.0" text="수도" />
                </children>
             </VBox>
          </left>
          <center>
-            <StackPane fx:id="changeableStackPane" maxHeight="450.0" maxWidth="600.0" BorderPane.alignment="CENTER" />
+            <StackPane fx:id="changeableStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
    </children>
