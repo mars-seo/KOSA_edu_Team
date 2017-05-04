@@ -3,7 +3,9 @@ package team1.Homvis.main;
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -30,11 +32,6 @@ public class mainController implements Initializable {
     private ImageView background;
     @FXML
     private HBox menu;
-
-    public static int secretCount = 0;
-
-    private static int count = -1;
-    private static double xValue;
     @FXML
     private ImageView menuIcon1;
     @FXML
@@ -53,6 +50,10 @@ public class mainController implements Initializable {
     private ImageView menuIcon8;
     @FXML
     private Label clock;
+	
+	public static int secretCount = 0;
+    private static int count = -1;
+    private static double xValue;
 
     public static ImageView menuicon1;
     public static ImageView menuicon2;
@@ -73,7 +74,33 @@ public class mainController implements Initializable {
     public static boolean menu6PasswordChk = false;
     public static boolean menu7PasswordChk = false;
     public static boolean menu8PasswordChk = false;
-
+	
+	private List<String> menuList = new ArrayList<>();
+	private List<Parent> parent = new ArrayList<>();
+	public mainController(){
+		try {
+			this.parent.add(FXMLLoader.load(getClass().getResource("../newMain/newMenu.fxml")));
+            this.parent.add(FXMLLoader.load(getClass().getResource("../boiler/boiler.fxml")));
+            this.parent.add(FXMLLoader.load(getClass().getResource("../controlElectNGas/control.fxml")));
+			this.parent.add(FXMLLoader.load(getClass().getResource("../interphone/interPhone.fxml")));
+			this.parent.add(FXMLLoader.load(getClass().getResource("../internet/internet.fxml")));
+			this.parent.add(FXMLLoader.load(getClass().getResource("../player/media.fxml")));
+			this.parent.add(FXMLLoader.load(getClass().getResource("../tariff/root.fxml")));
+			//this.parent.add(FXMLLoader.load(getClass().getResource("../fxml")));
+			
+			this.menuList.add("home");
+			this.menuList.add("boiler");
+			this.menuList.add("elecNgas");
+			this.menuList.add("interphone");
+			this.menuList.add("internet");
+			this.menuList.add("player");
+			this.menuList.add("tariff");
+			
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+	}
+	
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //나중에 디폴트로 만들기위해
@@ -111,20 +138,20 @@ public class mainController implements Initializable {
         ////////////////////////////clock end
 
         //아이콘 눌렀을때
-        menuIcon1.setOnMousePressed(event -> homePressed());
-        menuIcon1.setOnMouseClicked(event -> homeClicked());
-        menuIcon2.setOnMousePressed(event -> boilerPressed());
-        menuIcon2.setOnMouseClicked(event -> boilerClicked());
-        menuIcon3.setOnMousePressed(event -> elecNgasPressed());
-        menuIcon3.setOnMouseClicked(event -> elecNgasClicked());
-        menuIcon4.setOnMousePressed(event -> interphonePressed());
-        menuIcon4.setOnMouseClicked(event -> interphoneClicked());
-        menuIcon5.setOnMousePressed(event -> internetPressed());
-        menuIcon5.setOnMouseClicked(event -> internetClicked());
-        menuIcon6.setOnMousePressed(event -> playerPressed());
-        menuIcon6.setOnMouseClicked(event -> playerClicked());
-        menuIcon7.setOnMousePressed(event -> tariffPressed());
-        menuIcon7.setOnMouseClicked(event -> tariffClicked());
+        menuIcon1.setOnMousePressed(event -> menuPressed(menuIcon1, 0));
+        menuIcon1.setOnMouseClicked(event -> menuClicked(menuIcon1, 0));
+        menuIcon2.setOnMousePressed(event -> menuPressed(menuIcon2, 1));
+        menuIcon2.setOnMouseClicked(event -> menuClicked(menuIcon2, 1));
+        menuIcon3.setOnMousePressed(event -> menuPressed(menuIcon3, 2));
+        menuIcon3.setOnMouseClicked(event -> menuClicked(menuIcon3, 2));
+        menuIcon4.setOnMousePressed(event -> menuPressed(menuIcon4, 3));
+        menuIcon4.setOnMouseClicked(event -> menuClicked(menuIcon4, 3));
+        menuIcon5.setOnMousePressed(event -> menuPressed(menuIcon5, 4));
+        menuIcon5.setOnMouseClicked(event -> menuClicked(menuIcon5, 4));
+        menuIcon6.setOnMousePressed(event -> menuPressed(menuIcon6, 5));
+        menuIcon6.setOnMouseClicked(event -> menuClicked(menuIcon6, 5));
+        menuIcon7.setOnMousePressed(event -> menuPressed(menuIcon7, 6));
+        menuIcon7.setOnMouseClicked(event -> menuClicked(menuIcon7, 6));
         menuIcon8.setOnMousePressed(event -> secretPressed());
         menuIcon8.setOnMouseClicked(event -> secretClicked()); //암호설정 서브메뉴이동
 
@@ -150,7 +177,6 @@ public class mainController implements Initializable {
         //   });
         menu.setOnMousePressed((event) -> {
             xValue = event.getSceneX();
-            System.out.println(xValue);
         });
 
         menu.setOnMouseDragged((event) -> {
@@ -171,19 +197,17 @@ public class mainController implements Initializable {
     }
 
     private void menuOpen() {
-        System.out.println("open");
         //sstackPane.getChildren().add(menu);
         KeyValue keyValue = new KeyValue(menu.translateYProperty(), 0);
-        KeyFrame keyFrame = new KeyFrame(Duration.millis(1000), keyValue);
+        KeyFrame keyFrame = new KeyFrame(Duration.millis(700), keyValue);
         Timeline timeline = new Timeline();
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
     }
 
     private void menuClose() {
-        System.out.println("close");
         KeyValue keyValue = new KeyValue(menu.translateYProperty(), 200);
-        KeyFrame keyFrame = new KeyFrame(Duration.millis(1000), keyValue);
+        KeyFrame keyFrame = new KeyFrame(Duration.millis(700), keyValue);
         Timeline timeline = new Timeline();
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
@@ -198,7 +222,7 @@ public class mainController implements Initializable {
             chkView.setTranslateX(0);
             chkView.setOpacity(0);
             KeyValue keyValue = new KeyValue(chkView.opacityProperty(), 1);
-            KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
+            KeyFrame keyFrame = new KeyFrame(Duration.millis(1000), keyValue);
             Timeline timeline = new Timeline();
             timeline.getKeyFrames().add(keyFrame);
             timeline.play();
@@ -227,111 +251,171 @@ public class mainController implements Initializable {
 
         }
     }
-
-    private void homePressed() {
-        menuIcon1.setImage(new Image(getClass().getResource("images/main_home_pressed.png").toString()));
-
-    }
-
-    private void homeClicked() {
-        menuIcon1.setImage(new Image(getClass().getResource("images/main_home_clicked.png").toString()));
+	private void menuPressed(ImageView menuIcon, int index) {
+        menuIcon.setImage(new Image(getClass().getResource("images/main_"+menuList.get(index)+"_pressed.png").toString()));
 
     }
 
-    private void boilerPressed() {
-        menuIcon2.setImage(new Image(getClass().getResource("images/main_boiler_pressed.png").toString()));
-    }
-
-    private void boilerClicked() {
-        menuIcon2.setImage(new Image(getClass().getResource("images/main_boiler_clicked.png").toString()));
+    private void menuClicked(ImageView menuIcon, int index) {
+        menuIcon.setImage(new Image(getClass().getResource("images/main_"+menuList.get(index)+"_clicked.png").toString()));
         if (menu2PasswordChk == false) {
-            try {
-                Parent boilerview = FXMLLoader.load(getClass().getResource("../boiler/boiler.fxml"));
-                stackPane.getChildren().add(boilerview); 
-                boilerview.setTranslateX(0);
-                boilerview.setOpacity(0);
-                KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
-                KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
-                Timeline timeline = new Timeline();
-                timeline.getKeyFrames().add(keyFrame);
-                timeline.play();
-            } catch (IOException ex) {
-
-            }
+			
+			Parent boilerview = parent.get(index);
+			stackPane.getChildren().add(boilerview); 
+			boilerview.setTranslateX(0);
+			boilerview.setOpacity(0);
+			KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
+			KeyFrame keyFrame = new KeyFrame(Duration.millis(1000), keyValue);
+			Timeline timeline = new Timeline();
+			timeline.getKeyFrames().add(keyFrame);
+			timeline.play();
+            
         } else {
-            passwordChk(2);
-
-        }
-
-    }
-
-    private void elecNgasPressed() {
-        menuIcon3.setImage(new Image(getClass().getResource("images/main_elecNgas_pressed.png").toString()));
-
-    }
-
-    private void elecNgasClicked() {
-        menuIcon3.setImage(new Image(getClass().getResource("images/main_elecNgas_clicked.png").toString()));
-        if (menu3PasswordChk == false) {
-                    
-
-        } else {
-            passwordChk(3);
-        }
-
-    }
-
-    private void interphonePressed() {
-        menuIcon4.setImage(new Image(getClass().getResource("images/main_interphone_pressed.png").toString()));
-    }
-
-    private void interphoneClicked() {
-        menuIcon4.setImage(new Image(getClass().getResource("images/main_interphone_clicked.png").toString()));
-        if (menu4PasswordChk == false) {
-
-        } else {
-            passwordChk(4);
+            passwordChk(index+1);
         }
     }
-
-    private void internetPressed() {
-
-    }
-
-    private void internetClicked() {
-        if (menu5PasswordChk == false) {
-
-        } else {
-            passwordChk(5);
-        }
-
-    }
-
-    private void playerPressed() {
-        menuIcon6.setImage(new Image(getClass().getResource("images/main_player_pressed.png").toString()));
-    }
-
-    private void playerClicked() {
-        menuIcon6.setImage(new Image(getClass().getResource("images/main_player_clicked.png").toString()));
-        if (menu6PasswordChk == false) {
-
-        } else {
-            passwordChk(6);
-        }
-    }
-
-    private void tariffPressed() {
-        menuIcon7.setImage(new Image(getClass().getResource("images/main_tariff_pressed.png").toString()));
-    }
-
-    private void tariffClicked() {
-        menuIcon7.setImage(new Image(getClass().getResource("images/main_tariff_clicked.png").toString()));
-        if (menu7PasswordChk == false) {
-
-        } else {
-            passwordChk(7);
-        }
-    }
+//    private void homePressed() {
+//        menuIcon1.setImage(new Image(getClass().getResource("images/main_home_pressed.png").toString()));
+//
+//    }
+//
+//    private void homeClicked() {
+//        menuIcon1.setImage(new Image(getClass().getResource("images/main_home_clicked.png").toString()));
+//
+//    }
+//
+//    private void boilerPressed() {
+//        menuIcon2.setImage(new Image(getClass().getResource("images/main_boiler_pressed.png").toString()));
+//    }
+//
+//    private void boilerClicked() {
+//        menuIcon2.setImage(new Image(getClass().getResource("images/main_boiler_clicked.png").toString()));
+//        if (menu2PasswordChk == false) {
+//			
+//			Parent boilerview = parent.get(0);
+//			stackPane.getChildren().add(boilerview); 
+//			boilerview.setTranslateX(0);
+//			boilerview.setOpacity(0);
+//			KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
+//			KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
+//			Timeline timeline = new Timeline();
+//			timeline.getKeyFrames().add(keyFrame);
+//			timeline.play();
+//            
+//        } else {
+//            passwordChk(2);
+//        }
+//
+//    }
+//
+//    private void elecNgasPressed() {
+//        menuIcon3.setImage(new Image(getClass().getResource("images/main_elecNgas_pressed.png").toString()));
+//
+//    }
+//
+//    private void elecNgasClicked() {
+//        menuIcon3.setImage(new Image(getClass().getResource("images/main_elecNgas_clicked.png").toString()));
+//        if (menu3PasswordChk == false) {
+//                    
+//			Parent boilerview = parent.get(1);
+//			stackPane.getChildren().add(boilerview); 
+//			boilerview.setTranslateX(0);
+//			boilerview.setOpacity(0);
+//			KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
+//			KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
+//			Timeline timeline = new Timeline();
+//			timeline.getKeyFrames().add(keyFrame);
+//			timeline.play();
+//			
+//        } else {
+//            passwordChk(3);
+//        }
+//
+//    }
+//
+//    private void interphonePressed() {
+//        menuIcon4.setImage(new Image(getClass().getResource("images/main_interphone_pressed.png").toString()));
+//    }
+//
+//    private void interphoneClicked() {
+//        menuIcon4.setImage(new Image(getClass().getResource("images/main_interphone_clicked.png").toString()));
+//        if (menu4PasswordChk == false) {
+//			Parent boilerview = parent.get(2);
+//			stackPane.getChildren().add(boilerview); 
+//			boilerview.setTranslateX(0);
+//			boilerview.setOpacity(0);
+//			KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
+//			KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
+//			Timeline timeline = new Timeline();
+//			timeline.getKeyFrames().add(keyFrame);
+//			timeline.play();
+//        } else {
+//            passwordChk(4);
+//        }
+//    }
+//
+//    private void internetPressed() {
+//
+//    }
+//
+//    private void internetClicked() {
+//        if (menu5PasswordChk == false) {
+//			Parent boilerview = parent.get(3);
+//			stackPane.getChildren().add(boilerview); 
+//			boilerview.setTranslateX(0);
+//			boilerview.setOpacity(0);
+//			KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
+//			KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
+//			Timeline timeline = new Timeline();
+//			timeline.getKeyFrames().add(keyFrame);
+//			timeline.play();
+//        } else {
+//            passwordChk(5);
+//        }
+//
+//    }
+//
+//    private void playerPressed() {
+//        menuIcon6.setImage(new Image(getClass().getResource("images/main_player_pressed.png").toString()));
+//    }
+//
+//    private void playerClicked() {
+//        menuIcon6.setImage(new Image(getClass().getResource("images/main_player_clicked.png").toString()));
+//        if (menu6PasswordChk == false) {
+//			Parent boilerview = parent.get(4);
+//			stackPane.getChildren().add(boilerview); 
+//			boilerview.setTranslateX(0);
+//			boilerview.setOpacity(0);
+//			KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
+//			KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
+//			Timeline timeline = new Timeline();
+//			timeline.getKeyFrames().add(keyFrame);
+//			timeline.play();
+//        } else {
+//            passwordChk(6);
+//        }
+//    }
+//
+//    private void tariffPressed() {
+//        menuIcon7.setImage(new Image(getClass().getResource("images/main_tariff_pressed.png").toString()));
+//    }
+//
+//    private void tariffClicked() {
+//        menuIcon7.setImage(new Image(getClass().getResource("images/main_tariff_clicked.png").toString()));
+//        if (menu7PasswordChk == false) {
+//			Parent boilerview = parent.get(5);
+//			stackPane.getChildren().add(boilerview); 
+//			boilerview.setTranslateX(0);
+//			boilerview.setOpacity(0);
+//			KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
+//			KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
+//			Timeline timeline = new Timeline();
+//			timeline.getKeyFrames().add(keyFrame);
+//			timeline.play();
+//        } else {
+//            passwordChk(7);
+//        }
+//    }
 
     private void secretPressed() {
         menuIcon8.setImage(new Image(getClass().getResource("images/main_secret_pressed.png").toString()));
