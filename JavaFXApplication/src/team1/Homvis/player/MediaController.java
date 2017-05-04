@@ -80,7 +80,6 @@ public class MediaController implements Initializable {
                 mediaPlayer.stop();
                 System.out.println(newValue);
                 handleMedia(mediaFileList, nameList.indexOf(newValue));
-                mediaPlayer.play();
 				deleteBtn.setOnMouseClicked(e->handleDelete(e, newValue));
             }
         });
@@ -107,7 +106,7 @@ public class MediaController implements Initializable {
 	}
 
 	private void handleMedia(ObservableList<File> mediaFileList, int index) {
-		if(mediaFileList.isEmpty()) return;
+		if(mediaFileList.isEmpty()||nameList.isEmpty()) return;
 		else{
 			System.out.println(mediaFileList.get(index).toURI().toString());
 			playMedia = new Media(mediaFileList.get(index).toURI().toString());
