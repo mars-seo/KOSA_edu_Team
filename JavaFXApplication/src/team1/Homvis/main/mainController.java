@@ -74,22 +74,14 @@ public class mainController implements Initializable {
     public static boolean menu6PasswordChk = false;
     public static boolean menu7PasswordChk = false;
     public static boolean menu8PasswordChk = false;
-<<<<<<< HEAD
 
     private List<String> menuList = new ArrayList<>();
-    private List<Parent> parent = new ArrayList<>();
+    public static List<Parent> parent = new ArrayList<>();
 
     public mainController() {
         try {
             this.parent.add(FXMLLoader.load(getClass().getResource("../newMain/newMenu.fxml")));
-=======
-	
-	private List<String> menuList = new ArrayList<>();
-	public static List<Parent> parent = new ArrayList<>();
-	public mainController(){
-		try {
-			this.parent.add(FXMLLoader.load(getClass().getResource("../newMain/newMenu.fxml")));
->>>>>>> origin/master
+
             this.parent.add(FXMLLoader.load(getClass().getResource("../boiler/boiler.fxml")));
             this.parent.add(FXMLLoader.load(getClass().getResource("../controlElectNGas/control.fxml")));
             this.parent.add(FXMLLoader.load(getClass().getResource("../interphone/interPhone.fxml")));
@@ -149,19 +141,19 @@ public class mainController implements Initializable {
 
         //아이콘 눌렀을때
         menuIcon1.setOnMousePressed(event -> menuPressed(menuIcon1, 0));
-        menuIcon1.setOnMouseClicked(event -> menuClicked(menuIcon1, 0));
+        menuIcon1.setOnMouseClicked(event -> menuClicked(menuIcon1, 0,menu1PasswordChk));
         menuIcon2.setOnMousePressed(event -> menuPressed(menuIcon2, 1));
-        menuIcon2.setOnMouseClicked(event -> menuClicked(menuIcon2, 1));
+        menuIcon2.setOnMouseClicked(event -> menuClicked(menuIcon2, 1,menu2PasswordChk));
         menuIcon3.setOnMousePressed(event -> menuPressed(menuIcon3, 2));
-        menuIcon3.setOnMouseClicked(event -> menuClicked(menuIcon3, 2));
+        menuIcon3.setOnMouseClicked(event -> menuClicked(menuIcon3, 2,menu3PasswordChk));
         menuIcon4.setOnMousePressed(event -> menuPressed(menuIcon4, 3));
-        menuIcon4.setOnMouseClicked(event -> menuClicked(menuIcon4, 3));
+        menuIcon4.setOnMouseClicked(event -> menuClicked(menuIcon4, 3,menu4PasswordChk));
         menuIcon5.setOnMousePressed(event -> menuPressed(menuIcon5, 4));
-        menuIcon5.setOnMouseClicked(event -> menuClicked(menuIcon5, 4));
+        menuIcon5.setOnMouseClicked(event -> menuClicked(menuIcon5, 4,menu5PasswordChk));
         menuIcon6.setOnMousePressed(event -> menuPressed(menuIcon6, 5));
-        menuIcon6.setOnMouseClicked(event -> menuClicked(menuIcon6, 5));
+        menuIcon6.setOnMouseClicked(event -> menuClicked(menuIcon6, 5,menu6PasswordChk));
         menuIcon7.setOnMousePressed(event -> menuPressed(menuIcon7, 6));
-        menuIcon7.setOnMouseClicked(event -> menuClicked(menuIcon7, 6));
+        menuIcon7.setOnMouseClicked(event -> menuClicked(menuIcon7, 6,menu7PasswordChk));
         menuIcon8.setOnMousePressed(event -> secretPressed());
         menuIcon8.setOnMouseClicked(event -> secretClicked()); //암호설정 서브메뉴이동
 
@@ -267,9 +259,9 @@ public class mainController implements Initializable {
 
     }
 
-    private void menuClicked(ImageView menuIcon, int index) {
+    private void menuClicked(ImageView menuIcon, int index,Boolean passwordChk) {
         menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_clicked.png").toString()));
-        if (menu2PasswordChk == false) {
+        if (passwordChk == false) {
 
             Parent boilerview = parent.get(index);
             stackPane.getChildren().add(boilerview);
