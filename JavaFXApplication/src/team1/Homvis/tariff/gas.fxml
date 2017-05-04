@@ -14,9 +14,9 @@
    <children>
       <AnchorPane id="AnchorPane" fx:id="gasMainAnchorPane" prefHeight="400.0" prefWidth="600.0">
          <children>
-            <BorderPane fx:id="BoaderPane" prefHeight="364.0" prefWidth="600.0" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <BorderPane fx:id="BoaderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="600.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <top>
-                  <TableView fx:id="tableView" prefHeight="238.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                  <TableView fx:id="tableView" prefHeight="240.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                     <columns>
                       <TableColumn prefWidth="150.0" text="월" />
                         <TableColumn prefWidth="150.0" text="사용량" />
@@ -26,7 +26,7 @@
                   </TableView>
                </top>
                <center>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                      <children>
                         <Label layoutX="87.0" layoutY="48.0" text="실시간 이번달 사용량 :" />
                         <Label layoutX="102.0" layoutY="74.0" text="이번달 사용량 요금:" />
@@ -36,9 +36,9 @@
                   </AnchorPane>
                </center>
             </BorderPane>
-            <AnchorPane fx:id="buttonAnchorPane" layoutY="364.0">
+            <AnchorPane fx:id="buttonAnchorPane"  layoutY="364.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="600.0">
                <children>
-                  <Button fx:id="chartButton" layoutX="168.0" mnemonicParsing="false" text="월별 차트" />
+                  <Button fx:id="chartButton" layoutX="158.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="월별 차트" />
                </children>
             </AnchorPane>
          </children>
