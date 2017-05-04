@@ -15,8 +15,10 @@ import javafx.scene.Parent;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
+import team1.Homvis.main.mainController;
 
 public class ControlController implements Initializable {
 
@@ -33,6 +35,8 @@ public class ControlController implements Initializable {
     private List<Parent> parent = new ArrayList<>();
     @FXML
     private ImageView exit;
+	@FXML
+	private AnchorPane controlRoot;
 
     public ControlController() {
         try {
@@ -99,6 +103,7 @@ public class ControlController implements Initializable {
     }
 
     private void exit() {
-//        mainController.stackPane.getChildren().clear();
+		mainController.menuicon3.setImage(new Image(getClass().getResource("images/main_boiler_default.png").toString()));
+        mainController.stackPane.getChildren().remove(controlRoot);
     }
 }
