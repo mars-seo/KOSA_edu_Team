@@ -21,8 +21,8 @@ public class testAppMain1 extends Application {
         primaryStage.setScene(scene);
         primaryStage.setTitle("Panel");
         primaryStage.show();
-        primaryStage.setMaxWidth(800);
-        primaryStage.setMaxHeight(480);
+        primaryStage.setMaxWidth(830);
+        primaryStage.setMaxHeight(510);
 
     }
 
