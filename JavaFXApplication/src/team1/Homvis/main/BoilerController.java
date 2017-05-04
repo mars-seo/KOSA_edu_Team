@@ -26,6 +26,7 @@ public class BoilerController implements Initializable {
     }    
 
     private void exit() {
+        Root1Controller.menuicon2.setImage(new Image(getClass().getResource("images/main_boiler_default.png").toString()));
         Root1Controller.stackPane.getChildren().remove(boilerRoot);
    /*     boilerRoot.setOpacity(1);
         boilerRoot.setTranslateX(0);

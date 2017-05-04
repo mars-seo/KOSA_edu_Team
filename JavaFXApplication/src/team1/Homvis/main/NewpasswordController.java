@@ -91,7 +91,7 @@ public class NewpasswordController implements Initializable {
     private boolean temp6PasswordChk = Root1Controller.menu6PasswordChk;
     private boolean temp7PasswordChk = Root1Controller.menu7PasswordChk;
     private boolean temp8PasswordChk = Root1Controller.menu8PasswordChk;
-
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //매번 새롭게 생성되는 password창이기 때문에 password 설정된 메뉴인지체크창 유지하기 위해서
@@ -106,56 +106,56 @@ public class NewpasswordController implements Initializable {
 
         //체크박스가 각각 체크되면 mainroot의 필드에 저장해 놓는다.
         chkBtn1.selectedProperty().addListener((observable) -> {
-            if (Root1Controller.menu1PasswordChk == true) {
+            if (temp1PasswordChk== true) {
                 temp1PasswordChk= false;
             } else {
                 temp1PasswordChk= true;
             }
         });
         chkBtn2.selectedProperty().addListener((observable) -> {
-            if (Root1Controller.menu2PasswordChk == true) {
+            if (temp2PasswordChk== true) {
                 temp2PasswordChk= false;
             } else {
                 temp2PasswordChk =true;
             }
         });
         chkBtn3.selectedProperty().addListener((observable) -> {
-            if (Root1Controller.menu3PasswordChk == true) {
+            if (temp3PasswordChk== true) {
                 temp3PasswordChk= false;
             } else {
                 temp3PasswordChk= true;
             }
         });
         chkBtn4.selectedProperty().addListener((observable) -> {
-            if (Root1Controller.menu4PasswordChk == true) {
+            if (temp4PasswordChk== true) {
                 temp4PasswordChk= false;
             } else {
                 temp4PasswordChk= true;
             }
         });
         chkBtn5.selectedProperty().addListener((observable) -> {
-            if (Root1Controller.menu5PasswordChk == true) {
+            if (temp5PasswordChk== true) {
                 temp5PasswordChk= false;
             } else {
                 temp5PasswordChk= true;
             }
         });
         chkBtn6.selectedProperty().addListener((observable) -> {
-            if (Root1Controller.menu6PasswordChk == true) {
+            if (temp6PasswordChk== true) {
                 temp6PasswordChk= false;
             } else {
                temp6PasswordChk= true;
             }
         });
         chkBtn7.selectedProperty().addListener((observable) -> {
-            if (Root1Controller.menu7PasswordChk == true) {
+            if (temp7PasswordChk== true) {
                 temp7PasswordChk= false;
             } else {
                 temp7PasswordChk = true;
             }
         });
         chkBtn8.selectedProperty().addListener((observable) -> {
-            if (Root1Controller.menu8PasswordChk == true) {
+            if (temp8PasswordChk== true) {
                 temp8PasswordChk= false;
             } else {
                 temp8PasswordChk= true;
@@ -184,12 +184,16 @@ public class NewpasswordController implements Initializable {
         String passwordValue2 = password2.getText();
 
         if (Root1Controller.secretCount == 1) {
+            if(!(temp1PasswordChk==false&&temp2PasswordChk==false&&temp3PasswordChk==false&&temp4PasswordChk==false&&temp5PasswordChk==false&&temp6PasswordChk==false&&temp7PasswordChk==false&&temp8PasswordChk==false)){
             if (passwordValue.equals(Root1Controller.password)) {
                 Root1Controller.password = passwordValue2;
                 chkbox();
                 off();
             }else {
                 warning.setText("패스워드를 정확히 입력해주세요.");
+            }
+            }else{
+                warning.setText("비밀번호를 설정할 메뉴를 선택해주세요");
             }
             //////////보일러
         } else if (Root1Controller.secretCount == 2) {
@@ -261,7 +265,9 @@ public class NewpasswordController implements Initializable {
             }
 
         } else if (Root1Controller.secretCount == 0) {    // secretCount=0번일때는 비번설정 처음띄웠을때(비번설정안되있을때),1은 비번설정된상태,2번은 비번설정된 상태에서 2번메뉴아이콘 눌렀을때
+          if(!(temp1PasswordChk==false&&temp2PasswordChk==false&&temp3PasswordChk==false&&temp4PasswordChk==false&&temp5PasswordChk==false&&temp6PasswordChk==false&&temp7PasswordChk==false&&temp8PasswordChk==false)){
             if ((passwordValue.equals(passwordValue2)) && (!password1.getText().isEmpty())) {
+                
 
                 Root1Controller.password = passwordValue;
                 secretCount = 1;
@@ -272,6 +278,9 @@ public class NewpasswordController implements Initializable {
              else {
                 warning.setText("패스워드를 정확히 입력해주세요.");
             }
+          }else{
+               warning.setText("비밀번호를 설정할 메뉴를 선택해주세요");
+          }
         }
     }
 
@@ -435,8 +444,10 @@ public class NewpasswordController implements Initializable {
             password1.setText(field1pswd(0));
         });
         keydelete.setOnMouseClicked(event -> {
+            if(!password1List.isEmpty()){
             password1List.remove(password1List.size() - 1);
             password1.setText(field1pswd(0));
+            }
         });
 
     }
@@ -490,8 +501,11 @@ public class NewpasswordController implements Initializable {
             password2.setText(field1pswd(1));
         });
         keydelete.setOnMouseClicked(event -> {
+            if(!password2List.isEmpty()){
+            
             password2List.remove(password2List.size() - 1);
             password2.setText(field1pswd(1));
+            }
         });
 
     }
