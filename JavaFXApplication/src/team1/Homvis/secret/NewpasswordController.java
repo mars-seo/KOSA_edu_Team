@@ -20,9 +20,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
-import static team1.Homvis.main.mainController.secretCount;
-import static team1.Homvis.main.mainController.stackPane;
-import team1.Homvis.main.mainController;
+import static team1.Homvis.main.MainController.secretCount;
+import static team1.Homvis.main.MainController.stackPane;
+import team1.Homvis.main.MainController;
 
 public class NewpasswordController implements Initializable {
 
@@ -84,26 +84,26 @@ public class NewpasswordController implements Initializable {
     @FXML
     private ImageView exit;
 
-    private boolean temp1PasswordChk = mainController.menu1PasswordChk;
-    private boolean temp2PasswordChk = mainController.menu2PasswordChk;
-    private boolean temp3PasswordChk = mainController.menu3PasswordChk;
-    private boolean temp4PasswordChk = mainController.menu4PasswordChk;
-    private boolean temp5PasswordChk = mainController.menu5PasswordChk;
-    private boolean temp6PasswordChk = mainController.menu6PasswordChk;
-    private boolean temp7PasswordChk = mainController.menu7PasswordChk;
-    private boolean temp8PasswordChk = mainController.menu8PasswordChk;
+    private boolean temp1PasswordChk = MainController.menu1PasswordChk;
+    private boolean temp2PasswordChk = MainController.menu2PasswordChk;
+    private boolean temp3PasswordChk = MainController.menu3PasswordChk;
+    private boolean temp4PasswordChk = MainController.menu4PasswordChk;
+    private boolean temp5PasswordChk = MainController.menu5PasswordChk;
+    private boolean temp6PasswordChk = MainController.menu6PasswordChk;
+    private boolean temp7PasswordChk = MainController.menu7PasswordChk;
+    private boolean temp8PasswordChk = MainController.menu8PasswordChk;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //매번 새롭게 생성되는 password창이기 때문에 password 설정된 메뉴인지체크창 유지하기 위해서
-        chkBtn1.setSelected(mainController.menu1PasswordChk);
-        chkBtn2.setSelected(mainController.menu2PasswordChk);
-        chkBtn3.setSelected(mainController.menu3PasswordChk);
-        chkBtn4.setSelected(mainController.menu4PasswordChk);
-        chkBtn5.setSelected(mainController.menu5PasswordChk);
-        chkBtn6.setSelected(mainController.menu6PasswordChk);
-        chkBtn7.setSelected(mainController.menu7PasswordChk);
-        chkBtn8.setSelected(mainController.menu8PasswordChk);
+        chkBtn1.setSelected(MainController.menu1PasswordChk);
+        chkBtn2.setSelected(MainController.menu2PasswordChk);
+        chkBtn3.setSelected(MainController.menu3PasswordChk);
+        chkBtn4.setSelected(MainController.menu4PasswordChk);
+        chkBtn5.setSelected(MainController.menu5PasswordChk);
+        chkBtn6.setSelected(MainController.menu6PasswordChk);
+        chkBtn7.setSelected(MainController.menu7PasswordChk);
+        chkBtn8.setSelected(MainController.menu8PasswordChk);
 
         //체크박스가 각각 체크되면 mainroot의 필드에 저장해 놓는다.
         chkBtn1.selectedProperty().addListener((observable) -> {
@@ -184,10 +184,10 @@ public class NewpasswordController implements Initializable {
         String passwordValue = password1.getText();
         String passwordValue2 = password2.getText();
 
-        if (mainController.secretCount == 1) {
+        if (MainController.secretCount == 1) {
             if (!(temp1PasswordChk == false && temp2PasswordChk == false && temp3PasswordChk == false && temp4PasswordChk == false && temp5PasswordChk == false && temp6PasswordChk == false && temp7PasswordChk == false && temp8PasswordChk == false)) {
-                if (passwordValue.equals(mainController.password)) {
-                    mainController.password = passwordValue2;
+                if (passwordValue.equals(MainController.password)) {
+                    MainController.password = passwordValue2;
                     chkbox();
                     off();
                 } else {
@@ -197,13 +197,12 @@ public class NewpasswordController implements Initializable {
                 warning.setText("비밀번호를 설정할 메뉴를 선택해주세요");
             }
             //////////보일러
-        } else if (mainController.secretCount == 2) {
-            if (passwordValue.equals(mainController.password)) {
+        } else if (MainController.secretCount == 2) {
+            if (passwordValue.equals(MainController.password)) {
                 secretCount = 1;
                 off();
-                mainController.menuicon8.setImage(new Image(getClass().getResource("images/main_secret_default.png").toString()));
 
-                Parent boilerview = mainController.parent.get(1);
+                Parent boilerview = MainController.parent.get(1);
                 stackPane.getChildren().add(boilerview);
                 boilerview.setTranslateX(0);
                 boilerview.setOpacity(0);
@@ -217,11 +216,11 @@ public class NewpasswordController implements Initializable {
                 warning.setText("패스워드를 정확히 입력해주세요.");
             }
 /////////전기가스제어
-        } else if (mainController.secretCount == 3) {
-            if (passwordValue.equals(mainController.password)) {
+        } else if (MainController.secretCount == 3) {
+            if (passwordValue.equals(MainController.password)) {
                 secretCount = 1;
                 off();
-                Parent boilerview = mainController.parent.get(2);
+                Parent boilerview = MainController.parent.get(2);
                 stackPane.getChildren().add(boilerview);
                 boilerview.setTranslateX(0);
                 boilerview.setOpacity(0);
@@ -235,11 +234,11 @@ public class NewpasswordController implements Initializable {
             }
 
             ///인터폰
-        } else if (mainController.secretCount == 4) {
-            if (passwordValue.equals(mainController.password)) {
+        } else if (MainController.secretCount == 4) {
+            if (passwordValue.equals(MainController.password)) {
                 secretCount = 1;
                 off();
-                Parent boilerview = mainController.parent.get(3);
+                Parent boilerview = MainController.parent.get(3);
                 stackPane.getChildren().add(boilerview);
                 boilerview.setTranslateX(0);
                 boilerview.setOpacity(0);
@@ -253,11 +252,11 @@ public class NewpasswordController implements Initializable {
             }
 
             ///인터넷
-        } else if (mainController.secretCount == 5) {          //
-            if (passwordValue.equals(mainController.password)) {
+        } else if (MainController.secretCount == 5) {          //
+            if (passwordValue.equals(MainController.password)) {
                 secretCount = 1;
                 off();
-                Parent boilerview = mainController.parent.get(4);
+                Parent boilerview = MainController.parent.get(4);
                 stackPane.getChildren().add(boilerview);
                 boilerview.setTranslateX(0);
                 boilerview.setOpacity(0);
@@ -271,11 +270,11 @@ public class NewpasswordController implements Initializable {
             }
 
             //미디어플레이어
-        } else if (mainController.secretCount == 6) {
-            if (passwordValue.equals(mainController.password)) {
+        } else if (MainController.secretCount == 6) {
+            if (passwordValue.equals(MainController.password)) {
                 secretCount = 1;
                 off();
-                Parent boilerview = mainController.parent.get(5);
+                Parent boilerview = MainController.parent.get(5);
                 stackPane.getChildren().add(boilerview);
                 boilerview.setTranslateX(0);
                 boilerview.setOpacity(0);
@@ -288,11 +287,11 @@ public class NewpasswordController implements Initializable {
                 warning.setText("패스워드를 정확히 입력해주세요.");
             }
             //사용량조회
-        } else if (mainController.secretCount == 7) {
-            if (passwordValue.equals(mainController.password)) {
+        } else if (MainController.secretCount == 7) {
+            if (passwordValue.equals(MainController.password)) {
                 secretCount = 1;
                 off();
-                Parent boilerview = mainController.parent.get(6);
+                Parent boilerview = MainController.parent.get(6);
                 stackPane.getChildren().add(boilerview);
                 boilerview.setTranslateX(0);
                 boilerview.setOpacity(0);
@@ -305,11 +304,11 @@ public class NewpasswordController implements Initializable {
                 warning.setText("패스워드를 정확히 입력해주세요.");
             }
 
-        } else if (mainController.secretCount == 0) {    // secretCount=0번일때는 비번설정 처음띄웠을때(비번설정안되있을때),1은 비번설정된상태,2번은 비번설정된 상태에서 2번메뉴아이콘 눌렀을때
+        } else if (MainController.secretCount == 0) {    // secretCount=0번일때는 비번설정 처음띄웠을때(비번설정안되있을때),1은 비번설정된상태,2번은 비번설정된 상태에서 2번메뉴아이콘 눌렀을때
             if (!(temp1PasswordChk == false && temp2PasswordChk == false && temp3PasswordChk == false && temp4PasswordChk == false && temp5PasswordChk == false && temp6PasswordChk == false && temp7PasswordChk == false && temp8PasswordChk == false)) {
                 if ((passwordValue.equals(passwordValue2)) && (!password1.getText().isEmpty())) {
 
-                    mainController.password = passwordValue;
+                    MainController.password = passwordValue;
                     secretCount = 1;
                     chkbox();
                     off();
@@ -324,14 +323,14 @@ public class NewpasswordController implements Initializable {
     }
 
     private void chkbox() {
-        mainController.menu1PasswordChk = temp1PasswordChk;
-        mainController.menu2PasswordChk = temp2PasswordChk;
-        mainController.menu3PasswordChk = temp3PasswordChk;
-        mainController.menu4PasswordChk = temp4PasswordChk;
-        mainController.menu5PasswordChk = temp5PasswordChk;
-        mainController.menu6PasswordChk = temp6PasswordChk;
-        mainController.menu7PasswordChk = temp7PasswordChk;
-        mainController.menu8PasswordChk = temp8PasswordChk;
+        MainController.menu1PasswordChk = temp1PasswordChk;
+        MainController.menu2PasswordChk = temp2PasswordChk;
+        MainController.menu3PasswordChk = temp3PasswordChk;
+        MainController.menu4PasswordChk = temp4PasswordChk;
+        MainController.menu5PasswordChk = temp5PasswordChk;
+        MainController.menu6PasswordChk = temp6PasswordChk;
+        MainController.menu7PasswordChk = temp7PasswordChk;
+        MainController.menu8PasswordChk = temp8PasswordChk;
 
     }
 
@@ -342,13 +341,14 @@ public class NewpasswordController implements Initializable {
         KeyValue keyValue = new KeyValue(secret.opacityProperty(), 0);
         KeyFrame keyFrame = new KeyFrame(Duration.millis(1000),
                 (event) -> {
-                    mainController.stackPane.getChildren().remove(secret);
+                    MainController.stackPane.getChildren().remove(secret);
                 },
                 keyValue);
         Timeline timeline = new Timeline();
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
-        mainController.menuicon8.setImage(new Image(getClass().getResource("images/main_secret_default.png").toString()));
+        
+        MainController.menuicon8.setImage(new Image(getClass().getResource("images/main_secret_default.png").toString()));
     }
 
     private String zeroClicked() {
@@ -551,16 +551,16 @@ public class NewpasswordController implements Initializable {
 
     private void passwordReset() {
         secretCount = 0;
-        mainController.password = "";
-        System.out.println(mainController.password);/////지울거
-        mainController.menu1PasswordChk = false;
-        mainController.menu2PasswordChk = false;
-        mainController.menu3PasswordChk = false;
-        mainController.menu4PasswordChk = false;
-        mainController.menu5PasswordChk = false;
-        mainController.menu6PasswordChk = false;
-        mainController.menu7PasswordChk = false;
-        mainController.menu8PasswordChk = false;
+        MainController.password = "";
+        System.out.println(MainController.password);/////지울거
+        MainController.menu1PasswordChk = false;
+        MainController.menu2PasswordChk = false;
+        MainController.menu3PasswordChk = false;
+        MainController.menu4PasswordChk = false;
+        MainController.menu5PasswordChk = false;
+        MainController.menu6PasswordChk = false;
+        MainController.menu7PasswordChk = false;
+        MainController.menu8PasswordChk = false;
         chkBtn1.setSelected(false);
         chkBtn2.setSelected(false);
         chkBtn3.setSelected(false);

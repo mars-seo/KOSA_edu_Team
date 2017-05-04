@@ -18,7 +18,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
-import team1.Homvis.main.mainController;
+import team1.Homvis.main.MainController;
 
 public class ControlController implements Initializable {
 
@@ -103,7 +103,7 @@ public class ControlController implements Initializable {
     }
 
     private void exit() {
-		mainController.menuicon3.setImage(new Image(getClass().getResource("../main/images/main_elecNgas_default.png").toString()));
-        mainController.stackPane.getChildren().remove(controlRoot);
+		MainController.menuicon3.setImage(new Image(getClass().getResource("../main/images/main_elecNgas_default.png").toString()));
+        MainController.stackPane.getChildren().remove(controlRoot);
     }
 }

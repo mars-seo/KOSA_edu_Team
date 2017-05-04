@@ -17,7 +17,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
-import team1.Homvis.main.mainController;
+import team1.Homvis.main.MainController;
 
 public class ControlMiniController implements Initializable {
 

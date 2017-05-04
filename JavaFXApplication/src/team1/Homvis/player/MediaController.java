@@ -24,7 +24,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Popup;
 import javafx.util.Duration;
-import team1.Homvis.main.mainController;
+import team1.Homvis.main.MainController;
 
 public class MediaController implements Initializable {
 
@@ -267,7 +267,7 @@ public class MediaController implements Initializable {
 		}
 	}
 	private void exit() {
-		mainController.menuicon6.setImage(new Image(getClass().getResource("../main/images/main_player_default.png").toString()));
-        mainController.stackPane.getChildren().remove(mediaRoot);
+		MainController.menuicon6.setImage(new Image(getClass().getResource("../main/images/main_player_default.png").toString()));
+        MainController.stackPane.getChildren().remove(mediaRoot);
     }
 }

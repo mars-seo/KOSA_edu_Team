@@ -8,9 +8,9 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import team1.Homvis.main.mainController;
+import team1.Homvis.main.MainController;
 
-public class boilerController implements Initializable {
+public class BoilerController implements Initializable {
 
     @FXML
     private AnchorPane boilerRoot;
@@ -106,7 +106,7 @@ public class boilerController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         heatDisplay.setOpacity(0);
         waterDisplay.setOpacity(0);
-        exit.setOnMouseClicked(event -> exit());
+       exit.setOnMouseClicked(event -> exit());
         wifi.setOnMouseClicked(event->wifi());
         
         heatOn.setOnMouseClicked(event->heatOn());
@@ -116,8 +116,8 @@ public class boilerController implements Initializable {
     }
 
     private void exit() {
-        mainController.menuicon2.setImage(new Image(getClass().getResource("images/main_boiler_default.png").toString()));
-        mainController.stackPane.getChildren().remove(boilerRoot);
+      MainController.menuicon2.setImage(new Image(getClass().getResource("images/main_boiler_default.png").toString()));
+        MainController.stackPane.getChildren().remove(boilerRoot);
         /*     boilerRoot.setOpacity(1);
         boilerRoot.setTranslateX(0);
         KeyValue keyValue = new KeyValue(boilerRoot.opacityProperty(), 0);
@@ -132,7 +132,7 @@ public class boilerController implements Initializable {
         Root1Controller.menuicon2.setImage(new Image(getClass().getResource("images/main_boiler_default.png").toString()));
          */
 
-    }
+   }
 
     private void wifi() {
         if(wifiState==false){

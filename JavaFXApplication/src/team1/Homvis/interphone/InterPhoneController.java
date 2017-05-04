@@ -13,7 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Popup;
-import team1.Homvis.main.mainController;
+import team1.Homvis.main.MainController;
 
 public class InterPhoneController implements Initializable {
 
@@ -59,7 +59,7 @@ public class InterPhoneController implements Initializable {
 			}
 	}
 	private void exit() {
-		mainController.menuicon4.setImage(new Image(getClass().getResource("../main/images/main_interphone_default.png").toString()));
-        mainController.stackPane.getChildren().remove(interphoneRoot);
+		MainController.menuicon4.setImage(new Image(getClass().getResource("../main/images/main_interphone_default.png").toString()));
+        MainController.stackPane.getChildren().remove(interphoneRoot);
     }
 }
