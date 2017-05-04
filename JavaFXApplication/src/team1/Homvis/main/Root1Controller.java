@@ -3,9 +3,7 @@ package team1.Homvis.main;
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -195,7 +193,7 @@ public class Root1Controller implements Initializable {
         Parent chkView;
         secretCount = value;
         try {
-            chkView = FXMLLoader.load(getClass().getResource("newpassword.fxml"));
+            chkView = FXMLLoader.load(getClass().getResource("../secret/newpassword.fxml"));
             stackPane.getChildren().add(chkView);
             chkView.setTranslateX(0);
             chkView.setOpacity(0);
@@ -248,8 +246,8 @@ public class Root1Controller implements Initializable {
         menuIcon2.setImage(new Image(getClass().getResource("images/main_boiler_clicked.png").toString()));
         if (menu2PasswordChk == false) {
             try {
-                Parent boilerview = FXMLLoader.load(getClass().getResource("boiler.fxml"));
-                stackPane.getChildren().add(boilerview);
+                Parent boilerview = FXMLLoader.load(getClass().getResource("../boiler/boiler.fxml"));
+                stackPane.getChildren().add(boilerview); 
                 boilerview.setTranslateX(0);
                 boilerview.setOpacity(0);
                 KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
@@ -275,6 +273,7 @@ public class Root1Controller implements Initializable {
     private void elecNgasClicked() {
         menuIcon3.setImage(new Image(getClass().getResource("images/main_elecNgas_clicked.png").toString()));
         if (menu3PasswordChk == false) {
+                    
 
         } else {
             passwordChk(3);
@@ -343,7 +342,7 @@ public class Root1Controller implements Initializable {
         System.out.println("clicked");
         Parent secretview;
         try {
-            secretview = FXMLLoader.load(getClass().getResource("newpassword.fxml"));
+            secretview = FXMLLoader.load(getClass().getResource("../secret/newpassword.fxml"));
             stackPane.getChildren().add(secretview);
             secretview.setTranslateX(0);
             secretview.setOpacity(0);

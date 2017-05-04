@@ -1,31 +1,27 @@
 
-package team1.Homvis.main;
+package team1.Homvis.boiler;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.util.Duration;
+import team1.Homvis.main.Root1Controller;
 
 public class BoilerController implements Initializable {
 
     @FXML
-    private ImageView exit;
-    @FXML
     private AnchorPane boilerRoot;
+    @FXML
+    private ImageView exit;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         exit.setOnMouseClicked(event->exit());
     }    
-
-    private void exit() {
+        private void exit() {
         Root1Controller.menuicon2.setImage(new Image(getClass().getResource("images/main_boiler_default.png").toString()));
         Root1Controller.stackPane.getChildren().remove(boilerRoot);
    /*     boilerRoot.setOpacity(1);

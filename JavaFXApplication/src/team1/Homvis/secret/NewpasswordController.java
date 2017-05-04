@@ -1,5 +1,6 @@
-package team1.Homvis.main;
+package team1.Homvis.secret;
 
+import team1.Homvis.main.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -201,7 +202,7 @@ public class NewpasswordController implements Initializable {
                 secretCount = 1;
                 off();
                 try {
-                    Parent boilerview = FXMLLoader.load(getClass().getResource("boiler.fxml"));
+                    Parent boilerview = FXMLLoader.load(getClass().getResource("../boiler/boiler.fxml"));
                     stackPane.getChildren().add(boilerview);
                     boilerview.setTranslateX(0);
                     boilerview.setOpacity(0);
