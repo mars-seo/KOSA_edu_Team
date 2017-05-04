@@ -80,10 +80,9 @@ public class MediaController implements Initializable {
                 mediaPlayer.stop();
                 System.out.println(newValue);
                 handleMedia(mediaFileList, nameList.indexOf(newValue));
-                mediaPlayer.play();
+				deleteBtn.setOnMouseClicked(e->handleDelete(e, newValue));
             }
         });
-		deleteBtn.setOnMouseClicked(e->handleDelete());
 	}	
 	private void handleAddList(MouseEvent e) {
 		
@@ -102,11 +101,13 @@ public class MediaController implements Initializable {
 			mediaList.setItems(nameList);
 			handleMedia(mediaFileList, index);
 			index+=1;
-		}else fileChooserCheck(e);
+		}else fileEmptyCheck(e);
 		
 	}
 
 	private void handleMedia(ObservableList<File> mediaFileList, int index) {
+		if(mediaFileList.isEmpty()||nameList.isEmpty()) return;
+		else{
 			System.out.println(mediaFileList.get(index).toURI().toString());
 			playMedia = new Media(mediaFileList.get(index).toURI().toString());
 			mediaPlayer = new MediaPlayer(playMedia);
@@ -173,9 +174,9 @@ public class MediaController implements Initializable {
 					int currentPlay = (int)newValue.toSeconds();
 					// 미디어 플레이어의 시간을 라벨에 세팅
 					int[] time = new int[3];
-					time[0] = currentPlay % 60;
-					time[1] = (currentPlay / 60);
-					time[2] = currentPlay / (60*60);
+					time[0] = currentPlay % 60; // 초
+					time[1] = (currentPlay / 60) % 60; // 분
+					time[2] = (currentPlay / (60*60)) % 60; // 시
 					//문자열 타입으로 전환
 					String[] strPlay = new String[3];
 					strPlay[0] = String.valueOf(time[0] < 10 ? "0" + time[0] : time[0]);
@@ -213,7 +214,7 @@ public class MediaController implements Initializable {
 					}
 				}
 			});
-//		}
+		}
 	}
 	
 	// 업로드 하지 않은 상태에서 버튼을 누르면 뜨는 팝업
@@ -232,8 +233,7 @@ public class MediaController implements Initializable {
 	}
 	
 	//파일 업로드를 하지 않거나 취소하면 뜨는 팝업
-	private void fileChooserCheck(MouseEvent e) {
-		
+	private void fileEmptyCheck(MouseEvent e) {
 			try {
 				Popup popup = new Popup();
 				HBox hbox = (HBox) FXMLLoader.load(getClass().getResource("mediaPopup.fxml"));
@@ -244,9 +244,21 @@ public class MediaController implements Initializable {
 				ex.printStackTrace();
 			}
 	}
-
-	private void handleDelete() {
-		
+	// 누르면 리스트뷰와 각각의 리스트 객체에서 해당 파일을 지운다.
+	private void handleDelete(MouseEvent e, String selectFile) {
+		if(nameList.isEmpty()||mediaFileList.isEmpty()){
+			mediaPlayer.stop();
+			fileEmptyCheck(e);
+		}else{
+			int delIndex = nameList.indexOf(selectFile);
+			nameList.remove(delIndex);
+			mediaFileList.remove(delIndex);
+			mediaList.setItems(nameList);
+			if(nameList.isEmpty()||mediaFileList.isEmpty()){
+				mediaPlayer.stop();
+				fileEmptyCheck(e);
+			}
+		}
 	}
 	
 }

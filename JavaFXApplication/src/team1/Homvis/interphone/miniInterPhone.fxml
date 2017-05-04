@@ -16,10 +16,15 @@
          <right>
             <VBox alignment="BOTTOM_CENTER" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fx:id="phoneBtn" fitHeight="20.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="phoneBtn1" fitHeight="20.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button mnemonicParsing="false" prefWidth="80.0" text="공동/현관" />
+                  <ImageView fx:id="phoneBtn" fitHeight="20.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin></ImageView>
                   <Button mnemonicParsing="false" prefWidth="80.0" text="통화">
                      <VBox.margin>
-                        <Insets bottom="20.0" />
+                        <Insets bottom="12.0" />
                      </VBox.margin></Button>
                   <ImageView fx:id="openBtn" fitHeight="20.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
                   <Button mnemonicParsing="false" prefWidth="80.0" text="문열림">
@@ -28,12 +33,12 @@
                      </VBox.margin></Button>
                   <ImageView fx:id="closeBtn" fitHeight="20.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
-                        <Insets top="20.0" />
+                        <Insets top="13.0" />
                      </VBox.margin>
                   </ImageView>
                   <Button mnemonicParsing="false" prefWidth="80.0" text="나가기">
                      <VBox.margin>
-                        <Insets bottom="10.0" />
+                        <Insets bottom="5.0" />
                      </VBox.margin></Button>
                </children>
             </VBox>
