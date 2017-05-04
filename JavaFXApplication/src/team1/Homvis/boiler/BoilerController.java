@@ -13,7 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import team1.Homvis.main.mainController;
 
-public class BoilerController implements Initializable {
+public class boilerController implements Initializable {
 
     @FXML
     private AnchorPane boilerRoot;
@@ -48,7 +48,7 @@ public class BoilerController implements Initializable {
         data2.add(new XYChart.Data<String, Integer>("21", 10));
         data2.add(new XYChart.Data<String, Integer>("24", 10));
         series1.setData(data2);
-        barChar.getData().add(series1);
+        //barChar.getData().add(series1);
     }
 
     private void exit() {
