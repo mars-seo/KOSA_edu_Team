@@ -27,12 +27,12 @@ public class SecurityMiniController implements Initializable {
 
     private void handleSecurityOnOff(MouseEvent e) {
         if (securityState) {
-            imgSecurityState.setImage(new Image(getClass().getResource("images/securityo.png").toString()));
-            imgScurityOnoff.setImage(new Image(getClass().getResource("images/on1.png").toString()));
+            imgSecurityState.setImage(new Image(getClass().getResource("controlImg/securityo.png").toString()));
+            imgScurityOnoff.setImage(new Image(getClass().getResource("controlImg/on1.png").toString()));
             lblSecurityState.setText("보안이 작동중입니다.");
         } else {
-            imgSecurityState.setImage(new Image(getClass().getResource("images/securityx.png").toString()));
-            imgScurityOnoff.setImage(new Image(getClass().getResource("images/off1.png").toString()));
+            imgSecurityState.setImage(new Image(getClass().getResource("controlImg/securityx.png").toString()));
+            imgScurityOnoff.setImage(new Image(getClass().getResource("controlImg/off1.png").toString()));
             lblSecurityState.setText("보안이 해제되었습니다.");
         }
         securityState = !securityState;

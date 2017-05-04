@@ -57,8 +57,8 @@ public class LightMiniController implements Initializable {
     private ObservableList<Light> list;
     private ObservableList<BorderPane> borderList;
     private ObservableList<ImageView> imageViewList;
-    private String bulbOn = "images/light-bulb-icon.png";
-    private String bulbOff = "images/bulb-icon.png";
+    private String bulbOn = "controlImg/light-bulb-icon.png";
+    private String bulbOff = "controlImg/bulb-icon.png";
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

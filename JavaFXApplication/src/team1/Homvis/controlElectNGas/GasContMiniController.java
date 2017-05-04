@@ -27,12 +27,12 @@ public class GasContMiniController implements Initializable {
 
     private void handleGasOnOff(MouseEvent e) {
         if (gasState) {
-            imgGasState.setImage(new Image(getClass().getResource("images/gason.png").toString()));
-            imgGasOnoff.setImage(new Image(getClass().getResource("images/on1.png").toString()));
+            imgGasState.setImage(new Image(getClass().getResource("controlImg/gason.png").toString()));
+            imgGasOnoff.setImage(new Image(getClass().getResource("controlImg/on1.png").toString()));
             lblGasState.setText("가스 밸브가 열려있습니다.");
         } else {
-            imgGasState.setImage(new Image(getClass().getResource("images/gasoff.png").toString()));
-            imgGasOnoff.setImage(new Image(getClass().getResource("images/off1.png").toString()));
+            imgGasState.setImage(new Image(getClass().getResource("controlImg/gasoff.png").toString()));
+            imgGasOnoff.setImage(new Image(getClass().getResource("controlImg/off1.png").toString()));
             lblGasState.setText("가스 밸브가 닫혀있습니다.");
         }
         gasState = !gasState;
