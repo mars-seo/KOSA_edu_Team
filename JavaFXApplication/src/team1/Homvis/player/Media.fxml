@@ -11,7 +11,7 @@
 
 <StackPane fx:id="mediaRoot" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.player.MediaController">
    <children>
-      <BorderPane prefHeight="450.0" prefWidth="800.0">
+      <BorderPane prefHeight="480.0" prefWidth="800.0">
          <bottom>
             <BorderPane BorderPane.alignment="CENTER">
                <right>
