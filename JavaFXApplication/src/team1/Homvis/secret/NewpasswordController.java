@@ -348,7 +348,15 @@ public class NewpasswordController implements Initializable {
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
         
-        MainController.menuicon8.setImage(new Image(getClass().getResource("images/main_secret_default.png").toString()));
+       MainController.menuicon1.setImage(new Image(getClass().getResource("images/main_home_default.png").toString()));
+       MainController.menuicon2.setImage(new Image(getClass().getResource("images/main_boiler_default.png").toString()));
+       MainController.menuicon3.setImage(new Image(getClass().getResource("images/main_elecNgas_default.png").toString()));
+       MainController.menuicon4.setImage(new Image(getClass().getResource("images/main_interphone_default.png").toString()));
+       MainController.menuicon5.setImage(new Image(getClass().getResource("images/main_internet_default.png").toString()));
+       MainController.menuicon6.setImage(new Image(getClass().getResource("images/main_player_default.png").toString()));
+       MainController.menuicon7.setImage(new Image(getClass().getResource("images/main_tariff_default.png").toString()));
+       MainController.menuicon8.setImage(new Image(getClass().getResource("images/main_secret_default.png").toString()));
+        
     }
 
     private String zeroClicked() {
