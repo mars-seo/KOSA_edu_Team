@@ -30,6 +30,8 @@ public class MiniInterPhoneController implements Initializable {
 	private ImageView locationBtn;
 	@FXML
 	private StackPane miniInterphoneRoot;
+	
+	private boolean chkLocation;
 
 
 	@Override
@@ -66,6 +68,11 @@ public class MiniInterPhoneController implements Initializable {
     }
 
 	private void changeLocation() {
-		
+		if(!chkLocation){
+			locationlb.setText("현관");
+		}else{
+			locationlb.setText("공동현관");
+		}
+		chkLocation = !chkLocation;
 	}
 }

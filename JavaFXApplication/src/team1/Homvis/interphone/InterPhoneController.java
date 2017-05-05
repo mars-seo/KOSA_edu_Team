@@ -30,7 +30,7 @@ public class InterPhoneController implements Initializable {
 	@FXML
 	private ImageView locationBtn;
 	
-
+	private boolean chkLocation;
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -66,6 +66,11 @@ public class InterPhoneController implements Initializable {
     }
 
 	private void changeLocation() {
-		
+		if(!chkLocation){
+			locationlb.setText("현관");
+		}else{
+			locationlb.setText("공동현관");
+		}
+		chkLocation = !chkLocation;
 	}
 }
