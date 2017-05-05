@@ -10,13 +10,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane prefHeight="240.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.interphone.MiniInterPhoneController">
+<StackPane fx:id="miniInterphoneRoot" prefHeight="240.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.interphone.MiniInterPhoneController">
    <children>
       <BorderPane>
          <right>
             <VBox alignment="BOTTOM_CENTER" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fx:id="phoneBtn1" fitHeight="20.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="locationBtn" fitHeight="20.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
                   <Button mnemonicParsing="false" prefWidth="80.0" text="공동/현관" />
                   <ImageView fx:id="phoneBtn" fitHeight="20.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>

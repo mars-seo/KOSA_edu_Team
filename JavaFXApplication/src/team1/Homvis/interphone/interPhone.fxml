@@ -17,7 +17,7 @@
          <right>
             <VBox alignment="BOTTOM_CENTER" BorderPane.alignment="BOTTOM_CENTER">
                <children>
-                  <ImageView fx:id="phoneBtn1" fitHeight="30.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="locationBtn" fitHeight="30.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
                   <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="119.0" text="공동/현관" />
                   <ImageView fx:id="phoneBtn" fitHeight="30.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>

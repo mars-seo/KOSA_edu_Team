@@ -28,11 +28,13 @@ public class InterPhoneController implements Initializable {
 	@FXML
 	private StackPane interphoneRoot;
 	@FXML
-	private ImageView phoneBtn1;
+	private ImageView locationBtn;
+	
 
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
+		locationBtn.setOnMouseClicked(e->changeLocation());
 		phoneBtn.setOnMouseClicked(e->callNopen(e, "call"));
 		openBtn.setOnMouseClicked(e->callNopen(e, "open"));
 		closeBtn.setOnMouseClicked(e->exit());
@@ -62,4 +64,8 @@ public class InterPhoneController implements Initializable {
 		MainController.menuicon4.setImage(new Image(getClass().getResource("../main/images/main_interphone_default.png").toString()));
         MainController.stackPane.getChildren().remove(interphoneRoot);
     }
+
+	private void changeLocation() {
+		
+	}
 }

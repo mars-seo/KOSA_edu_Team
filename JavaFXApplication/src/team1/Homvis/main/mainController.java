@@ -77,11 +77,12 @@ public class MainController implements Initializable {
 
     private List<String> menuList = new ArrayList<>();
     public static List<Parent> parent = new ArrayList<>();
+	public static List<Parent> miniParent = new ArrayList<>();
 
     public MainController() {
         try {
+			
             this.parent.add(FXMLLoader.load(getClass().getResource("../newMain/newMenu.fxml")));
-
             this.parent.add(FXMLLoader.load(getClass().getResource("../boiler/boiler.fxml")));
             this.parent.add(FXMLLoader.load(getClass().getResource("../controlElectNGas/control.fxml")));
             this.parent.add(FXMLLoader.load(getClass().getResource("../interphone/interPhone.fxml")));
@@ -97,6 +98,15 @@ public class MainController implements Initializable {
             this.menuList.add("internet");
             this.menuList.add("player");
             this.menuList.add("tariff");
+			
+			//미니 메뉴를 위한 구성
+//			this.miniParent.add(FXMLLoader.load(getClass().getResource("../newMain/newMenu.fxml")));
+//          this.miniParent.add(FXMLLoader.load(getClass().getResource("../boiler/boiler.fxml")));
+//          this.miniParent.add(FXMLLoader.load(getClass().getResource("../controlElectNGas/control.fxml")));
+//          this.miniParent.add(FXMLLoader.load(getClass().getResource("../interphone/interPhone.fxml")));
+//          this.miniParent.add(FXMLLoader.load(getClass().getResource("../internet/internet.fxml")));
+//          this.miniParent.add(FXMLLoader.load(getClass().getResource("../player/media.fxml")));
+//          this.miniParent.add(FXMLLoader.load(getClass().getResource("../tariff/root.fxml")));
 
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -259,7 +269,7 @@ public class MainController implements Initializable {
 
     }
 
-    private void menuClicked(ImageView menuIcon, int index,boolean chk) {
+    private void menuClicked(ImageView menuIcon, int index, boolean chk) {
         menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_clicked.png").toString()));
         if (chk == false) {
 
