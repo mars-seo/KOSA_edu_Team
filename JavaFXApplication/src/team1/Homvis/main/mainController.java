@@ -272,9 +272,7 @@ public class MainController implements Initializable {
     private void menuClicked(ImageView menuIcon, int index, boolean chk) {
         menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_clicked.png").toString()));
         if(index==0){
-            for(int i=0;i<8;i++){
-            stackPane.getChildren().remove(i);
-            }
+            
             menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_default.png").toString()));
         }else{
         if (chk == false) {
