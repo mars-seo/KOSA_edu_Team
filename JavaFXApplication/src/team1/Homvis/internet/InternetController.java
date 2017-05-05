@@ -18,10 +18,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebView;
+import team1.Homvis.main.MainController;
 
 /**
  * FXML Controller class
@@ -61,11 +64,17 @@ public class InternetController implements Initializable {
     private Button favoritAdd;
     @FXML
     private Button favoriteDelete;
+	@FXML
+	private ImageView exit;
+	@FXML
+	private StackPane internetRoot;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        WebEngine engine = newsWebView.getEngine();
-
+        
+		exit.setOnMouseClicked(e->exit());
+		WebEngine engine = newsWebView.getEngine();
+		
         newsButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -199,5 +208,9 @@ public class InternetController implements Initializable {
         } else {
             return host;
         }
+    }
+	private void exit() {
+		MainController.menuicon5.setImage(new Image(getClass().getResource("../main/images/main_internet_default.png").toString()));
+        MainController.stackPane.getChildren().remove(internetRoot);
     }
 }

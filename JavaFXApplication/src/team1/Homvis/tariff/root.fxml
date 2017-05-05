@@ -12,15 +12,24 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.tariff.RootController">
+<AnchorPane fx:id="tariffRoot" prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.tariff.RootController">
    <children>
       <BorderPane prefHeight="450.0" prefWidth="800.0">
          <top>
-            <Label contentDisplay="CENTER" minHeight="-Infinity" prefHeight="25.0" prefWidth="100.0" text="요금조회" BorderPane.alignment="CENTER">
-               <font>
-                  <Font name="System Bold Italic" size="23.0" />
-               </font>
-            </Label>
+            <AnchorPane>
+               <children>
+                  <Label contentDisplay="CENTER" layoutX="343.0" minHeight="-Infinity" prefHeight="25.0" prefWidth="100.0" text="요금조회" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font name="System Bold Italic" size="23.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="exit" fitHeight="30.0" fitWidth="30.0" layoutX="771.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@tariffImg/icon.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
          </top>
          <left>
             <VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="100.0" BorderPane.alignment="CENTER">

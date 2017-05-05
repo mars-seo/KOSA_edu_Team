@@ -14,8 +14,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
+import team1.Homvis.main.MainController;
 
 public class RootController implements Initializable {
 
@@ -29,6 +33,10 @@ public class RootController implements Initializable {
     private static StackPane rootPane;
     @FXML
     private StackPane changeableStackPane;
+	@FXML
+	private ImageView exit;
+	@FXML
+	private AnchorPane tariffRoot;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -43,6 +51,8 @@ public class RootController implements Initializable {
         btnWaterFee.setOnAction((event) -> {
             handlerBtn(event,2);
         });
+		
+		exit.setOnMouseClicked(e->exit());
     }
 
     public RootController() {
@@ -118,5 +128,9 @@ public class RootController implements Initializable {
         Timeline timeline = new Timeline();
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
+    }
+	private void exit() {
+		MainController.menuicon7.setImage(new Image(getClass().getResource("../main/images/main_tariff_default.png").toString()));
+        MainController.stackPane.getChildren().remove(tariffRoot);
     }
 }

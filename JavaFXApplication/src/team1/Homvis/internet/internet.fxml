@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.web.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.internet.InternetController">
+<StackPane fx:id="internetRoot" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.internet.InternetController">
     <children>
         <AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="800.0">
             <children>
@@ -24,6 +25,11 @@
                       <Button fx:id="backButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="Back" />
                       <Button fx:id="forwardButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="forward" />
                   <ToggleButton fx:id="favoriteToggle" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="favorite" />
+                  <ImageView fx:id="exit" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@internetImg/icon.png" />
+                     </image>
+                  </ImageView>
                </children>
             </HBox>
                 <StackPane fx:id="changeableStackPane" layoutX="529.0" layoutY="14.0" prefHeight="420.0" prefWidth="250.0" visible="false">
