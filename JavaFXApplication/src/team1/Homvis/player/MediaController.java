@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MultipleSelectionModel;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -105,8 +106,11 @@ public class MediaController implements Initializable {
 			String mediaName = mediaFile.getName();
 			nameList.add(mediaName);
 			mediaList.setItems(nameList);
-			handleMedia(mediaFileList, index);
-			index+=1;
+			if (nameList.size() < 2) {
+				handleMedia(mediaFileList, index);
+			}
+			
+			index += 1;
 		}else fileEmptyCheck(e);
 		
 	}
@@ -114,7 +118,6 @@ public class MediaController implements Initializable {
 	private void handleMedia(ObservableList<File> mediaFileList, int index) {
 		if(mediaFileList.isEmpty()||nameList.isEmpty()) return;
 		else{
-			System.out.println(mediaFileList.get(index).toURI().toString());
 			playMedia = new Media(mediaFileList.get(index).toURI().toString());
 			mediaPlayer = new MediaPlayer(playMedia);
 			mediaView.setMediaPlayer(mediaPlayer);
@@ -139,15 +142,43 @@ public class MediaController implements Initializable {
 				pauseBtn.setDisable(true);
 				stopBtn.setDisable(true);
 			});
-			mediaPlayer.setOnEndOfMedia(()->{
-
-			});
-
+			mediaPlayer.setOnEndOfMedia(() -> {
+								mediaPlayer.stop();
+								int songIndex = index;
+								if (songIndex < mediaFileList.size() - 1) {
+										handleMedia(mediaFileList, ++songIndex);
+										mediaPlayer.play();
+								} else {
+										handleMedia(mediaFileList, 0);
+										mediaPlayer.play();
+								}
+						});
+			
 			playBtn.setOnMouseClicked(e->mediaPlayer.play());
 			pauseBtn.setOnMouseClicked(e->mediaPlayer.pause());
 			stopBtn.setOnMouseClicked(e->mediaPlayer.stop());
-			nextBtn.setOnMouseClicked(e->handleMedia(mediaFileList, index+1));
-			previousBtn.setOnMouseClicked(e->handleMedia(mediaFileList, index-1));
+			nextBtn.setOnMouseClicked(e -> {
+								mediaPlayer.stop();
+								if (index == mediaFileList.size() - 1) {
+										//handleMedia(mediaFileList, 0);
+										mediaList.setSelectionModel(new selection(0));
+										//mediaPlayer.play();
+								} else {
+										//handleMedia(mediaFileList, index + 1);
+										mediaList.setSelectionModel(new selection(index+1));
+										//mediaPlayer.play();
+								}
+						});
+			previousBtn.setOnMouseClicked(e -> {
+								mediaPlayer.stop();
+								if (index == 0) {
+										handleMedia(mediaFileList, mediaFileList.size() - 1);
+										mediaPlayer.play();
+								} else {
+										handleMedia(mediaFileList, index - 1);
+										mediaPlayer.play();
+								}
+						});
 			
 			//실행시 처음 볼륨값과 이미지 세팅
 			volumeSlider.setValue(50);
@@ -214,7 +245,7 @@ public class MediaController implements Initializable {
 						mediaPlayer.seek(curTime);
 					}else{
 					//이전슬라이더 값과 현재 찾으려는 슬라이더의 값의 차이가 미세할 때 제외
-						if(Math.abs(preSlider-curSlider)>std){
+						if(Math.abs(preSlider-curSlider)>0.5){
 							mediaPlayer.seek(curTime);
 						}
 					}
@@ -260,8 +291,11 @@ public class MediaController implements Initializable {
 			nameList.remove(delIndex);
 			mediaFileList.remove(delIndex);
 			mediaList.setItems(nameList);
+			index--;
+			
 			if(nameList.isEmpty()||mediaFileList.isEmpty()){
 				mediaPlayer.stop();
+				mediaPlayer = null;
 				fileEmptyCheck(e);
 			}
 		}
@@ -270,4 +304,89 @@ public class MediaController implements Initializable {
 		MainController.menuicon6.setImage(new Image(getClass().getResource("../main/images/main_player_default.png").toString()));
         MainController.stackPane.getChildren().remove(mediaRoot);
     }
+	class selection extends MultipleSelectionModel<String>{
+		
+
+		public selection(int index) {
+			this.setSelectedItem(nameList.get(index));
+			mediaList.setItems(nameList);
+		}
+
+		@Override
+		public ObservableList<Integer> getSelectedIndices() {
+			ObservableList<Integer> a = getSelectedIndices();
+			return a;
+		}
+
+		@Override
+		public ObservableList<String> getSelectedItems() {
+			return nameList;
+		}
+
+		@Override
+		public void selectIndices(int index, int... indices) {
+			
+		}
+
+		@Override
+		public void selectAll() {
+			
+		}
+
+		@Override
+		public void selectFirst() {
+			
+		}
+
+		@Override
+		public void selectLast() {
+			
+		}
+
+		@Override
+		public void clearAndSelect(int index) {
+			
+		}
+
+		@Override
+		public void select(int index) {
+			
+		}
+
+		@Override
+		public void select(String obj) {
+			
+		}
+
+		@Override
+		public void clearSelection(int index) {
+			
+		}
+
+		@Override
+		public void clearSelection() {
+			
+		}
+
+		@Override
+		public boolean isSelected(int index) {
+			return true;
+		}
+
+		@Override
+		public boolean isEmpty() {
+			return false;
+		}
+
+		@Override
+		public void selectPrevious() {
+			
+		}
+
+		@Override
+		public void selectNext() {
+			
+		}
+
+	}										
 }
