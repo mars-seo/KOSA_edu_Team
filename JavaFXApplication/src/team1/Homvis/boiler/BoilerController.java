@@ -1,13 +1,23 @@
 package team1.Homvis.boiler;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
+import javafx.util.Duration;
 import team1.Homvis.main.MainController;
 
 public class BoilerController implements Initializable {
@@ -98,6 +108,8 @@ public class BoilerController implements Initializable {
     private ImageView waterDown;
     @FXML
     private ImageView goOut;
+    @FXML
+    private StackPane stackDisplay;
 
     private Boolean wifiState = false;
     private Boolean goOutState = false;
@@ -106,19 +118,29 @@ public class BoilerController implements Initializable {
 
     private boolean heatOnState = false;
     private boolean waterOnState = false;
-
+    public static boolean ecomodeState=false;
+    public static Parent boilermodeView;
+    public static ImageView modeImage;
+public static StackPane boilerModeStack;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        try {
+            boilermodeView = FXMLLoader.load(getClass().getResource("modechange.fxml"));
+        } catch (IOException ex) {
+        }
+        boilerModeStack=stackDisplay;
+        modeImage=modeDisplay;
         heatDisplay.setOpacity(0);
         txthopeHeat.setOpacity(0);
         waterDisplay.setOpacity(0);
         txtWater.setOpacity(0);
         exit.setOnMouseClicked(event -> exit());
         wifi.setOnMouseClicked(event -> wifi());
-        heatUp.setOnMousePressed(event -> heatUp());
-        heatDown.setOnMousePressed(event -> heatDown());
+        heatUp.setOnMouseClicked(event -> heatUp());
+        heatDown.setOnMouseClicked(event -> heatDown());
         waterUp.setOnMouseClicked(event -> waterUp());
         waterDown.setOnMouseClicked(event -> waterDown());
+        modeOn.setOnMouseClicked(event->modeOn());
 
         heatOn.setOnMouseClicked(event -> heatOn());
         waterOn.setOnMouseClicked(event -> waterOn());
@@ -219,6 +241,20 @@ public class BoilerController implements Initializable {
             hopeWater -= 1;
             txtWater.setText(String.valueOf(hopeWater));
         }
+    }
+
+    private void modeOn() {
+        
+            stackDisplay.getChildren().add(boilermodeView);
+            boilermodeView.setTranslateX(0);
+            boilermodeView.setOpacity(0);
+            KeyValue keyValue = new KeyValue(boilermodeView.opacityProperty(), 1);
+            KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
+            Timeline timeline = new Timeline();
+            timeline.getKeyFrames().add(keyFrame);
+            timeline.play();
+       
+            
     }
 
 }

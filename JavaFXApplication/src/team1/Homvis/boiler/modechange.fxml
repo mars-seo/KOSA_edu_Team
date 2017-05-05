@@ -7,29 +7,35 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="393.0" prefWidth="510.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane id="AnchorPane" prefHeight="393.0" prefWidth="510.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.boiler.ModechangeController">
    <children>
       <ImageView fitHeight="393.0" fitWidth="510.0" layoutX="4.0" layoutY="2.0" pickOnBounds="true">
          <image>
             <Image url="@images/background11.PNG" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ecoMode" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/ecomode.PNG" />
          </image>
       </ImageView>
-      <ImageView fitHeight="77.0" fitWidth="100.0" layoutX="228.0" layoutY="24.0" pickOnBounds="true">
+      <ImageView fx:id="userMode" fitHeight="77.0" fitWidth="100.0" layoutX="228.0" layoutY="24.0" pickOnBounds="true">
          <image>
-            <Image url="@images/usermode.png" />
+            <Image url="@images/usermode.PNG" />
          </image>
       </ImageView>
-      <ImageView fitHeight="89.0" fitWidth="101.0" layoutX="377.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="nightMode" fitHeight="89.0" fitWidth="101.0" layoutX="377.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/nightmode.png" />
+            <Image url="@images/nightmode.PNG" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="10.0" layoutY="119.0" prefHeight="260.0" prefWidth="503.0" />
+      <AnchorPane layoutX="10.0" layoutY="119.0" prefHeight="260.0" prefWidth="503.0">
+         <children>
+            <ImageView fx:id="ok" fitHeight="48.0" fitWidth="100.0" layoutX="211.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/ok.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
    </children>
 </AnchorPane>

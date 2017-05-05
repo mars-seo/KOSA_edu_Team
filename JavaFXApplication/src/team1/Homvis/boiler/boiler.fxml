@@ -16,175 +16,179 @@
             <Image url="@images/tex.jpg" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="displayPane" layoutX="145.0" layoutY="46.0" prefHeight="200.0" prefWidth="200.0">
+      <StackPane fx:id="stackDisplay" layoutX="138.0" layoutY="63.0" prefHeight="150.0" prefWidth="200.0">
          <children>
-            <ImageView fitHeight="393.0" fitWidth="510.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/background11.PNG" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="graph" fitHeight="148.0" fitWidth="484.0" layoutX="37.0" layoutY="227.0" pickOnBounds="true">
-               <image>
-                  <Image url="@images/timeschedule.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="bar1" fitHeight="71.0" fitWidth="20.0" layoutX="78.0" layoutY="230.0" pickOnBounds="true">
-               <image>
-                  <Image url="@images/bar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="bar2" fitHeight="71.0" fitWidth="20.0" layoutX="110.0" layoutY="227.0" pickOnBounds="true">
-               <image>
-                  <Image url="@images/bar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="bar3" fitHeight="71.0" fitWidth="20.0" layoutX="133.0" layoutY="227.0" pickOnBounds="true">
-               <image>
-                  <Image url="@images/bar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="bar4" fitHeight="71.0" fitWidth="20.0" layoutX="178.0" layoutY="227.0" pickOnBounds="true">
-               <image>
-                  <Image url="@images/bar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="bar5" fitHeight="71.0" fitWidth="20.0" layoutX="207.0" layoutY="227.0" pickOnBounds="true">
-               <image>
-                  <Image url="@images/bar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="bar6" fitHeight="71.0" fitWidth="20.0" layoutX="244.0" layoutY="227.0" pickOnBounds="true">
-               <image>
-                  <Image url="@images/bar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="bar7" fitHeight="71.0" fitWidth="20.0" layoutX="292.0" layoutY="227.0" pickOnBounds="true">
-               <image>
-                  <Image url="@images/bar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="bar8" fitHeight="71.0" fitWidth="20.0" layoutX="320.0" layoutY="227.0" pickOnBounds="true">
-               <image>
-                  <Image url="@images/bar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="bar9" fitHeight="71.0" fitWidth="20.0" layoutX="350.0" layoutY="227.0" pickOnBounds="true">
-               <image>
-                  <Image url="@images/bar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="bar10" fitHeight="71.0" fitWidth="20.0" layoutX="386.0" layoutY="227.0" pickOnBounds="true">
-               <image>
-                  <Image url="@images/bar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="bar11" fitHeight="71.0" fitWidth="20.0" layoutX="413.0" layoutY="227.0" pickOnBounds="true">
-               <image>
-                  <Image url="@images/bar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="bar12" fitHeight="71.0" fitWidth="20.0" layoutX="441.0" layoutY="227.0" pickOnBounds="true">
-               <image>
-                  <Image url="@images/bar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="bar13" fitHeight="71.0" fitWidth="20.0" layoutX="78.0" layoutY="301.0" pickOnBounds="true">
-               <image>
-                  <Image url="@images/bar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="bar15" fitHeight="71.0" fitWidth="20.0" layoutX="110.0" layoutY="301.0" pickOnBounds="true">
-               <image>
-                  <Image url="@images/bar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="bar16" fitHeight="71.0" fitWidth="20.0" layoutX="143.0" layoutY="301.0" pickOnBounds="true">
-               <image>
-                  <Image url="@images/bar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="bar17" fitHeight="71.0" fitWidth="20.0" layoutX="178.0" layoutY="298.0" pickOnBounds="true">
-               <image>
-                  <Image url="@images/bar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="bar18" fitHeight="71.0" fitWidth="20.0" layoutX="207.0" layoutY="298.0" pickOnBounds="true">
-               <image>
-                  <Image url="@images/bar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="bar19" fitHeight="71.0" fitWidth="20.0" layoutX="244.0" layoutY="298.0" pickOnBounds="true">
-               <image>
-                  <Image url="@images/bar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="bar20" fitHeight="71.0" fitWidth="20.0" layoutX="292.0" layoutY="298.0" pickOnBounds="true">
-               <image>
-                  <Image url="@images/bar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="bar20" fitHeight="71.0" fitWidth="20.0" layoutX="320.0" layoutY="301.0" pickOnBounds="true">
-               <image>
-                  <Image url="@images/bar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="bar21" fitHeight="71.0" fitWidth="20.0" layoutX="350.0" layoutY="301.0" pickOnBounds="true">
-               <image>
-                  <Image url="@images/bar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="bar22" fitHeight="71.0" fitWidth="20.0" layoutX="386.0" layoutY="298.0" pickOnBounds="true">
-               <image>
-                  <Image url="@images/bar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="bar23" fitHeight="71.0" fitWidth="20.0" layoutX="403.0" layoutY="298.0" pickOnBounds="true">
-               <image>
-                  <Image url="@images/bar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="bar24" fitHeight="71.0" fitWidth="20.0" layoutX="431.0" layoutY="298.0" pickOnBounds="true">
-               <image>
-                  <Image url="@images/bar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="gasDisplay" fitHeight="139.0" fitWidth="117.0" layoutX="220.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/gas.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="heatDisplay" fitHeight="100.0" fitWidth="117.0" layoutX="61.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/heat.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="txtnowHeat" layoutX="136.0" layoutY="145.0" prefHeight="80.0" prefWidth="85.0" text="24">
-               <font>
-                  <Font size="61.0" />
-               </font>
-            </Label>
-            <ImageView fx:id="modeDisplay" fitHeight="52.0" fitWidth="123.0" layoutX="217.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/ecomode.PNG" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="waterDisplay" fitHeight="85.0" fitWidth="96.0" layoutX="386.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/water.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="txtWater" layoutX="403.0" layoutY="143.0">
-               <font>
-                  <Font size="60.0" />
-               </font>
-            </Label>
-            <Label fx:id="txthopeHeat" layoutX="36.0" layoutY="145.0" prefHeight="80.0" prefWidth="85.0">
-               <font>
-                  <Font size="61.0" />
-               </font>
-            </Label>
+            <AnchorPane fx:id="displayPane" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="393.0" fitWidth="510.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/background11.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="graph" fitHeight="148.0" fitWidth="484.0" layoutX="37.0" layoutY="227.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/timeschedule.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="bar1" fitHeight="71.0" fitWidth="20.0" layoutX="78.0" layoutY="230.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/bar.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="bar2" fitHeight="71.0" fitWidth="20.0" layoutX="110.0" layoutY="227.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/bar.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="bar3" fitHeight="71.0" fitWidth="20.0" layoutX="133.0" layoutY="227.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/bar.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="bar4" fitHeight="71.0" fitWidth="20.0" layoutX="178.0" layoutY="227.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/bar.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="bar5" fitHeight="71.0" fitWidth="20.0" layoutX="207.0" layoutY="227.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/bar.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="bar6" fitHeight="71.0" fitWidth="20.0" layoutX="244.0" layoutY="227.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/bar.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="bar7" fitHeight="71.0" fitWidth="20.0" layoutX="292.0" layoutY="227.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/bar.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="bar8" fitHeight="71.0" fitWidth="20.0" layoutX="320.0" layoutY="227.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/bar.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="bar9" fitHeight="71.0" fitWidth="20.0" layoutX="350.0" layoutY="227.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/bar.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="bar10" fitHeight="71.0" fitWidth="20.0" layoutX="386.0" layoutY="227.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/bar.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="bar11" fitHeight="71.0" fitWidth="20.0" layoutX="413.0" layoutY="227.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/bar.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="bar12" fitHeight="71.0" fitWidth="20.0" layoutX="441.0" layoutY="227.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/bar.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="bar13" fitHeight="71.0" fitWidth="20.0" layoutX="78.0" layoutY="301.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/bar.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="bar15" fitHeight="71.0" fitWidth="20.0" layoutX="110.0" layoutY="301.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/bar.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="bar16" fitHeight="71.0" fitWidth="20.0" layoutX="143.0" layoutY="301.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/bar.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="bar17" fitHeight="71.0" fitWidth="20.0" layoutX="178.0" layoutY="298.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/bar.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="bar18" fitHeight="71.0" fitWidth="20.0" layoutX="207.0" layoutY="298.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/bar.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="bar19" fitHeight="71.0" fitWidth="20.0" layoutX="244.0" layoutY="298.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/bar.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="bar20" fitHeight="71.0" fitWidth="20.0" layoutX="292.0" layoutY="298.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/bar.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="bar20" fitHeight="71.0" fitWidth="20.0" layoutX="320.0" layoutY="301.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/bar.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="bar21" fitHeight="71.0" fitWidth="20.0" layoutX="350.0" layoutY="301.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/bar.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="bar22" fitHeight="71.0" fitWidth="20.0" layoutX="386.0" layoutY="298.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/bar.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="bar23" fitHeight="71.0" fitWidth="20.0" layoutX="403.0" layoutY="298.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/bar.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="bar24" fitHeight="71.0" fitWidth="20.0" layoutX="431.0" layoutY="298.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/bar.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="gasDisplay" fitHeight="139.0" fitWidth="117.0" layoutX="220.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/gas.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="heatDisplay" fitHeight="100.0" fitWidth="117.0" layoutX="61.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/heat.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="txtnowHeat" layoutX="136.0" layoutY="145.0" prefHeight="80.0" prefWidth="85.0" text="24">
+                     <font>
+                        <Font size="61.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="modeDisplay" fitHeight="52.0" fitWidth="123.0" layoutX="217.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/ecomode.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="waterDisplay" fitHeight="85.0" fitWidth="96.0" layoutX="386.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/water.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="txtWater" layoutX="403.0" layoutY="143.0">
+                     <font>
+                        <Font size="60.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txthopeHeat" layoutX="36.0" layoutY="145.0" prefHeight="80.0" prefWidth="85.0">
+                     <font>
+                        <Font size="61.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
          </children>
-      </AnchorPane>
+      </StackPane>
       <ImageView fx:id="exit" fitHeight="34.0" fitWidth="42.0" layoutX="751.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/x.png" />
