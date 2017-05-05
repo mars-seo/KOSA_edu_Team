@@ -113,12 +113,16 @@ public class BoilerController implements Initializable {
     private Boolean goOutState = false;
     private int hopeWater = 14;
     private int hopeHeat = 24;
+    private int nowHeat=27;
 
     private boolean heatOnState = false;
     private boolean waterOnState = false;
     public static boolean ecomodeState=false;
+    public static boolean usermodeState=false;
+    public static boolean nightmodeState=false;
     public static Parent boilermodeView;
     public static ImageView modeImage;
+    public static int count=0;
 public static StackPane boilerModeStack;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -126,6 +130,8 @@ public static StackPane boilerModeStack;
             boilermodeView = FXMLLoader.load(getClass().getResource("modechange.fxml"));
         } catch (IOException ex) {
         }
+        gasDisplay.setOpacity(0);
+        txtnowHeat.setText(String.valueOf(nowHeat));
         boilerModeStack=stackDisplay;
         modeImage=modeDisplay;
         heatDisplay.setOpacity(0);
@@ -216,6 +222,11 @@ public static StackPane boilerModeStack;
         if (heatOnState == true) {
         hopeHeat += 1;
         txthopeHeat.setText(String.valueOf(hopeHeat));
+        if(hopeHeat>nowHeat){
+            gasDisplay.setOpacity(1);
+        }else{
+            gasDisplay.setOpacity(0);
+        }
     }
     }
 
@@ -223,6 +234,11 @@ public static StackPane boilerModeStack;
         if (heatOnState == true) {
         hopeHeat += -1;
         txthopeHeat.setText(String.valueOf(hopeHeat));
+        if(hopeHeat>nowHeat){
+            gasDisplay.setOpacity(1);
+        }else{
+            gasDisplay.setOpacity(0);
+        }
         }
 
     }
@@ -242,7 +258,7 @@ public static StackPane boilerModeStack;
     }
 
     private void modeOn() {
-        
+        if(count==0){
             stackDisplay.getChildren().add(boilermodeView);
             boilermodeView.setTranslateX(0);
             boilermodeView.setOpacity(0);
@@ -251,6 +267,11 @@ public static StackPane boilerModeStack;
             Timeline timeline = new Timeline();
             timeline.getKeyFrames().add(keyFrame);
             timeline.play();
+            count=1;
+        }else{
+            boilerModeStack.getChildren().remove(boilermodeView);
+            count=0;
+        }
        
             
     }

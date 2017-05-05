@@ -29,13 +29,83 @@
             <Image url="@images/nightmode.PNG" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="10.0" layoutY="119.0" prefHeight="260.0" prefWidth="503.0">
+      <AnchorPane fx:id="userModeView" layoutX="8.0" layoutY="125.0" prefHeight="220.0" prefWidth="502.0">
          <children>
-            <ImageView fx:id="ok" fitHeight="48.0" fitWidth="100.0" layoutX="211.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="am" fitHeight="45.0" fitWidth="89.0" layoutX="179.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/ok.png" />
+                  <Image url="@images/am.PNG" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="pm" fitHeight="45.0" fitWidth="126.0" layoutX="251.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/pm.PNG" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="one" fitHeight="80.0" fitWidth="70.0" layoutX="29.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/one.PNG" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="two" fitHeight="80.0" fitWidth="70.0" layoutX="105.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/two.PNG" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="three" fitHeight="80.0" fitWidth="70.0" layoutX="184.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/three.PNG" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="four" fitHeight="80.0" fitWidth="70.0" layoutX="261.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/four.PNG" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="five" fitHeight="80.0" fitWidth="70.0" layoutX="342.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/five.PNG" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="six" fitHeight="80.0" fitWidth="70.0" layoutX="422.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/six.PNG" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="seven" fitHeight="80.0" fitWidth="70.0" layoutX="29.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/seven.PNG" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="eight" fitHeight="80.0" fitWidth="70.0" layoutX="104.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/eight.PNG" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="nine" fitHeight="80.0" fitWidth="70.0" layoutX="184.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/nine.PNG" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="ten" fitHeight="80.0" fitWidth="70.0" layoutX="251.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/10.PNG" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="eleven" fitHeight="80.0" fitWidth="70.0" layoutX="333.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/11.PNG" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="twelve" fitHeight="80.0" fitWidth="70.0" layoutX="414.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/12.PNG" />
                </image>
             </ImageView>
          </children></AnchorPane>
+      <ImageView fx:id="ok" fitHeight="34.0" fitWidth="63.0" layoutX="226.0" layoutY="354.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/ok.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
