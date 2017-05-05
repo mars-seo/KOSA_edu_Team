@@ -189,12 +189,12 @@ public class InternetController implements Initializable {
         int nextIndex = host.indexOf('.'); //nextIndex는 '.naver'의 '.'
         int lastIndex = host.lastIndexOf('.'); //lastIndex는 .com의 '.'
 
-        if (nextIndex == lastIndex) {   //twiter.com과 같이 첫단어부터 도메인인 경우는 바로 리턴하고 종
+        if (nextIndex == lastIndex) {   //twiter.com과 같이 첫단어부터 도메인인 경우는 바로 리턴하고 종료
             return host;
-        }
-        if (host.endsWith("co.kr")) {
+        } else if (host.endsWith("co.kr")) {
             startIndex = nextIndex + 1;         //startIndex는 .naver.의 첫번째 글자가 되고, ex)n
             nextIndex = host.indexOf('.', startIndex); //nextIndex는 m.naver.com 중 naver.com에서 .이 처음으로 나타나는 위치 .com의 .으로 바뀐다.
+            return host.substring(startIndex);
         }
 
         while (nextIndex < lastIndex) {     //nextIndex가 lastIndex와 같아질때까지(즉 .naver.에서 첫번째'.'이 마지막 '.'의 위치가 될때까지 반복)
