@@ -6,16 +6,16 @@ import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
@@ -23,7 +23,7 @@ import javafx.scene.layout.StackPane;
 public class GasController implements Initializable {
 
     @FXML
-    private Button chartButton;
+    private ImageView chartButton;
     @FXML
     private TableView<Fee> tableView;
     @FXML
@@ -32,15 +32,9 @@ public class GasController implements Initializable {
     private Label howManyFeeLabel;
 
     @FXML
-    private BorderPane BoaderPane;
-    @FXML
     private StackPane mainStackPane;
 
     private static StackPane rootPane;
-    @FXML
-    private AnchorPane gasMainAnchorPane;
-    @FXML
-    private AnchorPane buttonAnchorPane;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -78,12 +72,12 @@ public class GasController implements Initializable {
         howManyUseLabel.setText(feeMeter);
         howManyFeeLabel.setText(fee);
 
-        chartButton.setOnAction((event) -> {
+        chartButton.setOnMouseClicked((event) -> {
             handlerChartButton(event);
         });
     }
 
-    private void handlerChartButton(ActionEvent event) {
+    private void handlerChartButton(MouseEvent event) {
         try {
             
             rootPane.getChildren().clear();
