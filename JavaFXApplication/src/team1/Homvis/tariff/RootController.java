@@ -13,9 +13,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
@@ -24,35 +24,52 @@ import team1.Homvis.main.MainController;
 public class RootController implements Initializable {
 
     @FXML
-    private Button btnGasFee;
+    private ImageView btnGasFee;
     @FXML
-    private Button btnElectricFee;
+    private ImageView btnElectricFee;
     @FXML
-    private Button btnWaterFee;
+    private ImageView btnWaterFee;
     private List<Parent> parent = new ArrayList<>();
     private static StackPane rootPane;
     @FXML
     private StackPane changeableStackPane;
-	@FXML
-	private ImageView exit;
-	@FXML
-	private AnchorPane tariffRoot;
+    @FXML
+    private ImageView exit;
+    @FXML
+    private AnchorPane tariffRoot;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         rootPane = changeableStackPane;
 
-        btnGasFee.setOnAction((event) -> {
+        btnGasFee.setOnMouseClicked((event) -> {
             handlerBtn(event,0);
         });
-        btnElectricFee.setOnAction((event) -> {
+        btnElectricFee.setOnMouseClicked((event) -> {
             handlerBtn(event,1);
         });
-        btnWaterFee.setOnAction((event) -> {
+        btnWaterFee.setOnMouseClicked((event) -> {
             handlerBtn(event,2);
         });
-		
-		exit.setOnMouseClicked(e->exit());
+        btnGasFee.setOnMousePressed((event) -> {
+            handlerBtnPressed(event,0);
+        });
+        btnElectricFee.setOnMousePressed((event) -> {
+            handlerBtnPressed(event,1);
+        });
+        btnWaterFee.setOnMousePressed((event) -> {
+            handlerBtnPressed(event,2);
+        });
+        
+        
+//        btnElectricFee.setOnAction((event) -> {
+//            handlerBtn(event,1);
+//        });
+//        btnWaterFee.setOnAction((event) -> {
+//            handlerBtn(event,2);
+//        });
+
+        exit.setOnMouseClicked(e -> exit());
     }
 
     public RootController() {
@@ -66,59 +83,35 @@ public class RootController implements Initializable {
 
     }
 
-//    private void handlerBtnGasFee(ActionEvent event) {
-//        try {
-//            rootPane.getChildren().clear();
-//
-//            Parent scene = FXMLLoader.load(getClass().getResource("gas.fxml"));
-//            rootPane.getChildren().add(scene);
-//            scene.setTranslateX(840);
-//            Timeline timeline = new Timeline();
-//            KeyValue keyValue = new KeyValue(scene.translateXProperty(), 0);
-//            KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
-//            timeline.getKeyFrames().add(keyFrame);
-//            timeline.play();
-//        } catch (IOException ex) {
-//            ex.printStackTrace();
-//        }
-//    }
-//
-//    private void handlerBtnElectricFee(ActionEvent event) {
-//        try {
-//            rootPane.getChildren().clear();
-//            Parent scene = FXMLLoader.load(getClass().getResource("electric.fxml"));
-//            rootPane.getChildren().add(scene);
-//            scene.setTranslateX(840);
-//            Timeline timeline = new Timeline();
-//            KeyValue keyValue = new KeyValue(scene.translateXProperty(), 0);
-//            KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
-//            timeline.getKeyFrames().add(keyFrame);
-//            timeline.play();
-//        } catch (IOException ex) {
-//            ex.printStackTrace();
-//        }
-//    }
-//
-//    private void handlerBtnWaterFee(ActionEvent event) {
-//        try {
-//            rootPane.getChildren().clear();
-//            Parent scene = FXMLLoader.load(getClass().getResource("water.fxml"));
-//            rootPane.getChildren().add(scene);
-//
-//            scene.setTranslateX(840);
-//            Timeline timeline = new Timeline();
-//            KeyValue keyValue = new KeyValue(scene.translateXProperty(), 0);
-//            KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
-//            timeline.getKeyFrames().add(keyFrame);
-//            timeline.play();
-//        } catch (IOException ex) {
-//            ex.printStackTrace();
-//        }
-//    }
-    private void handlerBtn(ActionEvent e, int num) {
+    private void handlerBtn(MouseEvent e, int num) {
         rootPane.getChildren().clear();
         changeableStackPane.getChildren().add(parent.get(num));
         translateX(num);
+        
+         if (num == 0) {
+            btnGasFee.setImage(new Image(getClass().getResource("../controlElectNGas/controlImg/elecNgas_light_clicked.png").toString()));
+            btnElectricFee.setImage(new Image(getClass().getResource("../controlElectNGas/controlImg/elecNgas_gas_default.png").toString()));
+            btnWaterFee.setImage(new Image(getClass().getResource("../controlElectNGas/controlImg/elecNgas_security_default.png").toString()));
+        } else if (num == 1) {
+            btnGasFee.setImage(new Image(getClass().getResource("../controlElectNGas/controlImg/elecNgas_light_default.png").toString()));
+            btnElectricFee.setImage(new Image(getClass().getResource("../controlElectNGas/controlImg/elecNgas_gas_clicked.png").toString()));
+            btnWaterFee.setImage(new Image(getClass().getResource("../controlElectNGas/controlImg/elecNgas_security_default.png").toString()));
+        } else if (num == 2) {
+            btnGasFee.setImage(new Image(getClass().getResource("../controlElectNGas/controlImg/elecNgas_light_default.png").toString()));
+            btnElectricFee.setImage(new Image(getClass().getResource("../controlElectNGas/controlImg/elecNgas_gas_default.png").toString()));
+            btnWaterFee.setImage(new Image(getClass().getResource("../controlElectNGas/controlImg/elecNgas_security_clicked.png").toString()));
+        }
+        
+    }
+    
+    private void handlerBtnPressed(MouseEvent e, int num) {
+        if (num == 0) {
+            btnGasFee.setImage(new Image(getClass().getResource("../controlElectNGas/controlImg/elecNgas_light_pressed.png").toString()));
+        } else if (num == 1) {
+            btnElectricFee.setImage(new Image(getClass().getResource("../controlElectNGas/controlImg/elecNgas_gas_pressed.png").toString()));
+        } else if (num == 2) {
+            btnWaterFee.setImage(new Image(getClass().getResource("../controlElectNGas/controlImg/elecNgas_security_pressed.png").toString()));
+        }
     }
 
     private void translateX(int num) {
@@ -129,8 +122,9 @@ public class RootController implements Initializable {
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
     }
-	private void exit() {
-		MainController.menuicon7.setImage(new Image(getClass().getResource("../main/images/main_tariff_default.png").toString()));
+
+    private void exit() {
+        MainController.menuicon7.setImage(new Image(getClass().getResource("../main/images/main_tariff_default.png").toString()));
         MainController.stackPane.getChildren().remove(tariffRoot);
     }
 }

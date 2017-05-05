@@ -14,7 +14,6 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import team1.Homvis.tariff.GasController;
 
 /**
  * FXML Controller class

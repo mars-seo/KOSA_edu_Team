@@ -8,18 +8,15 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.ToggleButton;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebHistory;
@@ -36,17 +33,15 @@ public class InternetController implements Initializable {
     @FXML
     private WebView newsWebView;
     @FXML
-    private ToggleButton newsButton;
+    private ImageView newsButton;
     @FXML
-    private ToggleGroup SelectGroup;
+    private ImageView youtubeButton;
     @FXML
-    private ToggleButton youtubeButton;
+    private ImageView refresh;
     @FXML
-    private Button refresh;
+    private ImageView backButton;
     @FXML
-    private Button backButton;
-    @FXML
-    private Button forwardButton;
+    private ImageView forwardButton;
     ObservableList<Bookmark> bookmarks = FXCollections.observableArrayList();
     @FXML
     private TableView<Bookmark> table;
@@ -59,47 +54,48 @@ public class InternetController implements Initializable {
 
     WebEngine engine;
     @FXML
-    private ToggleButton favoriteToggle;
+    private ImageView favoriteToggle;
     @FXML
-    private Button favoritAdd;
+    private ImageView favoriteAdd;
     @FXML
-    private Button favoriteDelete;
-	@FXML
-	private ImageView exit;
-	@FXML
-	private StackPane internetRoot;
+    private ImageView favoriteDelete;
+    @FXML
+    private ImageView exit;
+    @FXML
+    private StackPane internetRoot;
+    private static int count = -1;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-		exit.setOnMouseClicked(e->exit());
-		WebEngine engine = newsWebView.getEngine();
-		
-        newsButton.setOnAction(new EventHandler<ActionEvent>() {
+
+        exit.setOnMouseClicked(e -> exit());
+        WebEngine engine = newsWebView.getEngine();
+
+        newsButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
-            public void handle(ActionEvent event) {
-                engine.load("http://m.news.naver.com/");
+            public void handle(MouseEvent event) {
+                engine.load("http://m.news.naver.com");
             }
         });
 
-        youtubeButton.setOnAction(new EventHandler<ActionEvent>() {
+        youtubeButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
-            public void handle(ActionEvent event) {
+            public void handle(MouseEvent event) {
                 engine.load("https://m.youtube.com");
             }
         });
 
-        refresh.setOnAction(new EventHandler<ActionEvent>() {
+        refresh.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
-            public void handle(ActionEvent event) {
+            public void handle(MouseEvent event) {
                 engine.reload();
             }
 
         });
 
-        backButton.setOnAction(new EventHandler<ActionEvent>() {
+        backButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
-            public void handle(ActionEvent event) {
+            public void handle(MouseEvent event) {
                 final WebHistory history = engine.getHistory();
                 ObservableList<WebHistory.Entry> entryList = history.getEntries();
                 int currentIndex = history.getCurrentIndex();
@@ -109,9 +105,9 @@ public class InternetController implements Initializable {
             }
         });
 
-        forwardButton.setOnAction(new EventHandler<ActionEvent>() {
+        forwardButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
-            public void handle(ActionEvent event) {
+            public void handle(MouseEvent event) {
                 final WebHistory history = engine.getHistory();
                 ObservableList<WebHistory.Entry> entryList = history.getEntries();
                 int currentIndex = history.getCurrentIndex();
@@ -122,13 +118,19 @@ public class InternetController implements Initializable {
             }
         });
 
-        favoriteToggle.setOnAction(new EventHandler<ActionEvent>() {
+        favoriteToggle.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
-            public void handle(ActionEvent event) {
-                if (favoriteToggle.isSelected() == false) {
-                    changeableStackPane.setVisible(false);
-                } else if (favoriteToggle.isSelected() == true) {
+            public void handle(MouseEvent event) {
+//                if (changeableStackPane.isVisible() == false) {
+//                    changeableStackPane.setVisible(false);
+//                } else if (favoriteToggle.isVisible() == true) {
+//                    changeableStackPane.setVisible(true);
+//                }
+                count = count * (-1);
+                if (count == 1) {
                     changeableStackPane.setVisible(true);
+                } else {
+                    changeableStackPane.setVisible(false);
                 }
             }
         });
@@ -153,64 +155,61 @@ public class InternetController implements Initializable {
             }
         });
 
-        favoritAdd.setOnAction((event) -> {
-            String aurl = engine.getLocation();
+        favoriteAdd.setOnMouseClicked((event) -> {
+            String aurl = engine.getLocation(); //Webengine의 getLoaction()메소드를 통해 url주소를 구한다.
+            //ex) m.naver.com/12390940901/sfs
+
             try {
-                URL aURL = new URL(aurl);
-                bookmarks.addAll(new Bookmark(getBaseDomain(aurl).replaceFirst(".com", " "), engine.getLocation()));
-                System.out.println(getBaseDomain(aurl));
+                URL aURL = new URL(aurl);   //String aurl을 URL타입으로 바꾼다.
+                String host = aURL.getHost();
+                if (host.endsWith("com")) { //(aURL)은 naver.com을 리턴한다. 따라서 replaceFirst메소드를 통해 .com부분을 지워 'naver'라는 이름을 얻어낸다.
+                    bookmarks.addAll(new Bookmark(getBaseDomain(aURL).replaceFirst(".com", " "), engine.getLocation()));
+                }
+                if (host.endsWith("co.kr")) {//(aURL)의 .co.kr부분을 지워 'google'이라는 이름을 얻어낸다.
+                    bookmarks.addAll(new Bookmark(getBaseDomain(aURL).replaceFirst(".co.kr", " "), engine.getLocation()));
+                }
+                System.out.println(aURL.getHost());
             } catch (MalformedURLException ex) {
                 ex.printStackTrace();
             }
 
         });
 
-        favoriteDelete.setOnAction((event) -> {
-            bookmarks.remove(selectionModel.getSelectedIndex());
+        favoriteDelete.setOnMouseClicked((event) -> {
+            bookmarks.remove(selectionModel.getSelectedIndex()); //북마크리스트에서 선택된 인덱스번째의 항목을 지운다.
 
         });
 
     }
 
-    public static String getHost(String url) {
-        if (url == null || url.length() == 0) {
-            return "";
+    public static String getBaseDomain(URL url) {
+        String host = url.getHost(); //getHost()메소드를 통해 host를 얻는다. ex)m.naver.com
+
+        int startIndex = 0;    //startIndex는 0
+        int nextIndex = host.indexOf('.'); //nextIndex는 '.naver'의 '.'
+        int lastIndex = host.lastIndexOf('.'); //lastIndex는 .com의 '.'
+
+        if (nextIndex == lastIndex) {   //twiter.com과 같이 첫단어부터 도메인인 경우는 바로 리턴하고 종
+            return host;
+        }
+        if (host.endsWith("co.kr")) {
+            startIndex = nextIndex + 1;         //startIndex는 .naver.의 첫번째 글자가 되고, ex)n
+            nextIndex = host.indexOf('.', startIndex); //nextIndex는 m.naver.com 중 naver.com에서 .이 처음으로 나타나는 위치 .com의 .으로 바뀐다.
         }
 
-        int doubleslash = url.indexOf("//"); // http://중 //의 위치를 사용해 2를더하면 주소시작위치가된다.
-        if (doubleslash == -1) {
-            doubleslash = 0;
-        } else {
-            doubleslash += 2;
-        }
-
-        int end = url.indexOf('/', doubleslash);
-        end = end >= 0 ? end : url.length();
-
-        int port = url.indexOf(':', doubleslash);
-        end = (port > 0 && port < end) ? port : end;
-
-        return url.substring(doubleslash, end);
-    }
-
-    public static String getBaseDomain(String url) {
-        String host = getHost(url);
-
-        int startIndex = 0;
-        int nextIndex = host.indexOf('.');
-        int lastIndex = host.lastIndexOf('.');
-        while (nextIndex < lastIndex) {
-            startIndex = nextIndex + 1;
-            nextIndex = host.indexOf('.', startIndex);
-        }
+        while (nextIndex < lastIndex) {     //nextIndex가 lastIndex와 같아질때까지(즉 .naver.에서 첫번째'.'이 마지막 '.'의 위치가 될때까지 반복)
+            startIndex = nextIndex + 1;         //startIndex는 .naver.의 첫번째 글자가 되고, ex)n
+            nextIndex = host.indexOf('.', startIndex); //nextIndex는 m.naver.com 중 naver.com에서 .이 처음으로 나타나는 위치 .com의 .으로 바뀐다.
+        }   //nextIndex와 lastIndex가 같아졌으므로 종료, startIndex는 n이 된다.
         if (startIndex > 0) {
-            return host.substring(startIndex);
+            return host.substring(startIndex); //m.naver.com중 n부터 시작하는 naver.com을 리턴한다.
         } else {
             return host;
         }
     }
-	private void exit() {
-		MainController.menuicon5.setImage(new Image(getClass().getResource("../main/images/main_internet_default.png").toString()));
+
+    private void exit() {
+        MainController.menuicon5.setImage(new Image(getClass().getResource("../main/images/main_internet_default.png").toString()));
         MainController.stackPane.getChildren().remove(internetRoot);
     }
 }

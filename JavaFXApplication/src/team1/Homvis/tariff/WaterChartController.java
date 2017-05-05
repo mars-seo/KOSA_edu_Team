@@ -32,9 +32,9 @@ public class WaterChartController implements Initializable {
         XYChart.Series series1 = new XYChart.Series();
         series1.setName("월별 수도 요금");
         series1.setData(FXCollections.observableArrayList(
-                new XYChart.Data("1월", 69120),
-                new XYChart.Data("2월", 59940),
-                new XYChart.Data("3월", 42120)
+                new XYChart.Data("1월", 37120),
+                new XYChart.Data("2월", 28940),
+                new XYChart.Data("3월", 13120)
         ));
         AreaChart.getData().add(series1);
 

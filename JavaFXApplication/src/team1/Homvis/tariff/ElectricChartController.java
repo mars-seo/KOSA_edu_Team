@@ -12,7 +12,7 @@ import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
-
+import team1.Homvis.tariff.ElectricController;
 /**
  * FXML Controller class
  *
@@ -35,9 +35,9 @@ public class ElectricChartController implements Initializable {
         XYChart.Series series1 = new XYChart.Series();
         series1.setName("월별 전기 요금");
         series1.setData(FXCollections.observableArrayList(
-                new XYChart.Data("1월", 69120),
-                new XYChart.Data("2월", 59940),
-                new XYChart.Data("3월", 42120)
+                new XYChart.Data("1월", 38120),
+                new XYChart.Data("2월", 21940),
+                new XYChart.Data("3월", 25320)
         ));
         AreaChart.getData().add(series1);
 

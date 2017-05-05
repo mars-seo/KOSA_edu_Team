@@ -6,20 +6,19 @@ import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
-import team1.Homvis.tariff.Fee;
 
 /**
  * FXML Controller class
@@ -43,7 +42,7 @@ public class WaterController implements Initializable {
     @FXML
     private AnchorPane buttonAnchorPane;
     @FXML
-    private Button chartButton;
+    private ImageView chartButton;
     private static StackPane rootPane;
 
     /**
@@ -76,21 +75,21 @@ public class WaterController implements Initializable {
         int feeNumber = (DateDay * 24 * 60 * 60 + Hour * 60 * 60 + Minute * 60 + Second) / 20000;
         String feeMeter = String.valueOf(feeNumber) + "\u33A5";
         String fee = String.valueOf(feeNumber * 300) + "원";
-        list.add(new Fee("1", "128" + "L", "69120원", "납부완료"));
-        list.add(new Fee("2", "111" + "L", "59940원", "납부완료"));
-        list.add(new Fee("3", "78" + "L", "42120원", "납부완료"));
+        list.add(new Fee("1", "98" + "L", "37120원", "납부완료"));
+        list.add(new Fee("2", "78" + "L", "28940원", "납부완료"));
+        list.add(new Fee("3", "32" + "L", "13120원", "납부완료"));
 
         tableView.setItems(list);
 
         howManyUseLabel.setText(feeMeter);
         howManyFeeLabel.setText(fee);
 
-        chartButton.setOnAction((event) -> {
+        chartButton.setOnMouseClicked((event) -> {
             handlerChartButton(event);
         });
     }
 
-    private void handlerChartButton(ActionEvent event) {
+    private void handlerChartButton(MouseEvent event) {
         try {
 
             rootPane.getChildren().clear();
