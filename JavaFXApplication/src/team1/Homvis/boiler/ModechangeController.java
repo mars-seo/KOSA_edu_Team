@@ -68,6 +68,8 @@ public class ModechangeController implements Initializable {
             
             BoilerController.modeImage.setOpacity(1);
             ecoMode.setImage(new Image(getClass().getResource("images/ecoOn.png").toString()));   //ecomode On됬을때 사진넣기
+            userMode.setImage(new Image(getClass().getResource("images/usermode.PNG").toString()));
+            nightMode.setImage(new Image(getClass().getResource("images/nightmode.PNG").toString()));
             BoilerController.ecomodeState = true;
             BoilerController.nightmodeState=false;
             BoilerController.usermodeState=false;
@@ -80,16 +82,33 @@ public class ModechangeController implements Initializable {
     }
 
     private void userMode() {
-        userModeView.setOpacity(1);
         
+         if (BoilerController.usermodeState == false) {
+            userModeView.setOpacity(1);
+            userMode.setImage(new Image(getClass().getResource("images/userOn.PNG").toString()));   //ecomode On됬을때 사진넣기
+            ecoMode.setImage(new Image(getClass().getResource("images/ecomode.PNG").toString()));
+            nightMode.setImage(new Image(getClass().getResource("images/nightmode.PNG").toString()));
+            BoilerController.modeImage.setOpacity(1);
+            BoilerController.usermodeState = true;
+            BoilerController.nightmodeState=false;
+            BoilerController.ecomodeState=false;
+            BoilerController.modeImage.setImage(new Image(getClass().getResource("images/userOn.PNG").toString())); 
+        } else {
+             userModeView.setOpacity(0);
+            userMode.setImage(new Image(getClass().getResource("images/usermode.PNG").toString()));//dcomode off됬을때 사진넣기
+            BoilerController.usermodeState= false;
+            BoilerController.modeImage.setOpacity(0);
+        }
         
     }
 
     private void nightMode() {
         userModeView.setOpacity(0);
-        if (BoilerController.ecomodeState == false) {
+        if (BoilerController.nightmodeState == false) {
             
             nightMode.setImage(new Image(getClass().getResource("images/nightmodeOn.PNG").toString()));   //nightmode On됬을때 사진넣기
+            userMode.setImage(new Image(getClass().getResource("images/usermode.PNG").toString()));   //nightmode On됬을때 사진넣기
+            ecoMode.setImage(new Image(getClass().getResource("images/ecomode.PNG").toString()));   //nightmode On됬을때 사진넣기
             BoilerController.nightmodeState = true;
             BoilerController.usermodeState=false;
             BoilerController.ecomodeState=false;
