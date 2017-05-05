@@ -95,32 +95,32 @@
                         <Image url="@images/bar.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="bar15" fitHeight="71.0" fitWidth="20.0" layoutX="110.0" layoutY="301.0" pickOnBounds="true">
+                  <ImageView fx:id="bar14" fitHeight="71.0" fitWidth="20.0" layoutX="110.0" layoutY="301.0" pickOnBounds="true">
                      <image>
                         <Image url="@images/bar.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="bar16" fitHeight="71.0" fitWidth="20.0" layoutX="143.0" layoutY="301.0" pickOnBounds="true">
+                  <ImageView fx:id="bar15" fitHeight="71.0" fitWidth="20.0" layoutX="143.0" layoutY="301.0" pickOnBounds="true">
                      <image>
                         <Image url="@images/bar.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="bar17" fitHeight="71.0" fitWidth="20.0" layoutX="178.0" layoutY="298.0" pickOnBounds="true">
+                  <ImageView fx:id="bar16" fitHeight="71.0" fitWidth="20.0" layoutX="178.0" layoutY="298.0" pickOnBounds="true">
                      <image>
                         <Image url="@images/bar.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="bar18" fitHeight="71.0" fitWidth="20.0" layoutX="207.0" layoutY="298.0" pickOnBounds="true">
+                  <ImageView fx:id="bar17" fitHeight="71.0" fitWidth="20.0" layoutX="207.0" layoutY="298.0" pickOnBounds="true">
                      <image>
                         <Image url="@images/bar.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="bar19" fitHeight="71.0" fitWidth="20.0" layoutX="244.0" layoutY="298.0" pickOnBounds="true">
+                  <ImageView fx:id="bar18" fitHeight="71.0" fitWidth="20.0" layoutX="244.0" layoutY="298.0" pickOnBounds="true">
                      <image>
                         <Image url="@images/bar.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="bar20" fitHeight="71.0" fitWidth="20.0" layoutX="292.0" layoutY="298.0" pickOnBounds="true">
+                  <ImageView fx:id="bar19" fitHeight="71.0" fitWidth="20.0" layoutX="292.0" layoutY="298.0" pickOnBounds="true">
                      <image>
                         <Image url="@images/bar.png" />
                      </image>

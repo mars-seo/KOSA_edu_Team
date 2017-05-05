@@ -2,6 +2,8 @@ package team1.Homvis.boiler;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -54,6 +56,8 @@ public class BoilerController implements Initializable {
     private ImageView bar12;
     @FXML
     private ImageView bar13;
+    @FXML
+    private ImageView bar14;
     @FXML
     private ImageView bar15;
     @FXML
@@ -113,27 +117,59 @@ public class BoilerController implements Initializable {
     private Boolean goOutState = false;
     private int hopeWater = 14;
     private int hopeHeat = 24;
-    private int nowHeat=27;
+    private int nowHeat = 27;
 
     private boolean heatOnState = false;
     private boolean waterOnState = false;
-    public static boolean ecomodeState=false;
-    public static boolean usermodeState=false;
-    public static boolean nightmodeState=false;
+    public static boolean ecomodeState = false;
+    public static boolean usermodeState = false;
+    public static boolean nightmodeState = false;
     public static Parent boilermodeView;
     public static ImageView modeImage;
-    public static int count=0;
-public static StackPane boilerModeStack;
+    public static int count = 0;
+    public static List<ImageView> barList =new ArrayList<>();
+    public static StackPane boilerModeStack;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
             boilermodeView = FXMLLoader.load(getClass().getResource("modechange.fxml"));
         } catch (IOException ex) {
         }
+        
         gasDisplay.setOpacity(0);
         txtnowHeat.setText(String.valueOf(nowHeat));
-        boilerModeStack=stackDisplay;
-        modeImage=modeDisplay;
+        boilerModeStack = stackDisplay;
+        modeImage = modeDisplay;
+        barList.add(bar1);
+        barList.add(bar2);
+        barList.add(bar3);
+        barList.add(bar4);
+        barList.add(bar5);
+        barList.add(bar6);
+        barList.add(bar7);
+        barList.add(bar8);
+        barList.add(bar9);
+        barList.add(bar10);
+        barList.add(bar11);
+        barList.add(bar12);
+        barList.add(bar13);
+        barList.add(bar14);
+        barList.add(bar15);
+        barList.add(bar16);
+        barList.add(bar17);
+        barList.add(bar18);
+        barList.add(bar19);
+        barList.add(bar20);
+        barList.add(bar21);
+        barList.add(bar22);
+        barList.add(bar23);
+        barList.add(bar24);
+        
+        for(ImageView list:barList){
+            list.setOpacity(0);
+        }
+
         heatDisplay.setOpacity(0);
         txthopeHeat.setOpacity(0);
         waterDisplay.setOpacity(0);
@@ -144,7 +180,7 @@ public static StackPane boilerModeStack;
         heatDown.setOnMouseClicked(event -> heatDown());
         waterUp.setOnMouseClicked(event -> waterUp());
         waterDown.setOnMouseClicked(event -> waterDown());
-        modeOn.setOnMouseClicked(event->modeOn());
+        modeOn.setOnMouseClicked(event -> modeOn());
 
         heatOn.setOnMouseClicked(event -> heatOn());
         waterOn.setOnMouseClicked(event -> waterOn());
@@ -184,10 +220,16 @@ public static StackPane boilerModeStack;
     private void heatOn() {
 
         if (heatDisplay.getOpacity() == 0) {
+            if (hopeHeat > nowHeat) {
+                gasDisplay.setOpacity(1);
+            }
             heatDisplay.setOpacity(1);
             txthopeHeat.setOpacity(1);
             heatOnState = true;
         } else {
+            if(gasDisplay.getOpacity()==1){
+             gasDisplay.setOpacity(0);
+            }
             heatDisplay.setOpacity(0);
             heatOnState = false;
             txthopeHeat.setOpacity(0);
@@ -220,25 +262,25 @@ public static StackPane boilerModeStack;
 
     private void heatUp() {
         if (heatOnState == true) {
-        hopeHeat += 1;
-        txthopeHeat.setText(String.valueOf(hopeHeat));
-        if(hopeHeat>nowHeat){
-            gasDisplay.setOpacity(1);
-        }else{
-            gasDisplay.setOpacity(0);
+            hopeHeat += 1;
+            txthopeHeat.setText(String.valueOf(hopeHeat));
+            if (hopeHeat > nowHeat) {
+                gasDisplay.setOpacity(1);
+            } else {
+                gasDisplay.setOpacity(0);
+            }
         }
-    }
     }
 
     private void heatDown() {
         if (heatOnState == true) {
-        hopeHeat += -1;
-        txthopeHeat.setText(String.valueOf(hopeHeat));
-        if(hopeHeat>nowHeat){
-            gasDisplay.setOpacity(1);
-        }else{
-            gasDisplay.setOpacity(0);
-        }
+            hopeHeat += -1;
+            txthopeHeat.setText(String.valueOf(hopeHeat));
+            if (hopeHeat > nowHeat) {
+                gasDisplay.setOpacity(1);
+            } else {
+                gasDisplay.setOpacity(0);
+            }
         }
 
     }
@@ -258,22 +300,21 @@ public static StackPane boilerModeStack;
     }
 
     private void modeOn() {
-        if(count==0){
+        if (count == 0) {
             stackDisplay.getChildren().add(boilermodeView);
             boilermodeView.setTranslateX(0);
-            boilermodeView.setOpacity(0);
-            KeyValue keyValue = new KeyValue(boilermodeView.opacityProperty(), 1);
-            KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
-            Timeline timeline = new Timeline();
-            timeline.getKeyFrames().add(keyFrame);
-            timeline.play();
-            count=1;
-        }else{
-            boilerModeStack.getChildren().remove(boilermodeView);
-            count=0;
+         //   boilermodeView.setOpacity(0);
+       //     KeyValue keyValue = new KeyValue(boilermodeView.opacityProperty(), 1);
+        //    KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
+        //    Timeline timeline = new Timeline();
+        //    timeline.getKeyFrames().add(keyFrame);
+         //   timeline.play();
+            count = 1;
+        } else {
+
+            count = 0;
         }
-       
-            
+
     }
 
 }
