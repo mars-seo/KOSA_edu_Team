@@ -11,7 +11,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Slider;
@@ -19,12 +18,14 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.FileChooser;
 import javafx.stage.Popup;
 import javafx.util.Duration;
+import team1.Homvis.main.MainController;
 
 
 public class MiniMediaController implements Initializable {
@@ -55,6 +56,10 @@ public class MiniMediaController implements Initializable {
 	private ListView<String> mediaList;
 	@FXML
 	private ImageView deleteBtn;
+	@FXML
+	private StackPane miniMediaRoot;
+	@FXML
+	private ImageView exit;
 	
 	private ObservableList<String> nameList = FXCollections.observableArrayList();
 	private ObservableList<File> mediaFileList = FXCollections.observableArrayList();
@@ -63,6 +68,7 @@ public class MiniMediaController implements Initializable {
 	private Media playMedia;
 	private MediaPlayer mediaPlayer;
 	private int index;
+	
 	
 		
 	@Override
@@ -85,6 +91,7 @@ public class MiniMediaController implements Initializable {
 				deleteBtn.setOnMouseClicked(e->handleDelete(e, newValue));
             }
         });
+		exit.setOnMouseClicked(e->exit());
 	}	
 	private void handleAddList(MouseEvent e) {
 		
@@ -101,8 +108,11 @@ public class MiniMediaController implements Initializable {
 			String mediaName = mediaFile.getName();
 			nameList.add(mediaName);
 			mediaList.setItems(nameList);
-			handleMedia(mediaFileList, index);
-			index+=1;
+			if (nameList.size() < 2) {
+				handleMedia(mediaFileList, index);
+				mediaPlayer.play();
+			}
+			index += 1;
 		}else fileEmptyCheck(e);
 		
 	}
@@ -110,7 +120,6 @@ public class MiniMediaController implements Initializable {
 	private void handleMedia(ObservableList<File> mediaFileList, int index) {
 		if(mediaFileList.isEmpty()||nameList.isEmpty()) return;
 		else{
-			System.out.println(mediaFileList.get(index).toURI().toString());
 			playMedia = new Media(mediaFileList.get(index).toURI().toString());
 			mediaPlayer = new MediaPlayer(playMedia);
 			mediaView.setMediaPlayer(mediaPlayer);
@@ -135,15 +144,45 @@ public class MiniMediaController implements Initializable {
 				pauseBtn.setDisable(true);
 				stopBtn.setDisable(true);
 			});
-			mediaPlayer.setOnEndOfMedia(()->{
-
-			});
-
+			mediaPlayer.setOnEndOfMedia(() -> {
+								mediaPlayer.stop();
+								int songIndex = index;
+								if (songIndex < mediaFileList.size() - 1) {
+										handleMedia(mediaFileList, ++songIndex);
+										mediaPlayer.play();
+								} else {
+										handleMedia(mediaFileList, 0);
+										mediaPlayer.play();
+								}
+						});
+			
 			playBtn.setOnMouseClicked(e->mediaPlayer.play());
 			pauseBtn.setOnMouseClicked(e->mediaPlayer.pause());
 			stopBtn.setOnMouseClicked(e->mediaPlayer.stop());
-			nextBtn.setOnMouseClicked(e->handleMedia(mediaFileList, index+1));
-			previousBtn.setOnMouseClicked(e->handleMedia(mediaFileList, index-1));
+			nextBtn.setOnMouseClicked(e -> {
+								mediaPlayer.stop();
+								if (index == mediaFileList.size() - 1) {
+										handleMedia(mediaFileList, 0);
+//										mediaList.setSelectionModel(new selection(0));
+										mediaPlayer.play();
+								} else {
+										handleMedia(mediaFileList, index + 1);
+//										mediaList.setSelectionModel(new selection(index+1));
+										mediaPlayer.play();
+								}
+						});
+			previousBtn.setOnMouseClicked(e -> {
+								mediaPlayer.stop();
+								if (index == 0) {
+										handleMedia(mediaFileList, mediaFileList.size() - 1);
+//										mediaList.setSelectionModel(new selection(mediaFileList.size() - 1));
+										mediaPlayer.play();
+								} else {
+										handleMedia(mediaFileList, index - 1);
+//										mediaList.setSelectionModel(new selection(index - 1));
+										mediaPlayer.play();
+								}
+						});
 			
 			//실행시 처음 볼륨값과 이미지 세팅
 			volumeSlider.setValue(50);
@@ -210,7 +249,7 @@ public class MiniMediaController implements Initializable {
 						mediaPlayer.seek(curTime);
 					}else{
 					//이전슬라이더 값과 현재 찾으려는 슬라이더의 값의 차이가 미세할 때 제외
-						if(Math.abs(preSlider-curSlider)>std){
+						if(Math.abs(preSlider-curSlider)>0.5){
 							mediaPlayer.seek(curTime);
 						}
 					}
@@ -256,11 +295,18 @@ public class MiniMediaController implements Initializable {
 			nameList.remove(delIndex);
 			mediaFileList.remove(delIndex);
 			mediaList.setItems(nameList);
+			index--;
+			
 			if(nameList.isEmpty()||mediaFileList.isEmpty()){
 				mediaPlayer.stop();
+				mediaPlayer = null;
 				fileEmptyCheck(e);
 			}
 		}
 	}
+	private void exit() {
+		MainController.menuicon6.setImage(new Image(getClass().getResource("../main/images/main_player_default.png").toString()));
+        MainController.stackPane.getChildren().remove(miniMediaRoot);
+    }
 	
 }

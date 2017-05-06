@@ -55,6 +55,10 @@ public class MediaController implements Initializable {
 	private ListView<String> mediaList;
 	@FXML
 	private ImageView deleteBtn;
+	@FXML
+	private StackPane mediaRoot;
+	@FXML
+	private ImageView exit;
 	
 	private ObservableList<String> nameList = FXCollections.observableArrayList();
 	private ObservableList<File> mediaFileList = FXCollections.observableArrayList();
@@ -63,10 +67,7 @@ public class MediaController implements Initializable {
 	private Media playMedia;
 	private MediaPlayer mediaPlayer;
 	private int index;
-	@FXML
-	private StackPane mediaRoot;
-	@FXML
-	private ImageView exit;
+	
 	
 		
 	@Override
@@ -108,8 +109,8 @@ public class MediaController implements Initializable {
 			mediaList.setItems(nameList);
 			if (nameList.size() < 2) {
 				handleMedia(mediaFileList, index);
+				mediaPlayer.play();
 			}
-			
 			index += 1;
 		}else fileEmptyCheck(e);
 		
@@ -160,22 +161,24 @@ public class MediaController implements Initializable {
 			nextBtn.setOnMouseClicked(e -> {
 								mediaPlayer.stop();
 								if (index == mediaFileList.size() - 1) {
-										//handleMedia(mediaFileList, 0);
-										mediaList.setSelectionModel(new selection(0));
-										//mediaPlayer.play();
+										handleMedia(mediaFileList, 0);
+//										mediaList.setSelectionModel(new selection(0));
+										mediaPlayer.play();
 								} else {
-										//handleMedia(mediaFileList, index + 1);
-										mediaList.setSelectionModel(new selection(index+1));
-										//mediaPlayer.play();
+										handleMedia(mediaFileList, index + 1);
+//										mediaList.setSelectionModel(new selection(index+1));
+										mediaPlayer.play();
 								}
 						});
 			previousBtn.setOnMouseClicked(e -> {
 								mediaPlayer.stop();
 								if (index == 0) {
 										handleMedia(mediaFileList, mediaFileList.size() - 1);
+//										mediaList.setSelectionModel(new selection(mediaFileList.size() - 1));
 										mediaPlayer.play();
 								} else {
 										handleMedia(mediaFileList, index - 1);
+//										mediaList.setSelectionModel(new selection(index - 1));
 										mediaPlayer.play();
 								}
 						});
@@ -304,89 +307,46 @@ public class MediaController implements Initializable {
 		MainController.menuicon6.setImage(new Image(getClass().getResource("../main/images/main_player_default.png").toString()));
         MainController.stackPane.getChildren().remove(mediaRoot);
     }
-	class selection extends MultipleSelectionModel<String>{
-		
-
-		public selection(int index) {
-			this.setSelectedItem(nameList.get(index));
-			mediaList.setItems(nameList);
-		}
-
-		@Override
-		public ObservableList<Integer> getSelectedIndices() {
-			ObservableList<Integer> a = getSelectedIndices();
-			return a;
-		}
-
-		@Override
-		public ObservableList<String> getSelectedItems() {
-			return nameList;
-		}
-
-		@Override
-		public void selectIndices(int index, int... indices) {
-			
-		}
-
-		@Override
-		public void selectAll() {
-			
-		}
-
-		@Override
-		public void selectFirst() {
-			
-		}
-
-		@Override
-		public void selectLast() {
-			
-		}
-
-		@Override
-		public void clearAndSelect(int index) {
-			
-		}
-
-		@Override
-		public void select(int index) {
-			
-		}
-
-		@Override
-		public void select(String obj) {
-			
-		}
-
-		@Override
-		public void clearSelection(int index) {
-			
-		}
-
-		@Override
-		public void clearSelection() {
-			
-		}
-
-		@Override
-		public boolean isSelected(int index) {
-			return true;
-		}
-
-		@Override
-		public boolean isEmpty() {
-			return false;
-		}
-
-		@Override
-		public void selectPrevious() {
-			
-		}
-
-		@Override
-		public void selectNext() {
-			
-		}
-
-	}										
+	
+//	//선택이 되기위해 생성한 클래스
+//	class selection extends MultipleSelectionModel<String>{
+//		
+//
+//		public selection(int selec) {
+////			if(e.isPrimaryButtonDown()){
+////				
+////				this.select(index);
+////			}else{
+//				super();
+//				this.clearSelection();
+//				if(selec==0) this.selectFirst();
+//				else if(selec==nameList.size()-1) this.selectLast();
+//				else if(selec==index+1) this.selectNext();
+//				else if(selec==index-1) this.selectPrevious();
+//				else this.clearSelection();
+//				
+////			}
+//		}
+//
+//		@Override
+//		public ObservableList<Integer> getSelectedIndices() {
+//			ObservableList<Integer> a = FXCollections.observableArrayList();
+//			return a;
+//		}
+//		@Override public ObservableList<String> getSelectedItems() {return nameList;}
+//		@Override public void selectIndices(int index, int... indices) {}
+//		@Override public void selectAll() {}
+//		@Override public void selectFirst() {}
+//		@Override public void selectLast() {}
+//		@Override public void clearAndSelect(int index) {}
+//		@Override public void select(int index) {}
+//		@Override public void select(String obj) {}
+//		@Override public void clearSelection(int index) {}
+//		@Override public void clearSelection() {}
+//		@Override public boolean isSelected(int index) {return true;}
+//		@Override public boolean isEmpty() {return false;}
+//		@Override public void selectPrevious() {}
+//		@Override public void selectNext() {}
+//
+//	}										
 }

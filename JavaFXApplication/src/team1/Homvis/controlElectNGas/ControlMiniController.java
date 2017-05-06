@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 import team1.Homvis.main.MainController;
@@ -34,6 +35,8 @@ public class ControlMiniController implements Initializable {
     private List<Parent> parent = new ArrayList<>();
     @FXML
     private ImageView exit;
+	@FXML
+	private AnchorPane miniControlRoot;
 
     public ControlMiniController() {
         try {
@@ -99,8 +102,9 @@ public class ControlMiniController implements Initializable {
         }
     }
     
-    private void exit() {        
-//        mainController.stackPane.getChildren().clear();
+    private void exit() {
+        MainController.menuicon3.setImage(new Image(getClass().getResource("../main/images/main_elecNgas_default.png").toString()));
+        MainController.stackPane.getChildren().remove(miniControlRoot);
     }
 
 }

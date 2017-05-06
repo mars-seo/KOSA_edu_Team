@@ -78,6 +78,8 @@ public class MainController implements Initializable {
     private List<String> menuList = new ArrayList<>();
     public static List<Parent> parent = new ArrayList<>();
 	public static List<Parent> miniParent = new ArrayList<>();
+	
+	private boolean miniWindow;
 
     public MainController() {
         try {
@@ -100,13 +102,13 @@ public class MainController implements Initializable {
             this.menuList.add("tariff");
 			
 			//미니 메뉴를 위한 구성
-//			this.miniParent.add(FXMLLoader.load(getClass().getResource("../newMain/newMenu.fxml")));
-//          this.miniParent.add(FXMLLoader.load(getClass().getResource("../boiler/boiler.fxml")));
-//          this.miniParent.add(FXMLLoader.load(getClass().getResource("../controlElectNGas/control.fxml")));
-//          this.miniParent.add(FXMLLoader.load(getClass().getResource("../interphone/interPhone.fxml")));
-//          this.miniParent.add(FXMLLoader.load(getClass().getResource("../internet/internet.fxml")));
-//          this.miniParent.add(FXMLLoader.load(getClass().getResource("../player/media.fxml")));
-//          this.miniParent.add(FXMLLoader.load(getClass().getResource("../tariff/root.fxml")));
+			this.miniParent.add(FXMLLoader.load(getClass().getResource("../newMain/newMenu.fxml")));
+          this.miniParent.add(FXMLLoader.load(getClass().getResource("../boiler/boiler.fxml")));
+          this.miniParent.add(FXMLLoader.load(getClass().getResource("../controlElectNGas/controlMini.fxml")));
+          this.miniParent.add(FXMLLoader.load(getClass().getResource("../interphone/miniInterPhone.fxml")));
+          this.miniParent.add(FXMLLoader.load(getClass().getResource("../internet/internet.fxml")));
+          this.miniParent.add(FXMLLoader.load(getClass().getResource("../player/miniMedia.fxml")));
+          this.miniParent.add(FXMLLoader.load(getClass().getResource("../tariff/mini.fxml")));
 
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -167,8 +169,9 @@ public class MainController implements Initializable {
         menuIcon8.setOnMousePressed(event -> secretPressed());
         menuIcon8.setOnMouseClicked(event -> secretClicked()); //암호설정 서브메뉴이동
 
+
         //메뉴시작위치
-        menu.setTranslateX(0);
+        menu.setTranslateX(30);
         menu.setTranslateY(200);
 ////////////////
         background.setOnMouseClicked(event -> {
@@ -270,6 +273,43 @@ public class MainController implements Initializable {
     }
 
     private void menuClicked(ImageView menuIcon, int index, boolean chk) {
+        menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_clicked.png").toString()));
+        if(index==0){
+            
+            menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_default.png").toString()));
+        }else{
+        if (chk == false) {
+
+            Parent miniView = miniParent.get(index);
+            stackPane.getChildren().add(miniView);
+			if(!miniWindow){
+				miniView.setTranslateX(0);
+				miniView.setTranslateY(-210);
+				miniView.setOpacity(0);
+				KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
+				KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
+				Timeline timeline = new Timeline();
+				timeline.getKeyFrames().add(keyFrame);
+				timeline.play();
+			}else{
+				miniView.setTranslateX(400);
+				miniView.setTranslateY(-210);
+				miniView.setOpacity(0);
+				KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
+				KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
+				Timeline timeline = new Timeline();
+				timeline.getKeyFrames().add(keyFrame);
+				timeline.play();
+			}
+			miniWindow = !miniWindow;
+			//menuIcon.setOnMouseClicked(e->fullmenuClicked(menuIcon, index, chk));
+
+        } else {
+            passwordChk(index + 1);
+        }
+        }
+    }
+	private void fullmenuClicked(ImageView menuIcon, int index, boolean chk) {
         menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_clicked.png").toString()));
         if(index==0){
             
