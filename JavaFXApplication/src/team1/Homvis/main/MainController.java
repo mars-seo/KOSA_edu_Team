@@ -52,7 +52,6 @@ public class MainController implements Initializable {
     private Label clock;
 
     public static int secretCount = 0;
-    public static int secretCount2 = 0;
     private static int count = -1;
     private static double xValue;
 

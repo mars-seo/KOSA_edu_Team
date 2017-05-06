@@ -23,7 +23,7 @@
                   <Image url="@images/main_home_default.png" />
                </image>
                <HBox.margin>
-                  <Insets right="10.0" />
+                  <Insets left="20.0" right="10.0" />
                </HBox.margin>
             </ImageView>
             <ImageView fx:id="menuIcon2" fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -31,7 +31,7 @@
                   <Image url="@images/main_boiler_default.png" />
                </image>
                <HBox.margin>
-                  <Insets right="10.0" />
+                  <Insets left="10.0" right="10.0" />
                </HBox.margin>
             </ImageView>
             <ImageView fx:id="menuIcon3" fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -39,7 +39,7 @@
                   <Image url="@images/main_elecNgas_default.png" />
                </image>
                <HBox.margin>
-                  <Insets right="5.0" />
+                  <Insets left="10.0" right="10.0" />
                </HBox.margin>
             </ImageView>
             <ImageView fx:id="menuIcon4" fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -47,19 +47,22 @@
                   <Image url="@images/main_interphone_default.png" />
                </image>
                <HBox.margin>
-                  <Insets right="5.0" />
+                  <Insets left="10.0" right="10.0" />
                </HBox.margin>
             </ImageView>
             <ImageView fx:id="menuIcon5" fitHeight="100.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/main_internet_default.png" />
-               </image></ImageView>
+               </image>
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin></ImageView>
             <ImageView fx:id="menuIcon6" fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/main_player_default.png" />
                </image>
                <HBox.margin>
-                  <Insets right="10.0" />
+                  <Insets left="10.0" right="10.0" />
                </HBox.margin>
             </ImageView>
             <ImageView fx:id="menuIcon7" fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -67,15 +70,21 @@
                   <Image url="@images/main_tariff_default.png" />
                </image>
                <HBox.margin>
-                  <Insets right="10.0" />
+                  <Insets left="10.0" right="10.0" />
                </HBox.margin>
             </ImageView>
             <ImageView fx:id="menuIcon8" fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/main_secret_default.png" />
                </image>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
             </ImageView>
          </children>
+         <padding>
+            <Insets left="30.0" right="20.0" />
+         </padding>
       </HBox>
    </children>
 </StackPane>
