@@ -202,7 +202,7 @@ public class NewpasswordController implements Initializable {
                 secretCount = 1;
                 off();
 
-                Parent boilerview = MainController.parent.get(1);
+                Parent boilerview = MainController.miniParent.get(1);
                 stackPane.getChildren().add(boilerview);
                 boilerview.setTranslateX(0);
                 boilerview.setOpacity(0);
@@ -220,7 +220,7 @@ public class NewpasswordController implements Initializable {
             if (passwordValue.equals(MainController.password)) {
                 secretCount = 1;
                 off();
-                Parent boilerview = MainController.parent.get(2);
+                Parent boilerview = MainController.miniParent.get(2);
                 stackPane.getChildren().add(boilerview);
                 boilerview.setTranslateX(0);
                 boilerview.setOpacity(0);
@@ -238,7 +238,7 @@ public class NewpasswordController implements Initializable {
             if (passwordValue.equals(MainController.password)) {
                 secretCount = 1;
                 off();
-                Parent boilerview = MainController.parent.get(3);
+                Parent boilerview = MainController.miniParent.get(3);
                 stackPane.getChildren().add(boilerview);
                 boilerview.setTranslateX(0);
                 boilerview.setOpacity(0);
@@ -256,7 +256,7 @@ public class NewpasswordController implements Initializable {
             if (passwordValue.equals(MainController.password)) {
                 secretCount = 1;
                 off();
-                Parent boilerview = MainController.parent.get(4);
+                Parent boilerview = MainController.miniParent.get(4);
                 stackPane.getChildren().add(boilerview);
                 boilerview.setTranslateX(0);
                 boilerview.setOpacity(0);
@@ -274,7 +274,7 @@ public class NewpasswordController implements Initializable {
             if (passwordValue.equals(MainController.password)) {
                 secretCount = 1;
                 off();
-                Parent boilerview = MainController.parent.get(5);
+                Parent boilerview = MainController.miniParent.get(5);
                 stackPane.getChildren().add(boilerview);
                 boilerview.setTranslateX(0);
                 boilerview.setOpacity(0);
@@ -291,7 +291,7 @@ public class NewpasswordController implements Initializable {
             if (passwordValue.equals(MainController.password)) {
                 secretCount = 1;
                 off();
-                Parent boilerview = MainController.parent.get(6);
+                Parent boilerview = MainController.miniParent.get(6);
                 stackPane.getChildren().add(boilerview);
                 boilerview.setTranslateX(0);
                 boilerview.setOpacity(0);
@@ -337,7 +337,6 @@ public class NewpasswordController implements Initializable {
     private void off() {
 
         secret.setOpacity(1);
-        secret.setTranslateX(0);
         KeyValue keyValue = new KeyValue(secret.opacityProperty(), 0);
         KeyFrame keyFrame = new KeyFrame(Duration.millis(1000),
                 (event) -> {
