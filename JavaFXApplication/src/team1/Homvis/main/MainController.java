@@ -228,49 +228,7 @@ public class MainController implements Initializable {
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
     }
-/*
-    private void passwordChk(int value) { //각각의 menuicon들의 번호를 넘겨받음, passwordcontroll에서 암호가 맞을시에 창띄울때 사용
-        Parent chkView;
-        secretCount = value;
-        try {
-            chkView = FXMLLoader.load(getClass().getResource("../secret/newpassword.fxml"));
-            stackPane.getChildren().add(chkView);
-            chkView.setTranslateX(0);
-            chkView.setTranslateY(-200);
-            chkView.setOpacity(0);
-            KeyValue keyValue = new KeyValue(chkView.opacityProperty(), 1);
-            KeyFrame keyFrame = new KeyFrame(Duration.millis(1000), keyValue);
-            Timeline timeline = new Timeline();
-            timeline.getKeyFrames().add(keyFrame);
-            timeline.play();
 
-            VBox chkboxview = (VBox) chkView.lookup("#chkboxview");
-            Label txt1 = (Label) chkView.lookup("#txt1");
-            Label txt2 = (Label) chkView.lookup("#txt2");
-            PasswordField password2 = (PasswordField) chkView.lookup("#password2");
-
-            txt1.setText("비밀번호");
-            txt2.setText("");
-            chkboxview.setOpacity(0);
-            password2.setOpacity(0);
-            
-            KeyValue keyValue1 = new KeyValue(chkboxview.opacityProperty(), 0);
-            KeyFrame keyFrame1 = new KeyFrame(Duration.millis(100), keyValue1);
-            Timeline timeline1 = new Timeline();
-            timeline1.getKeyFrames().add(keyFrame1);
-            timeline1.play();
-
-            KeyValue keyValue2 = new KeyValue(password2.opacityProperty(), 0);
-            KeyFrame keyFrame2 = new KeyFrame(Duration.millis(100), keyValue2);
-            Timeline timeline2 = new Timeline();
-            timeline2.getKeyFrames().add(keyFrame2);
-            timeline2.play();
-             
-        } catch (IOException ex) {
-
-        }
-    }
-*/
     private void menuPressed(ImageView menuIcon, int index) {
         menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_pressed.png").toString()));
 
@@ -341,6 +299,109 @@ public class MainController implements Initializable {
             }
         }
     }
+
+
+    private void secretPressed() {
+        menuIcon8.setImage(new Image(getClass().getResource("images/main_secret_pressed.png").toString()));
+    }
+
+    private void secretClicked() {
+        menuIcon8.setImage(new Image(getClass().getResource("images/main_secret_clicked.png").toString()));
+        Parent secretview;
+        try {
+            secretview = FXMLLoader.load(getClass().getResource("../secret/newpassword.fxml"));
+
+            stackPane.getChildren().add(secretview);
+            secretview.setTranslateY(-200);
+            if (!miniWindow) {
+                secretview.setTranslateX(0);
+
+                secretview.setOpacity(0);
+                KeyValue keyValue = new KeyValue(secretview.opacityProperty(), 1);
+                KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
+                Timeline timeline = new Timeline();
+                timeline.getKeyFrames().add(keyFrame);
+                timeline.play();
+                if (secretCount > 1) {
+                    VBox chkboxview = (VBox) secretview.lookup("#chkboxview");
+                    Label txt1 = (Label) secretview.lookup("#txt1");
+                    Label txt2 = (Label) secretview.lookup("#txt2");
+                    PasswordField password2 = (PasswordField) secretview.lookup("#password2");
+
+                    txt1.setText("비밀번호");
+                    txt2.setText("");
+                    chkboxview.setOpacity(0);
+                    password2.setOpacity(0);
+                }
+            } else {
+                secretview.setTranslateX(400);
+                //  secretview.setTranslateY(0);
+                secretview.setOpacity(0);
+                KeyValue keyValue = new KeyValue(secretview.opacityProperty(), 1);
+                KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
+                Timeline timeline = new Timeline();
+                timeline.getKeyFrames().add(keyFrame);
+                timeline.play();
+                if (secretCount > 1) {
+                    VBox chkboxview = (VBox) secretview.lookup("#chkboxview");
+                    Label txt1 = (Label) secretview.lookup("#txt1");
+                    Label txt2 = (Label) secretview.lookup("#txt2");
+                    PasswordField password2 = (PasswordField) secretview.lookup("#password2");
+
+                    txt1.setText("비밀번호");
+                    txt2.setText("");
+                    chkboxview.setOpacity(0);
+                    password2.setOpacity(0);
+                }
+            }
+            miniWindow = !miniWindow;
+
+            Label txt1 = (Label) secretview.lookup("#txt1");
+            Label txt2 = (Label) secretview.lookup("#txt2");
+
+            if (secretCount==1) {
+                txt1.setText("기존 비밀번호");
+                txt2.setText("신규 비밀번호");
+
+            }
+        } catch (IOException ex) {
+
+        }
+    }
+
+}
+/*
+    private void passwordChk(int value) { //각각의 menuicon들의 번호를 넘겨받음, passwordcontroll에서 암호가 맞을시에 창띄울때 사용
+        Parent chkView;
+        secretCount = value;
+        try {
+            chkView = FXMLLoader.load(getClass().getResource("../secret/newpassword.fxml"));
+            stackPane.getChildren().add(chkView);
+            chkView.setTranslateX(0);
+            chkView.setTranslateY(-200);
+            chkView.setOpacity(0);
+            KeyValue keyValue = new KeyValue(chkView.opacityProperty(), 1);
+            KeyFrame keyFrame = new KeyFrame(Duration.millis(1000), keyValue);
+            Timeline timeline = new Timeline();
+            timeline.getKeyFrames().add(keyFrame);
+            timeline.play();
+
+            VBox chkboxview = (VBox) chkView.lookup("#chkboxview");
+            Label txt1 = (Label) chkView.lookup("#txt1");
+            Label txt2 = (Label) chkView.lookup("#txt2");
+            PasswordField password2 = (PasswordField) chkView.lookup("#password2");
+
+            txt1.setText("비밀번호");
+            txt2.setText("");
+            chkboxview.setOpacity(0);
+            password2.setOpacity(0);
+          
+             
+        } catch (IOException ex) {
+
+        }
+    }
+*/
 //    private void homePressed() {
 //        menuIcon1.setImage(new Image(getClass().getResource("images/main_home_pressed.png").toString()));
 //
@@ -483,73 +544,3 @@ public class MainController implements Initializable {
 //            passwordChk(7);
 //        }
 //    }
-
-    private void secretPressed() {
-        menuIcon8.setImage(new Image(getClass().getResource("images/main_secret_pressed.png").toString()));
-    }
-
-    private void secretClicked() {
-        menuIcon8.setImage(new Image(getClass().getResource("images/main_secret_clicked.png").toString()));
-        Parent secretview;
-        try {
-            secretview = FXMLLoader.load(getClass().getResource("../secret/newpassword.fxml"));
-
-            stackPane.getChildren().add(secretview);
-            secretview.setTranslateY(-200);
-            if (!miniWindow) {
-                secretview.setTranslateX(0);
-
-                secretview.setOpacity(0);
-                KeyValue keyValue = new KeyValue(secretview.opacityProperty(), 1);
-                KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
-                Timeline timeline = new Timeline();
-                timeline.getKeyFrames().add(keyFrame);
-                timeline.play();
-                if (secretCount > 1) {
-                    VBox chkboxview = (VBox) secretview.lookup("#chkboxview");
-                    Label txt1 = (Label) secretview.lookup("#txt1");
-                    Label txt2 = (Label) secretview.lookup("#txt2");
-                    PasswordField password2 = (PasswordField) secretview.lookup("#password2");
-
-                    txt1.setText("비밀번호");
-                    txt2.setText("");
-                    chkboxview.setOpacity(0);
-                    password2.setOpacity(0);
-                }
-            } else {
-                secretview.setTranslateX(400);
-                //  secretview.setTranslateY(0);
-                secretview.setOpacity(0);
-                KeyValue keyValue = new KeyValue(secretview.opacityProperty(), 1);
-                KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
-                Timeline timeline = new Timeline();
-                timeline.getKeyFrames().add(keyFrame);
-                timeline.play();
-                if (secretCount > 1) {
-                    VBox chkboxview = (VBox) secretview.lookup("#chkboxview");
-                    Label txt1 = (Label) secretview.lookup("#txt1");
-                    Label txt2 = (Label) secretview.lookup("#txt2");
-                    PasswordField password2 = (PasswordField) secretview.lookup("#password2");
-
-                    txt1.setText("비밀번호");
-                    txt2.setText("");
-                    chkboxview.setOpacity(0);
-                    password2.setOpacity(0);
-                }
-            }
-            miniWindow = !miniWindow;
-
-            Label txt1 = (Label) secretview.lookup("#txt1");
-            Label txt2 = (Label) secretview.lookup("#txt2");
-
-            if (secretCount==1) {
-                txt1.setText("기존 비밀번호");
-                txt2.setText("신규 비밀번호");
-
-            }
-        } catch (IOException ex) {
-
-        }
-    }
-
-}
