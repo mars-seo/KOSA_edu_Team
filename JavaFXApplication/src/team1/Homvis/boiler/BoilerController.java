@@ -115,12 +115,12 @@ public class BoilerController implements Initializable {
 
     private Boolean wifiState = false;
     private Boolean goOutState = false;
-    private int hopeWater = 14;
-    private int hopeHeat = 24;
-    private int nowHeat = 27;
+    public static int hopeWater = 14;
+    public static int hopeHeat = 24;
+    public static int nowHeat = 27;
 
-    private boolean heatOnState = false;
-    private boolean waterOnState = false;
+    public static boolean heatOnState = false;
+    public static boolean waterOnState = false;
     public static boolean ecomodeState = false;
     public static boolean usermodeState = false;
     public static boolean nightmodeState = false;
@@ -174,13 +174,14 @@ public class BoilerController implements Initializable {
         txthopeHeat.setOpacity(0);
         waterDisplay.setOpacity(0);
         txtWater.setOpacity(0);
-        exit.setOnMouseClicked(event -> exit());
+        
         wifi.setOnMouseClicked(event -> wifi());
         heatUp.setOnMouseClicked(event -> heatUp());
         heatDown.setOnMouseClicked(event -> heatDown());
         waterUp.setOnMouseClicked(event -> waterUp());
         waterDown.setOnMouseClicked(event -> waterDown());
         modeOn.setOnMouseClicked(event -> modeOn());
+        exit.setOnMouseClicked(event -> exit());
 
         heatOn.setOnMouseClicked(event -> heatOn());
         waterOn.setOnMouseClicked(event -> waterOn());

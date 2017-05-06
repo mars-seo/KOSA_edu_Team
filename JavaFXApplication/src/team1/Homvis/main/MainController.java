@@ -77,13 +77,13 @@ public class MainController implements Initializable {
 
     private List<String> menuList = new ArrayList<>();
     public static List<Parent> parent = new ArrayList<>();
-	public static List<Parent> miniParent = new ArrayList<>();
-	
-	private boolean miniWindow;
+    public static List<Parent> miniParent = new ArrayList<>();
+
+    private boolean miniWindow;
 
     public MainController() {
         try {
-			
+
             this.parent.add(FXMLLoader.load(getClass().getResource("../newMain/newMenu.fxml")));
             this.parent.add(FXMLLoader.load(getClass().getResource("../boiler/boiler.fxml")));
             this.parent.add(FXMLLoader.load(getClass().getResource("../controlElectNGas/control.fxml")));
@@ -100,15 +100,15 @@ public class MainController implements Initializable {
             this.menuList.add("internet");
             this.menuList.add("player");
             this.menuList.add("tariff");
-			
-			//미니 메뉴를 위한 구성
-			this.miniParent.add(FXMLLoader.load(getClass().getResource("../newMain/newMenu.fxml")));
-          this.miniParent.add(FXMLLoader.load(getClass().getResource("../boiler/boiler.fxml")));
-          this.miniParent.add(FXMLLoader.load(getClass().getResource("../controlElectNGas/controlMini.fxml")));
-          this.miniParent.add(FXMLLoader.load(getClass().getResource("../interphone/miniInterPhone.fxml")));
-          this.miniParent.add(FXMLLoader.load(getClass().getResource("../internet/internet.fxml")));
-          this.miniParent.add(FXMLLoader.load(getClass().getResource("../player/miniMedia.fxml")));
-          this.miniParent.add(FXMLLoader.load(getClass().getResource("../tariff/mini.fxml")));
+
+            //미니 메뉴를 위한 구성
+            this.miniParent.add(FXMLLoader.load(getClass().getResource("../newMain/newMenu.fxml")));
+            this.miniParent.add(FXMLLoader.load(getClass().getResource("../boiler/boilermini.fxml")));
+            this.miniParent.add(FXMLLoader.load(getClass().getResource("../controlElectNGas/controlMini.fxml")));
+            this.miniParent.add(FXMLLoader.load(getClass().getResource("../interphone/miniInterPhone.fxml")));
+            this.miniParent.add(FXMLLoader.load(getClass().getResource("../internet/internet.fxml")));
+            this.miniParent.add(FXMLLoader.load(getClass().getResource("../player/miniMedia.fxml")));
+            this.miniParent.add(FXMLLoader.load(getClass().getResource("../tariff/mini.fxml")));
 
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -153,22 +153,21 @@ public class MainController implements Initializable {
 
         //아이콘 눌렀을때
         menuIcon1.setOnMousePressed(event -> menuPressed(menuIcon1, 0));
-        menuIcon1.setOnMouseClicked(event -> menuClicked(menuIcon1, 0,menu1PasswordChk));
+        menuIcon1.setOnMouseClicked(event -> menuClicked(menuIcon1, 0, menu1PasswordChk));
         menuIcon2.setOnMousePressed(event -> menuPressed(menuIcon2, 1));
-        menuIcon2.setOnMouseClicked(event -> menuClicked(menuIcon2, 1,menu2PasswordChk));
+        menuIcon2.setOnMouseClicked(event -> menuClicked(menuIcon2, 1, menu2PasswordChk));
         menuIcon3.setOnMousePressed(event -> menuPressed(menuIcon3, 2));
-        menuIcon3.setOnMouseClicked(event -> menuClicked(menuIcon3, 2,menu3PasswordChk));
+        menuIcon3.setOnMouseClicked(event -> menuClicked(menuIcon3, 2, menu3PasswordChk));
         menuIcon4.setOnMousePressed(event -> menuPressed(menuIcon4, 3));
-        menuIcon4.setOnMouseClicked(event -> menuClicked(menuIcon4, 3,menu4PasswordChk));
+        menuIcon4.setOnMouseClicked(event -> menuClicked(menuIcon4, 3, menu4PasswordChk));
         menuIcon5.setOnMousePressed(event -> menuPressed(menuIcon5, 4));
-        menuIcon5.setOnMouseClicked(event -> menuClicked(menuIcon5, 4,menu5PasswordChk));
+        menuIcon5.setOnMouseClicked(event -> menuClicked(menuIcon5, 4, menu5PasswordChk));
         menuIcon6.setOnMousePressed(event -> menuPressed(menuIcon6, 5));
-        menuIcon6.setOnMouseClicked(event -> menuClicked(menuIcon6, 5,menu6PasswordChk));
+        menuIcon6.setOnMouseClicked(event -> menuClicked(menuIcon6, 5, menu6PasswordChk));
         menuIcon7.setOnMousePressed(event -> menuPressed(menuIcon7, 6));
-        menuIcon7.setOnMouseClicked(event -> menuClicked(menuIcon7, 6,menu7PasswordChk));
+        menuIcon7.setOnMouseClicked(event -> menuClicked(menuIcon7, 6, menu7PasswordChk));
         menuIcon8.setOnMousePressed(event -> secretPressed());
         menuIcon8.setOnMouseClicked(event -> secretClicked()); //암호설정 서브메뉴이동
-
 
         //메뉴시작위치
         menu.setTranslateX(30);
@@ -274,62 +273,63 @@ public class MainController implements Initializable {
 
     private void menuClicked(ImageView menuIcon, int index, boolean chk) {
         menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_clicked.png").toString()));
-        if(index==0){
-            
+        if (index == 0) {
+
             menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_default.png").toString()));
-        }else{
-        if (chk == false) {
-
-            Parent miniView = miniParent.get(index);
-            stackPane.getChildren().add(miniView);
-			if(!miniWindow){
-				miniView.setTranslateX(0);
-				miniView.setTranslateY(-210);
-				miniView.setOpacity(0);
-				KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
-				KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
-				Timeline timeline = new Timeline();
-				timeline.getKeyFrames().add(keyFrame);
-				timeline.play();
-			}else{
-				miniView.setTranslateX(400);
-				miniView.setTranslateY(-210);
-				miniView.setOpacity(0);
-				KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
-				KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
-				Timeline timeline = new Timeline();
-				timeline.getKeyFrames().add(keyFrame);
-				timeline.play();
-			}
-			miniWindow = !miniWindow;
-			//menuIcon.setOnMouseClicked(e->fullmenuClicked(menuIcon, index, chk));
-
         } else {
-            passwordChk(index + 1);
-        }
+            if (chk == false) {
+
+                Parent miniView = miniParent.get(index);
+                stackPane.getChildren().add(miniView);
+                if (!miniWindow) {
+                    miniView.setTranslateX(0);
+                    miniView.setTranslateY(0);
+                    miniView.setOpacity(0);
+                    KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
+                    KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
+                    Timeline timeline = new Timeline();
+                    timeline.getKeyFrames().add(keyFrame);
+                    timeline.play();
+                } else {
+                    miniView.setTranslateX(400);
+                    miniView.setTranslateY(0);
+                    miniView.setOpacity(0);
+                    KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
+                    KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
+                    Timeline timeline = new Timeline();
+                    timeline.getKeyFrames().add(keyFrame);
+                    timeline.play();
+                }
+                miniWindow = !miniWindow;
+                //menuIcon.setOnMouseClicked(e->fullmenuClicked(menuIcon, index, chk));
+
+            } else {
+                passwordChk(index + 1);
+            }
         }
     }
-	private void fullmenuClicked(ImageView menuIcon, int index, boolean chk) {
+
+    private void fullmenuClicked(ImageView menuIcon, int index, boolean chk) {
         menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_clicked.png").toString()));
-        if(index==0){
-            
+        if (index == 0) {
+
             menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_default.png").toString()));
-        }else{
-        if (chk == false) {
-
-            Parent boilerview = parent.get(index);
-            stackPane.getChildren().add(boilerview);
-            boilerview.setTranslateX(0);
-            boilerview.setOpacity(0);
-            KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
-            KeyFrame keyFrame = new KeyFrame(Duration.millis(1000), keyValue);
-            Timeline timeline = new Timeline();
-            timeline.getKeyFrames().add(keyFrame);
-            timeline.play();
-
         } else {
-            passwordChk(index + 1);
-        }
+            if (chk == false) {
+
+                Parent boilerview = parent.get(index);
+                stackPane.getChildren().add(boilerview);
+                boilerview.setTranslateX(0);
+                boilerview.setOpacity(0);
+                KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
+                KeyFrame keyFrame = new KeyFrame(Duration.millis(1000), keyValue);
+                Timeline timeline = new Timeline();
+                timeline.getKeyFrames().add(keyFrame);
+                timeline.play();
+
+            } else {
+                passwordChk(index + 1);
+            }
         }
     }
 //    private void homePressed() {
