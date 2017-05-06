@@ -9,99 +9,104 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane fx:id="miniMediaRoot" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="240.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.player.MiniMediaController">
+
+<AnchorPane fx:id="miniMediaRoot" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.player.MiniMediaController">
    <children>
-      <BorderPane>
-         <bottom>
-            <BorderPane BorderPane.alignment="CENTER">
-               <right>
-                  <AnchorPane prefHeight="33.0" prefWidth="60.0" BorderPane.alignment="CENTER">
+      <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="240.0" prefWidth="400.0">
+         <children>
+            <BorderPane>
+               <bottom>
+                  <BorderPane BorderPane.alignment="CENTER">
+                     <right>
+                        <AnchorPane prefHeight="33.0" prefWidth="60.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <ImageView fx:id="imgSound" fitHeight="20.0" fitWidth="20.0" layoutX="46.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@playerImg/mute.png" />
+                                 </image>
+                              </ImageView>
+                              <Slider fx:id="volumeSlider" layoutX="67.0" layoutY="7.0" prefHeight="14.0" prefWidth="64.0" />
+                           </children>
+                        </AnchorPane>
+                     </right>
+                     <center>
+                        <HBox BorderPane.alignment="CENTER">
+                           <children>
+                              <ImageView fx:id="previousBtn" fitHeight="23.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@playerImg/backward.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="3.0" right="2.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fx:id="pauseBtn" fitHeight="23.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@playerImg/pause.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="playBtn" fitHeight="23.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@playerImg/play.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets right="2.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fx:id="stopBtn" fitHeight="23.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@playerImg/stop.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets right="2.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fx:id="nextBtn" fitHeight="23.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@playerImg/fast-forward.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets right="2.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fx:id="uploadBtn" fitHeight="23.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@playerImg/eject.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </center>
+                  </BorderPane>
+               </bottom>
+               <center>
+                  <AnchorPane BorderPane.alignment="CENTER">
                      <children>
-                        <ImageView fx:id="imgSound" fitHeight="20.0" fitWidth="20.0" layoutX="46.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                        <Slider fx:id="mediaSlider" layoutX="64.0" layoutY="187.0" prefHeight="14.0" prefWidth="245.0" />
+                        <Label fx:id="playTime" layoutX="5.0" layoutY="187.0" text="00:00:00" />
+                        <MediaView fx:id="mediaView" fitHeight="180.0" fitWidth="305.0" layoutX="5.0" layoutY="7.0" />
+                     </children>
+                  </AnchorPane>
+               </center>
+               <right>
+                  <AnchorPane prefHeight="203.0" prefWidth="89.0">
+                     <children>
+                        <ListView fx:id="mediaList" layoutX="1.0" layoutY="29.0" maxHeight="-Infinity" prefHeight="165.0" prefWidth="88.0" BorderPane.alignment="TOP_CENTER" />
+                        <ImageView fx:id="deleteBtn" fitHeight="19.0" fitWidth="19.0" layoutX="70.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@playerImg/mute.png" />
+                              <Image url="@playerImg/substract.png" />
                            </image>
                         </ImageView>
-                        <Slider fx:id="volumeSlider" layoutX="67.0" layoutY="7.0" prefHeight="14.0" prefWidth="64.0" />
+                        <ImageView fx:id="exit" fitHeight="19.0" fitWidth="19.0" layoutX="70.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@playerImg/icon.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
                </right>
-               <center>
-                  <HBox BorderPane.alignment="CENTER">
-                     <children>
-                        <ImageView fx:id="previousBtn" fitHeight="23.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@playerImg/backward.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="3.0" right="2.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <ImageView fx:id="pauseBtn" fitHeight="23.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@playerImg/pause.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="playBtn" fitHeight="23.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@playerImg/play.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets right="2.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <ImageView fx:id="stopBtn" fitHeight="23.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@playerImg/stop.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets right="2.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <ImageView fx:id="nextBtn" fitHeight="23.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@playerImg/fast-forward.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets right="2.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <ImageView fx:id="uploadBtn" fitHeight="23.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@playerImg/eject.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </HBox>
-               </center>
             </BorderPane>
-         </bottom>
-         <center>
-            <AnchorPane BorderPane.alignment="CENTER">
-               <children>
-                  <Slider fx:id="mediaSlider" layoutX="64.0" layoutY="187.0" prefHeight="14.0" prefWidth="245.0" />
-                  <Label fx:id="playTime" layoutX="5.0" layoutY="187.0" text="00:00:00" />
-                  <MediaView fx:id="mediaView" fitHeight="180.0" fitWidth="305.0" layoutX="5.0" layoutY="7.0" />
-               </children>
-            </AnchorPane>
-         </center>
-         <right>
-            <AnchorPane prefHeight="203.0" prefWidth="89.0">
-               <children>
-                  <ListView fx:id="mediaList" layoutX="1.0" layoutY="29.0" maxHeight="-Infinity" prefHeight="165.0" prefWidth="88.0" BorderPane.alignment="TOP_CENTER" />
-                  <ImageView fx:id="deleteBtn" fitHeight="19.0" fitWidth="19.0" layoutX="70.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@playerImg/substract.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="exit" fitHeight="19.0" fitWidth="19.0" layoutX="70.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@playerImg/icon.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </AnchorPane>
-         </right>
-      </BorderPane>
+         </children>
+      </StackPane>
    </children>
-</StackPane>
+</AnchorPane>

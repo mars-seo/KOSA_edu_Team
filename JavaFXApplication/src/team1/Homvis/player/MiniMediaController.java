@@ -17,8 +17,8 @@ import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -57,7 +57,7 @@ public class MiniMediaController implements Initializable {
 	@FXML
 	private ImageView deleteBtn;
 	@FXML
-	private StackPane miniMediaRoot;
+	private AnchorPane miniMediaRoot;
 	@FXML
 	private ImageView exit;
 	

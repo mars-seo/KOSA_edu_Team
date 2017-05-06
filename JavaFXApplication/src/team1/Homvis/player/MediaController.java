@@ -13,13 +13,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.MultipleSelectionModel;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.media.*;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -56,7 +55,7 @@ public class MediaController implements Initializable {
 	@FXML
 	private ImageView deleteBtn;
 	@FXML
-	private StackPane mediaRoot;
+	private AnchorPane mediaRoot;
 	@FXML
 	private ImageView exit;
 	

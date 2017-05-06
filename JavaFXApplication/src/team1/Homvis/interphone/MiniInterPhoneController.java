@@ -10,8 +10,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Popup;
 import team1.Homvis.main.MainController;
 
@@ -29,7 +29,7 @@ public class MiniInterPhoneController implements Initializable {
 	@FXML
 	private ImageView locationBtn;
 	@FXML
-	private StackPane miniInterphoneRoot;
+	private AnchorPane miniInterphoneRoot;
 	
 	private boolean chkLocation;
 
