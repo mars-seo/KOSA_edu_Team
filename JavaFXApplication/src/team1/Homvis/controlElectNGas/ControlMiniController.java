@@ -35,8 +35,10 @@ public class ControlMiniController implements Initializable {
     private List<Parent> parent = new ArrayList<>();
     @FXML
     private ImageView exit;
-	@FXML
-	private AnchorPane miniControlRoot;
+    @FXML
+    private AnchorPane miniControlRoot;
+    @FXML
+    private ImageView fullscreen;
 
     public ControlMiniController() {
         try {
@@ -59,8 +61,9 @@ public class ControlMiniController implements Initializable {
         btnLight.setOnMousePressed(e -> handleBtnPressed(e, 0));
         btnGas.setOnMousePressed(e -> handleBtnPressed(e, 1));
         btnDoor.setOnMousePressed(e -> handleBtnPressed(e, 2));
-        
-        exit.setOnMouseClicked(e->exit());
+
+        exit.setOnMouseClicked(e -> exit());
+        fullscreen.setOnMouseClicked(e -> fullscreen());
     }
 
     private void handleBtn(MouseEvent e, int num) {
@@ -68,7 +71,7 @@ public class ControlMiniController implements Initializable {
         stackPane.getChildren().add(parent.get(num));
         translateX(num);
 
-         if (num == 0) {
+        if (num == 0) {
             btnLight.setImage(new Image(getClass().getResource("controlImg/elecNgas_light_clicked.png").toString()));
             btnGas.setImage(new Image(getClass().getResource("controlImg/elecNgas_gas_default.png").toString()));
             btnDoor.setImage(new Image(getClass().getResource("controlImg/elecNgas_security_default.png").toString()));
@@ -101,10 +104,15 @@ public class ControlMiniController implements Initializable {
             btnDoor.setImage(new Image(getClass().getResource("controlImg/elecNgas_security_pressed.png").toString()));
         }
     }
-    
+
     private void exit() {
         MainController.menuicon3.setImage(new Image(getClass().getResource("../main/images/main_elecNgas_default.png").toString()));
         MainController.stackPane.getChildren().remove(miniControlRoot);
+    }
+
+    private void fullscreen() {
+        MainController.stackPane.getChildren().remove(MainController.parent.get(2));
+        MainController.stackPane.getChildren().add(MainController.parent.get(2));
     }
 
 }

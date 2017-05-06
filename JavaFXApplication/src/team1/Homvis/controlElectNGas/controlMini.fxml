@@ -35,9 +35,14 @@
                         <Image url="@controlImg/elecNgas_security_default.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="exit" fitHeight="14.0" fitWidth="15.0" layoutX="4.0" layoutY="220.0" pickOnBounds="true">
+                  <ImageView fx:id="exit" fitHeight="15.0" fitWidth="15.0" layoutX="7.0" layoutY="218.0" pickOnBounds="true">
                      <image>
                         <Image url="@controlImg/x.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="fullscreen" fitHeight="15.0" fitWidth="15.0" layoutX="58.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@controlImg/fullscreen.png" />
                      </image>
                   </ImageView>
 					</children>

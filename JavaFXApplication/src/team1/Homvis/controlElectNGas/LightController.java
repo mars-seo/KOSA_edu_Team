@@ -2,10 +2,13 @@ package team1.Homvis.controlElectNGas;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -54,9 +57,20 @@ public class LightController implements Initializable {
     @FXML
     private ImageView imgRoom9;
 
+    public static Label lblRoom1 = new Label("");
+    public static Label lblRoom2 = new Label("");
+    public static Label lblRoom3 = new Label("");
+    public static Label lblRoom4 = new Label("");
+    public static Label lblRoom5 = new Label("");
+    public static Label lblRoom6 = new Label("");
+    public static Label lblRoom7 = new Label("");
+    public static Label lblRoom8 = new Label("");
+    public static Label lblRoom9 = new Label("");
+
     private ObservableList<Light> list;
-    private ObservableList<BorderPane> borderList;
+    public ObservableList<BorderPane> borderList;
     private ObservableList<ImageView> imageViewList;
+    public static ObservableList<Label> labelList;
     private String bulbOn = "controlImg/light-bulb-icon.png";
     private String bulbOff = "controlImg/bulb-icon.png";
 
@@ -65,6 +79,7 @@ public class LightController implements Initializable {
         list = FXCollections.observableArrayList();
         borderList = FXCollections.observableArrayList();
         imageViewList = FXCollections.observableArrayList();
+        labelList = FXCollections.observableArrayList();
 
         list.add(new Light("boiler", false));
         list.add(new Light("utility", false));
@@ -85,7 +100,7 @@ public class LightController implements Initializable {
         borderList.add(borderRoom7);
         borderList.add(borderRoom8);
         borderList.add(borderRoom9);
-       
+
         imageViewList.add(imgRoom1);
         imageViewList.add(imgRoom2);
         imageViewList.add(imgRoom3);
@@ -96,13 +111,38 @@ public class LightController implements Initializable {
         imageViewList.add(imgRoom8);
         imageViewList.add(imgRoom9);
 
+        labelList.add(lblRoom1);
+        labelList.add(lblRoom2);
+        labelList.add(lblRoom3);
+        labelList.add(lblRoom4);
+        labelList.add(lblRoom5);
+        labelList.add(lblRoom6);
+        labelList.add(lblRoom7);
+        labelList.add(lblRoom8);
+        labelList.add(lblRoom9);
+
         // 각 공간의 조명 터치
         for (int i = 0; i < borderList.size(); i++) {
             int num = i;
             borderList.get(i).setOnMouseClicked(e -> handleRoom(e, num));
+            labelList.get(i).textProperty().addListener(new ChangeListener<String>() {
+                @Override
+                public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                    if (newValue.equals("on")) {
+                        imageViewList.get(num).setImage(new Image(getClass().getResource(bulbOn).toString()));
+                        list.get(num).setOnOff(true);
+                    } else {
+                        imageViewList.get(num).setImage(new Image(getClass().getResource(bulbOff).toString()));
+                        list.get(num).setOnOff(false);
+                    }
+                    System.out.println(num + ": " + newValue);
+                }
+            });
         }
+        
         imgLightOn.setOnMouseClicked(e -> handleAllOn(e));
         imgLightOff.setOnMouseClicked(e -> handleAllOff(e));
+
     }
 
     // 각 공간의 조명 on/off
@@ -110,9 +150,11 @@ public class LightController implements Initializable {
         if (list.get(num).getOnOff() == false) {
             imageViewList.get(num).setImage(new Image(getClass().getResource(bulbOn).toString()));
             list.get(num).setOnOff(true);
+            labelList.get(num).setText("on");
         } else if (list.get(num).getOnOff() == true) {
             imageViewList.get(num).setImage(new Image(getClass().getResource(bulbOff).toString()));
             list.get(num).setOnOff(false);
+            labelList.get(num).setText("off");
         }
     }
 
@@ -120,9 +162,8 @@ public class LightController implements Initializable {
     private void handleAllOn(MouseEvent e) {
         for (int i = 0; i < imageViewList.size(); i++) {
             imageViewList.get(i).setImage(new Image(getClass().getResource(bulbOn).toString()));
-        }
-        for (int i = 0; i < list.size(); i++) {
             list.get(i).setOnOff(true);
+            labelList.get(i).setText("on");
         }
     }
 
@@ -130,9 +171,8 @@ public class LightController implements Initializable {
     private void handleAllOff(MouseEvent e) {
         for (int i = 0; i < imageViewList.size(); i++) {
             imageViewList.get(i).setImage(new Image(getClass().getResource(bulbOff).toString()));
-        }
-        for (int i = 0; i < list.size(); i++) {
             list.get(i).setOnOff(false);
+            labelList.get(i).setText("off");
         }
     }
 }

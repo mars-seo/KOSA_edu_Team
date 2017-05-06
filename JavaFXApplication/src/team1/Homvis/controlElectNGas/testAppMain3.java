@@ -15,8 +15,8 @@ public class testAppMain3 extends Application {
     public void start(Stage primaryStage) throws Exception {
         testAppMain3.primaryStage = primaryStage;
         System.out.println(getClass().getResource("control.fxml"));
-        Parent parent = FXMLLoader.load(getClass().getResource("control.fxml"));
-//        Parent parent = FXMLLoader.load(getClass().getResource("controlMini.fxml"));
+//        Parent parent = FXMLLoader.load(getClass().getResource("control.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("controlMini.fxml"));
 
         Scene scene = new Scene(parent);
         primaryStage.setScene(scene);
