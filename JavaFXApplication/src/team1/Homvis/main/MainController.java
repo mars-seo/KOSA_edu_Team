@@ -79,7 +79,7 @@ public class MainController implements Initializable {
     public static List<Parent> parent = new ArrayList<>();
     public static List<Parent> miniParent = new ArrayList<>();
 
-    private boolean miniWindow;
+    public static boolean miniWindow;
 
     public MainController() {
         try {
@@ -189,7 +189,9 @@ public class MainController implements Initializable {
         //            event.consume();
         //        }
         //   });
-        menu.setOnMousePressed((event) -> {
+        
+        //드래그할때 메뉴 옮기는거 부분, 시간있으면 진행
+ /*     menu.setOnMousePressed((event) -> {
             xValue = event.getSceneX();
         });
 
@@ -207,7 +209,7 @@ public class MainController implements Initializable {
                 menu.setTranslateX(event.getSceneX() - xValue);
             }
 
-        });
+        });*/
     }
 
     private void menuOpen() {
@@ -226,7 +228,7 @@ public class MainController implements Initializable {
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
     }
-
+/*
     private void passwordChk(int value) { //각각의 menuicon들의 번호를 넘겨받음, passwordcontroll에서 암호가 맞을시에 창띄울때 사용
         Parent chkView;
         secretCount = value;
@@ -249,7 +251,9 @@ public class MainController implements Initializable {
 
             txt1.setText("비밀번호");
             txt2.setText("");
-
+            chkboxview.setOpacity(0);
+            password2.setOpacity(0);
+            
             KeyValue keyValue1 = new KeyValue(chkboxview.opacityProperty(), 0);
             KeyFrame keyFrame1 = new KeyFrame(Duration.millis(100), keyValue1);
             Timeline timeline1 = new Timeline();
@@ -261,12 +265,12 @@ public class MainController implements Initializable {
             Timeline timeline2 = new Timeline();
             timeline2.getKeyFrames().add(keyFrame2);
             timeline2.play();
-
+             
         } catch (IOException ex) {
 
         }
     }
-
+*/
     private void menuPressed(ImageView menuIcon, int index) {
         menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_pressed.png").toString()));
 
@@ -305,7 +309,9 @@ public class MainController implements Initializable {
                 //menuIcon.setOnMouseClicked(e->fullmenuClicked(menuIcon, index, chk));
 
             } else {
-                passwordChk(index + 1);
+                // passwordChk(index + 1);
+                secretCount = index + 1;
+                secretClicked();
             }
         }
     }
@@ -329,7 +335,9 @@ public class MainController implements Initializable {
                 timeline.play();
 
             } else {
-                passwordChk(index + 1);
+                //passwordChk(index + 1);
+                secretCount = index + 1;
+                secretClicked();
             }
         }
     }
@@ -485,36 +493,56 @@ public class MainController implements Initializable {
         Parent secretview;
         try {
             secretview = FXMLLoader.load(getClass().getResource("../secret/newpassword.fxml"));
-            
+
             stackPane.getChildren().add(secretview);
             secretview.setTranslateY(-200);
-             if (!miniWindow) {
-                    secretview.setTranslateX(0);
-                 
-                    secretview.setOpacity(0);
-                    KeyValue keyValue = new KeyValue(secretview.opacityProperty(), 1);
-                    KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
-                    Timeline timeline = new Timeline();
-                    timeline.getKeyFrames().add(keyFrame);
-                    timeline.play();
-                } else {
-                    secretview.setTranslateX(400);
-                  //  secretview.setTranslateY(0);
-                    secretview.setOpacity(0);
-                    KeyValue keyValue = new KeyValue(secretview.opacityProperty(), 1);
-                    KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
-                    Timeline timeline = new Timeline();
-                    timeline.getKeyFrames().add(keyFrame);
-                    timeline.play();
-                }
-                miniWindow = !miniWindow;
+            if (!miniWindow) {
+                secretview.setTranslateX(0);
 
+                secretview.setOpacity(0);
+                KeyValue keyValue = new KeyValue(secretview.opacityProperty(), 1);
+                KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
+                Timeline timeline = new Timeline();
+                timeline.getKeyFrames().add(keyFrame);
+                timeline.play();
+                if (secretCount > 1) {
+                    VBox chkboxview = (VBox) secretview.lookup("#chkboxview");
+                    Label txt1 = (Label) secretview.lookup("#txt1");
+                    Label txt2 = (Label) secretview.lookup("#txt2");
+                    PasswordField password2 = (PasswordField) secretview.lookup("#password2");
+
+                    txt1.setText("비밀번호");
+                    txt2.setText("");
+                    chkboxview.setOpacity(0);
+                    password2.setOpacity(0);
+                }
+            } else {
+                secretview.setTranslateX(400);
+                //  secretview.setTranslateY(0);
+                secretview.setOpacity(0);
+                KeyValue keyValue = new KeyValue(secretview.opacityProperty(), 1);
+                KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
+                Timeline timeline = new Timeline();
+                timeline.getKeyFrames().add(keyFrame);
+                timeline.play();
+                if (secretCount > 1) {
+                    VBox chkboxview = (VBox) secretview.lookup("#chkboxview");
+                    Label txt1 = (Label) secretview.lookup("#txt1");
+                    Label txt2 = (Label) secretview.lookup("#txt2");
+                    PasswordField password2 = (PasswordField) secretview.lookup("#password2");
+
+                    txt1.setText("비밀번호");
+                    txt2.setText("");
+                    chkboxview.setOpacity(0);
+                    password2.setOpacity(0);
+                }
+            }
+            miniWindow = !miniWindow;
 
             Label txt1 = (Label) secretview.lookup("#txt1");
             Label txt2 = (Label) secretview.lookup("#txt2");
-            PasswordField password1 = (PasswordField) secretview.lookup("#password1");
 
-            if (secretCount > 0) {
+            if (secretCount==1) {
                 txt1.setText("기존 비밀번호");
                 txt2.setText("신규 비밀번호");
 
