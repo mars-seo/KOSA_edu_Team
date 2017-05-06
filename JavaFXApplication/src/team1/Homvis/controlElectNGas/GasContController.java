@@ -2,8 +2,11 @@ package team1.Homvis.controlElectNGas;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -15,22 +18,45 @@ public class GasContController implements Initializable {
     @FXML
     private ImageView imgGasOnoff;
 
-    private boolean gasState;
+    private boolean gasState = true;
+    
+    public static Label lblGasState = new Label("");
+
+    public boolean isGasState() {
+        return gasState;
+    }
+
+    public void setGasState(boolean gasState) {
+        this.gasState = gasState;
+    }
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        imgGasOnoff.setOnMouseClicked(e -> handleGasOnOff(e));
-        
+        lblGasState.textProperty().addListener(new ChangeListener<String>(){
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if(newValue.equals("on")) {
+                    imgGasOnoff.setImage(new Image(getClass().getResource("controlImg/elecNgas_gas_on.png").toString()));
+                } else {
+                    imgGasOnoff.setImage(new Image(getClass().getResource("controlImg/elecNgas_gas_off.png").toString()));
+                }
+                setGasState(!isGasState());      
+                System.out.println("Gas: " + isGasState());                          
+            }            
+        });
+        imgGasOnoff.setOnMouseClicked(e -> handleGasOnOff(e));        
     }
 
     private void handleGasOnOff(MouseEvent e) {
-        if (gasState) {
+        if (!isGasState()) {
 //            imgGasState.setImage(new Image(getClass().getResource("controlImg/gason.png").toString()));
             imgGasOnoff.setImage(new Image(getClass().getResource("controlImg/elecNgas_gas_on.png").toString()));
+            lblGasState.setText("on");
         } else {
 //            imgGasState.setImage(new Image(getClass().getResource("controlImg/gasoff.png").toString()));
             imgGasOnoff.setImage(new Image(getClass().getResource("controlImg/elecNgas_gas_off.png").toString()));
+            lblGasState.setText("off");
         }
-        gasState = !gasState;
     }
 }

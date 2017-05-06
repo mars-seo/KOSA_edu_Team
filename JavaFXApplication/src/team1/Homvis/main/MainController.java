@@ -80,8 +80,6 @@ public class MainController implements Initializable {
     public static List<Parent> miniParent = new ArrayList<>();
 
     public static boolean miniWindow;
-	int preIndex1 = -1;
-	int preIndex2 = -1;
 
     public MainController() {
         try {
@@ -247,7 +245,6 @@ public class MainController implements Initializable {
                 Parent miniView = miniParent.get(index);
                 stackPane.getChildren().add(miniView);
                 if (!miniWindow) {
-					if(preIndex1!=-1) sstackPane.getChildren().remove(preIndex1);
                     miniView.setTranslateX(0);
                     miniView.setTranslateY(0);
                     miniView.setOpacity(0);
@@ -256,9 +253,7 @@ public class MainController implements Initializable {
                     Timeline timeline = new Timeline();
                     timeline.getKeyFrames().add(keyFrame);
                     timeline.play();
-					preIndex1 = index;
                 } else {
-					if(preIndex2!=-1) sstackPane.getChildren().remove(preIndex2);
                     miniView.setTranslateX(400);
                     miniView.setTranslateY(0);
                     miniView.setOpacity(0);
@@ -267,10 +262,9 @@ public class MainController implements Initializable {
                     Timeline timeline = new Timeline();
                     timeline.getKeyFrames().add(keyFrame);
                     timeline.play();
-					preIndex2 = index;
                 }
                 miniWindow = !miniWindow;
-                
+                //menuIcon.setOnMouseClicked(e->fullmenuClicked(menuIcon, index, chk));
 
             } else {
                 // passwordChk(index + 1);
