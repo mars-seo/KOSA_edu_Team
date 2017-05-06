@@ -234,6 +234,7 @@ public class MainController implements Initializable {
             chkView = FXMLLoader.load(getClass().getResource("../secret/newpassword.fxml"));
             stackPane.getChildren().add(chkView);
             chkView.setTranslateX(0);
+            chkView.setTranslateY(-200);
             chkView.setOpacity(0);
             KeyValue keyValue = new KeyValue(chkView.opacityProperty(), 1);
             KeyFrame keyFrame = new KeyFrame(Duration.millis(1000), keyValue);
@@ -481,18 +482,33 @@ public class MainController implements Initializable {
 
     private void secretClicked() {
         menuIcon8.setImage(new Image(getClass().getResource("images/main_secret_clicked.png").toString()));
-        System.out.println("clicked");
         Parent secretview;
         try {
             secretview = FXMLLoader.load(getClass().getResource("../secret/newpassword.fxml"));
+            
             stackPane.getChildren().add(secretview);
-            secretview.setTranslateX(0);
-            secretview.setOpacity(0);
-            KeyValue keyValue = new KeyValue(secretview.opacityProperty(), 1);
-            KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
-            Timeline timeline = new Timeline();
-            timeline.getKeyFrames().add(keyFrame);
-            timeline.play();
+            secretview.setTranslateY(-200);
+             if (!miniWindow) {
+                    secretview.setTranslateX(0);
+                 
+                    secretview.setOpacity(0);
+                    KeyValue keyValue = new KeyValue(secretview.opacityProperty(), 1);
+                    KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
+                    Timeline timeline = new Timeline();
+                    timeline.getKeyFrames().add(keyFrame);
+                    timeline.play();
+                } else {
+                    secretview.setTranslateX(400);
+                  //  secretview.setTranslateY(0);
+                    secretview.setOpacity(0);
+                    KeyValue keyValue = new KeyValue(secretview.opacityProperty(), 1);
+                    KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
+                    Timeline timeline = new Timeline();
+                    timeline.getKeyFrames().add(keyFrame);
+                    timeline.play();
+                }
+                miniWindow = !miniWindow;
+
 
             Label txt1 = (Label) secretview.lookup("#txt1");
             Label txt2 = (Label) secretview.lookup("#txt2");

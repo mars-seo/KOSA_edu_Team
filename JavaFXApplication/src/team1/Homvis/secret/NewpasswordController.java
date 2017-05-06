@@ -165,7 +165,6 @@ public class NewpasswordController implements Initializable {
 //////////////////////////////////////////////////////////////
         keypadroot.setOpacity(0);
         secret.setTranslateX(0);
-        secret.setTranslateY(-150);
 
         btnok.setOnAction(event -> handleOk());
         password1.focusedProperty().addListener((observable) -> {
