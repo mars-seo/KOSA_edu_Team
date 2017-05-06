@@ -23,6 +23,8 @@ import javafx.util.Duration;
 import static team1.Homvis.main.MainController.secretCount;
 import static team1.Homvis.main.MainController.stackPane;
 import team1.Homvis.main.MainController;
+import static team1.Homvis.main.MainController.miniParent;
+import static team1.Homvis.main.MainController.stackPane;
 
 public class NewpasswordController implements Initializable {
 
@@ -92,9 +94,12 @@ public class NewpasswordController implements Initializable {
     private boolean temp6PasswordChk = MainController.menu6PasswordChk;
     private boolean temp7PasswordChk = MainController.menu7PasswordChk;
     private boolean temp8PasswordChk = MainController.menu8PasswordChk;
+    private final int code=MainController.secretCount;  //secret콘트롤 생성된 순간의 secretcount를 기억하기 위해
+    private final boolean windowState=MainController.miniWindow;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         //매번 새롭게 생성되는 password창이기 때문에 password 설정된 메뉴인지체크창 유지하기 위해서
         chkBtn1.setSelected(MainController.menu1PasswordChk);
         chkBtn2.setSelected(MainController.menu2PasswordChk);
@@ -165,7 +170,6 @@ public class NewpasswordController implements Initializable {
 //////////////////////////////////////////////////////////////
         keypadroot.setOpacity(0);
         secret.setTranslateX(0);
-        secret.setTranslateY(-150);
 
         btnok.setOnAction(event -> handleOk());
         password1.focusedProperty().addListener((observable) -> {
@@ -184,7 +188,7 @@ public class NewpasswordController implements Initializable {
         String passwordValue = password1.getText();
         String passwordValue2 = password2.getText();
 
-        if (MainController.secretCount == 1) {
+        if (code== 1) {
             if (!(temp1PasswordChk == false && temp2PasswordChk == false && temp3PasswordChk == false && temp4PasswordChk == false && temp5PasswordChk == false && temp6PasswordChk == false && temp7PasswordChk == false && temp8PasswordChk == false)) {
                 if (passwordValue.equals(MainController.password)) {
                     MainController.password = passwordValue2;
@@ -197,109 +201,67 @@ public class NewpasswordController implements Initializable {
                 warning.setText("비밀번호를 설정할 메뉴를 선택해주세요");
             }
             //////////보일러
-        } else if (MainController.secretCount == 2) {
+        } else if (code== 2) {
             if (passwordValue.equals(MainController.password)) {
                 secretCount = 1;
                 off();
-
-                Parent boilerview = MainController.miniParent.get(1);
-                stackPane.getChildren().add(boilerview);
-                boilerview.setTranslateX(0);
-                boilerview.setOpacity(0);
-                KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
-                KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
-                Timeline timeline = new Timeline();
-                timeline.getKeyFrames().add(keyFrame);
-                timeline.play();
-
+                miniScreenOpen(1);
+             
             } else {
                 warning.setText("패스워드를 정확히 입력해주세요.");
             }
 /////////전기가스제어
-        } else if (MainController.secretCount == 3) {
+        } else if (code== 3) {
             if (passwordValue.equals(MainController.password)) {
                 secretCount = 1;
                 off();
-                Parent boilerview = MainController.miniParent.get(2);
-                stackPane.getChildren().add(boilerview);
-                boilerview.setTranslateX(0);
-                boilerview.setOpacity(0);
-                KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
-                KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
-                Timeline timeline = new Timeline();
-                timeline.getKeyFrames().add(keyFrame);
-                timeline.play();
+                miniScreenOpen(2);
+
+                
             } else {
                 warning.setText("패스워드를 정확히 입력해주세요.");
             }
 
             ///인터폰
-        } else if (MainController.secretCount == 4) {
+        } else if (code== 4) {
             if (passwordValue.equals(MainController.password)) {
                 secretCount = 1;
                 off();
-                Parent boilerview = MainController.miniParent.get(3);
-                stackPane.getChildren().add(boilerview);
-                boilerview.setTranslateX(0);
-                boilerview.setOpacity(0);
-                KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
-                KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
-                Timeline timeline = new Timeline();
-                timeline.getKeyFrames().add(keyFrame);
-                timeline.play();
+                miniScreenOpen(3);
+
             } else {
                 warning.setText("패스워드를 정확히 입력해주세요.");
             }
 
             ///인터넷
-        } else if (MainController.secretCount == 5) {          //
+        } else if (code== 5) {          //
             if (passwordValue.equals(MainController.password)) {
                 secretCount = 1;
                 off();
-                Parent boilerview = MainController.miniParent.get(4);
-                stackPane.getChildren().add(boilerview);
-                boilerview.setTranslateX(0);
-                boilerview.setOpacity(0);
-                KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
-                KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
-                Timeline timeline = new Timeline();
-                timeline.getKeyFrames().add(keyFrame);
-                timeline.play();
+                
+                miniScreenOpen(4);
+
             } else {
                 warning.setText("패스워드를 정확히 입력해주세요.");
             }
 
             //미디어플레이어
-        } else if (MainController.secretCount == 6) {
+        } else if (code== 6) {
             if (passwordValue.equals(MainController.password)) {
                 secretCount = 1;
                 off();
-                Parent boilerview = MainController.miniParent.get(5);
-                stackPane.getChildren().add(boilerview);
-                boilerview.setTranslateX(0);
-                boilerview.setOpacity(0);
-                KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
-                KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
-                Timeline timeline = new Timeline();
-                timeline.getKeyFrames().add(keyFrame);
-                timeline.play();
+                miniScreenOpen(5);
+
             } else {
                 warning.setText("패스워드를 정확히 입력해주세요.");
             }
             //사용량조회
-        } else if (MainController.secretCount == 7) {
+        } else if (code== 7) {
             if (passwordValue.equals(MainController.password)) {
                 secretCount = 1;
                 off();
-                Parent boilerview = MainController.miniParent.get(6);
-                stackPane.getChildren().add(boilerview);
-                boilerview.setTranslateX(0);
-                boilerview.setOpacity(0);
-                KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
-                KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
-                Timeline timeline = new Timeline();
-                timeline.getKeyFrames().add(keyFrame);
-                timeline.play();
+                miniScreenOpen(6);
+
             } else {
                 warning.setText("패스워드를 정확히 입력해주세요.");
             }
@@ -319,6 +281,32 @@ public class NewpasswordController implements Initializable {
             } else {
                 warning.setText("비밀번호를 설정할 메뉴를 선택해주세요");
             }
+        }
+    }
+
+    private void miniScreenOpen(int value) {
+        Parent miniView = miniParent.get(value);
+        
+        if (!windowState) {
+            stackPane.getChildren().add(miniView);
+            miniView.setTranslateX(0);
+            miniView.setTranslateY(0);
+            miniView.setOpacity(0);
+            KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
+            KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
+            Timeline timeline = new Timeline();
+            timeline.getKeyFrames().add(keyFrame);
+            timeline.play();
+        } else {
+            stackPane.getChildren().add(miniView);
+            miniView.setTranslateX(400);
+            miniView.setTranslateY(0);
+            miniView.setOpacity(0);
+            KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
+            KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
+            Timeline timeline = new Timeline();
+            timeline.getKeyFrames().add(keyFrame);
+            timeline.play();
         }
     }
 
@@ -346,85 +334,75 @@ public class NewpasswordController implements Initializable {
         Timeline timeline = new Timeline();
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
-        
-       MainController.menuicon1.setImage(new Image(getClass().getResource("images/main_home_default.png").toString()));
-       MainController.menuicon2.setImage(new Image(getClass().getResource("images/main_boiler_default.png").toString()));
-       MainController.menuicon3.setImage(new Image(getClass().getResource("images/main_elecNgas_default.png").toString()));
-       MainController.menuicon4.setImage(new Image(getClass().getResource("images/main_interphone_default.png").toString()));
-       MainController.menuicon5.setImage(new Image(getClass().getResource("images/main_internet_default.png").toString()));
-       MainController.menuicon6.setImage(new Image(getClass().getResource("images/main_player_default.png").toString()));
-       MainController.menuicon7.setImage(new Image(getClass().getResource("images/main_tariff_default.png").toString()));
-       MainController.menuicon8.setImage(new Image(getClass().getResource("images/main_secret_default.png").toString()));
-        
+
+        MainController.menuicon1.setImage(new Image(getClass().getResource("images/main_home_default.png").toString()));
+        MainController.menuicon2.setImage(new Image(getClass().getResource("images/main_boiler_default.png").toString()));
+        MainController.menuicon3.setImage(new Image(getClass().getResource("images/main_elecNgas_default.png").toString()));
+        MainController.menuicon4.setImage(new Image(getClass().getResource("images/main_interphone_default.png").toString()));
+        MainController.menuicon5.setImage(new Image(getClass().getResource("images/main_internet_default.png").toString()));
+        MainController.menuicon6.setImage(new Image(getClass().getResource("images/main_player_default.png").toString()));
+        MainController.menuicon7.setImage(new Image(getClass().getResource("images/main_tariff_default.png").toString()));
+        MainController.menuicon8.setImage(new Image(getClass().getResource("images/main_secret_default.png").toString()));
+
     }
 
     private String zeroClicked() {
         String input = "";
         input += key0.getUserData().toString();
-        System.out.println(input);
         return input;
     }
 
     private String oneClicked() {
         String input = "";
         input += key1.getUserData().toString();
-        System.out.println(input);
         return input;
     }
 
     private String twoClicked() {
         String input = "";
         input += key2.getUserData().toString();
-        System.out.println(input);
         return input;
     }
 
     private String threeClicked() {
         String input = "";
         input += key3.getUserData().toString();
-        System.out.println(input);
         return input;
     }
 
     private String fourClicked() {
         String input = "";
         input += key4.getUserData().toString();
-        System.out.println(input);
         return input;
     }
 
     private String fiveClicked() {
         String input = "";
         input += key5.getUserData().toString();
-        System.out.println(input);
         return input;
     }
 
     private String sixClicked() {
         String input = "";
         input += key6.getUserData().toString();
-        System.out.println(input);
         return input;
     }
 
     private String sevenClicked() {
         String input = "";
         input += key7.getUserData().toString();
-        System.out.println(input);
         return input;
     }
 
     private String eightClicked() {
         String input = "";
         input += key8.getUserData().toString();
-        System.out.println(input);
         return input;
     }
 
     private String nineClicked() {
         String input = "";
         input += key9.getUserData().toString();
-        System.out.println(input);
         return input;
     }
 
@@ -559,7 +537,6 @@ public class NewpasswordController implements Initializable {
     private void passwordReset() {
         secretCount = 0;
         MainController.password = "";
-        System.out.println(MainController.password);/////지울거
         MainController.menu1PasswordChk = false;
         MainController.menu2PasswordChk = false;
         MainController.menu3PasswordChk = false;
