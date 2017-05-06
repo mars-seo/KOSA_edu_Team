@@ -9,22 +9,22 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.controlElectNGas.GasContController">
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.controlElectNGas.GasContController">
    <children>
-      <ImageView fx:id="imgGasState" fitHeight="150.0" fitWidth="200.0" layoutX="225.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="480.0" fitWidth="653.0" layoutX="-53.0" pickOnBounds="true">
+         <image>
+            <Image url="@controlImg/elecNgas_gas_background.png" />
+         </image>
+      </ImageView>
+<!--      <ImageView fx:id="imgGasState" fitHeight="150.0" fitWidth="200.0" layoutX="28.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@controlImg/gason.png" />
          </image>
-      </ImageView>
-      <ImageView fx:id="imgGasOnoff" fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="292.0" pickOnBounds="true" preserveRatio="true">
+      </ImageView>-->
+      <ImageView fx:id="imgGasOnoff" fitWidth="250.0" layoutX="175.0" layoutY="315.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@controlImg/on1.png" />
+            <Image url="@controlImg/elecNgas_gas_on.png" />
          </image>
       </ImageView>
-      <Label fx:id="lblGasState" alignment="CENTER" layoutX="93.0" layoutY="242.0" prefHeight="42.0" prefWidth="415.0" text="가스 밸브가 열려있습니다.">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>

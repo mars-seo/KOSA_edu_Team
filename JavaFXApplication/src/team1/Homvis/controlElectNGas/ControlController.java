@@ -35,8 +35,8 @@ public class ControlController implements Initializable {
     private List<Parent> parent = new ArrayList<>();
     @FXML
     private ImageView exit;
-	@FXML
-	private AnchorPane controlRoot;
+    @FXML
+    private AnchorPane controlRoot;
 
     public ControlController() {
         try {
@@ -103,7 +103,7 @@ public class ControlController implements Initializable {
     }
 
     private void exit() {
-		MainController.menuicon3.setImage(new Image(getClass().getResource("../main/images/main_elecNgas_default.png").toString()));
+        MainController.menuicon3.setImage(new Image(getClass().getResource("../main/images/main_elecNgas_default.png").toString()));
         MainController.stackPane.getChildren().remove(controlRoot);
     }
 }

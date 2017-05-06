@@ -9,22 +9,22 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.controlElectNGas.SecurityController">
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.controlElectNGas.SecurityController">
    <children>
-      <ImageView fx:id="imgSecurityState" fitHeight="200.0" fitWidth="200.0" layoutX="226.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="480.0" fitWidth="653.0" layoutX="-53.0" pickOnBounds="true">
+         <image>
+            <Image url="@controlImg/elecNgas_security_background.png" />
+         </image>
+      </ImageView>
+<!--      <ImageView fx:id="imgSecurityState" fitHeight="200.0" fitWidth="200.0" layoutX="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@controlImg/securityo.png" />
          </image>
-      </ImageView>
-      <ImageView fx:id="imgScurityOnoff" fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="292.0" pickOnBounds="true" preserveRatio="true">
+      </ImageView>-->
+      <ImageView fx:id="imgScurityOnoff" fitWidth="250.0" layoutX="157.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@controlImg/on1.png" />
+            <Image url="@controlImg/elecNgas_security_on.png" />
          </image>
       </ImageView>
-      <Label fx:id="lblSecurityState" alignment="CENTER" layoutX="93.0" layoutY="242.0" prefHeight="42.0" prefWidth="415.0" text="보안이 작동중입니다.">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>

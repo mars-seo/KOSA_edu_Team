@@ -21,8 +21,6 @@ public class testAppMain3 extends Application {
         Scene scene = new Scene(parent);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Controller");
-//        primaryStage.setMaxWidth(800);
-//        primaryStage.setMaxHeight(480);
         primaryStage.show();
 
     }

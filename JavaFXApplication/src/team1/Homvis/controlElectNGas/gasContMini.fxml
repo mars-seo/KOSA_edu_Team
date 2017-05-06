@@ -11,20 +11,20 @@
 
 <AnchorPane id="AnchorPane" prefHeight="240.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.controlElectNGas.GasContMiniController">
    <children>
-      <ImageView fx:id="imgGasState" fitHeight="100.0" fitWidth="150.0" layoutX="40.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="50.0" layoutY="45.0" pickOnBounds="true">
+         <image>
+            <Image url="@controlImg/white.png" />
+         </image>
+      </ImageView>
+<!--      <ImageView fx:id="imgGasState" fitHeight="100.0" fitWidth="150.0" layoutX="40.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@controlImg/gason.png" />
          </image>
-      </ImageView>
-      <ImageView fx:id="imgGasOnoff" fitHeight="100.0" fitWidth="100.0" layoutX="150.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+      </ImageView>-->
+      <ImageView fx:id="imgGasOnoff" fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@controlImg/on1.png" />
+            <Image url="@controlImg/elecNgas_gas_on.png" />
          </image>
       </ImageView>
-      <Label fx:id="lblGasState" alignment="CENTER" layoutY="150.0" prefHeight="40.0" prefWidth="300.0" text="가스 밸브가 열려있습니다.">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>

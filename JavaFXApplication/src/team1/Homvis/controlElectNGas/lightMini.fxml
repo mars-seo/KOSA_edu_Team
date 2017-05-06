@@ -11,6 +11,11 @@
 
 <AnchorPane id="AnchorPane" prefHeight="240.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.controlElectNGas.LightMiniController">
 	<children>
+      <ImageView fitHeight="220.0" fitWidth="270.0" layoutX="10.0" layoutY="15.0" pickOnBounds="true">
+         <image>
+            <Image url="@controlImg/white.png" />
+         </image>
+      </ImageView>
 		<HBox prefHeight="240.0" prefWidth="300.0">
 			<children>
 				<StackPane prefHeight="150.0" prefWidth="200.0">
