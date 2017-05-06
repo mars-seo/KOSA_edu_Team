@@ -170,7 +170,7 @@ public class MainController implements Initializable {
         menuIcon8.setOnMouseClicked(event -> secretClicked()); //암호설정 서브메뉴이동
 
         //메뉴시작위치
-        menu.setTranslateX(30);
+        menu.setTranslateX(0);
         menu.setTranslateY(200);
 ////////////////
         background.setOnMouseClicked(event -> {
