@@ -239,6 +239,7 @@ public class MainController implements Initializable {
         if(index==0){
 			for(int i=0 ; i<menuList.size();i++){
 				menuicon[i].setImage(new Image(getClass().getResource("images/main_" + menuList.get(i) + "_default.png").toString()));
+				menuicon[i].setDisable(false);
 			}
 			mainPane.getChildren().removeAll(miniParent);
 			mainPane.getChildren().remove(secretview);
