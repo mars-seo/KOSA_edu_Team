@@ -80,8 +80,8 @@ public class MainController implements Initializable {
     public static List<Parent> miniParent = new ArrayList<>();
 
     public static boolean miniWindow;
-	private int preIndex1= -1;
-	private int preIndex2= -1;
+	private Parent preIndex1;
+	private Parent preIndex2;
 
     public MainController() {
         try {
@@ -247,27 +247,27 @@ public class MainController implements Initializable {
                 Parent miniView = miniParent.get(index);
                 stackPane.getChildren().add(miniView);
                 if (!miniWindow) {
-					if (preIndex1!=-1) sstackPane.getChildren().remove(preIndex1);
+					if (preIndex1 !=null ) stackPane.getChildren().remove(preIndex1);
                     miniView.setTranslateX(0);
-                    miniView.setTranslateY(0);
+                    miniView.setTranslateY(30);
                     miniView.setOpacity(0);
                     KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
                     KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
                     Timeline timeline = new Timeline();
                     timeline.getKeyFrames().add(keyFrame);
                     timeline.play();
-					preIndex1 = index;
+					preIndex1 = miniView;
                 } else {
-					if (preIndex2==-1) sstackPane.getChildren().remove(preIndex2);
+					if (preIndex2!=null) stackPane.getChildren().remove(preIndex2);
                     miniView.setTranslateX(400);
-                    miniView.setTranslateY(0);
+                    miniView.setTranslateY(30);
                     miniView.setOpacity(0);
                     KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
                     KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
                     Timeline timeline = new Timeline();
                     timeline.getKeyFrames().add(keyFrame);
                     timeline.play();
-					preIndex2=index;
+					preIndex2 = miniView;
                 }
                 miniWindow = !miniWindow;
                 //menuIcon.setOnMouseClicked(e->fullmenuClicked(menuIcon, index, chk));
