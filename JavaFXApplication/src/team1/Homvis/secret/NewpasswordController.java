@@ -287,7 +287,7 @@ public class NewpasswordController implements Initializable {
         if (!windowState) {
             stackPane.getChildren().add(miniView);
             miniView.setTranslateX(0);
-            miniView.setTranslateY(0);
+            miniView.setTranslateY(30);
             miniView.setOpacity(0);
             KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
             KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);

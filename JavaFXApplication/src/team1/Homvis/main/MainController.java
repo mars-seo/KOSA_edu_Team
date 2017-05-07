@@ -297,7 +297,7 @@ public class MainController implements Initializable {
 				secretview = FXMLLoader.load(getClass().getResource("../secret/newpassword.fxml"));
 
 				mainPane.getChildren().add(secretview);
-				secretview.setTranslateY(-200);
+				secretview.setTranslateY(30);
 				if (!miniWindow) {
 					secretview.setTranslateX(0);
 
