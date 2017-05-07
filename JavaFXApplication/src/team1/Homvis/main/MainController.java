@@ -51,10 +51,6 @@ public class MainController implements Initializable {
     @FXML
     private Label clock;
 
-    public static int secretCount;
-    private static int count = -1;
-    private static double xValue;
-
     public static ImageView menuicon1;
     public static ImageView menuicon2;
     public static ImageView menuicon3;
@@ -66,14 +62,14 @@ public class MainController implements Initializable {
 
     public static String password;
     public static StackPane stackPane;
-    public static boolean menu1PasswordChk = false;
-    public static boolean menu2PasswordChk = false;
-    public static boolean menu3PasswordChk = false;
-    public static boolean menu4PasswordChk = false;
-    public static boolean menu5PasswordChk = false;
-    public static boolean menu6PasswordChk = false;
-    public static boolean menu7PasswordChk = false;
-    public static boolean menu8PasswordChk = false;
+    public static boolean menu1PasswordChk;
+    public static boolean menu2PasswordChk;
+    public static boolean menu3PasswordChk;
+    public static boolean menu4PasswordChk;
+    public static boolean menu5PasswordChk;
+    public static boolean menu6PasswordChk;
+    public static boolean menu7PasswordChk;
+    public static boolean menu8PasswordChk;
 
     private List<String> menuList = new ArrayList<>();
     public static List<Parent> parent = new ArrayList<>();
@@ -83,11 +79,13 @@ public class MainController implements Initializable {
 	private Parent preIndex1;
 	private Parent preIndex2;
 	private Parent secretview;
+	public static int secretCount;
+    private static int count = -1;
 
     public MainController() {
         try {
 
-            this.parent.add(FXMLLoader.load(getClass().getResource("../newMain/newMenu.fxml")));
+            this.parent.add(preIndex1);
             this.parent.add(FXMLLoader.load(getClass().getResource("../boiler/boiler.fxml")));
             this.parent.add(FXMLLoader.load(getClass().getResource("../controlElectNGas/control.fxml")));
             this.parent.add(FXMLLoader.load(getClass().getResource("../interphone/interPhone.fxml")));
@@ -105,7 +103,7 @@ public class MainController implements Initializable {
             this.menuList.add("tariff");
 
             //미니 메뉴를 위한 구성
-            this.miniParent.add(FXMLLoader.load(getClass().getResource("../newMain/newMenu.fxml")));
+            this.miniParent.add(preIndex2);
             this.miniParent.add(FXMLLoader.load(getClass().getResource("../boiler/boilermini.fxml")));
             this.miniParent.add(FXMLLoader.load(getClass().getResource("../controlElectNGas/controlMini.fxml")));
             this.miniParent.add(FXMLLoader.load(getClass().getResource("../interphone/miniInterPhone.fxml")));
@@ -248,7 +246,7 @@ public class MainController implements Initializable {
 			preIndex1 = null;
 			preIndex2 = null;
 		}else{
-			if (chk == false) {
+			if (!chk) {
 
 				Parent miniView = miniParent.get(index);
 				stackPane.getChildren().add(miniView);
@@ -263,6 +261,7 @@ public class MainController implements Initializable {
 					timeline.getKeyFrames().add(keyFrame);
 					timeline.play();
 					preIndex1 = miniView;
+					
 				} else {
 					if (preIndex2!=null) stackPane.getChildren().remove(preIndex2);
 					miniView.setTranslateX(400);
@@ -274,9 +273,9 @@ public class MainController implements Initializable {
 					timeline.getKeyFrames().add(keyFrame);
 					timeline.play();
 					preIndex2 = miniView;
+					
 				}
 				miniWindow = !miniWindow;
-				//menuIcon.setOnMouseClicked(e->fullmenuClicked(menuIcon, index, chk));
 
 				} else {
 					// passwordChk(index + 1);
@@ -285,33 +284,6 @@ public class MainController implements Initializable {
 				}
 		}
     }
-
-    private void fullmenuClicked(ImageView menuIcon, int index, boolean chk) {
-        menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_clicked.png").toString()));
-        if (index == 0) {
-
-            menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_default.png").toString()));
-        } else {
-            if (chk == false) {
-
-                Parent boilerview = parent.get(index);
-                stackPane.getChildren().add(boilerview);
-                boilerview.setTranslateX(0);
-                boilerview.setOpacity(0);
-                KeyValue keyValue = new KeyValue(boilerview.opacityProperty(), 1);
-                KeyFrame keyFrame = new KeyFrame(Duration.millis(1000), keyValue);
-                Timeline timeline = new Timeline();
-                timeline.getKeyFrames().add(keyFrame);
-                timeline.play();
-
-            } else {
-                //passwordChk(index + 1);
-                secretCount = index + 1;
-                secretClicked();
-            }
-        }
-    }
-
 
     private void secretPressed() {
         menuIcon8.setImage(new Image(getClass().getResource("images/main_secret_pressed.png").toString()));
