@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane fx:id="internetRoot" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="240.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.internet.MiniInternetController">
+    <children>
+        <AnchorPane id="AnchorPane" prefHeight="240.0" prefWidth="400.0">
+            <children>
+                <WebView fx:id="newsWebView" layoutX="5.0" layoutY="21.0" prefHeight="200.0" prefWidth="390.0" />
+                <HBox prefHeight="15.0" prefWidth="250.0" spacing="15.0">
+                    <children>
+                        <ImageView fx:id="newsButton" fitHeight="15.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@internetImg/water_tap.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="youtubeButton" fitHeight="15.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@internetImg/water_tap.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="refresh" fitHeight="15.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@internetImg/water_tap.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="backButton" fitHeight="15.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@internetImg/water_tap.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="forwardButton" fitHeight="15.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@internetImg/water_tap.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="favoriteToggle" fitHeight="15.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@internetImg/water_tap.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </HBox>
+                <StackPane fx:id="changeableStackPane" layoutX="255.0" layoutY="17.0" prefHeight="205.0" prefWidth="200.0" visible="false">
+                    <children>
+                        <VBox prefHeight="205.0" prefWidth="140.0">
+                            <children>
+                                <HBox prefHeight="15.0" prefWidth="125.0" spacing="10.0">
+                                    <children>
+                                        <ImageView fx:id="favoriteAdd" fitHeight="15.0" fitWidth="65.0" pickOnBounds="true">
+                                            <image>
+                                                <Image url="@internetImg/water_tap.png" />
+                                            </image>
+                                        </ImageView>
+                                        <ImageView fx:id="favoriteDelete" fitHeight="15.0" fitWidth="65.0" pickOnBounds="true">
+                                            <image>
+                                                <Image url="@internetImg/water_tap.png" />
+                                            </image>
+                                        </ImageView>
+                                    </children>
+                                </HBox>
+                                <TableView fx:id="table" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="185.0" prefWidth="200.0">
+                                    <columns>
+                                        <TableColumn fx:id="siteColumn" prefWidth="80.0" text="site" />
+                                        <TableColumn fx:id="urlColumn" prefWidth="120.0" text="url" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </VBox>
+                    </children>
+                </StackPane>
+                  <ImageView fx:id="exit" fitHeight="15.0" fitWidth="15.0" layoutX="382.0" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                          <Image url="@internetImg/icon.png" />
+                      </image>
+                  </ImageView>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.embed.swing.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="tariffRoot" prefHeight="220.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.tariff.RootMiniController">
+    <children>
+        <BorderPane prefHeight="220.0" prefWidth="400.0">
+            <top>
+                <AnchorPane>
+                    <children>
+                        <Label contentDisplay="CENTER" layoutX="170.0" minHeight="-Infinity" prefHeight="12.0" prefWidth="50.0" text="요금조회" BorderPane.alignment="CENTER">
+                            <font>
+                                <Font name="System Bold Italic" size="12.0" />
+                            </font>
+                        </Label>
+                        <ImageView fx:id="exit" fitHeight="15.0" fitWidth="15.0" layoutX="380.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@tariffImg/icon.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </AnchorPane>
+            </top>
+            <left>
+                <VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="50.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <ImageView fx:id="btnGasFee" fitHeight="70.0" fitWidth="50.0" pickOnBounds="true">
+                            <image>
+                                <Image url="@tariffImg/water_tap.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="btnElectricFee" fitHeight="70.0" fitWidth="50.0" pickOnBounds="true">
+                            <image>
+                                <Image url="@tariffImg/water_tap.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="btnWaterFee" fitHeight="70.0" fitWidth="50.0" pickOnBounds="true">
+                            <image>
+                                <Image url="@tariffImg/water_tap.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </VBox>
+            </left>
+            <center>
+                <StackPane fx:id="changeableStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="300.0" BorderPane.alignment="CENTER" />
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

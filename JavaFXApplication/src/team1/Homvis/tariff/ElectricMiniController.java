@@ -20,31 +20,21 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 
-/**
- * FXML Controller class
- *
- * @author dongju
- */
-public class ElectricController implements Initializable {
+public class ElectricMiniController implements Initializable {
 
     @FXML
-    private StackPane mainStackPane;
+    private ImageView chartButton;
     @FXML
     private TableView<Fee> tableView;
     @FXML
     private Label howManyUseLabel;
     @FXML
     private Label howManyFeeLabel;
+
     @FXML
-    private ImageView chartButton;
+    private StackPane mainStackPane;
 
     private static StackPane rootPane;
-    @FXML
-    private AnchorPane gasMainAnchorPane;
-    @FXML
-    private BorderPane BoaderPane;
-    @FXML
-    private AnchorPane buttonAnchorPane;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -53,7 +43,7 @@ public class ElectricController implements Initializable {
         TableColumn tc1 = tableView.getColumns().get(1);
         TableColumn tc2 = tableView.getColumns().get(2);
         TableColumn tc3 = tableView.getColumns().get(3);
-
+       
         tc0.setCellValueFactory(new PropertyValueFactory<Fee, String>("month"));
         tc1.setCellValueFactory(new PropertyValueFactory<Fee, String>("howManyUse"));
         tc2.setCellValueFactory(new PropertyValueFactory<Fee, String>("fee"));
@@ -64,7 +54,7 @@ public class ElectricController implements Initializable {
         tc2.setStyle("-fx-alignment: CENTER;");
         tc3.setStyle("-fx-alignment: CENTER;");
 
-        ObservableList<Fee> list2 = FXCollections.observableArrayList();
+        ObservableList<Fee> list = FXCollections.observableArrayList();
         LocalDateTime now = LocalDateTime.now();
         int DateDay = now.getDayOfMonth();
         int Hour = now.getHour();
@@ -73,11 +63,11 @@ public class ElectricController implements Initializable {
         int feeNumber = (DateDay * 24 * 60 * 60 + Hour * 60 * 60 + Minute * 60 + Second) / 20000;
         String feeMeter = String.valueOf(feeNumber) + "\u33A5";
         String fee = String.valueOf(feeNumber * 300) + "원";
-        list2.add(new Fee("1", "98" + "kW", "38120원", "납부완료"));
-        list2.add(new Fee("2", "79" + "kW", "21940원", "납부완료"));
-        list2.add(new Fee("3", "71" + "kW", "25320원", "납부완료"));
+        list.add(new Fee("1", "128" + "\u33A5", "69120원", "납부완료"));
+        list.add(new Fee("2", "111" + "\u33A5", "59940원", "납부완료"));
+        list.add(new Fee("3", "78" + "\u33A5", "42120원", "납부완료"));
 
-        tableView.setItems(list2);
+        tableView.setItems(list);
 
         howManyUseLabel.setText(feeMeter);
         howManyFeeLabel.setText(fee);
@@ -89,12 +79,13 @@ public class ElectricController implements Initializable {
 
     private void handlerChartButton(MouseEvent event) {
         try {
-
+            
             rootPane.getChildren().clear();
-            Parent gasScene = FXMLLoader.load(getClass().getResource("electricChart.fxml"));
+            Parent gasScene = FXMLLoader.load(getClass().getResource("electricChartMini.fxml"));
             rootPane.getChildren().add(gasScene);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
+
 }

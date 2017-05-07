@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane fx:id="mainStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.tariff.ElectricMiniController">
+    
+    <children>
+        <AnchorPane id="AnchorPane" fx:id="gasMainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="300.0">
+            <children>
+                <BorderPane fx:id="BoaderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="300.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <top>
+                        <TableView fx:id="tableView" prefHeight="120.0" prefWidth="300.0" stylesheets="@font.css" BorderPane.alignment="CENTER">
+                            <columns>
+                                <TableColumn maxWidth="60.0" prefWidth="60.0" text="월" />
+                                <TableColumn maxWidth="75.0" prefWidth="75.0" text="사용량" />
+                                <TableColumn maxWidth="75.0" prefWidth="75.0" text="요금" />
+                                <TableColumn maxWidth="75.0" prefWidth="75.0" text="납부여부" />
+                            </columns>
+                        </TableView>
+                    </top>
+                    <center>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+                            <children>
+                                <Label layoutX="38.0" layoutY="16.0" text="실시간 이번달 사용량 :" />
+                                <Label layoutX="51.0" layoutY="37.0" text="이번달 사용량 요금:" />
+                                <Label fx:id="howManyUseLabel" layoutX="201.0" layoutY="16.0" text="Label" />
+                                <Label fx:id="howManyFeeLabel" layoutX="201.0" layoutY="37.0" text="Label" />
+                            </children>
+                        </AnchorPane>
+                    </center>
+                </BorderPane>
+                <AnchorPane fx:id="buttonAnchorPane" layoutY="182.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="15.0" prefWidth="300.0">
+                    <children>
+                        <ImageView fx:id="chartButton" fitHeight="15.0" fitWidth="38.0" layoutX="71.0" layoutY="3.0" pickOnBounds="true">
+                            <image>
+                                <Image url="@tariffImg/water_tap.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>
