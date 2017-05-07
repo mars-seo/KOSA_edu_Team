@@ -9,7 +9,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane fx:id="miniMediaRoot" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.player.MiniMediaController">
    <children>
       <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="240.0" prefWidth="400.0">
@@ -97,9 +96,14 @@
                               <Image url="@playerImg/substract.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="exit" fitHeight="19.0" fitWidth="19.0" layoutX="70.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="exit" fitHeight="21.0" fitWidth="21.0" layoutX="70.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@playerImg/icon.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="maximize" fitHeight="21.0" fitWidth="21.0" layoutX="48.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@playerImg/maximize.png" />
                            </image>
                         </ImageView>
                      </children>
