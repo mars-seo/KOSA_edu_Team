@@ -51,7 +51,7 @@ public class MainController implements Initializable {
     @FXML
     private Label clock;
 
-    public static int secretCount = 0;
+    public static int secretCount;
     private static int count = -1;
     private static double xValue;
 
@@ -82,6 +82,7 @@ public class MainController implements Initializable {
     public static boolean miniWindow;
 	private Parent preIndex1;
 	private Parent preIndex2;
+	private Parent secretview;
 
     public MainController() {
         try {
@@ -238,46 +239,51 @@ public class MainController implements Initializable {
 
     private void menuClicked(ImageView menuIcon, int index, boolean chk) {
         menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_clicked.png").toString()));
-        if (index == 0) {
+        if(index==0){
+			for(int i=0 ; i<menuList.size();i++){
+				menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_default.png").toString()));
+			}
+			stackPane.getChildren().removeAll(miniParent);
+			stackPane.getChildren().remove(secretview);
+			preIndex1 = null;
+			preIndex2 = null;
+		}else{
+			if (chk == false) {
 
-            menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_default.png").toString()));
-        } else {
-            if (chk == false) {
-
-                Parent miniView = miniParent.get(index);
-                stackPane.getChildren().add(miniView);
-                if (!miniWindow) {
+				Parent miniView = miniParent.get(index);
+				stackPane.getChildren().add(miniView);
+				if (!miniWindow) {
 					if (preIndex1 !=null ) stackPane.getChildren().remove(preIndex1);
-                    miniView.setTranslateX(0);
-                    miniView.setTranslateY(30);
-                    miniView.setOpacity(0);
-                    KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
-                    KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
-                    Timeline timeline = new Timeline();
-                    timeline.getKeyFrames().add(keyFrame);
-                    timeline.play();
+					miniView.setTranslateX(0);
+					miniView.setTranslateY(30);
+					miniView.setOpacity(0);
+					KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
+					KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
+					Timeline timeline = new Timeline();
+					timeline.getKeyFrames().add(keyFrame);
+					timeline.play();
 					preIndex1 = miniView;
-                } else {
+				} else {
 					if (preIndex2!=null) stackPane.getChildren().remove(preIndex2);
-                    miniView.setTranslateX(400);
-                    miniView.setTranslateY(30);
-                    miniView.setOpacity(0);
-                    KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
-                    KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
-                    Timeline timeline = new Timeline();
-                    timeline.getKeyFrames().add(keyFrame);
-                    timeline.play();
+					miniView.setTranslateX(400);
+					miniView.setTranslateY(30);
+					miniView.setOpacity(0);
+					KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
+					KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
+					Timeline timeline = new Timeline();
+					timeline.getKeyFrames().add(keyFrame);
+					timeline.play();
 					preIndex2 = miniView;
-                }
-                miniWindow = !miniWindow;
-                //menuIcon.setOnMouseClicked(e->fullmenuClicked(menuIcon, index, chk));
+				}
+				miniWindow = !miniWindow;
+				//menuIcon.setOnMouseClicked(e->fullmenuClicked(menuIcon, index, chk));
 
-            } else {
-                // passwordChk(index + 1);
-                secretCount = index + 1;
-                secretClicked();
-            }
-        }
+				} else {
+					// passwordChk(index + 1);
+					secretCount = index + 1;
+					secretClicked();
+				}
+		}
     }
 
     private void fullmenuClicked(ImageView menuIcon, int index, boolean chk) {
@@ -313,7 +319,6 @@ public class MainController implements Initializable {
 
     private void secretClicked() {
         menuIcon8.setImage(new Image(getClass().getResource("images/main_secret_clicked.png").toString()));
-        Parent secretview;
         try {
             secretview = FXMLLoader.load(getClass().getResource("../secret/newpassword.fxml"));
 
