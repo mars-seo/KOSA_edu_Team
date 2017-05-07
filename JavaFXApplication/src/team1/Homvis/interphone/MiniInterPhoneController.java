@@ -30,8 +30,11 @@ public class MiniInterPhoneController implements Initializable {
 	private ImageView locationBtn;
 	@FXML
 	private AnchorPane miniInterphoneRoot;
+	@FXML
+	private ImageView maximize;
 	
 	private boolean chkLocation;
+	
 
 
 	@Override
@@ -40,6 +43,7 @@ public class MiniInterPhoneController implements Initializable {
 		phoneBtn.setOnMouseClicked(e->callNopen(e, "call"));
 		openBtn.setOnMouseClicked(e->callNopen(e, "open"));
 		closeBtn.setOnMouseClicked(e->exit());
+		maximize.setOnMouseClicked(e->maximizeScreen());
 	}	
 	private void callNopen(MouseEvent e, String status) {
 		
@@ -75,5 +79,9 @@ public class MiniInterPhoneController implements Initializable {
 			locationlb.setText("공동현관");
 		}
 		chkLocation = !chkLocation;
+	}
+
+	private void maximizeScreen() {
+		MainController.stackPane.getChildren().add(MainController.parent.get(3));
 	}
 }

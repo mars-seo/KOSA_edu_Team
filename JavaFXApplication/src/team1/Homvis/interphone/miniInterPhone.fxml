@@ -10,7 +10,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="miniInterphoneRoot" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.interphone.MiniInterPhoneController">
+<AnchorPane fx:id="miniInterphoneRoot" maxHeight="-Infinity" maxWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.interphone.MiniInterPhoneController">
    <children>
       <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="240.0" prefWidth="400.0">
          <children>
@@ -49,13 +49,6 @@
                      </children>
                   </VBox>
                </right>
-               <top>
-                  <Label fx:id="locationlb" text="공동현관" BorderPane.alignment="CENTER">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-               </top>
                <center>
                   <StackPane maxHeight="-Infinity" maxWidth="-Infinity" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
                      <children>
@@ -63,6 +56,22 @@
                      </children>
                   </StackPane>
                </center>
+               <top>
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label fx:id="locationlb" layoutX="142.0" layoutY="7.0" text="공동현관">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="maximize" fitHeight="20.0" fitWidth="20.0" layoutX="376.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@interphoneImg/maximize.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </top>
             </BorderPane>
          </children>
       </StackPane>

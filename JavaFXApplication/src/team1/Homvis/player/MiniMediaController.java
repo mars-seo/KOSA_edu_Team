@@ -60,6 +60,8 @@ public class MiniMediaController implements Initializable {
 	private AnchorPane miniMediaRoot;
 	@FXML
 	private ImageView exit;
+	@FXML
+	private ImageView maximize;
 	
 	private ObservableList<String> nameList = FXCollections.observableArrayList();
 	private ObservableList<File> mediaFileList = FXCollections.observableArrayList();
@@ -68,6 +70,7 @@ public class MiniMediaController implements Initializable {
 	private Media playMedia;
 	private MediaPlayer mediaPlayer;
 	private int index;
+	
 	
 	
 		
@@ -92,6 +95,7 @@ public class MiniMediaController implements Initializable {
             }
         });
 		exit.setOnMouseClicked(e->exit());
+		maximize.setOnMouseClicked(e->maximizeScreen());
 	}	
 	private void handleAddList(MouseEvent e) {
 		
@@ -308,5 +312,9 @@ public class MiniMediaController implements Initializable {
 		MainController.menuicon[5].setImage(new Image(getClass().getResource("../main/images/main_player_default.png").toString()));
         MainController.stackPane.getChildren().remove(miniMediaRoot);
     }
+
+	private void maximizeScreen() {
+		 MainController.stackPane.getChildren().add(MainController.parent.get(5));
+	}
 	
 }
