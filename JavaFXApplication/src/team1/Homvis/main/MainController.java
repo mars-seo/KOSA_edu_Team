@@ -75,6 +75,8 @@ public class MainController implements Initializable {
     public static boolean miniWindow;
 	private Parent preIndex1;
 	private Parent preIndex2;
+	private int preindex1=-1;
+	private int preindex2=-1;
 	private Parent secretview;
 	public static int secretCount;
     private static int count = -1;
@@ -252,7 +254,11 @@ public class MainController implements Initializable {
 				Parent miniView = miniParent.get(index);
 				mainPane.getChildren().add(miniView);
 				if (!miniWindow) {
-					if (preIndex1 !=null ) mainPane.getChildren().remove(preIndex1);
+					if (preIndex1 !=null ){
+						mainPane.getChildren().remove(preIndex1); 
+						menuicon[preindex1].setImage(new Image(getClass().getResource("images/main_" + menuList.get(preindex1) + "_default.png").toString()));
+						menuicon[preindex1].setDisable(false);
+					}
 					miniView.setTranslateX(0);
 					miniView.setTranslateY(30);
 					miniView.setOpacity(0);
@@ -262,9 +268,13 @@ public class MainController implements Initializable {
 					timeline.getKeyFrames().add(keyFrame);
 					timeline.play();
 					preIndex1 = miniView;
-					
+					preindex1 = index;
 				} else {
-					if (preIndex2!=null) mainPane.getChildren().remove(preIndex2);
+					if (preIndex2!=null){
+						mainPane.getChildren().remove(preIndex2);
+						menuicon[preindex2].setImage(new Image(getClass().getResource("images/main_" + menuList.get(preindex2) + "_default.png").toString()));
+						menuicon[preindex2].setDisable(false);
+					}
 					miniView.setTranslateX(400);
 					miniView.setTranslateY(30);
 					miniView.setOpacity(0);
@@ -274,7 +284,7 @@ public class MainController implements Initializable {
 					timeline.getKeyFrames().add(keyFrame);
 					timeline.play();
 					preIndex2 = miniView;
-					
+					preindex2 = index;
 				}
 				miniWindow = !miniWindow;
 
