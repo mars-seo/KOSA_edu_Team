@@ -19,6 +19,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -50,18 +51,14 @@ public class MainController implements Initializable {
     private ImageView menuIcon8;
     @FXML
     private Label clock;
+	@FXML
+	private AnchorPane mainPane;
 
-    public static ImageView menuicon1;
-    public static ImageView menuicon2;
-    public static ImageView menuicon3;
-    public static ImageView menuicon4;
-    public static ImageView menuicon5;
-    public static ImageView menuicon6;
-    public static ImageView menuicon7;
-    public static ImageView menuicon8;
+    public static ImageView menuicon[] = new ImageView[8];
+   
 
     public static String password;
-    public static StackPane stackPane;
+    public static AnchorPane stackPane;
     public static boolean menu1PasswordChk;
     public static boolean menu2PasswordChk;
     public static boolean menu3PasswordChk;
@@ -81,6 +78,7 @@ public class MainController implements Initializable {
 	private Parent secretview;
 	public static int secretCount;
     private static int count = -1;
+	
 
     public MainController() {
         try {
@@ -119,16 +117,16 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //나중에 디폴트로 만들기위해
-        menuicon1 = menuIcon1;
-        menuicon2 = menuIcon2;
-        menuicon3 = menuIcon3;
-        menuicon4 = menuIcon4;
-        menuicon5 = menuIcon5;
-        menuicon6 = menuIcon6;
-        menuicon7 = menuIcon7;
-        menuicon8 = menuIcon8;
+        menuicon[0] = menuIcon1;
+        menuicon[1] = menuIcon2;
+        menuicon[2] = menuIcon3;
+        menuicon[3] = menuIcon4;
+        menuicon[4] = menuIcon5;
+        menuicon[5] = menuIcon6;
+        menuicon[6] = menuIcon7;
+        menuicon[7] = menuIcon8;
 
-        stackPane = sstackPane;
+        stackPane = mainPane;
 
         //clock start
         Thread thread = new Thread() {
@@ -237,38 +235,39 @@ public class MainController implements Initializable {
 
     private void menuClicked(ImageView menuIcon, int index, boolean chk) {
         menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_clicked.png").toString()));
+		menuIcon.setDisable(true);
         if(index==0){
 			for(int i=0 ; i<menuList.size();i++){
-				menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_default.png").toString()));
+				menuicon[i].setImage(new Image(getClass().getResource("images/main_" + menuList.get(i) + "_default.png").toString()));
 			}
-			stackPane.getChildren().removeAll(miniParent);
-			stackPane.getChildren().remove(secretview);
+			mainPane.getChildren().removeAll(miniParent);
+			mainPane.getChildren().remove(secretview);
 			preIndex1 = null;
 			preIndex2 = null;
 		}else{
 			if (!chk) {
 
 				Parent miniView = miniParent.get(index);
-				stackPane.getChildren().add(miniView);
+				mainPane.getChildren().add(miniView);
 				if (!miniWindow) {
-					if (preIndex1 !=null ) stackPane.getChildren().remove(preIndex1);
+					if (preIndex1 !=null ) mainPane.getChildren().remove(preIndex1);
 					miniView.setTranslateX(0);
 					miniView.setTranslateY(30);
 					miniView.setOpacity(0);
 					KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
-					KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
+					KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
 					Timeline timeline = new Timeline();
 					timeline.getKeyFrames().add(keyFrame);
 					timeline.play();
 					preIndex1 = miniView;
 					
 				} else {
-					if (preIndex2!=null) stackPane.getChildren().remove(preIndex2);
+					if (preIndex2!=null) mainPane.getChildren().remove(preIndex2);
 					miniView.setTranslateX(400);
 					miniView.setTranslateY(30);
 					miniView.setOpacity(0);
 					KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
-					KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
+					KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
 					Timeline timeline = new Timeline();
 					timeline.getKeyFrames().add(keyFrame);
 					timeline.play();
@@ -283,6 +282,7 @@ public class MainController implements Initializable {
 					secretClicked(chk);
 				}
 		}
+		
     }
 
     private void secretPressed() {
@@ -291,18 +291,19 @@ public class MainController implements Initializable {
 
     private void secretClicked(boolean chk) {
         menuIcon8.setImage(new Image(getClass().getResource("images/main_secret_clicked.png").toString()));
+		menuIcon8.setDisable(true);
 		if(chk){
 			try {
 				secretview = FXMLLoader.load(getClass().getResource("../secret/newpassword.fxml"));
 
-				stackPane.getChildren().add(secretview);
+				mainPane.getChildren().add(secretview);
 				secretview.setTranslateY(-200);
 				if (!miniWindow) {
 					secretview.setTranslateX(0);
 
 					secretview.setOpacity(0);
 					KeyValue keyValue = new KeyValue(secretview.opacityProperty(), 1);
-					KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
+					KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
 					Timeline timeline = new Timeline();
 					timeline.getKeyFrames().add(keyFrame);
 					timeline.play();
@@ -322,7 +323,7 @@ public class MainController implements Initializable {
 					//  secretview.setTranslateY(0);
 					secretview.setOpacity(0);
 					KeyValue keyValue = new KeyValue(secretview.opacityProperty(), 1);
-					KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
+					KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
 					Timeline timeline = new Timeline();
 					timeline.getKeyFrames().add(keyFrame);
 					timeline.play();

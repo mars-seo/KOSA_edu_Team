@@ -323,7 +323,7 @@ public class NewpasswordController implements Initializable {
 
         secret.setOpacity(1);
         KeyValue keyValue = new KeyValue(secret.opacityProperty(), 0);
-        KeyFrame keyFrame = new KeyFrame(Duration.millis(1000),
+        KeyFrame keyFrame = new KeyFrame(Duration.millis(500),
                 (event) -> {
                     MainController.stackPane.getChildren().remove(secret);
                 },
@@ -332,15 +332,16 @@ public class NewpasswordController implements Initializable {
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
 
-        MainController.menuicon1.setImage(new Image(getClass().getResource("images/main_home_default.png").toString()));
-        MainController.menuicon2.setImage(new Image(getClass().getResource("images/main_boiler_default.png").toString()));
-        MainController.menuicon3.setImage(new Image(getClass().getResource("images/main_elecNgas_default.png").toString()));
-        MainController.menuicon4.setImage(new Image(getClass().getResource("images/main_interphone_default.png").toString()));
-        MainController.menuicon5.setImage(new Image(getClass().getResource("images/main_internet_default.png").toString()));
-        MainController.menuicon6.setImage(new Image(getClass().getResource("images/main_player_default.png").toString()));
-        MainController.menuicon7.setImage(new Image(getClass().getResource("images/main_tariff_default.png").toString()));
-        MainController.menuicon8.setImage(new Image(getClass().getResource("images/main_secret_default.png").toString()));
-
+        MainController.menuicon[0].setImage(new Image(getClass().getResource("images/main_home_default.png").toString()));
+        MainController.menuicon[1].setImage(new Image(getClass().getResource("images/main_boiler_default.png").toString()));
+        MainController.menuicon[2].setImage(new Image(getClass().getResource("images/main_elecNgas_default.png").toString()));
+        MainController.menuicon[3].setImage(new Image(getClass().getResource("images/main_interphone_default.png").toString()));
+        MainController.menuicon[4].setImage(new Image(getClass().getResource("images/main_internet_default.png").toString()));
+        MainController.menuicon[5].setImage(new Image(getClass().getResource("images/main_player_default.png").toString()));
+        MainController.menuicon[6].setImage(new Image(getClass().getResource("images/main_tariff_default.png").toString()));
+        MainController.menuicon[7].setImage(new Image(getClass().getResource("images/main_secret_default.png").toString()));
+		
+		MainController.menuicon[7].setDisable(false);
     }
 
     private String zeroClicked() {
@@ -420,7 +421,7 @@ public class NewpasswordController implements Initializable {
     private void keypad() {
         keypadroot.setTranslateX(0);
         KeyValue keyValue = new KeyValue(keypadroot.opacityProperty(), 1);
-        KeyFrame keyFrame = new KeyFrame(Duration.millis(1000), keyValue);
+        KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
         Timeline timeline = new Timeline();
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
@@ -476,7 +477,7 @@ public class NewpasswordController implements Initializable {
     private void keypad2() {
         keypadroot.setTranslateX(0);
         KeyValue keyValue = new KeyValue(keypadroot.opacityProperty(), 1);
-        KeyFrame keyFrame = new KeyFrame(Duration.millis(1000), keyValue);
+        KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
         Timeline timeline = new Timeline();
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();

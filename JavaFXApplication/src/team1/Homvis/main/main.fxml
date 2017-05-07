@@ -8,86 +8,88 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane fx:id="sstackPane" alignment="BOTTOM_LEFT" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.main.MainController">
+<AnchorPane fx:id="mainPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.main.MainController">
    <children>
-      <ImageView fx:id="background" fitHeight="480.0" fitWidth="800.0" pickOnBounds="true">
-         <image>
-            <Image url="@images/main_background.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="clock" text="00:00:00" />
-      <HBox fx:id="menu" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="110.0" prefWidth="800.0">
+      <StackPane fx:id="sstackPane" alignment="BOTTOM_LEFT" prefHeight="480.0" prefWidth="800.0">
          <children>
-            <ImageView fx:id="menuIcon1" fitHeight="100.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="background" fitHeight="480.0" fitWidth="800.0" pickOnBounds="true">
                <image>
-                  <Image url="@images/main_home_default.png" />
+                  <Image url="@images/main_background.png" />
                </image>
-               <HBox.margin>
-                  <Insets left="10.0" right="10.0" />
-               </HBox.margin>
             </ImageView>
-            <ImageView fx:id="menuIcon2" fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/main_boiler_default.png" />
-               </image>
-               <HBox.margin>
-                  <Insets left="10.0" right="10.0" />
-               </HBox.margin>
-            </ImageView>
-            <ImageView fx:id="menuIcon3" fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/main_elecNgas_default.png" />
-               </image>
-               <HBox.margin>
-                  <Insets left="10.0" right="10.0" />
-               </HBox.margin>
-            </ImageView>
-            <ImageView fx:id="menuIcon4" fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/main_interphone_default.png" />
-               </image>
-               <HBox.margin>
-                  <Insets left="10.0" right="10.0" />
-               </HBox.margin>
-            </ImageView>
-            <ImageView fx:id="menuIcon5" fitHeight="100.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/main_internet_default.png" />
-               </image>
-               <HBox.margin>
-                  <Insets left="10.0" right="10.0" />
-               </HBox.margin></ImageView>
-            <ImageView fx:id="menuIcon6" fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/main_player_default.png" />
-               </image>
-               <HBox.margin>
-                  <Insets left="10.0" right="10.0" />
-               </HBox.margin>
-            </ImageView>
-            <ImageView fx:id="menuIcon7" fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/main_tariff_default.png" />
-               </image>
-               <HBox.margin>
-                  <Insets left="10.0" right="10.0" />
-               </HBox.margin>
-            </ImageView>
-            <ImageView fx:id="menuIcon8" fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/main_secret_default.png" />
-               </image>
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin>
-            </ImageView>
+            <Label fx:id="clock" text="00:00:00" />
+            <HBox fx:id="menu" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="110.0" prefWidth="800.0">
+               <children>
+                  <ImageView fx:id="menuIcon1" fitHeight="100.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/main_home_default.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fx:id="menuIcon2" fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/main_boiler_default.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fx:id="menuIcon3" fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/main_elecNgas_default.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fx:id="menuIcon4" fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/main_interphone_default.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fx:id="menuIcon5" fitHeight="100.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/main_internet_default.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fx:id="menuIcon6" fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/main_player_default.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fx:id="menuIcon7" fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/main_tariff_default.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fx:id="menuIcon8" fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/main_secret_default.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets left="30.0" right="20.0" />
+               </padding>
+            </HBox>
          </children>
-         <padding>
-            <Insets left="30.0" right="20.0" />
-         </padding>
-         <StackPane.margin>
-            <Insets />
-         </StackPane.margin>
-      </HBox>
+      </StackPane>
    </children>
-</StackPane>
+</AnchorPane>

@@ -209,7 +209,7 @@ public class InternetController implements Initializable {
     }
 
     private void exit() {
-        MainController.menuicon5.setImage(new Image(getClass().getResource("../main/images/main_internet_default.png").toString()));
+        MainController.menuicon[4].setImage(new Image(getClass().getResource("../main/images/main_internet_default.png").toString()));
         MainController.stackPane.getChildren().remove(internetRoot);
     }
 }

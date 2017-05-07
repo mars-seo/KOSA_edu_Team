@@ -61,7 +61,7 @@ public class InterPhoneController implements Initializable {
 			}
 	}
 	private void exit() {
-		MainController.menuicon4.setImage(new Image(getClass().getResource("../main/images/main_interphone_default.png").toString()));
+		MainController.menuicon[3].setImage(new Image(getClass().getResource("../main/images/main_interphone_default.png").toString()));
         MainController.stackPane.getChildren().remove(interphoneRoot);
     }
 

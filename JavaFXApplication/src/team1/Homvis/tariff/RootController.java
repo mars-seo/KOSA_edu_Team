@@ -8,7 +8,6 @@ import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -124,7 +123,7 @@ public class RootController implements Initializable {
     }
 
     private void exit() {
-        MainController.menuicon7.setImage(new Image(getClass().getResource("../main/images/main_tariff_default.png").toString()));
+        MainController.menuicon[6].setImage(new Image(getClass().getResource("../main/images/main_tariff_default.png").toString()));
         MainController.stackPane.getChildren().remove(tariffRoot);
     }
 }

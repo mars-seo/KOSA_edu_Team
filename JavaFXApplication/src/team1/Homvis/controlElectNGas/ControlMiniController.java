@@ -106,8 +106,9 @@ public class ControlMiniController implements Initializable {
     }
 
     private void exit() {
-        MainController.menuicon3.setImage(new Image(getClass().getResource("../main/images/main_elecNgas_default.png").toString()));
+        MainController.menuicon[2].setImage(new Image(getClass().getResource("../main/images/main_elecNgas_default.png").toString()));
         MainController.stackPane.getChildren().remove(miniControlRoot);
+		MainController.menuicon[2].setDisable(false);
     }
 
     private void fullscreen() {

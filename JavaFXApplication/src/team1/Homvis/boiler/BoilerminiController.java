@@ -141,8 +141,9 @@ public class BoilerminiController implements Initializable {
         }
     }
         private void exit() {
-        MainController.menuicon2.setImage(new Image(getClass().getResource("images/main_boiler_default.png").toString()));
+        MainController.menuicon[1].setImage(new Image(getClass().getResource("images/main_boiler_default.png").toString()));
         MainController.stackPane.getChildren().remove(boilerminiRoot);
+		MainController.menuicon[1].setDisable(false);
         }
 
     private void fullscreen() {

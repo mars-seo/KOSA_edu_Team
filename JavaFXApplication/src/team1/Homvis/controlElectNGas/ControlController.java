@@ -103,7 +103,7 @@ public class ControlController implements Initializable {
     }
 
     private void exit() {
-        MainController.menuicon3.setImage(new Image(getClass().getResource("../main/images/main_elecNgas_default.png").toString()));
+        MainController.menuicon[2].setImage(new Image(getClass().getResource("../main/images/main_elecNgas_default.png").toString()));
         MainController.stackPane.getChildren().remove(controlRoot);
     }
 }

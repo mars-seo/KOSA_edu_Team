@@ -5,9 +5,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,7 +14,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import javafx.util.Duration;
 import team1.Homvis.main.MainController;
 
 public class BoilerController implements Initializable {
@@ -190,8 +186,9 @@ public class BoilerController implements Initializable {
     }
 
     private void exit() {
-        MainController.menuicon2.setImage(new Image(getClass().getResource("images/main_boiler_default.png").toString()));
+        MainController.menuicon[1].setImage(new Image(getClass().getResource("images/main_boiler_default.png").toString()));
         MainController.stackPane.getChildren().remove(boilerRoot);
+		
         /*     boilerRoot.setOpacity(1);
         boilerRoot.setTranslateX(0);
         KeyValue keyValue = new KeyValue(boilerRoot.opacityProperty(), 0);
