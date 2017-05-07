@@ -21,7 +21,7 @@
             <Image url="@controlImg/securityo.png" />
          </image>
       </ImageView>-->
-      <ImageView fx:id="imgScurityOnoff" fitWidth="250.0" layoutX="157.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgScurityOnoff" fitWidth="250.0" layoutX="175.0" layoutY="315.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@controlImg/elecNgas_security_on.png" />
          </image>

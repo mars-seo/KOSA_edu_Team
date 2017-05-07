@@ -69,7 +69,7 @@ public class ControlMiniController implements Initializable {
     private void handleBtn(MouseEvent e, int num) {
         rootPane.getChildren().clear();
         stackPane.getChildren().add(parent.get(num));
-        translateX(num);
+//        translateX(num);
 
         if (num == 0) {
             btnLight.setImage(new Image(getClass().getResource("controlImg/elecNgas_light_clicked.png").toString()));
