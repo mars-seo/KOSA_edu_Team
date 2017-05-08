@@ -27,8 +27,7 @@ import javafx.util.Duration;
 
 public class MainController implements Initializable {
 
-    @FXML
-    private StackPane sstackPane;
+
     @FXML
     private ImageView background;
     @FXML
@@ -107,9 +106,9 @@ public class MainController implements Initializable {
             this.miniParent.add(FXMLLoader.load(getClass().getResource("../boiler/boilermini.fxml")));
             this.miniParent.add(FXMLLoader.load(getClass().getResource("../controlElectNGas/controlMini.fxml")));
             this.miniParent.add(FXMLLoader.load(getClass().getResource("../interphone/miniInterPhone.fxml")));
-            this.miniParent.add(FXMLLoader.load(getClass().getResource("../internet/internet.fxml")));
+            this.miniParent.add(FXMLLoader.load(getClass().getResource("../internet/miniInternet.fxml")));
             this.miniParent.add(FXMLLoader.load(getClass().getResource("../player/miniMedia.fxml")));
-            this.miniParent.add(FXMLLoader.load(getClass().getResource("../tariff/mini.fxml")));
+            this.miniParent.add(FXMLLoader.load(getClass().getResource("../tariff/rootMini.fxml")));
 
         } catch (IOException ex) {
             ex.printStackTrace();

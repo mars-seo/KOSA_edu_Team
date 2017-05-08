@@ -36,6 +36,8 @@ public class RootMiniController implements Initializable {
     private ImageView exit;
     @FXML
     private AnchorPane tariffRoot;
+	@FXML
+	private ImageView maximize;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -60,9 +62,9 @@ public class RootMiniController implements Initializable {
             handlerBtnPressed(event,2);
         });
         
-
-
         exit.setOnMouseClicked(e -> exit());
+		maximize.setOnMouseClicked(e->maximizeScreen());
+		
     }
 
     public RootMiniController() {
@@ -120,4 +122,8 @@ public class RootMiniController implements Initializable {
         MainController.menuicon[6].setImage(new Image(getClass().getResource("../main/images/main_tariff_default.png").toString()));
         MainController.stackPane.getChildren().remove(tariffRoot);
     }
+	
+	private void maximizeScreen() {
+		 MainController.stackPane.getChildren().add(MainController.parent.get(5));
+	}
 }
