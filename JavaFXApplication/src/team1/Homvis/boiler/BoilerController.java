@@ -14,9 +14,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javax.print.DocFlavor;
 import team1.Homvis.main.MainController;
 
 public class BoilerController implements Initializable {
+
 
     @FXML
     private AnchorPane boilerRoot;
@@ -114,7 +116,7 @@ public class BoilerController implements Initializable {
     public static int hopeWater = 14;
     public static int hopeHeat = 24;
     public static int nowHeat = 27;
-
+public static Label texhopeHeat;
     public static boolean heatOnState = false;
     public static boolean waterOnState = false;
     public static boolean ecomodeState = false;
@@ -125,6 +127,7 @@ public class BoilerController implements Initializable {
     public static int count = 0;
     public static List<ImageView> barList =new ArrayList<>();
     public static StackPane boilerModeStack;
+    public static ImageView connectheatDisplay;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -132,7 +135,9 @@ public class BoilerController implements Initializable {
             boilermodeView = FXMLLoader.load(getClass().getResource("modechange.fxml"));
         } catch (IOException ex) {
         }
-        
+
+        texhopeHeat=txthopeHeat;
+        connectheatDisplay=heatDisplay;
         gasDisplay.setOpacity(0);
         txtnowHeat.setText(String.valueOf(nowHeat));
         boilerModeStack = stackDisplay;
@@ -165,11 +170,15 @@ public class BoilerController implements Initializable {
         for(ImageView list:barList){
             list.setOpacity(0);
         }
-
-        heatDisplay.setOpacity(0);
+        if(heatOnState==false){
+            heatDisplay.setOpacity(0);
+            
         txthopeHeat.setOpacity(0);
+        }
+        if(waterOnState==false){
         waterDisplay.setOpacity(0);
         txtWater.setOpacity(0);
+        }
         
         wifi.setOnMouseClicked(event -> wifi());
         heatUp.setOnMouseClicked(event -> heatUp());
@@ -184,6 +193,12 @@ public class BoilerController implements Initializable {
         goOut.setOnMouseClicked(event -> goOut());
 
     }
+
+    public Label getTxthopeHeat() {
+        return txthopeHeat;
+    }
+    
+
 
     private void exit() {
         MainController.menuicon[1].setImage(new Image(getClass().getResource("images/main_boiler_default.png").toString()));
