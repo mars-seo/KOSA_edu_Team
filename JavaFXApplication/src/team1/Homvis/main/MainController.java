@@ -21,7 +21,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
@@ -100,6 +99,7 @@ public class MainController implements Initializable {
             this.menuList.add("internet");
             this.menuList.add("player");
             this.menuList.add("tariff");
+			this.menuList.add("secret");
 
             //미니 메뉴를 위한 구성
             this.miniParent.add(preIndex2);
@@ -242,6 +242,7 @@ public class MainController implements Initializable {
 				menuicon[i].setImage(new Image(getClass().getResource("images/main_" + menuList.get(i) + "_default.png").toString()));
 				menuicon[i].setDisable(false);
 			}
+			menuicon[7].setImage(new Image(getClass().getResource("images/main_" + menuList.get(7) + "_default.png").toString()));
 			menuicon[7].setDisable(false);
 			mainPane.getChildren().removeAll(miniParent);
 			mainPane.getChildren().remove(secretview);
@@ -310,8 +311,13 @@ public class MainController implements Initializable {
 				mainPane.getChildren().add(secretview);
 				secretview.setTranslateY(30);
 				if (!miniWindow) {
+					if (preIndex1 !=null ){
+						mainPane.getChildren().remove(preIndex1); 
+						menuicon[preindex1].setImage(new Image(getClass().getResource("images/main_" + menuList.get(preindex1) + "_default.png").toString()));
+						menuicon[preindex1].setDisable(false);
+					}
 					secretview.setTranslateX(0);
-
+					secretview.setTranslateY(30);
 					secretview.setOpacity(0);
 					KeyValue keyValue = new KeyValue(secretview.opacityProperty(), 1);
 					KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
@@ -329,9 +335,16 @@ public class MainController implements Initializable {
 						chkboxview.setOpacity(0);
 						password2.setOpacity(0);
 					}
+					preIndex1 = secretview;
+					preindex1 = 7;
 				} else {
+					if (preIndex2 !=null ){
+						mainPane.getChildren().remove(preIndex1); 
+						menuicon[preindex2].setImage(new Image(getClass().getResource("images/main_" + menuList.get(preindex2) + "_default.png").toString()));
+						menuicon[preindex2].setDisable(false);
+					}
 					secretview.setTranslateX(400);
-					//  secretview.setTranslateY(0);
+					secretview.setTranslateY(30);
 					secretview.setOpacity(0);
 					KeyValue keyValue = new KeyValue(secretview.opacityProperty(), 1);
 					KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
@@ -349,6 +362,8 @@ public class MainController implements Initializable {
 						chkboxview.setOpacity(0);
 						password2.setOpacity(0);
 					}
+					preIndex2 = secretview;
+					preindex2 = 7;
 				}
 				miniWindow = !miniWindow;
 
