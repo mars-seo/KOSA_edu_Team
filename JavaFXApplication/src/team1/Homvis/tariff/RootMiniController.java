@@ -124,6 +124,6 @@ public class RootMiniController implements Initializable {
     }
 	
 	private void maximizeScreen() {
-		 MainController.stackPane.getChildren().add(MainController.parent.get(5));
+		 MainController.stackPane.getChildren().add(MainController.parent.get(6));
 	}
 }
