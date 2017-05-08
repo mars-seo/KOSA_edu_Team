@@ -38,10 +38,11 @@ public class GasContController implements Initializable {
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if(newValue.equals("on")) {
                     imgGasOnoff.setImage(new Image(getClass().getResource("controlImg/elecNgas_gas_on.png").toString()));
+                    setGasState(true);      
                 } else {
                     imgGasOnoff.setImage(new Image(getClass().getResource("controlImg/elecNgas_gas_off.png").toString()));
-                }
-                setGasState(!isGasState());      
+                    setGasState(false);      
+                }                
                 System.out.println("Gas: " + isGasState());                          
             }            
         });

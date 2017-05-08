@@ -139,7 +139,7 @@ public class LightController implements Initializable {
                 }
             });
         }
-        
+
         imgLightOn.setOnMouseClicked(e -> handleAllOn(e));
         imgLightOff.setOnMouseClicked(e -> handleAllOff(e));
 

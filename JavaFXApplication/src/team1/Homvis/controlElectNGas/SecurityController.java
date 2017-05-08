@@ -2,6 +2,8 @@ package team1.Homvis.controlElectNGas;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -36,11 +38,12 @@ public class SecurityController implements Initializable {
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (newValue.equals("on")) {
                     imgScurityOnoff.setImage(new Image(getClass().getResource("controlImg/elecNgas_security_on.png").toString()));
+                    setSecurityState(true);
                 } else {
                     imgScurityOnoff.setImage(new Image(getClass().getResource("controlImg/elecNgas_security_off.png").toString()));
-                }                
-                setSecurityState(!isSecurityState());
-                System.out.println("Security: " + isSecurityState());                
+                    setSecurityState(false);
+                }
+                System.out.println("Security: " + isSecurityState());
             }
         });
         imgScurityOnoff.setOnMouseClicked(e -> handleSecurityOnOff(e));
