@@ -3,8 +3,11 @@ package team1.Homvis.boiler;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Application;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -146,8 +149,10 @@ public class BoilerminiController implements Initializable {
 		MainController.menuicon[1].setDisable(false);
         }
 
-    private void fullscreen() {
+    public void fullscreen() {
+        
         MainController.stackPane.getChildren().add(MainController.parent.get(1));
+        MainController.stackPane.getChildren().remove(boilerminiRoot);
     }
     
 }

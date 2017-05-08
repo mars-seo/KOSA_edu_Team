@@ -112,6 +112,7 @@ public class ControlMiniController implements Initializable {
     }
 
     private void fullscreen() {
+        
         MainController.stackPane.getChildren().remove(MainController.parent.get(2));
         MainController.stackPane.getChildren().add(MainController.parent.get(2));
     }
