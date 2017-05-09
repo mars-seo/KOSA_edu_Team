@@ -14,11 +14,18 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import javax.print.DocFlavor;
+import static team1.Homvis.boiler.BoilerminiController.goOutState;
+import static team1.Homvis.boiler.BoilerminiController.heatOnState;
+import static team1.Homvis.boiler.BoilerminiController.hopeHeat;
+import static team1.Homvis.boiler.BoilerminiController.hopeWater;
+import static team1.Homvis.boiler.BoilerminiController.nowHeat;
+import static team1.Homvis.boiler.BoilerminiController.waterOnState;
+import static team1.Homvis.boiler.BoilerminiController.wifiState;
+import static team1.Homvis.boiler.BoilerminiController.nightmodeState;
+
 import team1.Homvis.main.MainController;
 
 public class BoilerController implements Initializable {
-
 
     @FXML
     private AnchorPane boilerRoot;
@@ -111,23 +118,13 @@ public class BoilerController implements Initializable {
     @FXML
     private StackPane stackDisplay;
 
-    private Boolean wifiState = false;
-    private Boolean goOutState = false;
-    public static int hopeWater = 14;
-    public static int hopeHeat = 24;
-    public static int nowHeat = 27;
-public static Label texhopeHeat;
-    public static boolean heatOnState = false;
-    public static boolean waterOnState = false;
-    public static boolean ecomodeState = false;
-    public static boolean usermodeState = false;
-    public static boolean nightmodeState = false;
-    public static Parent boilermodeView;
     public static ImageView modeImage;
-    public static int count = 0;
-    public static List<ImageView> barList =new ArrayList<>();
+
+    public static Parent boilermodeView;
+    public static List<ImageView> barList = new ArrayList<>();
     public static StackPane boilerModeStack;
-    public static ImageView connectheatDisplay;
+
+    public static int count = 0;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -135,13 +132,6 @@ public static Label texhopeHeat;
             boilermodeView = FXMLLoader.load(getClass().getResource("modechange.fxml"));
         } catch (IOException ex) {
         }
-
-        texhopeHeat=txthopeHeat;
-        connectheatDisplay=heatDisplay;
-        gasDisplay.setOpacity(0);
-        txtnowHeat.setText(String.valueOf(nowHeat));
-        boilerModeStack = stackDisplay;
-        modeImage = modeDisplay;
         barList.add(bar1);
         barList.add(bar2);
         barList.add(bar3);
@@ -166,20 +156,62 @@ public static Label texhopeHeat;
         barList.add(bar22);
         barList.add(bar23);
         barList.add(bar24);
-        
-        for(ImageView list:barList){
+        for (ImageView list : barList) {
             list.setOpacity(0);
         }
-        if(heatOnState==false){
+
+        if (wifiState == true) {
+
+            displayOn(wifi, "wifi_on");
+        } else {
+            displayOn(wifi, "wifi_off");
+        }
+        if (goOutState == true) {
+            keyPressed(goOut, "goout");
+        } else {
+            keyClicked(goOut, "goout");
+        }
+        if (heatOnState == false) {
+            gasDisplay.setOpacity(0);
             heatDisplay.setOpacity(0);
-            
-        txthopeHeat.setOpacity(0);
+            txthopeHeat.setOpacity(0);
+        } else {
+            heatDisplay.setOpacity(1);
+            txthopeHeat.setOpacity(1);
+            txthopeHeat.setText(String.valueOf(hopeHeat));
+            if (hopeHeat > nowHeat) {
+                gasDisplay.setOpacity(1);
+            }
         }
-        if(waterOnState==false){
-        waterDisplay.setOpacity(0);
-        txtWater.setOpacity(0);
+        if (waterOnState == false) {
+            waterDisplay.setOpacity(0);
+            txtWater.setOpacity(0);
+        } else {
+            txtWater.setOpacity(1);
+            txtWater.setText(String.valueOf(hopeWater));
+            waterDisplay.setOpacity(1);
         }
-        
+
+        if (BoilerminiController.ecomodeState == true) {
+            displayOn(modeDisplay, "modeECO");
+        } else if (nightmodeState == true) {
+            displayOn(modeDisplay, "modeSLEEPING");
+        } else if (BoilerminiController.usermodeState = true) {
+            displayOn(modeDisplay, "modeUSER");
+        } else {
+            modeDisplay.setOpacity(0);
+        }
+
+        for (int i = 0; i < BoilerminiController.barStateArray.length; i++) {
+            if (BoilerminiController.barStateArray[i] == true) {
+                barList.get(i).setOpacity(1);
+            }
+        }
+
+        txtnowHeat.setText(String.valueOf(nowHeat));
+        boilerModeStack = stackDisplay;
+        modeImage = modeDisplay;
+
         wifi.setOnMouseClicked(event -> wifi());
         heatUp.setOnMouseClicked(event -> heatUp());
         heatDown.setOnMouseClicked(event -> heatDown());
@@ -194,16 +226,30 @@ public static Label texhopeHeat;
 
     }
 
+    private void keyClicked(ImageView image, String name) {
+        image.setImage(new Image(getClass().getResource("images/boiler_" + name + "_default.png").toString()));
+    }
+
+    private void keyDragged(ImageView image, String name) {
+        image.setImage(new Image(getClass().getResource("images/boiler_" + name + "_default.png").toString()));
+    }
+
+    private void keyPressed(ImageView image, String name) {
+        image.setImage(new Image(getClass().getResource("images/boiler_" + name + "_clicked.png").toString()));
+    }
+
+    private void displayOn(ImageView image, String name) {
+        image.setImage(new Image(getClass().getResource("images/boiler_" + name + ".png").toString()));
+    }
+
     public Label getTxthopeHeat() {
         return txthopeHeat;
     }
-    
-
 
     private void exit() {
         MainController.menuicon[1].setImage(new Image(getClass().getResource("images/main_boiler_default.png").toString()));
         MainController.stackPane.getChildren().remove(boilerRoot);
-		
+
         /*     boilerRoot.setOpacity(1);
         boilerRoot.setTranslateX(0);
         KeyValue keyValue = new KeyValue(boilerRoot.opacityProperty(), 0);
@@ -217,7 +263,6 @@ public static Label texhopeHeat;
         timeline.play();
         Root1Controller.menuicon2.setImage(new Image(getClass().getResource("images/main_boiler_default.png").toString()));
          */
-
     }
 
     private void wifi() {
@@ -240,8 +285,8 @@ public static Label texhopeHeat;
             txthopeHeat.setOpacity(1);
             heatOnState = true;
         } else {
-            if(gasDisplay.getOpacity()==1){
-             gasDisplay.setOpacity(0);
+            if (gasDisplay.getOpacity() == 1) {
+                gasDisplay.setOpacity(0);
             }
             heatDisplay.setOpacity(0);
             heatOnState = false;
@@ -316,12 +361,12 @@ public static Label texhopeHeat;
         if (count == 0) {
             stackDisplay.getChildren().add(boilermodeView);
             boilermodeView.setTranslateX(0);
-         //   boilermodeView.setOpacity(0);
-       //     KeyValue keyValue = new KeyValue(boilermodeView.opacityProperty(), 1);
-        //    KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
-        //    Timeline timeline = new Timeline();
-        //    timeline.getKeyFrames().add(keyFrame);
-         //   timeline.play();
+            //   boilermodeView.setOpacity(0);
+            //     KeyValue keyValue = new KeyValue(boilermodeView.opacityProperty(), 1);
+            //    KeyFrame keyFrame = new KeyFrame(Duration.millis(1500), keyValue);
+            //    Timeline timeline = new Timeline();
+            //    timeline.getKeyFrames().add(keyFrame);
+            //   timeline.play();
             count = 1;
         } else {
 
