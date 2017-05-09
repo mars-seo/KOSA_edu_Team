@@ -24,6 +24,7 @@ import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Popup;
 import javafx.util.Duration;
 import team1.Homvis.main.MainController;
+import static team1.Homvis.player.MiniMediaController.playList;
 
 public class MediaController implements Initializable {
 
@@ -69,11 +70,10 @@ public class MediaController implements Initializable {
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		
-		if(!MiniMediaController.playList.getMediaFile().isEmpty()){
+		if(!playList.getMediaFile().isEmpty()){
 			mediaList.setItems(MiniMediaController.playList.getFileName());
-			if(MiniMediaController.playList.getCurrentPlay()!=null){
+			if(playList.getCurrentPlay()!=null){
 				mediaPlayer = MiniMediaController.playList.getCurrentPlay();
-				mediaPlayer.play();
 			}
 		}
 		uploadBtn.setOnMousePressed(e->uploadBtn.setImage(new Image(getClass().getResource("playerImg/player_load_clicked.png").toString())));
@@ -93,7 +93,6 @@ public class MediaController implements Initializable {
 		mediaList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                mediaPlayer.stop();
                 System.out.println(newValue);
                 handleMedia(MiniMediaController.playList.getMediaFile(), MiniMediaController.playList.getFileName().indexOf(newValue));
 				deleteBtn.setOnMouseClicked(e->handleDelete(e, newValue));
@@ -374,7 +373,7 @@ public class MediaController implements Initializable {
 	private void exit() {
 		MainController.menuicon[5].setImage(new Image(getClass().getResource("../main/images/main_player_default.png").toString()));
         MainController.stackPane.getChildren().remove(mediaRoot);
-		if(!(MiniMediaController.playList.getMediaFile().isEmpty() && MiniMediaController.playList.getFileName().isEmpty())){
+		if(!playList.getMediaFile().isEmpty() || !playList.getFileName().isEmpty()){
 			 MiniMediaController.playList.setCurrentPlay(mediaPlayer);
 			 mediaPlayer.stop();
 		 }
