@@ -26,7 +26,7 @@
 									<center>
 										<ImageView fx:id="imgRoom3" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
 											<image>
-												<Image url="@controlImg/bulb-icon.png" />
+												<Image url="@controlImg/elecNgas_lighticon_off.png" />
 											</image>
 										</ImageView>
 									</center>
@@ -38,7 +38,7 @@
 									<center>
 										<ImageView fx:id="imgRoom4" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
 											<image>
-												<Image url="@controlImg/bulb-icon.png" />
+												<Image url="@controlImg/elecNgas_lighticon_off.png" />
 											</image>
 										</ImageView>
 									</center>
@@ -50,7 +50,7 @@
 									<center>
 										<ImageView fx:id="imgRoom5" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
 											<image>
-												<Image url="@controlImg/bulb-icon.png" />
+												<Image url="@controlImg/elecNgas_lighticon_off.png" />
 											</image>
 										</ImageView>
 									</center>
@@ -62,7 +62,7 @@
 									<center>
 										<ImageView fx:id="imgRoom6" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
 											<image>
-												<Image url="@controlImg/bulb-icon.png" />
+												<Image url="@controlImg/elecNgas_lighticon_off.png" />
 											</image>
 										</ImageView>
 									</center>
@@ -74,7 +74,7 @@
 									<center>
 										<ImageView fx:id="imgRoom7" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
 											<image>
-												<Image url="@controlImg/bulb-icon.png" />
+												<Image url="@controlImg/elecNgas_lighticon_off.png" />
 											</image>
 										</ImageView>
 									</center>
@@ -86,7 +86,7 @@
 									<center>
 										<ImageView fx:id="imgRoom8" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
 											<image>
-												<Image url="@controlImg/bulb-icon.png" />
+												<Image url="@controlImg/elecNgas_lighticon_off.png" />
 											</image>
 										</ImageView>
 									</center>
@@ -98,7 +98,7 @@
 									<center>
 										<ImageView fx:id="imgRoom9" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
 											<image>
-												<Image url="@controlImg/bulb-icon.png" />
+												<Image url="@controlImg/elecNgas_lighticon_off.png" />
 											</image>
 										</ImageView>
 									</center>
@@ -106,17 +106,17 @@
 										<Label text="작은방2" BorderPane.alignment="CENTER" />
 									</left>
 								</BorderPane>
-								<ImageView fx:id="imgLightOn" fitHeight="50.0" fitWidth="40.0" layoutX="132.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+								<ImageView fx:id="imgLightOn" fitHeight="50.0" fitWidth="40.0" layoutX="128.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@controlImg/light-bulb-icon.png" />
+										<Image url="@controlImg/elecNgas_lighticon_on.png" />
 									</image>
 								</ImageView>
-								<ImageView fx:id="imgLightOff" fitHeight="50.0" fitWidth="40.0" layoutX="219.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+								<ImageView fx:id="imgLightOff" fitHeight="50.0" fitWidth="40.0" layoutX="216.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@controlImg/bulb-icon.png" />
+										<Image url="@controlImg/elecNgas_lighticon_off.png" />
 									</image>
 								</ImageView>
-								<Label layoutX="76.0" layoutY="177.0" text="All">
+								<Label layoutX="72.0" layoutY="177.0" text="All" textFill="#c03dd7">
 									<font>
 										<Font name="System Bold" size="20.0" />
 									</font>
@@ -125,7 +125,7 @@
 									<center>
 										<ImageView fx:id="imgRoom1" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
 											<image>
-												<Image url="@controlImg/bulb-icon.png" />
+												<Image url="@controlImg/elecNgas_lighticon_off.png" />
 											</image>
 										</ImageView>
 									</center>
@@ -137,7 +137,7 @@
 									<center>
 										<ImageView fx:id="imgRoom2" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
 											<image>
-												<Image url="@controlImg/bulb-icon.png" />
+												<Image url="@controlImg/elecNgas_lighticon_off.png" />
 											</image>
 										</ImageView>
 									</center>
@@ -145,8 +145,8 @@
 										<Label text="다용도실" BorderPane.alignment="CENTER" />
 									</left>
 								</BorderPane>
-								<Label layoutX="112.0" layoutY="182.0" text="On" />
-								<Label layoutX="197.0" layoutY="182.0" text="Off" />
+								<Label layoutX="108.0" layoutY="182.0" text="On" textFill="#c03dd7" />
+								<Label layoutX="194.0" layoutY="182.0" text="Off" textFill="#c03dd7" />
 							</children>
 							<StackPane.margin>
 								<Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

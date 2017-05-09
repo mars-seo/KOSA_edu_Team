@@ -71,8 +71,8 @@ public class LightController implements Initializable {
     public ObservableList<BorderPane> borderList;
     private ObservableList<ImageView> imageViewList;
     public static ObservableList<Label> labelList;
-    private String bulbOn = "controlImg/light-bulb-icon.png";
-    private String bulbOff = "controlImg/bulb-icon.png";
+    private String bulbOn = "controlImg/elecNgas_lighticon_on.png";
+    private String bulbOff = "controlImg/elecNgas_lighticon_off.png";
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

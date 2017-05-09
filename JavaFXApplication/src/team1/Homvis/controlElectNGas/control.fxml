@@ -35,9 +35,9 @@
                         <Image url="@controlImg/elecNgas_security_default.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="exit" fitHeight="20.0" fitWidth="29.0" layoutX="9.0" layoutY="446.0" pickOnBounds="true">
+                  <ImageView fx:id="exit" fitHeight="40.0" fitWidth="40.0" layoutX="2.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@controlImg/x.png" />
+                        <Image url="@controlImg/exit_default.png" />
                      </image>
                   </ImageView>
 					</children>

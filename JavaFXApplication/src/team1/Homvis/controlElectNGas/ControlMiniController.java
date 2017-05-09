@@ -61,6 +61,8 @@ public class ControlMiniController implements Initializable {
         btnLight.setOnMousePressed(e -> handleBtnPressed(e, 0));
         btnGas.setOnMousePressed(e -> handleBtnPressed(e, 1));
         btnDoor.setOnMousePressed(e -> handleBtnPressed(e, 2));
+        exit.setOnMousePressed(e -> handleBtnPressed(e, 3));
+        fullscreen.setOnMousePressed(e -> handleBtnPressed(e, 4));
 
         exit.setOnMouseClicked(e -> exit());
         fullscreen.setOnMouseClicked(e -> fullscreen());
@@ -75,14 +77,20 @@ public class ControlMiniController implements Initializable {
             btnLight.setImage(new Image(getClass().getResource("controlImg/elecNgas_light_clicked.png").toString()));
             btnGas.setImage(new Image(getClass().getResource("controlImg/elecNgas_gas_default.png").toString()));
             btnDoor.setImage(new Image(getClass().getResource("controlImg/elecNgas_security_default.png").toString()));
+            exit.setImage(new Image(getClass().getResource("controlImg/exit_default.png").toString()));
+            fullscreen.setImage(new Image(getClass().getResource("controlImg/fullscreen.png").toString()));
         } else if (num == 1) {
             btnLight.setImage(new Image(getClass().getResource("controlImg/elecNgas_light_default.png").toString()));
             btnGas.setImage(new Image(getClass().getResource("controlImg/elecNgas_gas_clicked.png").toString()));
             btnDoor.setImage(new Image(getClass().getResource("controlImg/elecNgas_security_default.png").toString()));
+            exit.setImage(new Image(getClass().getResource("controlImg/exit_default.png").toString()));
+            fullscreen.setImage(new Image(getClass().getResource("controlImg/fullscreen.png").toString()));
         } else if (num == 2) {
             btnLight.setImage(new Image(getClass().getResource("controlImg/elecNgas_light_default.png").toString()));
             btnGas.setImage(new Image(getClass().getResource("controlImg/elecNgas_gas_default.png").toString()));
             btnDoor.setImage(new Image(getClass().getResource("controlImg/elecNgas_security_clicked.png").toString()));
+            exit.setImage(new Image(getClass().getResource("controlImg/exit_default.png").toString()));
+            fullscreen.setImage(new Image(getClass().getResource("controlImg/fullscreen.png").toString()));
         }
     }
 
@@ -102,17 +110,24 @@ public class ControlMiniController implements Initializable {
             btnGas.setImage(new Image(getClass().getResource("controlImg/elecNgas_gas_pressed.png").toString()));
         } else if (num == 2) {
             btnDoor.setImage(new Image(getClass().getResource("controlImg/elecNgas_security_pressed.png").toString()));
+        } else if (num == 3) {
+            exit.setImage(new Image(getClass().getResource("controlImg/exit_clicked.png").toString()));
+        } else if (num == 4) {
+            fullscreen.setImage(new Image(getClass().getResource("controlImg/fullscreen_clicked.png").toString()));
         }
     }
 
     private void exit() {
+        exit.setImage(new Image(getClass().getResource("controlImg/exit_default.png").toString()));
+        fullscreen.setImage(new Image(getClass().getResource("controlImg/fullscreen.png").toString()));
         MainController.menuicon[2].setImage(new Image(getClass().getResource("../main/images/main_elecNgas_default.png").toString()));
         MainController.stackPane.getChildren().remove(miniControlRoot);
-		MainController.menuicon[2].setDisable(false);
+        MainController.menuicon[2].setDisable(false);
     }
 
     private void fullscreen() {
-        
+        exit.setImage(new Image(getClass().getResource("controlImg/exit_default.png").toString()));
+        fullscreen.setImage(new Image(getClass().getResource("controlImg/fullscreen.png").toString()));
         MainController.stackPane.getChildren().remove(MainController.parent.get(2));
         MainController.stackPane.getChildren().add(MainController.parent.get(2));
     }
