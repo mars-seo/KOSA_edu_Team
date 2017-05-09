@@ -78,16 +78,7 @@ public class MainController implements Initializable {
     private static int count = -1;
 
     public MainController() {
-        try {
-
-            this.parent.add(preIndex1);
-            this.parent.add(FXMLLoader.load(getClass().getResource("../boiler/boiler.fxml")));
-            this.parent.add(FXMLLoader.load(getClass().getResource("../controlElectNGas/control.fxml")));
-            this.parent.add(FXMLLoader.load(getClass().getResource("../interphone/interPhone.fxml")));
-            this.parent.add(FXMLLoader.load(getClass().getResource("../internet/internet.fxml")));
-            this.parent.add(FXMLLoader.load(getClass().getResource("../player/media.fxml")));
-            this.parent.add(FXMLLoader.load(getClass().getResource("../tariff/root.fxml")));
-            //this.parent.add(FXMLLoader.load(getClass().getResource("../fxml")));
+        try{
 
             this.menuList.add("home");
             this.menuList.add("boiler");
@@ -99,13 +90,21 @@ public class MainController implements Initializable {
             this.menuList.add("secret");
 
             //미니 메뉴를 위한 구성
-            this.miniParent.add(preIndex2);
+            this.miniParent.add(preIndex1); // 인덱스를 맞추기 위함
             this.miniParent.add(FXMLLoader.load(getClass().getResource("../boiler/boilermini.fxml")));
             this.miniParent.add(FXMLLoader.load(getClass().getResource("../controlElectNGas/controlMini.fxml")));
             this.miniParent.add(FXMLLoader.load(getClass().getResource("../interphone/miniInterPhone.fxml")));
             this.miniParent.add(FXMLLoader.load(getClass().getResource("../internet/miniInternet.fxml")));
             this.miniParent.add(FXMLLoader.load(getClass().getResource("../player/miniMedia.fxml")));
             this.miniParent.add(FXMLLoader.load(getClass().getResource("../tariff/rootMini.fxml")));
+			
+			this.parent.add(preIndex2); // 인덱스 맞추기 위함
+            this.parent.add(FXMLLoader.load(getClass().getResource("../boiler/boiler.fxml")));
+            this.parent.add(FXMLLoader.load(getClass().getResource("../controlElectNGas/control.fxml")));
+            this.parent.add(FXMLLoader.load(getClass().getResource("../interphone/interPhone.fxml")));
+            this.parent.add(FXMLLoader.load(getClass().getResource("../internet/internet.fxml")));
+            this.parent.add(FXMLLoader.load(getClass().getResource("../player/media.fxml")));
+            this.parent.add(FXMLLoader.load(getClass().getResource("../tariff/root.fxml")));
 
         } catch (IOException ex) {
             ex.printStackTrace();

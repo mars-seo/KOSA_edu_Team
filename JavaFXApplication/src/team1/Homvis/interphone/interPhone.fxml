@@ -14,10 +14,11 @@
    <children>
       <StackPane alignment="TOP_CENTER" maxHeight="-Infinity" prefHeight="480.0" prefWidth="800.0">
          <children>
-            <ImageView fitHeight="480.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="465.0" fitWidth="800.0" pickOnBounds="true">
                <image>
                   <Image url="@interphoneImg/interphone_background.jpg" />
-               </image></ImageView>
+               </image>
+            </ImageView>
             <BorderPane maxHeight="450.0">
                <top>
                   <AnchorPane maxHeight="-Infinity" prefHeight="60.0" BorderPane.alignment="CENTER">
@@ -38,7 +39,7 @@
                <right>
                   <AnchorPane prefHeight="390.0" prefWidth="212.0" BorderPane.alignment="CENTER">
                      <children>
-                        <ImageView fitHeight="391.0" fitWidth="216.0" layoutX="-14.0" layoutY="-15.0" pickOnBounds="true">
+                        <ImageView fitHeight="403.0" fitWidth="216.0" layoutX="-14.0" layoutY="-15.0" pickOnBounds="true">
                            <image>
                               <Image url="@interphoneImg/interphone_backgroundbar.png" />
                            </image>

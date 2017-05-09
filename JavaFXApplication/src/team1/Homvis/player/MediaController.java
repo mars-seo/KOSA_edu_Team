@@ -6,7 +6,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -59,19 +58,24 @@ public class MediaController implements Initializable {
 	@FXML
 	private ImageView exit;
 	
-	private ObservableList<String> nameList = FXCollections.observableArrayList();
-	private ObservableList<File> mediaFileList = FXCollections.observableArrayList();
+
 	private boolean mute;
 	private double volume;
 	private Media playMedia;
 	private MediaPlayer mediaPlayer;
 	private int index;
-	
-	
-		
+
+			
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		
+		if(!MiniMediaController.playList.getMediaFile().isEmpty()){
+			mediaList.setItems(MiniMediaController.playList.getFileName());
+			if(MiniMediaController.playList.getCurrentPlay()!=null){
+				mediaPlayer = MiniMediaController.playList.getCurrentPlay();
+				mediaPlayer.play();
+			}
+		}
 		uploadBtn.setOnMouseClicked(e->handleAddList(e));
 		playBtn.setOnMouseClicked(e->fileCheck(e));
 		pauseBtn.setOnMouseClicked(e->fileCheck(e));
@@ -85,7 +89,7 @@ public class MediaController implements Initializable {
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 mediaPlayer.stop();
                 System.out.println(newValue);
-                handleMedia(mediaFileList, nameList.indexOf(newValue));
+                handleMedia(MiniMediaController.playList.getMediaFile(), MiniMediaController.playList.getFileName().indexOf(newValue));
 				deleteBtn.setOnMouseClicked(e->handleDelete(e, newValue));
             }
         });
@@ -101,13 +105,13 @@ public class MediaController implements Initializable {
 		File mediaFile = fileChooser.showOpenDialog(((ImageView)e.getSource()).getScene().getWindow());
 		if(mediaFile!=null){
 			//받은 파일을 파일 리스트에 넣기
-			mediaFileList.add(mediaFile);
+			MiniMediaController.playList.getMediaFile().add(mediaFile);
 			//미디어의 이름을 얻어 리스트뷰에 넣어줌
 			String mediaName = mediaFile.getName();
-			nameList.add(mediaName);
-			mediaList.setItems(nameList);
-			if (nameList.size() < 2) {
-				handleMedia(mediaFileList, index);
+			MiniMediaController.playList.getFileName().add(mediaName);
+			mediaList.setItems(MiniMediaController.playList.getFileName());
+			if (MiniMediaController.playList.getFileName().size() < 2) {
+				handleMedia(MiniMediaController.playList.getMediaFile(), index);
 				mediaPlayer.play();
 			}
 			index += 1;
@@ -116,7 +120,7 @@ public class MediaController implements Initializable {
 	}
 
 	private void handleMedia(ObservableList<File> mediaFileList, int index) {
-		if(mediaFileList.isEmpty()||nameList.isEmpty()) return;
+		if(mediaFileList.isEmpty()||MiniMediaController.playList.getFileName().isEmpty()) return;
 		else{
 			playMedia = new Media(mediaFileList.get(index).toURI().toString());
 			mediaPlayer = new MediaPlayer(playMedia);
@@ -285,17 +289,17 @@ public class MediaController implements Initializable {
 	}
 	// 누르면 리스트뷰와 각각의 리스트 객체에서 해당 파일을 지운다.
 	private void handleDelete(MouseEvent e, String selectFile) {
-		if(nameList.isEmpty()||mediaFileList.isEmpty()){
+		if(MiniMediaController.playList.getFileName().isEmpty()||MiniMediaController.playList.getMediaFile().isEmpty()){
 			mediaPlayer.stop();
 			fileEmptyCheck(e);
 		}else{
-			int delIndex = nameList.indexOf(selectFile);
-			nameList.remove(delIndex);
-			mediaFileList.remove(delIndex);
-			mediaList.setItems(nameList);
+			int delIndex = MiniMediaController.playList.getFileName().indexOf(selectFile);
+			MiniMediaController.playList.getFileName().remove(delIndex);
+			MiniMediaController.playList.getMediaFile().remove(delIndex);
+			mediaList.setItems(MiniMediaController.playList.getFileName());
 			index--;
 			
-			if(nameList.isEmpty()||mediaFileList.isEmpty()){
+			if(MiniMediaController.playList.getFileName().isEmpty()||MiniMediaController.playList.getMediaFile().isEmpty()){
 				mediaPlayer.stop();
 				mediaPlayer = null;
 				fileEmptyCheck(e);
@@ -305,6 +309,10 @@ public class MediaController implements Initializable {
 	private void exit() {
 		MainController.menuicon[5].setImage(new Image(getClass().getResource("../main/images/main_player_default.png").toString()));
         MainController.stackPane.getChildren().remove(mediaRoot);
+		if(!(MiniMediaController.playList.getMediaFile().isEmpty() && MiniMediaController.playList.getFileName().isEmpty())){
+			 MiniMediaController.playList.setCurrentPlay(mediaPlayer);
+			 mediaPlayer.stop();
+		 }
     }
 	
 //	//선택이 되기위해 생성한 클래스
