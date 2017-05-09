@@ -114,7 +114,7 @@
                   										<Image url="@controlImg/elecNgas_lighticon_off.png" />
                   									</image>
                   								</ImageView>
-                        <Text fill="#bf4fe8" fontSmoothingType="LCD" layoutX="355.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font: red;" text="All">
+                        <Text fill="#bf4fe8" fontSmoothingType="LCD" layoutX="355.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All">
                            <font>
                               <Font size="36.0" />
                            </font>

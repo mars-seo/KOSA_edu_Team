@@ -14,7 +14,7 @@
    <children>
       <StackPane alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="240.0" prefWidth="400.0">
          <children>
-            <ImageView fitHeight="240.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="240.0" fitWidth="400.0" pickOnBounds="true">
                <image>
                   <Image url="@interphoneImg/interphone_background.jpg" />
                </image>
@@ -56,7 +56,7 @@
                               <Image url="@interphoneImg/interphone_backgroundbar.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="locationBtn" fitHeight="60.0" fitWidth="105.0" layoutX="-2.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="locationBtn" fitHeight="39.0" fitWidth="98.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@interphoneImg/interphone_outdoorNindoor.png" />
                            </image>

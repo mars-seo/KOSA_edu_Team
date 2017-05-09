@@ -3,6 +3,8 @@ package team1.Homvis.internet;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -68,7 +70,7 @@ public class InternetController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        bookmarks=MiniInternetController.getBookmarks();
+        bookmarks = MiniInternetController.getBookmarks();
         exit.setOnMouseClicked(e -> exit());
         WebEngine engine = newsWebView.getEngine();
 
@@ -76,6 +78,15 @@ public class InternetController implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 engine.load("http://m.news.naver.com");
+                newsButton.setImage(new Image(getClass().getResource("internetImg/internet_naver_clicked.png").toString()));
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(InternetController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                Platform.runLater(() -> {
+                    newsButton.setImage(new Image(getClass().getResource("internetImg/internet_naver_default.png").toString()));
+                });
             }
         });
 
@@ -83,6 +94,15 @@ public class InternetController implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 engine.load("https://m.youtube.com");
+                youtubeButton.setImage(new Image(getClass().getResource("internetImg/internet_youtube_clicked.png").toString()));
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(InternetController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                Platform.runLater(() -> {
+                    youtubeButton.setImage(new Image(getClass().getResource("internetImg/internet_youtube_default.png").toString()));
+                });
             }
         });
 
@@ -90,6 +110,15 @@ public class InternetController implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 engine.reload();
+                refresh.setImage(new Image(getClass().getResource("internetImg/internet_refresh_clicked.png").toString()));
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(InternetController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                Platform.runLater(() -> {
+                    refresh.setImage(new Image(getClass().getResource("internetImg/internet_refresh_default.png").toString()));
+                });
             }
 
         });
@@ -97,11 +126,20 @@ public class InternetController implements Initializable {
         backButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
+                backButton.setImage(new Image(getClass().getResource("internetImg/internet_back_clicked.png").toString()));
                 final WebHistory history = engine.getHistory();
                 ObservableList<WebHistory.Entry> entryList = history.getEntries();
                 int currentIndex = history.getCurrentIndex();
                 Platform.runLater(() -> {
                     history.go(entryList.size() > 1 && currentIndex > 0 ? -1 : 0);
+                });
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(InternetController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                Platform.runLater(() -> {
+                    backButton.setImage(new Image(getClass().getResource("internetImg/internet_back_default.png").toString()));
                 });
             }
         });
@@ -109,6 +147,7 @@ public class InternetController implements Initializable {
         forwardButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
+                forwardButton.setImage(new Image(getClass().getResource("internetImg/internet_forward_clicked.png").toString()));
                 final WebHistory history = engine.getHistory();
                 ObservableList<WebHistory.Entry> entryList = history.getEntries();
                 int currentIndex = history.getCurrentIndex();
@@ -116,31 +155,33 @@ public class InternetController implements Initializable {
                 Platform.runLater(() -> {
                     history.go(entryList.size() > 1 && currentIndex < entryList.size() - 1 ? 1 : 0);
                 });
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(InternetController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                Platform.runLater(() -> {
+                    forwardButton.setImage(new Image(getClass().getResource("internetImg/internet_forward_default.png").toString()));
+                });
             }
         });
 
         favoriteToggle.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-//                if (changeableStackPane.isVisible() == false) {
-//                    changeableStackPane.setVisible(false);
-//                } else if (favoriteToggle.isVisible() == true) {
-//                    changeableStackPane.setVisible(true);
-//                }
+
                 count = count * (-1);
                 if (count == 1) {
                     changeableStackPane.setVisible(true);
+                    favoriteToggle.setImage(new Image(getClass().getResource("internetImg/internet_favorite_clicked.png").toString()));
                 } else {
                     changeableStackPane.setVisible(false);
+                    favoriteToggle.setImage(new Image(getClass().getResource("internetImg/internet_favorite_default.png").toString()));
                 }
+
             }
         });
 
-//        bookmarks.addAll(
-//                new Bookmark("Google", "https://www.google.co.kr/"),
-//                new Bookmark("Facebook", "https://www.facebook.com/"),
-//                new Bookmark("Twitter", "https://twitter.com/")
-//        );
         siteColumn.setCellValueFactory(new PropertyValueFactory("site"));
         urlColumn.setCellValueFactory(new PropertyValueFactory("url"));
 
@@ -159,7 +200,7 @@ public class InternetController implements Initializable {
         favoriteAdd.setOnMouseClicked((event) -> {
             String aurl = engine.getLocation(); //Webengine의 getLoaction()메소드를 통해 url주소를 구한다.
             //ex) m.naver.com/12390940901/sfs
-
+            favoriteAdd.setImage(new Image(getClass().getResource("internetImg/internet_+_clicked.png").toString()));
             try {
                 URL aURL = new URL(aurl);   //String aurl을 URL타입으로 바꾼다.
                 String host = aURL.getHost();
@@ -173,12 +214,28 @@ public class InternetController implements Initializable {
             } catch (MalformedURLException ex) {
                 ex.printStackTrace();
             }
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(InternetController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Platform.runLater(() -> {
+                favoriteAdd.setImage(new Image(getClass().getResource("internetImg/internet_+_default.png").toString()));
+            });
 
         });
 
         favoriteDelete.setOnMouseClicked((event) -> {
+            favoriteDelete.setImage(new Image(getClass().getResource("internetImg/internet_-_clicked.png").toString()));
             bookmarks.remove(selectionModel.getSelectedIndex()); //북마크리스트에서 선택된 인덱스번째의 항목을 지운다.
-
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(InternetController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Platform.runLater(() -> {
+                favoriteDelete.setImage(new Image(getClass().getResource("internetImg/internet_-_default.png").toString()));
+            });
         });
 
     }
