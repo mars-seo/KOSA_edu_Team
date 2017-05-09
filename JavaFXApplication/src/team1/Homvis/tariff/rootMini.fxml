@@ -12,16 +12,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="tariffRoot" prefHeight="220.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.tariff.RootMiniController">
+<AnchorPane fx:id="tariffRoot" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="240.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.tariff.RootMiniController">
     <children>
-        <ImageView fitHeight="450.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="240.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@tariffImg/boiler_background.png" />
             </image>
         </ImageView>
-        <BorderPane prefHeight="220.0" prefWidth="400.0">
+        <BorderPane prefHeight="240.0" prefWidth="400.0">
             <top>
-                <AnchorPane>
+                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="15.0" prefWidth="400.0">
                     <children>
                         <Label contentDisplay="CENTER" layoutX="170.0" minHeight="-Infinity" prefHeight="12.0" prefWidth="50.0" text="요금조회" BorderPane.alignment="CENTER">
                             <font>
