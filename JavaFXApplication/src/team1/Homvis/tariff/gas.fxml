@@ -25,7 +25,7 @@
                             </columns>
                         </TableView>
                     </top>
-                    <center>
+               <center>
                         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                             <children>
                                 <Label layoutX="87.0" layoutY="48.0" text="실시간 이번달 사용량 :" />
@@ -34,13 +34,13 @@
                                 <Label fx:id="howManyFeeLabel" layoutX="250.0" layoutY="74.0" text="Label" />
                             </children>
                         </AnchorPane>
-                    </center>
+               </center>
                 </BorderPane>
-                <AnchorPane fx:id="buttonAnchorPane" layoutY="364.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="600.0">
+                <AnchorPane fx:id="buttonAnchorPane" layoutY="364.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="600.0">
                     <children>
-                        <ImageView fx:id="chartButton" fitHeight="30.0" fitWidth="67.0" layoutX="142.0" layoutY="-1.0" pickOnBounds="true">
+                        <ImageView fx:id="chartButton" fitHeight="60.0" fitWidth="120.0" layoutX="85.0"  pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@tariffImg/water_tap.png" />
+                                <Image url="@tariffImg/chart_default.png" />
                             </image>
                         </ImageView>
                     </children>

@@ -14,6 +14,11 @@
 
 <AnchorPane fx:id="tariffRoot" prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.tariff.RootController">
     <children>
+      <ImageView fitHeight="450.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@tariffImg/boiler_background.png" />
+         </image>
+      </ImageView>
         <BorderPane prefHeight="450.0" prefWidth="800.0">
             <top>
                 <AnchorPane>
@@ -36,17 +41,17 @@
                     <children>
                         <ImageView fx:id="btnGasFee" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@tariffImg/water_tap.png" />
+                                <Image url="@tariffImg/elecNgas_gas_default.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="btnElectricFee" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@tariffImg/water_tap.png" />
+                                <Image url="@tariffImg/elecNgas_lighticon_off.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="btnWaterFee" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@tariffImg/water_tap.png" />
+                                <Image url="@tariffImg/boiler_hotwater_default.png" />
                             </image>
                         </ImageView>
                     </children>

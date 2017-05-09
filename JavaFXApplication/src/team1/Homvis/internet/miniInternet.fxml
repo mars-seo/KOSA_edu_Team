@@ -8,59 +8,73 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane fx:id="internetRoot" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="240.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.internet.MiniInternetController">
+<StackPane fx:id="internetRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.internet.MiniInternetController">
     <children>
-        <AnchorPane id="AnchorPane" prefHeight="240.0" prefWidth="400.0">
+      <ImageView fitHeight="240.0" fitWidth="400.0" pickOnBounds="true">
+         <image>
+            <Image url="@internetImg/internet_background.png" />
+         </image>
+      </ImageView>
+        <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="400.0">
             <children>
-                <WebView fx:id="newsWebView" layoutX="5.0" layoutY="21.0" prefHeight="200.0" prefWidth="390.0" />
-                <HBox prefHeight="15.0" prefWidth="250.0" spacing="15.0">
-                    <children>
-                        <ImageView fx:id="newsButton" fitHeight="15.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@internetImg/water_tap.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fx:id="youtubeButton" fitHeight="15.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@internetImg/water_tap.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fx:id="refresh" fitHeight="15.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@internetImg/water_tap.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fx:id="backButton" fitHeight="15.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@internetImg/water_tap.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fx:id="forwardButton" fitHeight="15.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@internetImg/water_tap.png" />
-                            </image>
-                        </ImageView>
-                        <ImageView fx:id="favoriteToggle" fitHeight="15.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@internetImg/water_tap.png" />
-                            </image>
-                        </ImageView>
-                    </children>
-                </HBox>
-                <StackPane fx:id="changeableStackPane" layoutX="255.0" layoutY="17.0" prefHeight="205.0" prefWidth="200.0" visible="false">
+                <WebView fx:id="newsWebView" layoutX="5.0" layoutY="20.0" prefHeight="220.0" prefWidth="390.0" />
+            <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="20.0" fitWidth="200.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@internetImg/internet_bar.png" />
+                     </image>
+                  </ImageView>
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0">
+                     <children>
+                              <ImageView fx:id="youtubeButton" fitHeight="20.0" fitWidth="70.0" layoutX="36.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                      <Image url="@internetImg/internet_youtube_default.png" />
+                                  </image>
+                              </ImageView>
+                              <ImageView fx:id="favoriteToggle" fitHeight="20.0" fitWidth="70.0" layoutX="154.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                      <Image url="@internetImg/internet_favorite_default.png" />
+                                  </image>
+                              </ImageView>
+                              <ImageView fx:id="newsButton" fitHeight="20.0" fitWidth="70.0" layoutX="6.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                      <Image url="@internetImg/internet_naver_default.png" />
+                                  </image>
+                              </ImageView>
+                              <ImageView fx:id="refresh" fitHeight="20.0" fitWidth="70.0" layoutX="63.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                      <Image url="@internetImg/internet_refresh_default.png" />
+                                  </image>
+                              </ImageView>
+                              <ImageView fx:id="forwardButton" fitHeight="20.0" fitWidth="70.0" layoutX="93.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                      <Image url="@internetImg/internet_forward_default.png" />
+                                  </image>
+                              </ImageView>
+                              <ImageView fx:id="backButton" fitHeight="20.0" fitWidth="70.0" layoutX="123.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                      <Image url="@internetImg/internet_back_default.png" />
+                                  </image>
+                              </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </StackPane>
+                <StackPane fx:id="changeableStackPane" layoutX="200.0" layoutY="17.0" prefHeight="205.0" prefWidth="200.0" visible="false">
                     <children>
                         <VBox prefHeight="205.0" prefWidth="140.0">
                             <children>
-                                <HBox prefHeight="15.0" prefWidth="125.0" spacing="10.0">
+                                <HBox prefHeight="20.0" prefWidth="125.0" spacing="10.0">
                                     <children>
-                                        <ImageView fx:id="favoriteAdd" fitHeight="15.0" fitWidth="65.0" pickOnBounds="true">
+                                        <ImageView fx:id="favoriteAdd" fitHeight="20.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@internetImg/water_tap.png" />
+                                                <Image url="@internetImg//internet_+_default.png" />
                                             </image>
                                         </ImageView>
-                                        <ImageView fx:id="favoriteDelete" fitHeight="15.0" fitWidth="65.0" pickOnBounds="true">
+                                        <ImageView fx:id="favoriteDelete" fitHeight="20.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@internetImg/water_tap.png" />
+                                                <Image url="@internetImg/internet_-_default.png" />
                                             </image>
                                         </ImageView>
                                     </children>
