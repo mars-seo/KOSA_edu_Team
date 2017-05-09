@@ -12,11 +12,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="tariffRoot" prefHeight="220.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.tariff.RootMiniController">
+<AnchorPane fx:id="tariffRoot" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="240.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.tariff.RootMiniController">
     <children>
-        <BorderPane prefHeight="220.0" prefWidth="400.0">
+        <ImageView fitHeight="240.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@tariffImg/boiler_background.png" />
+            </image>
+        </ImageView>
+        <BorderPane prefHeight="240.0" prefWidth="400.0">
             <top>
-                <AnchorPane>
+                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="15.0" prefWidth="400.0">
                     <children>
                         <Label contentDisplay="CENTER" layoutX="170.0" minHeight="-Infinity" prefHeight="12.0" prefWidth="50.0" text="요금조회" BorderPane.alignment="CENTER">
                             <font>
@@ -28,11 +33,11 @@
                                 <Image url="@tariffImg/icon.png" />
                             </image>
                         </ImageView>
-                  <ImageView fx:id="maximize" fitHeight="15.0" fitWidth="15.0" layoutX="359.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@tariffImg/maximize.png" />
-                     </image>
-                  </ImageView>
+                        <ImageView fx:id="maximize" fitHeight="15.0" fitWidth="15.0" layoutX="359.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@tariffImg/maximize.png" />
+                            </image>
+                        </ImageView>
                     </children>
                 </AnchorPane>
             </top>
@@ -41,17 +46,17 @@
                     <children>
                         <ImageView fx:id="btnGasFee" fitHeight="70.0" fitWidth="50.0" pickOnBounds="true">
                             <image>
-                                <Image url="@tariffImg/water_tap.png" />
+                                <Image url="@tariffImg/elecNgas_gas_default.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="btnElectricFee" fitHeight="70.0" fitWidth="50.0" pickOnBounds="true">
                             <image>
-                                <Image url="@tariffImg/water_tap.png" />
+                                <Image url="@tariffImg/elecNgas_lighticon_off.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="btnWaterFee" fitHeight="70.0" fitWidth="50.0" pickOnBounds="true">
                             <image>
-                                <Image url="@tariffImg/water_tap.png" />
+                                <Image url="@tariffImg/boiler_hotwater_default.png" />
                             </image>
                         </ImageView>
                     </children>

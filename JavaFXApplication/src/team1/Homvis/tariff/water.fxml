@@ -36,11 +36,11 @@
                         </AnchorPane>
                     </center>
                 </BorderPane>
-                <AnchorPane fx:id="buttonAnchorPane" layoutY="364.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="600.0">
+                <AnchorPane fx:id="buttonAnchorPane" layoutY="364.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="600.0">
                     <children>
-                        <ImageView fx:id="chartButton" fitHeight="30.0" fitWidth="67.0" layoutX="142.0" layoutY="-1.0" pickOnBounds="true">
+                        <ImageView fx:id="chartButton" fitHeight="60.0" fitWidth="120.0" layoutX="142.0" layoutY="-1.0" pickOnBounds="true">
                             <image>
-                                <Image url="@tariffImg/water_tap.png" />
+                                <Image url="@tariffImg/chart_default.png" />
                             </image>
                         </ImageView>
                     </children>
