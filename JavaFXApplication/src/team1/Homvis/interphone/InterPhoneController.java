@@ -24,19 +24,22 @@ public class InterPhoneController implements Initializable {
 	@FXML
 	private ImageView closeBtn;
 	@FXML
-	private Label locationlb;
-	@FXML
 	private AnchorPane interphoneRoot;
 	@FXML
 	private ImageView locationBtn;
 	
 	private boolean chkLocation;
+	@FXML
+	private ImageView location;
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		locationBtn.setOnMouseClicked(e->changeLocation());
+		phoneBtn.setOnMousePressed(e->locationBtn.setImage(new Image(getClass().getResource("interphoneImg/interphone_phonecall_clicked.png").toString())));
 		phoneBtn.setOnMouseClicked(e->callNopen(e, "call"));
+		openBtn.setOnMousePressed(e->openBtn.setImage(new Image(getClass().getResource("interphoneImg/interphone_open_clicked.png").toString())));
 		openBtn.setOnMouseClicked(e->callNopen(e, "open"));
+		closeBtn.setOnMousePressed(e->closeBtn.setImage(new Image(getClass().getResource("interphoneImg/interphone_exit_clicked.png").toString())));
 		closeBtn.setOnMouseClicked(e->exit());
 	}	
 	private void callNopen(MouseEvent e, String status) {
@@ -49,8 +52,10 @@ public class InterPhoneController implements Initializable {
 				// 들어오는 값에 따라 팝업의 내용 결정
 				if(status.equals("call")){
 					lblMessage.setText("통화가 연결되었습니다.");
+					locationBtn.setImage(new Image(getClass().getResource("interphoneImg/interphone_phonecall_default.png").toString()));
 				}else if(status.equals("open")){
 					lblMessage.setText("문이 열렸습니다.");
+					openBtn.setImage(new Image(getClass().getResource("interphoneImg/interphone_open_defult.png").toString()));
 				}
 				popup.getContent().add(hbox);
 				popup.setAutoHide(true);
@@ -63,13 +68,14 @@ public class InterPhoneController implements Initializable {
 	private void exit() {
 		MainController.menuicon[3].setImage(new Image(getClass().getResource("../main/images/main_interphone_default.png").toString()));
         MainController.stackPane.getChildren().remove(interphoneRoot);
+		closeBtn.setImage(new Image(getClass().getResource("interphoneImg/interphone_exit_default.png").toString()));
     }
 
 	private void changeLocation() {
 		if(!chkLocation){
-			locationlb.setText("현관");
+			location.setImage(new Image(getClass().getResource("interphoneImg/interphone_outdoor.png").toString()));
 		}else{
-			locationlb.setText("공동현관");
+			location.setImage(new Image(getClass().getResource("interphoneImg/interphone_indoor.png").toString()));
 		}
 		chkLocation = !chkLocation;
 	}

@@ -12,66 +12,66 @@
 
 <AnchorPane fx:id="miniInterphoneRoot" maxHeight="-Infinity" maxWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.interphone.MiniInterPhoneController">
    <children>
-      <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="240.0" prefWidth="400.0">
+      <StackPane alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="240.0" prefWidth="400.0">
          <children>
+            <ImageView fitHeight="240.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@interphoneImg/interphone_background.jpg" />
+               </image>
+            </ImageView>
             <BorderPane>
-               <right>
-                  <VBox alignment="BOTTOM_CENTER" BorderPane.alignment="CENTER">
-                     <children>
-                        <ImageView fx:id="locationBtn" fitHeight="20.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
-                        <Button mnemonicParsing="false" prefWidth="80.0" text="공동/현관" />
-                        <ImageView fx:id="phoneBtn" fitHeight="20.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-                           <VBox.margin>
-                              <Insets top="5.0" />
-                           </VBox.margin>
-                        </ImageView>
-                        <Button mnemonicParsing="false" prefWidth="80.0" text="통화">
-                           <VBox.margin>
-                              <Insets bottom="12.0" />
-                           </VBox.margin>
-                        </Button>
-                        <ImageView fx:id="openBtn" fitHeight="20.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
-                        <Button mnemonicParsing="false" prefWidth="80.0" text="문열림">
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </Button>
-                        <ImageView fx:id="closeBtn" fitHeight="20.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-                           <VBox.margin>
-                              <Insets top="13.0" />
-                           </VBox.margin>
-                        </ImageView>
-                        <Button mnemonicParsing="false" prefWidth="80.0" text="나가기">
-                           <VBox.margin>
-                              <Insets bottom="5.0" />
-                           </VBox.margin>
-                        </Button>
-                     </children>
-                  </VBox>
-               </right>
                <center>
-                  <StackPane maxHeight="-Infinity" maxWidth="-Infinity" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+                  <StackPane maxHeight="-Infinity" maxWidth="-Infinity" style="-fx-background-color: black;" BorderPane.alignment="CENTER_LEFT">
                      <children>
-                        <MediaView fitHeight="200.0" fitWidth="310.0" />
+                        <MediaView fitHeight="190.0" fitWidth="290.0" />
                      </children>
                   </StackPane>
                </center>
                <top>
                   <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="400.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Label fx:id="locationlb" layoutX="142.0" layoutY="7.0" text="공동현관">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                        <ImageView fx:id="maximize" fitHeight="20.0" fitWidth="20.0" layoutX="376.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="closeBtn" fitHeight="35.0" fitWidth="35.0" layoutX="365.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@interphoneImg/maximize.png" />
+                              <Image url="@interphoneImg/interphone_exit_default.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="maximize" fitHeight="50.0" fitWidth="80.0" layoutX="293.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@interphoneImg/interphone_expension_default.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="location" fitHeight="41.0" fitWidth="124.0" layoutX="128.0" layoutY="-4.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@interphoneImg/interphone_indoor.png" />
                            </image>
                         </ImageView>
                      </children>
                   </AnchorPane>
                </top>
+               <right>
+                  <AnchorPane prefHeight="220.0" prefWidth="107.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <ImageView fitHeight="206.0" fitWidth="105.0" layoutX="-2.0" layoutY="-9.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@interphoneImg/interphone_backgroundbar.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="locationBtn" fitHeight="60.0" fitWidth="105.0" layoutX="-2.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@interphoneImg/interphone_outdoorNindoor.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="phoneBtn" fitHeight="65.0" fitWidth="80.0" layoutX="31.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@interphoneImg/interphone_phonecall_default.png" />
+                           </image></ImageView>
+                        <ImageView fx:id="openBtn" fitHeight="65.0" fitWidth="80.0" layoutX="31.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@interphoneImg/interphone_open_default.png" />
+                           </image></ImageView>
+                     </children>
+                  </AnchorPane>
+               </right>
             </BorderPane>
          </children>
       </StackPane>

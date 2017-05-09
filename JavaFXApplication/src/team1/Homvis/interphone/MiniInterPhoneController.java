@@ -25,8 +25,6 @@ public class MiniInterPhoneController implements Initializable {
 	@FXML
 	private ImageView closeBtn;
 	@FXML
-	private Label locationlb;
-	@FXML
 	private ImageView locationBtn;
 	@FXML
 	private AnchorPane miniInterphoneRoot;
@@ -34,15 +32,21 @@ public class MiniInterPhoneController implements Initializable {
 	private ImageView maximize;
 	
 	private boolean chkLocation;
+	@FXML
+	private ImageView location;
 	
 
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		locationBtn.setOnMouseClicked(e->changeLocation());
+		phoneBtn.setOnMousePressed(e->locationBtn.setImage(new Image(getClass().getResource("interphoneImg/interphone_phonecall_clicked.png").toString())));
 		phoneBtn.setOnMouseClicked(e->callNopen(e, "call"));
+		openBtn.setOnMousePressed(e->openBtn.setImage(new Image(getClass().getResource("interphoneImg/interphone_open_clicked.png").toString())));
 		openBtn.setOnMouseClicked(e->callNopen(e, "open"));
+		closeBtn.setOnMousePressed(e->closeBtn.setImage(new Image(getClass().getResource("interphoneImg/interphone_exit_clicked.png").toString())));
 		closeBtn.setOnMouseClicked(e->exit());
+		maximize.setOnMousePressed(e->maximize.setImage(new Image(getClass().getResource("interphoneImg/interphone_expension_clicked.png").toString())));
 		maximize.setOnMouseClicked(e->maximizeScreen());
 	}	
 	private void callNopen(MouseEvent e, String status) {
@@ -55,8 +59,10 @@ public class MiniInterPhoneController implements Initializable {
 				// 들어오는 값에 따라 팝업의 내용 결정
 				if(status.equals("call")){
 					lblMessage.setText("통화가 연결되었습니다.");
+					locationBtn.setImage(new Image(getClass().getResource("interphoneImg/interphone_phonecall_default.png").toString()));
 				}else if(status.equals("open")){
 					lblMessage.setText("문이 열렸습니다.");
+					openBtn.setImage(new Image(getClass().getResource("interphoneImg/interphone_open_defult.png").toString()));
 				}
 				popup.getContent().add(hbox);
 				popup.setAutoHide(true);
@@ -69,19 +75,20 @@ public class MiniInterPhoneController implements Initializable {
 	private void exit() {
 		MainController.menuicon[3].setImage(new Image(getClass().getResource("../main/images/main_interphone_default.png").toString()));
         MainController.stackPane.getChildren().remove(miniInterphoneRoot);
-		MainController.menuicon[1].setDisable(false);
+		closeBtn.setImage(new Image(getClass().getResource("interphoneImg/interphone_exit_default.png").toString()));
     }
 
 	private void changeLocation() {
 		if(!chkLocation){
-			locationlb.setText("현관");
+			location.setImage(new Image(getClass().getResource("interphoneImg/interphone_outdoor.png").toString()));
 		}else{
-			locationlb.setText("공동현관");
+			location.setImage(new Image(getClass().getResource("interphoneImg/interphone_indoor.png").toString()));
 		}
 		chkLocation = !chkLocation;
 	}
 
 	private void maximizeScreen() {
 		MainController.stackPane.getChildren().add(MainController.parent.get(3));
+		maximize.setImage(new Image(getClass().getResource("interphoneImg/interphone_expension_default.png").toString()));
 	}
 }
