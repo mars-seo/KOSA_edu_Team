@@ -40,7 +40,7 @@ public class MiniInterPhoneController implements Initializable {
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		locationBtn.setOnMouseClicked(e->changeLocation());
-		phoneBtn.setOnMousePressed(e->locationBtn.setImage(new Image(getClass().getResource("interphoneImg/interphone_phonecall_clicked.png").toString())));
+		phoneBtn.setOnMousePressed(e->phoneBtn.setImage(new Image(getClass().getResource("interphoneImg/interphone_phonecall_clicked.png").toString())));
 		phoneBtn.setOnMouseClicked(e->callNopen(e, "call"));
 		openBtn.setOnMousePressed(e->openBtn.setImage(new Image(getClass().getResource("interphoneImg/interphone_open_clicked.png").toString())));
 		openBtn.setOnMouseClicked(e->callNopen(e, "open"));
@@ -59,10 +59,10 @@ public class MiniInterPhoneController implements Initializable {
 				// 들어오는 값에 따라 팝업의 내용 결정
 				if(status.equals("call")){
 					lblMessage.setText("통화가 연결되었습니다.");
-					locationBtn.setImage(new Image(getClass().getResource("interphoneImg/interphone_phonecall_default.png").toString()));
+					phoneBtn.setImage(new Image(getClass().getResource("interphoneImg/interphone_phonecall_default.png").toString()));
 				}else if(status.equals("open")){
 					lblMessage.setText("문이 열렸습니다.");
-					openBtn.setImage(new Image(getClass().getResource("interphoneImg/interphone_open_defult.png").toString()));
+					openBtn.setImage(new Image(getClass().getResource("interphoneImg/interphone_open_default.png").toString()));
 				}
 				popup.getContent().add(hbox);
 				popup.setAutoHide(true);
