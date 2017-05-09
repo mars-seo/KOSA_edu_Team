@@ -76,6 +76,12 @@ public class MediaController implements Initializable {
 				mediaPlayer.play();
 			}
 		}
+		uploadBtn.setOnMousePressed(e->uploadBtn.setImage(new Image(getClass().getResource("playerImg/player_load_clicked.png").toString())));
+		playBtn.setOnMousePressed(e->playBtn.setImage(new Image(getClass().getResource("playerImg/player_play_clicked.png").toString())));
+		pauseBtn.setOnMousePressed(e->pauseBtn.setImage(new Image(getClass().getResource("playerImg/player_pause_clicked.png").toString())));
+		stopBtn.setOnMousePressed(e->stopBtn.setImage(new Image(getClass().getResource("playerImg/player_stop_clicked.png").toString())));
+		nextBtn.setOnMousePressed(e->nextBtn.setImage(new Image(getClass().getResource("playerImg/player_forward_clicked.png").toString())));
+		previousBtn.setOnMousePressed(e->previousBtn.setImage(new Image(getClass().getResource("playerImg/player_backward_clicked.png").toString())));
 		uploadBtn.setOnMouseClicked(e->handleAddList(e));
 		playBtn.setOnMouseClicked(e->fileCheck(e));
 		pauseBtn.setOnMouseClicked(e->fileCheck(e));
@@ -93,6 +99,7 @@ public class MediaController implements Initializable {
 				deleteBtn.setOnMouseClicked(e->handleDelete(e, newValue));
             }
         });
+		exit.setOnMousePressed(e->exit.setImage(new Image(getClass().getResource("playerImg/exit_clicked.png").toString())));
 		exit.setOnMouseClicked(e->exit());
 	}	
 	private void handleAddList(MouseEvent e) {
@@ -115,6 +122,7 @@ public class MediaController implements Initializable {
 				mediaPlayer.play();
 			}
 			index += 1;
+			uploadBtn.setImage(new Image(getClass().getResource("playerImg/player_load_default.png").toString()));
 		}else fileEmptyCheck(e);
 		
 	}
@@ -122,6 +130,7 @@ public class MediaController implements Initializable {
 	private void handleMedia(ObservableList<File> mediaFileList, int index) {
 		if(mediaFileList.isEmpty()||MiniMediaController.playList.getFileName().isEmpty()) return;
 		else{
+			uploadBtn.setImage(new Image(getClass().getResource("playerImg/player_load_default.png").toString()));
 			playMedia = new Media(mediaFileList.get(index).toURI().toString());
 			mediaPlayer = new MediaPlayer(playMedia);
 			mediaView.setMediaPlayer(mediaPlayer);
@@ -130,21 +139,47 @@ public class MediaController implements Initializable {
 				playBtn.setDisable(false);
 				pauseBtn.setDisable(true);
 				stopBtn.setDisable(true);
+				//버튼화
+				uploadBtn.setOnMousePressed(e->uploadBtn.setImage(new Image(getClass().getResource("playerImg/player_load_clicked.png").toString())));
+				playBtn.setOnMousePressed(e->playBtn.setImage(new Image(getClass().getResource("playerImg/player_play_clicked.png").toString())));
+				nextBtn.setOnMousePressed(e->nextBtn.setImage(new Image(getClass().getResource("playerImg/player_forward_clicked.png").toString())));
+				previousBtn.setOnMousePressed(e->previousBtn.setImage(new Image(getClass().getResource("playerImg/player_backward_clicked.png").toString())));
+				
 			});
 			mediaPlayer.setOnPlaying(()->{
 				playBtn.setDisable(true);
 				pauseBtn.setDisable(false);
 				stopBtn.setDisable(false);
+				//버튼화
+				uploadBtn.setOnMousePressed(e->uploadBtn.setImage(new Image(getClass().getResource("playerImg/player_load_clicked.png").toString())));
+				pauseBtn.setOnMousePressed(e->pauseBtn.setImage(new Image(getClass().getResource("playerImg/player_pause_clicked.png").toString())));
+				stopBtn.setOnMousePressed(e->stopBtn.setImage(new Image(getClass().getResource("playerImg/player_stop_clicked.png").toString())));
+				nextBtn.setOnMousePressed(e->nextBtn.setImage(new Image(getClass().getResource("playerImg/player_forward_clicked.png").toString())));
+				previousBtn.setOnMousePressed(e->previousBtn.setImage(new Image(getClass().getResource("playerImg/player_backward_clicked.png").toString())));
+				
 			});
 			mediaPlayer.setOnPaused(()->{
 				playBtn.setDisable(false);
 				pauseBtn.setDisable(true);
 				stopBtn.setDisable(false);
+				//버튼화
+				uploadBtn.setOnMousePressed(e->uploadBtn.setImage(new Image(getClass().getResource("playerImg/player_load_clicked.png").toString())));
+				playBtn.setOnMousePressed(e->playBtn.setImage(new Image(getClass().getResource("playerImg/player_play_clicked.png").toString())));
+				stopBtn.setOnMousePressed(e->stopBtn.setImage(new Image(getClass().getResource("playerImg/player_stop_clicked.png").toString())));
+				nextBtn.setOnMousePressed(e->nextBtn.setImage(new Image(getClass().getResource("playerImg/player_forward_clicked.png").toString())));
+				previousBtn.setOnMousePressed(e->previousBtn.setImage(new Image(getClass().getResource("playerImg/player_backward_clicked.png").toString())));
+				
 			});
 			mediaPlayer.setOnStopped(()->{
 				playBtn.setDisable(false);
 				pauseBtn.setDisable(true);
 				stopBtn.setDisable(true);
+				//버튼화
+				uploadBtn.setOnMousePressed(e->uploadBtn.setImage(new Image(getClass().getResource("playerImg/player_load_clicked.png").toString())));
+				playBtn.setOnMousePressed(e->playBtn.setImage(new Image(getClass().getResource("playerImg/player_play_clicked.png").toString())));
+				nextBtn.setOnMousePressed(e->nextBtn.setImage(new Image(getClass().getResource("playerImg/player_forward_clicked.png").toString())));
+				previousBtn.setOnMousePressed(e->previousBtn.setImage(new Image(getClass().getResource("playerImg/player_backward_clicked.png").toString())));
+		
 			});
 			mediaPlayer.setOnEndOfMedia(() -> {
 								mediaPlayer.stop();
@@ -156,21 +191,42 @@ public class MediaController implements Initializable {
 										handleMedia(mediaFileList, 0);
 										mediaPlayer.play();
 								}
+								uploadBtn.setOnMousePressed(e->uploadBtn.setImage(new Image(getClass().getResource("playerImg/player_load_clicked.png").toString())));
+								nextBtn.setOnMousePressed(e->nextBtn.setImage(new Image(getClass().getResource("playerImg/player_forward_clicked.png").toString())));
+								previousBtn.setOnMousePressed(e->previousBtn.setImage(new Image(getClass().getResource("playerImg/player_backward_clicked.png").toString())));
 						});
 			
-			playBtn.setOnMouseClicked(e->mediaPlayer.play());
-			pauseBtn.setOnMouseClicked(e->mediaPlayer.pause());
-			stopBtn.setOnMouseClicked(e->mediaPlayer.stop());
+			uploadBtn.setOnMousePressed(e->uploadBtn.setImage(new Image(getClass().getResource("playerImg/player_load_clicked.png").toString())));
+			playBtn.setOnMousePressed(e->playBtn.setImage(new Image(getClass().getResource("playerImg/player_play_clicked.png").toString())));
+			pauseBtn.setOnMousePressed(e->pauseBtn.setImage(new Image(getClass().getResource("playerImg/player_pause_clicked.png").toString())));
+			stopBtn.setOnMousePressed(e->stopBtn.setImage(new Image(getClass().getResource("playerImg/player_stop_clicked.png").toString())));
+			nextBtn.setOnMousePressed(e->nextBtn.setImage(new Image(getClass().getResource("playerImg/player_forward_clicked.png").toString())));
+			previousBtn.setOnMousePressed(e->previousBtn.setImage(new Image(getClass().getResource("playerImg/player_backward_clicked.png").toString())));
+			
+			playBtn.setOnMouseClicked(e->{
+								mediaPlayer.play();
+								playBtn.setImage(new Image(getClass().getResource("playerImg/player_play_default.png").toString()));
+					});
+			pauseBtn.setOnMouseClicked(e->{
+								mediaPlayer.pause();
+								pauseBtn.setImage(new Image(getClass().getResource("playerImg/player_pause_default.png").toString()));
+					});
+			stopBtn.setOnMouseClicked(e->{
+								mediaPlayer.stop();
+								stopBtn.setImage(new Image(getClass().getResource("playerImg/player_stop_default.png").toString()));
+					});
 			nextBtn.setOnMouseClicked(e -> {
 								mediaPlayer.stop();
 								if (index == mediaFileList.size() - 1) {
 										handleMedia(mediaFileList, 0);
 //										mediaList.setSelectionModel(new selection(0));
 										mediaPlayer.play();
+										nextBtn.setImage(new Image(getClass().getResource("playerImg/player_forward_default.png").toString()));
 								} else {
 										handleMedia(mediaFileList, index + 1);
 //										mediaList.setSelectionModel(new selection(index+1));
 										mediaPlayer.play();
+										nextBtn.setImage(new Image(getClass().getResource("playerImg/player_forward_default.png").toString()));
 								}
 						});
 			previousBtn.setOnMouseClicked(e -> {
@@ -179,16 +235,18 @@ public class MediaController implements Initializable {
 										handleMedia(mediaFileList, mediaFileList.size() - 1);
 //										mediaList.setSelectionModel(new selection(mediaFileList.size() - 1));
 										mediaPlayer.play();
+										previousBtn.setImage(new Image(getClass().getResource("playerImg/player_backward_default.png").toString()));
 								} else {
 										handleMedia(mediaFileList, index - 1);
 //										mediaList.setSelectionModel(new selection(index - 1));
 										mediaPlayer.play();
+										previousBtn.setImage(new Image(getClass().getResource("playerImg/player_backward_default.png").toString()));
 								}
 						});
 			
 			//실행시 처음 볼륨값과 이미지 세팅
 			volumeSlider.setValue(50);
-			imgSound.setImage(new Image(getClass().getResource("playerImg/speaker.png").toString()));
+			imgSound.setImage(new Image(getClass().getResource("playerImg/player_sound_clicked.png").toString()));
 			
 			//슬라이더 속성감시로 볼륨의 크기 세팅
 			volumeSlider.valueProperty().addListener(new ChangeListener<Number>() {
@@ -196,17 +254,17 @@ public class MediaController implements Initializable {
 				public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
 					mediaPlayer.setVolume(newValue.doubleValue()/100.0);
 					volume = oldValue.doubleValue(); // 음소거 해제 시 전 설정값 세팅
-					imgSound.setImage(new Image(getClass().getResource("playerImg/speaker.png").toString()));
+					imgSound.setImage(new Image(getClass().getResource("playerImg/player_sound_clicked.png").toString()));
 				}
 			});
 			//음소거와 음소거 해제를 이미지 클릭으로 설정
 			imgSound.setOnMouseClicked(e->{
 				if(!mute){
 					volumeSlider.setValue(0);
-					imgSound.setImage(new Image(getClass().getResource("playerImg/mute.png").toString()));
+					imgSound.setImage(new Image(getClass().getResource("playerImg/player_sound_default.png").toString()));
 				}else{
 					volumeSlider.setValue(volume);
-					imgSound.setImage(new Image(getClass().getResource("playerImg/speaker.png").toString()));
+					imgSound.setImage(new Image(getClass().getResource("playerImg/player_sound_clicked.png").toString()));
 				}
 				mute = !mute;
 			});
@@ -269,6 +327,12 @@ public class MediaController implements Initializable {
 				popup.getContent().add(hbox);
 				popup.setAutoHide(true);
 				popup.show(((ImageView)e.getSource()).getScene().getWindow());
+				uploadBtn.setImage(new Image(getClass().getResource("playerImg/player_load_default.png").toString()));
+				playBtn.setImage(new Image(getClass().getResource("playerImg/player_play_default.png").toString()));
+				pauseBtn.setImage(new Image(getClass().getResource("playerImg/player_pause_default.png").toString()));
+				stopBtn.setImage(new Image(getClass().getResource("playerImg/player_stop_default.png").toString()));
+				nextBtn.setImage(new Image(getClass().getResource("playerImg/player_forward_default.png").toString()));
+				previousBtn.setImage(new Image(getClass().getResource("playerImg/player_backward_default.png").toString()));
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			}
@@ -313,6 +377,7 @@ public class MediaController implements Initializable {
 			 MiniMediaController.playList.setCurrentPlay(mediaPlayer);
 			 mediaPlayer.stop();
 		 }
+		exit.setImage(new Image(getClass().getResource("playerImg/exit_default.png").toString()));
     }
 	
 //	//선택이 되기위해 생성한 클래스
