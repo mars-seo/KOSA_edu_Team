@@ -119,6 +119,7 @@ public class BoilerController implements Initializable {
     private StackPane stackDisplay;
 
     public static ImageView modeImage;
+    public static ImageView bars1;
 
     public static Parent boilermodeView;
     public static List<ImageView> barList = new ArrayList<>();
@@ -128,11 +129,8 @@ public class BoilerController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try {
-            boilermodeView = FXMLLoader.load(getClass().getResource("modechange.fxml"));
-        } catch (IOException ex) {
-        }
-        barList.add(bar1);
+        bars1=bar1;
+        barList.add(bars1);
         barList.add(bar2);
         barList.add(bar3);
         barList.add(bar4);
@@ -159,6 +157,7 @@ public class BoilerController implements Initializable {
         for (ImageView list : barList) {
             list.setOpacity(0);
         }
+        
 
         if (wifiState == true) {
 
@@ -191,21 +190,27 @@ public class BoilerController implements Initializable {
             txtWater.setText(String.valueOf(hopeWater));
             waterDisplay.setOpacity(1);
         }
-
+        
+        modeDisplay.setOpacity(0);
         if (BoilerminiController.ecomodeState == true) {
             displayOn(modeDisplay, "modeECO");
         } else if (nightmodeState == true) {
             displayOn(modeDisplay, "modeSLEEPING");
-        } else if (BoilerminiController.usermodeState = true) {
+        } else if (BoilerminiController.usermodeState == true) {
             displayOn(modeDisplay, "modeUSER");
         } else {
-            modeDisplay.setOpacity(0);
+        modeDisplay.setOpacity(0);
         }
 
         for (int i = 0; i < BoilerminiController.barStateArray.length; i++) {
             if (BoilerminiController.barStateArray[i] == true) {
                 barList.get(i).setOpacity(1);
             }
+        }
+        
+        try {
+            boilermodeView = FXMLLoader.load(getClass().getResource("modechange.fxml"));
+        } catch (IOException ex) {
         }
 
         txtnowHeat.setText(String.valueOf(nowHeat));
@@ -248,7 +253,7 @@ public class BoilerController implements Initializable {
 
     private void exit() {
         MainController.menuicon[1].setImage(new Image(getClass().getResource("images/main_boiler_default.png").toString()));
-        MainController.stackPane.getChildren().remove(boilerRoot);
+        MainController.stackPane.getChildren().remove(BoilerminiController.boilers);
 
         /*     boilerRoot.setOpacity(1);
         boilerRoot.setTranslateX(0);
@@ -267,10 +272,10 @@ public class BoilerController implements Initializable {
 
     private void wifi() {
         if (wifiState == false) {
-            wifi.setImage(new Image(getClass().getResource("images/wifi.PNG").toString()));   //WIFi On됬을때 사진넣기
+            displayOn(wifi, "wifi_on");  //WIFi On됬을때 사진넣기
             wifiState = true;
         } else {
-            wifi.setImage(new Image(getClass().getResource("images/wifi_1.png").toString()));//WIFi off됬을때 사진넣기
+            displayOn(wifi, "wifi_off");//WIFi off됬을때 사진넣기
             wifiState = false;
         }
     }
@@ -309,10 +314,10 @@ public class BoilerController implements Initializable {
 
     private void goOut() {
         if (goOutState == false) {
-            goOut.setImage(new Image(getClass().getResource("images/gooutOn.png").toString()));   //외출 On됬을때 사진넣기
+            displayOn(goOut, "goout_clicked");    //외출 On됬을때 사진넣기
             goOutState = true;
         } else {
-            goOut.setImage(new Image(getClass().getResource("images/goout.png").toString()));//외출 off됬을때 사진넣기
+            displayOn(goOut, "goout_default");//외출 off됬을때 사진넣기
             goOutState = false;
         }
 

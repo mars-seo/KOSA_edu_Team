@@ -12,62 +12,62 @@
    <children>
       <ImageView fitHeight="280.0" fitWidth="400.0" pickOnBounds="true">
          <image>
-            <Image url="@images/tex.jpg" />
+            <Image url="@images/boiler_background.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="179.0" fitWidth="209.0" layoutX="88.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/background11.PNG" />
+            <Image url="@images/boiler_displaybground.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="heatUp" fitHeight="79.0" fitWidth="135.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="heatUp" fitHeight="79.0" fitWidth="60.0" layoutX="14.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/up.png" />
+            <Image url="@images/boiler_up_default.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="heatOn" fitHeight="79.0" fitWidth="109.0" layoutX="-1.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="heatOn" fitHeight="79.0" fitWidth="109.0" layoutX="11.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/heat.png" />
+            <Image url="@images/boiler_heat_default.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="heatDown" fitHeight="79.0" fitWidth="111.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="heatDown" fitHeight="79.0" fitWidth="60.0" layoutX="14.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/down.png" />
+            <Image url="@images/boiler_down_default.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="waterUp" fitHeight="79.0" fitWidth="135.0" layoutX="307.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="waterUp" fitHeight="79.0" fitWidth="60.0" layoutX="323.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/up.png" />
+            <Image url="@images/boiler_up_default.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="waterOn" fitHeight="79.0" fitWidth="92.0" layoutX="308.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="waterOn" fitHeight="79.0" fitWidth="92.0" layoutX="325.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/water.png" />
+            <Image url="@images/boiler_hotwater_default.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="waterDown" fitHeight="79.0" fitWidth="111.0" layoutX="307.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="waterDown" fitHeight="79.0" fitWidth="60.0" layoutX="323.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/down.png" />
+            <Image url="@images/boiler_down_default.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="heatDisplay" fitHeight="58.0" fitWidth="93.0" layoutX="106.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="heatDisplay" fitHeight="64.0" fitWidth="66.0" layoutX="106.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/heat.png" />
+            <Image url="@images/boiler_heat.png" />
          </image>
       </ImageView>
-      <Label fx:id="txthopeHeat" layoutX="106.0" layoutY="119.0" prefHeight="40.0" prefWidth="40.0">
+      <Label fx:id="txthopeHeat" layoutX="107.0" layoutY="140.0" prefHeight="40.0" prefWidth="40.0">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <Label fx:id="txtnowHeat" layoutX="154.0" layoutY="119.0" prefHeight="40.0" prefWidth="40.0" text="24">
+      <Label fx:id="txtnowHeat" layoutX="155.0" layoutY="140.0" prefHeight="40.0" prefWidth="40.0" text="24">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <ImageView fx:id="waterDisplay" fitHeight="48.0" fitWidth="60.0" layoutX="219.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="waterDisplay" fitHeight="70.0" fitWidth="66.0" layoutX="219.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/water.png" />
+            <Image url="@images/boiler_hotwater.png" />
          </image>
       </ImageView>
       <ImageView fx:id="gasDisplay" fitHeight="58.0" fitWidth="49.0" layoutX="170.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
@@ -75,19 +75,19 @@
             <Image url="@images/gas.png" />
          </image>
       </ImageView>
-      <Label fx:id="txtWater" layoutX="231.0" layoutY="124.0">
+      <Label fx:id="txtWater" layoutX="232.0" layoutY="145.0">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <ImageView fx:id="exit" fitHeight="48.0" fitWidth="55.0" layoutX="127.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="exit" fitHeight="58.0" fitWidth="55.0" layoutX="345.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/x.png" />
+            <Image url="@images/boiler_timesetup_exite_default.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="fullscreen" fitHeight="58.0" fitWidth="68.0" layoutX="214.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="fullscreen" fitHeight="58.0" fitWidth="100.0" layoutX="150.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/fullscreen.png" />
+            <Image url="@images/boiler_expension_default.png" />
          </image>
       </ImageView>
    </children>

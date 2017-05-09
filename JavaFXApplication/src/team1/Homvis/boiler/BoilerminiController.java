@@ -47,6 +47,8 @@ public class BoilerminiController implements Initializable {
     private ImageView exit;
     @FXML
     private ImageView fullscreen;
+    
+    public static Parent boilers;
 
     public static Boolean wifiState = false;
     public static Boolean goOutState = false;
@@ -184,7 +186,7 @@ public class BoilerminiController implements Initializable {
         Parent boilerview;
         try {
             boilerview = FXMLLoader.load(getClass().getResource("boiler.fxml"));
-
+boilers=boilerview;
             MainController.stackPane.getChildren().add(boilerview);
             boilerview.setTranslateY(0);
             boilerview.setTranslateX(0);

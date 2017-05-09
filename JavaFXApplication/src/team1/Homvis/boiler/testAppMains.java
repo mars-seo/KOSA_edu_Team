@@ -14,7 +14,7 @@ public class testAppMains extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        Parent parent = FXMLLoader.load(getClass().getResource("boilermini.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("boiler.fxml"));
        
         Scene scene = new Scene(parent);
         primaryStage.setScene(scene);

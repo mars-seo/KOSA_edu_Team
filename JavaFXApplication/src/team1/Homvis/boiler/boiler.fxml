@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
@@ -13,151 +14,191 @@
    <children>
       <ImageView fitHeight="480.0" fitWidth="800.0" pickOnBounds="true">
          <image>
-            <Image url="@images/tex.jpg" />
+            <Image url="@images/boiler_background.png" />
          </image>
       </ImageView>
       <StackPane fx:id="stackDisplay" layoutX="138.0" layoutY="63.0" prefHeight="150.0" prefWidth="200.0">
          <children>
             <AnchorPane fx:id="displayPane" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <ImageView fitHeight="393.0" fitWidth="510.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="375.0" fitWidth="513.0" layoutX="11.0" pickOnBounds="true">
                      <image>
-                        <Image url="@images/background11.PNG" />
+                        <Image url="@images/boiler_displaybground.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="graph" fitHeight="148.0" fitWidth="484.0" layoutX="37.0" layoutY="227.0" pickOnBounds="true">
+                  <ImageView fx:id="graph" fitHeight="149.0" fitWidth="492.0" layoutX="29.0" layoutY="226.0" pickOnBounds="true">
                      <image>
-                        <Image url="@images/timeschedule.png" />
+                        <Image url="@images/boiler_graph.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="bar1" fitHeight="71.0" fitWidth="20.0" layoutX="78.0" layoutY="230.0" pickOnBounds="true">
+                  <HBox layoutX="79.0" layoutY="238.0" prefHeight="50.0" prefWidth="400.0">
+                     <children>
+                        <ImageView fx:id="bar1" fitHeight="71.0" fitWidth="20.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@images/boiler_graph_bar2.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="15.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fx:id="bar2" fitHeight="71.0" fitWidth="20.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@images/boiler_graph_bar2.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="15.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fx:id="bar3" fitHeight="71.0" fitWidth="20.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@images/boiler_graph_bar2.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="15.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fx:id="bar4" fitHeight="71.0" fitWidth="20.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@images/boiler_graph_bar2.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="17.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fx:id="bar5" fitHeight="71.0" fitWidth="20.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@images/boiler_graph_bar2.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="17.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fx:id="bar6" fitHeight="71.0" fitWidth="20.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@images/boiler_graph_bar2.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="16.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fx:id="bar7" fitHeight="71.0" fitWidth="20.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@images/boiler_graph_bar2.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="18.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fx:id="bar8" fitHeight="71.0" fitWidth="20.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@images/boiler_graph_bar2.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="18.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fx:id="bar9" fitHeight="71.0" fitWidth="20.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@images/boiler_graph_bar2.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="18.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fx:id="bar10" fitHeight="71.0" fitWidth="20.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@images/boiler_graph_bar2.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="18.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fx:id="bar11" fitHeight="71.0" fitWidth="20.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@images/boiler_graph_bar2.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="18.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fx:id="bar12" fitHeight="71.0" fitWidth="20.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@images/boiler_graph_bar2.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
+                  <ImageView fx:id="bar13" fitHeight="71.0" fitWidth="20.0" layoutX="78.0" layoutY="290.0" pickOnBounds="true">
                      <image>
-                        <Image url="@images/bar.png" />
+                        <Image url="@images/boiler_graph_bar.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="bar2" fitHeight="71.0" fitWidth="20.0" layoutX="110.0" layoutY="227.0" pickOnBounds="true">
+                  <ImageView fx:id="bar14" fitHeight="71.0" fitWidth="20.0" layoutX="111.0" layoutY="290.0" pickOnBounds="true">
                      <image>
-                        <Image url="@images/bar.png" />
+                        <Image url="@images/boiler_graph_bar.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="bar3" fitHeight="71.0" fitWidth="20.0" layoutX="133.0" layoutY="227.0" pickOnBounds="true">
+                  <ImageView fx:id="bar15" fitHeight="71.0" fitWidth="20.0" layoutX="153.0" layoutY="290.0" pickOnBounds="true">
                      <image>
-                        <Image url="@images/bar.png" />
+                        <Image url="@images/boiler_graph_bar.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="bar4" fitHeight="71.0" fitWidth="20.0" layoutX="178.0" layoutY="227.0" pickOnBounds="true">
+                  <ImageView fx:id="bar16" fitHeight="71.0" fitWidth="20.0" layoutX="188.0" layoutY="290.0" pickOnBounds="true">
                      <image>
-                        <Image url="@images/bar.png" />
+                        <Image url="@images/boiler_graph_bar.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="bar5" fitHeight="71.0" fitWidth="20.0" layoutX="207.0" layoutY="227.0" pickOnBounds="true">
+                  <ImageView fx:id="bar17" fitHeight="71.0" fitWidth="20.0" layoutX="227.0" layoutY="290.0" pickOnBounds="true">
                      <image>
-                        <Image url="@images/bar.png" />
+                        <Image url="@images/boiler_graph_bar.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="bar6" fitHeight="71.0" fitWidth="20.0" layoutX="244.0" layoutY="227.0" pickOnBounds="true">
+                  <ImageView fx:id="bar18" fitHeight="71.0" fitWidth="20.0" layoutX="265.0" layoutY="290.0" pickOnBounds="true">
                      <image>
-                        <Image url="@images/bar.png" />
+                        <Image url="@images/boiler_graph_bar.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="bar7" fitHeight="71.0" fitWidth="20.0" layoutX="292.0" layoutY="227.0" pickOnBounds="true">
+                  <ImageView fx:id="bar19" fitHeight="71.0" fitWidth="20.0" layoutX="302.0" layoutY="290.0" pickOnBounds="true">
                      <image>
-                        <Image url="@images/bar.png" />
+                        <Image url="@images/boiler_graph_bar.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="bar8" fitHeight="71.0" fitWidth="20.0" layoutX="320.0" layoutY="227.0" pickOnBounds="true">
+                  <ImageView fx:id="bar20" fitHeight="71.0" fitWidth="20.0" layoutX="330.0" layoutY="290.0" pickOnBounds="true">
                      <image>
-                        <Image url="@images/bar.png" />
+                        <Image url="@images/boiler_graph_bar.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="bar9" fitHeight="71.0" fitWidth="20.0" layoutX="350.0" layoutY="227.0" pickOnBounds="true">
+                  <ImageView fx:id="bar21" fitHeight="71.0" fitWidth="20.0" layoutX="370.0" layoutY="290.0" pickOnBounds="true">
                      <image>
-                        <Image url="@images/bar.png" />
+                        <Image url="@images/boiler_graph_bar.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="bar10" fitHeight="71.0" fitWidth="20.0" layoutX="386.0" layoutY="227.0" pickOnBounds="true">
+                  <ImageView fx:id="bar22" fitHeight="71.0" fitWidth="20.0" layoutX="403.0" layoutY="290.0" pickOnBounds="true">
                      <image>
-                        <Image url="@images/bar.png" />
+                        <Image url="@images/boiler_graph_bar.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="bar11" fitHeight="71.0" fitWidth="20.0" layoutX="413.0" layoutY="227.0" pickOnBounds="true">
+                  <ImageView fx:id="bar23" fitHeight="71.0" fitWidth="20.0" layoutX="441.0" layoutY="290.0" pickOnBounds="true">
                      <image>
-                        <Image url="@images/bar.png" />
+                        <Image url="@images/boiler_graph_bar.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="bar12" fitHeight="71.0" fitWidth="20.0" layoutX="441.0" layoutY="227.0" pickOnBounds="true">
+                  <ImageView fx:id="bar24" fitHeight="71.0" fitWidth="20.0" layoutX="482.0" layoutY="290.0" pickOnBounds="true">
                      <image>
-                        <Image url="@images/bar.png" />
+                        <Image url="@images/boiler_graph_bar.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="bar13" fitHeight="71.0" fitWidth="20.0" layoutX="78.0" layoutY="301.0" pickOnBounds="true">
+                  <ImageView fx:id="gasDisplay" fitHeight="139.0" fitWidth="117.0" layoutX="217.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/bar.png" />
+                        <Image url="@images/boiler_gas.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="bar14" fitHeight="71.0" fitWidth="20.0" layoutX="110.0" layoutY="301.0" pickOnBounds="true">
+                  <ImageView fx:id="heatDisplay" fitHeight="100.0" fitWidth="117.0" layoutX="78.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/bar.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="bar15" fitHeight="71.0" fitWidth="20.0" layoutX="143.0" layoutY="301.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@images/bar.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="bar16" fitHeight="71.0" fitWidth="20.0" layoutX="178.0" layoutY="298.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@images/bar.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="bar17" fitHeight="71.0" fitWidth="20.0" layoutX="207.0" layoutY="298.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@images/bar.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="bar18" fitHeight="71.0" fitWidth="20.0" layoutX="244.0" layoutY="298.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@images/bar.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="bar19" fitHeight="71.0" fitWidth="20.0" layoutX="292.0" layoutY="298.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@images/bar.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="bar20" fitHeight="71.0" fitWidth="20.0" layoutX="320.0" layoutY="301.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@images/bar.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="bar21" fitHeight="71.0" fitWidth="20.0" layoutX="350.0" layoutY="301.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@images/bar.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="bar22" fitHeight="71.0" fitWidth="20.0" layoutX="386.0" layoutY="298.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@images/bar.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="bar23" fitHeight="71.0" fitWidth="20.0" layoutX="403.0" layoutY="298.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@images/bar.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="bar24" fitHeight="71.0" fitWidth="20.0" layoutX="431.0" layoutY="298.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@images/bar.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="gasDisplay" fitHeight="139.0" fitWidth="117.0" layoutX="220.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/gas.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="heatDisplay" fitHeight="100.0" fitWidth="117.0" layoutX="61.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/heat.png" />
+                        <Image url="@images/boiler_heat.png" />
                      </image>
                   </ImageView>
                   <Label fx:id="txtnowHeat" layoutX="136.0" layoutY="145.0" prefHeight="80.0" prefWidth="85.0" text="24">
@@ -166,9 +207,9 @@
                      </font>
                   </Label>
                   <ImageView fx:id="modeDisplay" fitHeight="52.0" fitWidth="123.0" layoutX="217.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="waterDisplay" fitHeight="85.0" fitWidth="96.0" layoutX="386.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="waterDisplay" fitHeight="106.0" fitWidth="123.0" layoutX="361.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/water.png" />
+                        <Image url="@images/boiler_hotwater.png" />
                      </image>
                   </ImageView>
                   <Label fx:id="txtWater" layoutX="403.0" layoutY="143.0">
@@ -185,54 +226,54 @@
             </AnchorPane>
          </children>
       </StackPane>
-      <ImageView fx:id="exit" fitHeight="34.0" fitWidth="42.0" layoutX="751.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="exit" fitHeight="58.0" fitWidth="70.0" layoutX="724.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/x.png" />
+            <Image url="@images/boiler_timesetup_exite_default.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="heatUp" fitHeight="85.0" fitWidth="96.0" layoutX="39.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="heatUp" fitHeight="85.0" fitWidth="96.0" layoutX="31.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/up.png" />
+            <Image url="@images/boiler_up_default.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="wifi" fitHeight="85.0" fitWidth="144.0" layoutX="37.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wifi" fitHeight="85.0" fitWidth="144.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/wifi_1.png" />
+            <Image url="@images/boiler_wifi_off.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="heatOn" fitHeight="100.0" fitWidth="117.0" layoutX="29.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="heatOn" fitHeight="100.0" fitWidth="117.0" layoutX="36.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/heat.png" />
+            <Image url="@images/boiler_heat_default.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="heatDown" fitHeight="99.0" fitWidth="130.0" layoutX="30.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="heatDown" fitHeight="99.0" fitWidth="96.0" layoutX="30.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/down.png" />
+            <Image url="@images/boiler_down_default.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="modeOn" fitHeight="70.0" fitWidth="85.0" layoutX="46.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="modeOn" fitHeight="58.0" fitWidth="115.0" layoutX="25.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/timer.png" />
+            <Image url="@images/boiler_timesetup_default.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="waterUp" fitHeight="99.0" fitWidth="108.0" layoutX="662.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="waterUp" fitHeight="99.0" fitWidth="96.0" layoutX="681.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/up.png" />
+            <Image url="@images/boiler_up_default.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="waterOn" fitHeight="85.0" fitWidth="96.0" layoutX="668.0" layoutY="174.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="waterOn" fitHeight="100.0" fitWidth="117.0" layoutX="694.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/water.png" />
+            <Image url="@images/boiler_hotwater_default.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="waterDown" fitHeight="106.0" fitWidth="155.0" layoutX="662.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="waterDown" fitHeight="106.0" fitWidth="96.0" layoutX="681.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/down.png" />
+            <Image url="@images/boiler_down_default.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="goOut" fitHeight="138.0" fitWidth="115.0" layoutX="666.0" layoutY="363.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="goOut" fitHeight="138.0" fitWidth="115.0" layoutX="671.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/goout.png" />
+            <Image url="@images/boiler_goout_default.png" />
          </image>
       </ImageView>
    </children>

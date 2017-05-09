@@ -11,100 +11,113 @@
    <children>
       <ImageView fitHeight="393.0" fitWidth="510.0" layoutX="4.0" layoutY="2.0" pickOnBounds="true">
          <image>
-            <Image url="@images/background11.PNG" />
+            <Image url="@images/boiler_displaybground.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="ecoMode" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ecoMode" fitHeight="96.0" fitWidth="88.0" layoutX="107.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/ecomode.PNG" />
+            <Image url="@images/boiler_timesetup_modeECO_default.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="userMode" fitHeight="77.0" fitWidth="100.0" layoutX="228.0" layoutY="24.0" pickOnBounds="true">
+      <ImageView fx:id="userMode" fitHeight="96.0" fitWidth="79.0" layoutX="218.0" layoutY="26.0" pickOnBounds="true">
          <image>
-            <Image url="@images/usermode.PNG" />
+            <Image url="@images/boiler_timesetup_modeUSER_default.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="nightMode" fitHeight="89.0" fitWidth="101.0" layoutX="377.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="nightMode" fitHeight="89.0" fitWidth="101.0" layoutX="330.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/nightmode.PNG" />
+            <Image url="@images/boiler_timesetup_modeSLEEPING_default.png" />
          </image>
       </ImageView>
       <AnchorPane fx:id="userModeView" layoutX="8.0" layoutY="125.0" prefHeight="220.0" prefWidth="502.0">
          <children>
-            <ImageView fx:id="am" fitHeight="45.0" fitWidth="89.0" layoutX="179.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="220.0" fitWidth="502.0" pickOnBounds="true">
                <image>
-                  <Image url="@images/am.PNG" />
+                  <Image url="@images/boiler_back.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="pm" fitHeight="45.0" fitWidth="126.0" layoutX="251.0" pickOnBounds="true" preserveRatio="true">
+            <HBox layoutX="41.0" layoutY="77.0" prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="one" fitHeight="80.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/boiler_timesetup_1_default.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="two" fitHeight="80.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/boiler_timesetup_2_default.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="three" fitHeight="80.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/boiler_timesetup_3_default.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="four" fitHeight="80.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/boiler_timesetup_4_default.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="five" fitHeight="80.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/boiler_timesetup_5_default.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="six" fitHeight="80.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/boiler_timesetup_6_default.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox layoutX="41.0" layoutY="143.0" prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="seven" fitHeight="80.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/boiler_timesetup_7_default.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="eight" fitHeight="80.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/boiler_timesetup_8_default.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="nine" fitHeight="80.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/boiler_timesetup_9_default.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="ten" fitHeight="80.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/boiler_timesetup_10_default.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="eleven" fitHeight="80.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/boiler_timesetup_11_default.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="twelve" fitHeight="80.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/boiler_timesetup_12_default.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <ImageView fx:id="am" fitHeight="61.0" fitWidth="79.0" layoutX="163.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/pm.PNG" />
+                  <Image url="@images/boiler_timesetup_am_default.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="one" fitHeight="80.0" fitWidth="70.0" layoutX="29.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="pm" fitHeight="56.0" fitWidth="79.0" layoutX="251.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/one.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="two" fitHeight="80.0" fitWidth="70.0" layoutX="105.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/two.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="three" fitHeight="80.0" fitWidth="70.0" layoutX="184.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/three.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="four" fitHeight="80.0" fitWidth="70.0" layoutX="261.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/four.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="five" fitHeight="80.0" fitWidth="70.0" layoutX="342.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/five.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="six" fitHeight="80.0" fitWidth="70.0" layoutX="422.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/six.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="seven" fitHeight="80.0" fitWidth="70.0" layoutX="29.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/seven.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="eight" fitHeight="80.0" fitWidth="70.0" layoutX="104.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/eight.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="nine" fitHeight="80.0" fitWidth="70.0" layoutX="184.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/nine.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="ten" fitHeight="80.0" fitWidth="70.0" layoutX="251.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/ten.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="eleven" fitHeight="80.0" fitWidth="70.0" layoutX="333.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/eleven.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="twelve" fitHeight="80.0" fitWidth="70.0" layoutX="414.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/twelve.png" />
+                  <Image url="@images/boiler_timesetup_pm_default.png" />
                </image>
             </ImageView>
          </children></AnchorPane>
-      <ImageView fx:id="ok" fitHeight="34.0" fitWidth="63.0" layoutX="226.0" layoutY="354.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ok" fitHeight="56.0" fitWidth="58.0" layoutX="456.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/ok.png" />
+            <Image url="@images/boiler_timesetup_exite_default.png" />
          </image>
       </ImageView>
    </children>
