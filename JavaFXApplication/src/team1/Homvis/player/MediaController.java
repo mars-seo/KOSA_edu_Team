@@ -347,6 +347,7 @@ public class MediaController implements Initializable {
 				popup.getContent().add(hbox);
 				popup.setAutoHide(true);
 				popup.show(((ImageView)e.getSource()).getScene().getWindow());
+				uploadBtn.setImage(new Image(getClass().getResource("playerImg/player_load_default.png").toString()));
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			}
