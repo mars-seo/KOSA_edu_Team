@@ -36,35 +36,35 @@ public class RootMiniController implements Initializable {
     private ImageView exit;
     @FXML
     private AnchorPane tariffRoot;
-	@FXML
-	private ImageView maximize;
+    @FXML
+    private ImageView maximize;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         rootPane = changeableStackPane;
 
         btnGasFee.setOnMouseClicked((event) -> {
-            handlerBtn(event,0);
+            handlerBtn(event, 0);
         });
         btnElectricFee.setOnMouseClicked((event) -> {
-            handlerBtn(event,1);
+            handlerBtn(event, 1);
         });
         btnWaterFee.setOnMouseClicked((event) -> {
-            handlerBtn(event,2);
+            handlerBtn(event, 2);
         });
         btnGasFee.setOnMousePressed((event) -> {
-            handlerBtnPressed(event,0);
+            handlerBtnPressed(event, 0);
         });
         btnElectricFee.setOnMousePressed((event) -> {
-            handlerBtnPressed(event,1);
+            handlerBtnPressed(event, 1);
         });
         btnWaterFee.setOnMousePressed((event) -> {
-            handlerBtnPressed(event,2);
+            handlerBtnPressed(event, 2);
         });
-        
+
         exit.setOnMouseClicked(e -> exit());
-		maximize.setOnMouseClicked(e->maximizeScreen());
-		
+        maximize.setOnMouseClicked(e -> maximizeScreen());
+
     }
 
     public RootMiniController() {
@@ -82,8 +82,8 @@ public class RootMiniController implements Initializable {
         rootPane.getChildren().clear();
         changeableStackPane.getChildren().add(parent.get(num));
         translateX(num);
-        
-         if (num == 0) {
+
+        if (num == 0) {
             btnGasFee.setImage(new Image(getClass().getResource("../controlElectNGas/controlImg/elecNgas_light_clicked.png").toString()));
             btnElectricFee.setImage(new Image(getClass().getResource("../controlElectNGas/controlImg/elecNgas_gas_default.png").toString()));
             btnWaterFee.setImage(new Image(getClass().getResource("../controlElectNGas/controlImg/elecNgas_security_default.png").toString()));
@@ -96,9 +96,9 @@ public class RootMiniController implements Initializable {
             btnElectricFee.setImage(new Image(getClass().getResource("../controlElectNGas/controlImg/elecNgas_gas_default.png").toString()));
             btnWaterFee.setImage(new Image(getClass().getResource("../controlElectNGas/controlImg/elecNgas_security_clicked.png").toString()));
         }
-        
+
     }
-    
+
     private void handlerBtnPressed(MouseEvent e, int num) {
         if (num == 0) {
             btnGasFee.setImage(new Image(getClass().getResource("../controlElectNGas/controlImg/elecNgas_light_pressed.png").toString()));
@@ -122,8 +122,9 @@ public class RootMiniController implements Initializable {
         MainController.menuicon[6].setImage(new Image(getClass().getResource("../main/images/main_tariff_default.png").toString()));
         MainController.stackPane.getChildren().remove(tariffRoot);
     }
-	
-	private void maximizeScreen() {
-		 MainController.stackPane.getChildren().add(MainController.parent.get(6));
-	}
+
+    private void maximizeScreen() {
+        MainController.stackPane.getChildren().remove(tariffRoot);
+        MainController.stackPane.getChildren().add(MainController.parent.get(6));
+    }
 }

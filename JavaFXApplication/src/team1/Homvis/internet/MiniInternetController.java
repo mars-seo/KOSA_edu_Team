@@ -47,7 +47,7 @@ public class MiniInternetController implements Initializable {
     private ImageView backButton;
     @FXML
     private ImageView forwardButton;
-    ObservableList<Bookmark> bookmarks = FXCollections.observableArrayList();
+    static ObservableList<Bookmark> bookmarks = FXCollections.observableArrayList();
     @FXML
     private TableView<Bookmark> table;
     @FXML
@@ -69,12 +69,12 @@ public class MiniInternetController implements Initializable {
     @FXML
     private StackPane internetRoot;
     private static int count = -1;
-	@FXML
-	private ImageView maximize;
+    @FXML
+    private ImageView maximize;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-		maximize.setOnMouseClicked(e->maximizeScreen());
+        maximize.setOnMouseClicked(e -> maximizeScreen());
         exit.setOnMouseClicked(e -> exit());
         WebEngine engine = newsWebView.getEngine();
 //        newsWebView.setFontScale(5);
@@ -219,10 +219,16 @@ public class MiniInternetController implements Initializable {
     private void exit() {
         MainController.menuicon[4].setImage(new Image(getClass().getResource("../main/images/main_internet_default.png").toString()));
         MainController.stackPane.getChildren().remove(internetRoot);
+        MainController.menuicon[4].setDisable(false);
     }
-	
-	private void maximizeScreen() {
-		 MainController.stackPane.getChildren().add(MainController.parent.get(4));
-	}
+
+    private void maximizeScreen() {
+        MainController.stackPane.getChildren().add(MainController.parent.get(4));
+        MainController.stackPane.getChildren().remove(internetRoot);
+    }
+
+    public static ObservableList<Bookmark> getBookmarks() {
+        return bookmarks;
+    }
 
 }
