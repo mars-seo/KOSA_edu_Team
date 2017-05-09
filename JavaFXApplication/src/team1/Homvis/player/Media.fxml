@@ -97,14 +97,9 @@
 			<right>
 				<AnchorPane prefHeight="395.0" prefWidth="194.0">
 					<children>
-						<ListView fx:id="mediaList" layoutY="58.0" maxHeight="-Infinity" prefHeight="350.0" prefWidth="180.0" BorderPane.alignment="BOTTOM_CENTER" >
-							<ImageView fitHeight="325.0" fitWidth="165.0" pickOnBounds="true">
-								<image>
-									<Image url="@playerImg/player_playlist.png" />
-								</image>
-							</ImageView>
+						<ListView fx:id="mediaList" layoutY="41.0" maxHeight="-Infinity" prefHeight="364.0" prefWidth="180.0" BorderPane.alignment="BOTTOM_CENTER">
 						</ListView>
-						<ImageView fx:id="exit" fitHeight="50.0" fitWidth="59.0" layoutX="130.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+						<ImageView fx:id="exit" fitHeight="50.0" fitWidth="59.0" layoutX="130.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
 							<image>
 								<Image url="@playerImg/exit_default.png" />
 							</image>

@@ -105,7 +105,7 @@
                         <Image url="@playerImg/substract.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="exit" fitHeight="35.0" fitWidth="40.0" layoutX="51.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="exit" fitHeight="35.0" fitWidth="40.0" layoutX="61.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@playerImg/exit_default.png" />
                      </image>
