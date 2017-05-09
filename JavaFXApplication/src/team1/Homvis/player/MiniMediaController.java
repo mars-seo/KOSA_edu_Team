@@ -74,11 +74,10 @@ public class MiniMediaController implements Initializable {
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		
-		if(!MiniMediaController.playList.getMediaFile().isEmpty()){
-			mediaList.setItems(MiniMediaController.playList.getFileName());
-			if(MiniMediaController.playList.getCurrentPlay()!=null){
+		if(!playList.getMediaFile().isEmpty()){
+			mediaList.setItems(playList.getFileName());
+			if(playList.getCurrentPlay()!=null){
 				mediaPlayer = MiniMediaController.playList.getCurrentPlay();
-				mediaPlayer.play();
 			}
 		}
 		uploadBtn.setOnMousePressed(e->uploadBtn.setImage(new Image(getClass().getResource("playerImg/player_load_clicked.png").toString())));
@@ -98,7 +97,6 @@ public class MiniMediaController implements Initializable {
 		mediaList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                mediaPlayer.stop();
                 System.out.println(newValue);
                 handleMedia(MiniMediaController.playList.getMediaFile(), MiniMediaController.playList.getFileName().indexOf(newValue));
 				deleteBtn.setOnMouseClicked(e->handleDelete(e, newValue));
@@ -385,11 +383,11 @@ public class MiniMediaController implements Initializable {
 
 	private void maximizeScreen() {
 		 MainController.stackPane.getChildren().add(MainController.parent.get(5));
-		 if(!(playList.getMediaFile().isEmpty() && playList.getFileName().isEmpty())){
+		 maximize.setImage(new Image(getClass().getResource("playerImg/expension_default.png").toString()));
+		 if(!playList.getMediaFile().isEmpty() || !playList.getFileName().isEmpty()){
 			 playList.setCurrentPlay(mediaPlayer);
 			 mediaPlayer.stop();
 		 }
-		 maximize.setImage(new Image(getClass().getResource("playerImg/expension_defult.png").toString()));
 	}
 	
 }
