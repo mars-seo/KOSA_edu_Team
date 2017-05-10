@@ -13,7 +13,7 @@ import static team1.Homvis.boiler.BoilerController.boilerModeStack;
 import static team1.Homvis.boiler.BoilerminiController.ecomodeState;
 import static team1.Homvis.boiler.BoilerminiController.nightmodeState;
 import static team1.Homvis.boiler.BoilerminiController.usermodeState;
-import team1.Homvis.main.MainController;
+import team1.Homvis.MainController;
 
 public class ModechangeController implements Initializable {
 

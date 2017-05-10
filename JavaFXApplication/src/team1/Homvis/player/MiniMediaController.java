@@ -24,7 +24,7 @@ import javafx.scene.media.MediaView;
 import javafx.stage.FileChooser;
 import javafx.stage.Popup;
 import javafx.util.Duration;
-import team1.Homvis.main.MainController;
+import team1.Homvis.MainController;
 
 
 public class MiniMediaController implements Initializable {
@@ -372,7 +372,7 @@ public class MiniMediaController implements Initializable {
 		}
 	}
 	private void exit() {
-		MainController.menuicon[5].setImage(new Image(getClass().getResource("../main/images/main_player_default.png").toString()));
+		MainController.menuicon[5].setImage(new Image(getClass().getResource("playerImg/main_player_default.png").toString()));
         MainController.stackPane.getChildren().remove(miniMediaRoot);
 		if(!(MiniMediaController.playList.getMediaFile().isEmpty() && MiniMediaController.playList.getFileName().isEmpty())){
 			 MiniMediaController.playList.setCurrentPlay(mediaPlayer);

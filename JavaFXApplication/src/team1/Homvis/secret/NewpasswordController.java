@@ -20,10 +20,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
-import static team1.Homvis.main.MainController.secretCount;
-import team1.Homvis.main.MainController;
-import static team1.Homvis.main.MainController.miniParent;
-import static team1.Homvis.main.MainController.stackPane;
+import static team1.Homvis.MainController.secretCount;
+import team1.Homvis.MainController;
+import static team1.Homvis.MainController.miniParent;
+import static team1.Homvis.MainController.stackPane;
 
 public class NewpasswordController implements Initializable {
 

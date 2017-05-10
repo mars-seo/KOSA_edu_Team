@@ -23,7 +23,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebView;
-import team1.Homvis.main.MainController;
+import team1.Homvis.MainController;
 import team1.Homvis.internet.MiniInternetController;
 
 /**
@@ -267,7 +267,7 @@ public class InternetController implements Initializable {
     }
 
     private void exit() {
-        MainController.menuicon[4].setImage(new Image(getClass().getResource("../main/images/main_internet_default.png").toString()));
+        MainController.menuicon[4].setImage(new Image(getClass().getResource("internetImg/main_internet_default.png").toString()));
         MainController.stackPane.getChildren().remove(internetRoot);
     }
 }

@@ -1,4 +1,4 @@
-package team1.Homvis.main;
+package team1.Homvis;
 
 import java.io.IOException;
 import java.net.URL;
@@ -91,20 +91,32 @@ public class MainController implements Initializable {
 
             //미니 메뉴를 위한 구성
             this.miniParent.add(preIndex1); // 인덱스를 맞추기 위함
-            this.miniParent.add(FXMLLoader.load(getClass().getResource("../boiler/boilermini.fxml")));
-            this.miniParent.add(FXMLLoader.load(getClass().getResource("../controlElectNGas/controlMini.fxml")));
-            this.miniParent.add(FXMLLoader.load(getClass().getResource("../interphone/miniInterPhone.fxml")));
-            this.miniParent.add(FXMLLoader.load(getClass().getResource("../internet/miniInternet.fxml")));
-            this.miniParent.add(FXMLLoader.load(getClass().getResource("../player/miniMedia.fxml")));
-            this.miniParent.add(FXMLLoader.load(getClass().getResource("../tariff/rootMini.fxml")));
+            this.miniParent.add(FXMLLoader.load(getClass().getResource("boiler/boilermini.fxml")));
+			System.gc();
+            this.miniParent.add(FXMLLoader.load(getClass().getResource("controlElectNGas/controlMini.fxml")));
+			System.gc();
+            this.miniParent.add(FXMLLoader.load(getClass().getResource("interphone/miniInterPhone.fxml")));
+			System.gc();
+            this.miniParent.add(FXMLLoader.load(getClass().getResource("internet/miniInternet.fxml")));
+			System.gc();
+            this.miniParent.add(FXMLLoader.load(getClass().getResource("player/miniMedia.fxml")));
+			System.gc();
+            this.miniParent.add(FXMLLoader.load(getClass().getResource("tariff/rootMini.fxml")));
+			System.gc();
 			
 			this.parent.add(preIndex2); // 인덱스 맞추기 위함
-            this.parent.add(FXMLLoader.load(getClass().getResource("../boiler/boiler.fxml")));
-            this.parent.add(FXMLLoader.load(getClass().getResource("../controlElectNGas/control.fxml")));
-            this.parent.add(FXMLLoader.load(getClass().getResource("../interphone/interPhone.fxml")));
-            this.parent.add(FXMLLoader.load(getClass().getResource("../internet/internet.fxml")));
-            this.parent.add(FXMLLoader.load(getClass().getResource("../player/media.fxml")));
-            this.parent.add(FXMLLoader.load(getClass().getResource("../tariff/root.fxml")));
+            this.parent.add(FXMLLoader.load(getClass().getResource("boiler/boiler.fxml")));
+			System.gc();
+            this.parent.add(FXMLLoader.load(getClass().getResource("controlElectNGas/control.fxml")));
+			System.gc();
+            this.parent.add(FXMLLoader.load(getClass().getResource("interphone/interPhone.fxml")));
+			System.gc();
+            this.parent.add(FXMLLoader.load(getClass().getResource("internet/internet.fxml")));
+			System.gc();
+            this.parent.add(FXMLLoader.load(getClass().getResource("player/media.fxml")));
+			System.gc();
+            this.parent.add(FXMLLoader.load(getClass().getResource("tariff/root.fxml")));
+			System.gc();
 
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -113,6 +125,7 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+		System.gc();
         //나중에 디폴트로 만들기위해
         menuicon[0] = menuIcon1;
         menuicon[1] = menuIcon2;
@@ -146,7 +159,7 @@ public class MainController implements Initializable {
         thread.setDaemon(true);
         thread.start();
         ////////////////////////////clock end
-
+		System.gc();
         //아이콘 눌렀을때
         menuIcon1.setOnMousePressed(event -> menuPressed(menuIcon1, 0));
         menuIcon1.setOnMouseClicked(event -> menuClicked(menuIcon1, 0, menu1PasswordChk));
@@ -164,11 +177,12 @@ public class MainController implements Initializable {
         menuIcon7.setOnMouseClicked(event -> menuClicked(menuIcon7, 6, menu7PasswordChk));
         menuIcon8.setOnMousePressed(event -> secretPressed());
         menuIcon8.setOnMouseClicked(event -> secretClicked(true)); //암호설정 서브메뉴이동
-
+		System.gc();
         //메뉴시작위치
         menu.setTranslateX(0);
         menu.setTranslateY(200);
 ////////////////
+		System.gc();
         background.setOnMouseClicked(event -> {
             count = count * (-1);
             if (count == 1) {
@@ -214,6 +228,7 @@ public class MainController implements Initializable {
         Timeline timeline = new Timeline();
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
+		System.gc();
     }
 
     private void menuClose() {
@@ -222,6 +237,7 @@ public class MainController implements Initializable {
         Timeline timeline = new Timeline();
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
+		System.gc();
     }
 
     private void menuPressed(ImageView menuIcon, int index) {
@@ -230,6 +246,7 @@ public class MainController implements Initializable {
     }
 
     private void menuClicked(ImageView menuIcon, int index, boolean chk) {
+		System.gc();
         menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_clicked.png").toString()));
         menuIcon.setDisable(true);
         if (index == 0) {
@@ -297,11 +314,12 @@ public class MainController implements Initializable {
     }
 
     private void secretClicked(boolean chk) {
+		System.gc();
         menuIcon8.setImage(new Image(getClass().getResource("images/main_secret_clicked.png").toString()));
         menuIcon8.setDisable(true);
         if (chk) {
             try {
-                secretview = FXMLLoader.load(getClass().getResource("../secret/newpassword.fxml"));
+                secretview = FXMLLoader.load(getClass().getResource("secret/newpassword.fxml"));
 
                 mainPane.getChildren().add(secretview);
                 secretview.setTranslateY(30);

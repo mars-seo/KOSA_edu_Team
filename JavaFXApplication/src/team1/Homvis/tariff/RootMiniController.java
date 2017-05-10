@@ -18,7 +18,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
-import team1.Homvis.main.MainController;
+import team1.Homvis.MainController;
 
 public class RootMiniController implements Initializable {
 
@@ -70,8 +70,8 @@ public class RootMiniController implements Initializable {
     public RootMiniController() {
         try {
             this.parent.add(FXMLLoader.load(getClass().getResource("gasMini.fxml")));
-            this.parent.add(FXMLLoader.load(getClass().getResource("electricMIni.fxml")));
-            this.parent.add(FXMLLoader.load(getClass().getResource("waterMIni.fxml")));
+            this.parent.add(FXMLLoader.load(getClass().getResource("electricMini.fxml")));
+            this.parent.add(FXMLLoader.load(getClass().getResource("waterMini.fxml")));
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -119,7 +119,7 @@ public class RootMiniController implements Initializable {
     }
 
     private void exit() {
-        MainController.menuicon[6].setImage(new Image(getClass().getResource("../main/images/main_tariff_default.png").toString()));
+        MainController.menuicon[6].setImage(new Image(getClass().getResource("tariffImg/main_tariff_default.png").toString()));
         MainController.stackPane.getChildren().remove(tariffRoot);
     }
 

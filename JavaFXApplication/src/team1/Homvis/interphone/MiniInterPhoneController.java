@@ -13,7 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Popup;
-import team1.Homvis.main.MainController;
+import team1.Homvis.MainController;
 
 
 public class MiniInterPhoneController implements Initializable {
@@ -73,7 +73,7 @@ public class MiniInterPhoneController implements Initializable {
 			}
 	}
 	private void exit() {
-		MainController.menuicon[3].setImage(new Image(getClass().getResource("../main/images/main_interphone_default.png").toString()));
+		MainController.menuicon[3].setImage(new Image(getClass().getResource("interphoneImg/main_interphone_default.png").toString()));
         MainController.stackPane.getChildren().remove(miniInterphoneRoot);
 		closeBtn.setImage(new Image(getClass().getResource("interphoneImg/interphone_exit_default.png").toString()));
     }

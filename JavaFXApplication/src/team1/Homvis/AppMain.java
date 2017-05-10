@@ -1,4 +1,4 @@
-package team1.Homvis.main;
+package team1.Homvis;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

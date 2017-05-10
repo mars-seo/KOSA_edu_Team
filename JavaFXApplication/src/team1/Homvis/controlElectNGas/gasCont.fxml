@@ -16,11 +16,6 @@
             <Image url="@controlImg/elecNgas_gas_background.png" />
          </image>
       </ImageView>
-<!--      <ImageView fx:id="imgGasState" fitHeight="150.0" fitWidth="200.0" layoutX="28.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@controlImg/gason.png" />
-         </image>
-      </ImageView>-->
       <ImageView fx:id="imgGasOnoff" fitWidth="250.0" layoutX="175.0" layoutY="315.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@controlImg/elecNgas_gas_on.png" />
