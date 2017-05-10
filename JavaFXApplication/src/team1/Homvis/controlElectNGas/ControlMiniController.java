@@ -39,12 +39,15 @@ public class ControlMiniController implements Initializable {
     private AnchorPane miniControlRoot;
     @FXML
     private ImageView fullscreen;
-
+	
     public ControlMiniController() {
         try {
             this.parent.add(FXMLLoader.load(getClass().getResource("lightMini.fxml")));
+			System.gc();
             this.parent.add(FXMLLoader.load(getClass().getResource("gasContMini.fxml")));
+			System.gc();
             this.parent.add(FXMLLoader.load(getClass().getResource("securityMini.fxml")));
+			System.gc();
         } catch (IOException ex) {
             ex.printStackTrace();
         }

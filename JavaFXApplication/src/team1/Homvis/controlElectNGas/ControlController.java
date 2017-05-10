@@ -41,8 +41,11 @@ public class ControlController implements Initializable {
     public ControlController() {
         try {
             this.parent.add(FXMLLoader.load(getClass().getResource("light.fxml")));
+			System.gc();
             this.parent.add(FXMLLoader.load(getClass().getResource("gasCont.fxml")));
+			System.gc();
             this.parent.add(FXMLLoader.load(getClass().getResource("security.fxml")));
+			System.gc();
         } catch (IOException ex) {
             ex.printStackTrace();
         }

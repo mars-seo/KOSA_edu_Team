@@ -76,19 +76,27 @@ public class MainController implements Initializable {
     private Parent secretview;
     public static int secretCount;
     private static int count = -1;
+	private Timeline timeline;
 
     public MainController() {
         try{
 
             this.menuList.add("home");
+			System.gc();
             this.menuList.add("boiler");
+			System.gc();
             this.menuList.add("elecNgas");
+			System.gc();
             this.menuList.add("interphone");
+			System.gc();
             this.menuList.add("internet");
+			System.gc();
             this.menuList.add("player");
+			System.gc();
             this.menuList.add("tariff");
+			System.gc();
             this.menuList.add("secret");
-
+			System.gc();
             //미니 메뉴를 위한 구성
             this.miniParent.add(preIndex1); // 인덱스를 맞추기 위함
             this.miniParent.add(FXMLLoader.load(getClass().getResource("boiler/boilermini.fxml")));
@@ -125,7 +133,6 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-		System.gc();
         //나중에 디폴트로 만들기위해
         menuicon[0] = menuIcon1;
         menuicon[1] = menuIcon2;
@@ -147,6 +154,7 @@ public class MainController implements Initializable {
                     String strTime = sdf.format(new Date());
                     Platform.runLater(() -> {
                         clock.setText(strTime);
+						System.gc();
                     });
                     try {
                         Thread.sleep(100);
@@ -223,18 +231,20 @@ public class MainController implements Initializable {
 
     private void menuOpen() {
         //sstackPane.getChildren().add(menu);
+		if(timeline!=null) timeline.stop();
         KeyValue keyValue = new KeyValue(menu.translateYProperty(), 0);
         KeyFrame keyFrame = new KeyFrame(Duration.millis(700), keyValue);
-        Timeline timeline = new Timeline();
+        timeline = new Timeline();
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
 		System.gc();
     }
 
     private void menuClose() {
+		if(timeline!=null) timeline.stop();
         KeyValue keyValue = new KeyValue(menu.translateYProperty(), 200);
         KeyFrame keyFrame = new KeyFrame(Duration.millis(700), keyValue);
-        Timeline timeline = new Timeline();
+        timeline = new Timeline();
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
 		System.gc();
@@ -242,11 +252,11 @@ public class MainController implements Initializable {
 
     private void menuPressed(ImageView menuIcon, int index) {
         menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_pressed.png").toString()));
-
+		System.gc();
     }
 
     private void menuClicked(ImageView menuIcon, int index, boolean chk) {
-		System.gc();
+		if(timeline!=null) timeline.stop();
         menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_clicked.png").toString()));
         menuIcon.setDisable(true);
         if (index == 0) {
@@ -260,12 +270,14 @@ public class MainController implements Initializable {
             mainPane.getChildren().remove(secretview);
             preIndex1 = null;
             preIndex2 = null;
+			System.gc();
         } else {
             if (!chk) {
 
                 Parent miniView = miniParent.get(index);
                 mainPane.getChildren().add(miniView);
                 if (!miniWindow) {
+					
                     if (preIndex1 != null) {
                         mainPane.getChildren().remove(preIndex1);
                         menuicon[preindex1].setImage(new Image(getClass().getResource("images/main_" + menuList.get(preindex1) + "_default.png").toString()));
@@ -276,7 +288,7 @@ public class MainController implements Initializable {
                     miniView.setOpacity(0);
                     KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
                     KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
-                    Timeline timeline = new Timeline();
+                    timeline = new Timeline();
                     timeline.getKeyFrames().add(keyFrame);
                     timeline.play();
                     preIndex1 = miniView;
@@ -292,18 +304,20 @@ public class MainController implements Initializable {
                     miniView.setOpacity(0);
                     KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
                     KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
-                    Timeline timeline = new Timeline();
+                    timeline = new Timeline();
                     timeline.getKeyFrames().add(keyFrame);
                     timeline.play();
                     preIndex2 = miniView;
                     preindex2 = index;
                 }
                 miniWindow = !miniWindow;
+				System.gc();
 
             } else {
                 // passwordChk(index + 1);
                 secretCount = index + 1;
                 secretClicked(chk);
+				System.gc();
             }
         }
 
@@ -311,10 +325,12 @@ public class MainController implements Initializable {
 
     private void secretPressed() {
         menuIcon8.setImage(new Image(getClass().getResource("images/main_secret_pressed.png").toString()));
+		System.gc();
     }
 
     private void secretClicked(boolean chk) {
-		System.gc();
+		
+		if(timeline!=null) timeline.stop();
         menuIcon8.setImage(new Image(getClass().getResource("images/main_secret_clicked.png").toString()));
         menuIcon8.setDisable(true);
         if (chk) {
@@ -334,7 +350,7 @@ public class MainController implements Initializable {
                     secretview.setOpacity(0);
                     KeyValue keyValue = new KeyValue(secretview.opacityProperty(), 1);
                     KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
-                    Timeline timeline = new Timeline();
+                    timeline = new Timeline();
                     timeline.getKeyFrames().add(keyFrame);
                     timeline.play();
                     if (secretCount > 1) {
@@ -361,7 +377,7 @@ public class MainController implements Initializable {
                     secretview.setOpacity(0);
                     KeyValue keyValue = new KeyValue(secretview.opacityProperty(), 1);
                     KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
-                    Timeline timeline = new Timeline();
+                    timeline = new Timeline();
                     timeline.getKeyFrames().add(keyFrame);
                     timeline.play();
                     if (secretCount > 1) {
@@ -379,14 +395,14 @@ public class MainController implements Initializable {
                     preindex2 = 7;
                 }
                 miniWindow = !miniWindow;
-
+				System.gc();
                 Label txt1 = (Label) secretview.lookup("#txt1");
                 Label txt2 = (Label) secretview.lookup("#txt2");
 
                 if (secretCount == 1) {
                     txt1.setText("기존 비밀번호");
                     txt2.setText("신규 비밀번호");
-
+					System.gc();
                 }
             } catch (IOException ex) {
 
