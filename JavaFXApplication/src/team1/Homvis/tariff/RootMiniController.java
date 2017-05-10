@@ -70,8 +70,8 @@ public class RootMiniController implements Initializable {
     public RootMiniController() {
         try {
             this.parent.add(FXMLLoader.load(getClass().getResource("gasMini.fxml")));
-            this.parent.add(FXMLLoader.load(getClass().getResource("electricMIni.fxml")));
-            this.parent.add(FXMLLoader.load(getClass().getResource("waterMIni.fxml")));
+            this.parent.add(FXMLLoader.load(getClass().getResource("electricMini.fxml")));
+            this.parent.add(FXMLLoader.load(getClass().getResource("waterMini.fxml")));
         } catch (IOException ex) {
             ex.printStackTrace();
         }
