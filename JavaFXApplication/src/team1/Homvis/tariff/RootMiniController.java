@@ -84,17 +84,17 @@ public class RootMiniController implements Initializable {
         translateX(num);
 
         if (num == 0) {
-                btnGasFee.setImage(new Image(getClass().getResource("tariffImg/elecNgas_gas_clicked.png").toString()));
+       btnGasFee.setImage(new Image(getClass().getResource("tariffImg/elecNgas_gas_clicked.png").toString()));
             btnElectricFee.setImage(new Image(getClass().getResource("tariffImg/elecNgas_lighticon_off.png").toString()));
-            btnWaterFee.setImage(new Image(getClass().getResource("tariffImg/boiler_hotwater_default.png").toString()));
+            btnWaterFee.setImage(new Image(getClass().getResource("tariffImg/elecNgas_water_default.png").toString()));
         } else if (num == 1) {
             btnGasFee.setImage(new Image(getClass().getResource("tariffImg/elecNgas_gas_default.png").toString()));
             btnElectricFee.setImage(new Image(getClass().getResource("tariffImg/elecNgas_lighticon_on.png").toString()));
-            btnWaterFee.setImage(new Image(getClass().getResource("tariffImg/boiler_hotwater_default.png").toString()));
+            btnWaterFee.setImage(new Image(getClass().getResource("tariffImg/elecNgas_water_default.png").toString()));
         } else if (num == 2) {
             btnGasFee.setImage(new Image(getClass().getResource("tariffImg/elecNgas_gas_default.png").toString()));
             btnElectricFee.setImage(new Image(getClass().getResource("tariffImg/elecNgas_lighticon_off.png").toString()));
-            btnWaterFee.setImage(new Image(getClass().getResource("tariffImg/boiler_hotwater_default.png").toString()));
+            btnWaterFee.setImage(new Image(getClass().getResource("tariffImg/elecNgas_water_clicked.png").toString()));
         }
 
     }
@@ -105,7 +105,7 @@ public class RootMiniController implements Initializable {
         } else if (num == 1) {
             btnElectricFee.setImage(new Image(getClass().getResource("tariffImg/elecNgas_lighticon_on.png").toString()));
         } else if (num == 2) {
-            btnWaterFee.setImage(new Image(getClass().getResource("tariffImg/boiler_hotwater_clicked.png").toString()));
+            btnWaterFee.setImage(new Image(getClass().getResource("tariffImg/elecNgas_water_clicked.png").toString()));
         }
     }
 

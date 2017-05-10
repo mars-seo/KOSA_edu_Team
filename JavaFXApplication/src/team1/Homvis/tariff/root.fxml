@@ -51,7 +51,7 @@
                         </ImageView>
                         <ImageView fx:id="btnWaterFee" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@tariffImg/boiler_hotwater_default.png" />
+                                <Image url="@tariffImg/elecNgas_water_default.png" />
                             </image>
                         </ImageView>
                     </children>
