@@ -10,11 +10,15 @@ and open the template in the editor.
 
 .text-field {
     -fx-font-size: 0.8em;
+		-fx-font-family:  "Serif";
+		
 }
 .table-view .column-header{
     -fx-font-size:0.8em;
+		-fx-font-family:  "Serif";
 }
 
 .table-cell {
     -fx-font-size: 0.8em;
+		-fx-font-family:  "Serif";
 }
