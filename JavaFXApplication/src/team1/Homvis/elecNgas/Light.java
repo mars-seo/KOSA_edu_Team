@@ -1,4 +1,4 @@
-package team1.Homvis.controlElectNGas;
+package team1.Homvis.elecNgas;
 
 public class Light {
     private String room;

@@ -1,14 +1,18 @@
 package team1.Homvis.secret;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -22,7 +26,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import static team1.Homvis.MainController.secretCount;
 import team1.Homvis.MainController;
-import static team1.Homvis.MainController.miniParent;
 import static team1.Homvis.MainController.stackPane;
 
 public class NewpasswordController implements Initializable {
@@ -290,29 +293,33 @@ public class NewpasswordController implements Initializable {
     }
 
     private void miniScreenOpen(int value) {
-        Parent miniView = miniParent.get(value);
-
-        if (!windowState) {
-            stackPane.getChildren().add(miniView);
-            miniView.setTranslateX(0);
-            miniView.setTranslateY(30);
-            miniView.setOpacity(0);
-            KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
-            KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
-            Timeline timeline = new Timeline();
-            timeline.getKeyFrames().add(keyFrame);
-            timeline.play();
-        } else {
-            stackPane.getChildren().add(miniView);
-            miniView.setTranslateX(400);
-            miniView.setTranslateY(0);
-            miniView.setOpacity(0);
-            KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
-            KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
-            Timeline timeline = new Timeline();
-            timeline.getKeyFrames().add(keyFrame);
-            timeline.play();
-        }
+		try {
+			Parent miniView = FXMLLoader.load(getClass().getResource(MainController.menuList.get(7)+"/"+MainController.menuList.get(7)+".fxml"));
+			
+			if (!windowState) {
+				stackPane.getChildren().add(miniView);
+				miniView.setTranslateX(0);
+				miniView.setTranslateY(30);
+				miniView.setOpacity(0);
+				KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
+				KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
+				Timeline timeline = new Timeline();
+				timeline.getKeyFrames().add(keyFrame);
+				timeline.play();
+			} else {
+				stackPane.getChildren().add(miniView);
+				miniView.setTranslateX(400);
+				miniView.setTranslateY(0);
+				miniView.setOpacity(0);
+				KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
+				KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
+				Timeline timeline = new Timeline();
+				timeline.getKeyFrames().add(keyFrame);
+				timeline.play();
+			}
+		} catch (IOException ex) {
+			
+		}
     }
 
     private void chkbox() {

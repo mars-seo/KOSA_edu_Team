@@ -5,6 +5,7 @@
  */
 package team1.Homvis.internet;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,7 +18,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -287,8 +290,13 @@ public class MiniInternetController implements Initializable {
     }
 
     private void maximizeScreen() {
-        MainController.stackPane.getChildren().add(MainController.parent.get(4));
-        MainController.stackPane.getChildren().remove(internetRoot);
+		try {
+			Parent view = FXMLLoader.load(getClass().getResource(MainController.menuList.get(4)+"/"+MainController.menuList.get(4)+".fxml"));
+			MainController.stackPane.getChildren().add(view);
+			MainController.stackPane.getChildren().remove(internetRoot);
+		} catch (IOException ex) {
+			
+		}
     }
 
     public static ObservableList<Bookmark> getBookmarks() {

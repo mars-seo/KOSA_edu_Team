@@ -1,4 +1,4 @@
-package team1.Homvis.controlElectNGas;
+package team1.Homvis.elecNgas;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,7 +20,7 @@ import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 import team1.Homvis.MainController;
 
-public class ControlController implements Initializable {
+public class ControlMiniController implements Initializable {
 
     @FXML
     private ImageView btnLight;
@@ -36,15 +36,17 @@ public class ControlController implements Initializable {
     @FXML
     private ImageView exit;
     @FXML
-    private AnchorPane controlRoot;
-
-    public ControlController() {
+    private AnchorPane miniControlRoot;
+    @FXML
+    private ImageView fullscreen;
+	
+    public ControlMiniController() {
         try {
-            this.parent.add(FXMLLoader.load(getClass().getResource("light.fxml")));
+            this.parent.add(FXMLLoader.load(getClass().getResource("lightMini.fxml")));
 			System.gc();
-            this.parent.add(FXMLLoader.load(getClass().getResource("gasCont.fxml")));
+            this.parent.add(FXMLLoader.load(getClass().getResource("gasContMini.fxml")));
 			System.gc();
-            this.parent.add(FXMLLoader.load(getClass().getResource("security.fxml")));
+            this.parent.add(FXMLLoader.load(getClass().getResource("securityMini.fxml")));
 			System.gc();
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -63,8 +65,10 @@ public class ControlController implements Initializable {
         btnGas.setOnMousePressed(e -> handleBtnPressed(e, 1));
         btnDoor.setOnMousePressed(e -> handleBtnPressed(e, 2));
         exit.setOnMousePressed(e -> handleBtnPressed(e, 3));
+        fullscreen.setOnMousePressed(e -> handleBtnPressed(e, 4));
 
         exit.setOnMouseClicked(e -> exit());
+        fullscreen.setOnMouseClicked(e -> fullscreen());
     }
 
     private void handleBtn(MouseEvent e, int num) {
@@ -77,16 +81,19 @@ public class ControlController implements Initializable {
             btnGas.setImage(new Image(getClass().getResource("controlImg/elecNgas_gas_default.png").toString()));
             btnDoor.setImage(new Image(getClass().getResource("controlImg/elecNgas_security_default.png").toString()));
             exit.setImage(new Image(getClass().getResource("controlImg/exit_default.png").toString()));
+            fullscreen.setImage(new Image(getClass().getResource("controlImg/fullscreen.png").toString()));
         } else if (num == 1) {
             btnLight.setImage(new Image(getClass().getResource("controlImg/elecNgas_light_default.png").toString()));
             btnGas.setImage(new Image(getClass().getResource("controlImg/elecNgas_gas_clicked.png").toString()));
             btnDoor.setImage(new Image(getClass().getResource("controlImg/elecNgas_security_default.png").toString()));
             exit.setImage(new Image(getClass().getResource("controlImg/exit_default.png").toString()));
+            fullscreen.setImage(new Image(getClass().getResource("controlImg/fullscreen.png").toString()));
         } else if (num == 2) {
             btnLight.setImage(new Image(getClass().getResource("controlImg/elecNgas_light_default.png").toString()));
             btnGas.setImage(new Image(getClass().getResource("controlImg/elecNgas_gas_default.png").toString()));
             btnDoor.setImage(new Image(getClass().getResource("controlImg/elecNgas_security_clicked.png").toString()));
             exit.setImage(new Image(getClass().getResource("controlImg/exit_default.png").toString()));
+            fullscreen.setImage(new Image(getClass().getResource("controlImg/fullscreen.png").toString()));
         }
     }
 
@@ -108,12 +115,29 @@ public class ControlController implements Initializable {
             btnDoor.setImage(new Image(getClass().getResource("controlImg/elecNgas_security_pressed.png").toString()));
         } else if (num == 3) {
             exit.setImage(new Image(getClass().getResource("controlImg/exit_clicked.png").toString()));
+        } else if (num == 4) {
+            fullscreen.setImage(new Image(getClass().getResource("controlImg/fullscreen_clicked.png").toString()));
         }
     }
 
     private void exit() {
         exit.setImage(new Image(getClass().getResource("controlImg/exit_default.png").toString()));
+        fullscreen.setImage(new Image(getClass().getResource("controlImg/fullscreen.png").toString()));
         MainController.menuicon[2].setImage(new Image(getClass().getResource("controlImg/main_elecNgas_default.png").toString()));
-        MainController.stackPane.getChildren().remove(controlRoot);
+        MainController.stackPane.getChildren().remove(miniControlRoot);
+        MainController.menuicon[2].setDisable(false);
     }
+
+    private void fullscreen() {
+        exit.setImage(new Image(getClass().getResource("controlImg/exit_default.png").toString()));
+        fullscreen.setImage(new Image(getClass().getResource("controlImg/fullscreen.png").toString()));
+		try {
+			Parent view = FXMLLoader.load(getClass().getResource(MainController.menuList.get(2)+"/"+MainController.menuList.get(2)+".fxml"));
+			MainController.stackPane.getChildren().add(view);
+			MainController.stackPane.getChildren().remove(miniControlRoot);
+		} catch (IOException ex) {
+			
+		}
+    }
+
 }

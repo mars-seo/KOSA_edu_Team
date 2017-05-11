@@ -4,12 +4,15 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Slider;
@@ -25,6 +28,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Popup;
 import javafx.util.Duration;
 import team1.Homvis.MainController;
+
 
 
 public class MiniMediaController implements Initializable {
@@ -382,12 +386,13 @@ public class MiniMediaController implements Initializable {
     }
 
 	private void maximizeScreen() {
-		 MainController.stackPane.getChildren().add(MainController.parent.get(5));
-		 maximize.setImage(new Image(getClass().getResource("playerImg/expension_default.png").toString()));
-		 if(!playList.getMediaFile().isEmpty() || !playList.getFileName().isEmpty()){
-			 playList.setCurrentPlay(mediaPlayer);
-			 mediaPlayer.stop();
-		 }
-	}
+		try {
+			Parent view = FXMLLoader.load(getClass().getResource(MainController.menuList.get(6)+"/"+MainController.menuList.get(6)+".fxml"));
+			MainController.stackPane.getChildren().add(view);
+			MainController.stackPane.getChildren().remove(miniMediaRoot);
+		} catch (IOException ex) {
+			
+		}
+    }
 	
 }

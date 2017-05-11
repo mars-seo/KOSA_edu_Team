@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -88,7 +89,12 @@ public class MiniInterPhoneController implements Initializable {
 	}
 
 	private void maximizeScreen() {
-		MainController.stackPane.getChildren().add(MainController.parent.get(3));
-		maximize.setImage(new Image(getClass().getResource("interphoneImg/interphone_expension_default.png").toString()));
-	}
+		try {
+			Parent view = FXMLLoader.load(getClass().getResource(MainController.menuList.get(3)+"/"+MainController.menuList.get(3)+".fxml"));
+			MainController.stackPane.getChildren().add(view);
+			MainController.stackPane.getChildren().remove(miniInterphoneRoot);
+		} catch (IOException ex) {
+			
+		}
+    }
 }

@@ -5,6 +5,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -124,7 +126,12 @@ public class RootMiniController implements Initializable {
     }
 
     private void maximizeScreen() {
-        MainController.stackPane.getChildren().add(MainController.parent.get(6));
-        MainController.stackPane.getChildren().remove(tariffRoot);
+		try {
+			Parent view = FXMLLoader.load(getClass().getResource(MainController.menuList.get(6)+"/"+MainController.menuList.get(6)+".fxml"));
+			MainController.stackPane.getChildren().add(view);
+			MainController.stackPane.getChildren().remove(tariffRoot);
+		} catch (IOException ex) {
+			Logger.getLogger(RootMiniController.class.getName()).log(Level.SEVERE, null, ex);
+		}
     }
 }

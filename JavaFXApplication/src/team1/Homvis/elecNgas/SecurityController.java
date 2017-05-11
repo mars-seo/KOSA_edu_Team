@@ -1,4 +1,4 @@
-package team1.Homvis.controlElectNGas;
+package team1.Homvis.elecNgas;
 
 import java.net.URL;
 import java.util.ResourceBundle;
