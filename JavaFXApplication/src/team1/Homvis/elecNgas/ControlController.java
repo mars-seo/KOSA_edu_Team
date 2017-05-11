@@ -115,5 +115,6 @@ public class ControlController implements Initializable {
         exit.setImage(new Image(getClass().getResource("controlImg/exit_default.png").toString()));
         MainController.menuicon[2].setImage(new Image(getClass().getResource("controlImg/main_elecNgas_default.png").toString()));
         MainController.stackPane.getChildren().remove(controlRoot);
+		MainController.menuicon[2].setDisable(false);
     }
 }
