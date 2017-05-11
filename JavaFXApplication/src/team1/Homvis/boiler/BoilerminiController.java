@@ -185,14 +185,13 @@ public class BoilerminiController implements Initializable {
     public void fullscreen() {
         try {
             if(MainController.veiw[1]==null) MainController.veiw[1] = FXMLLoader.load(getClass().getResource(MainController.menuList.get(1)+".fxml"));
-			MainController.stackPane.getChildren().add(MainController.veiw[5]);
+			MainController.stackPane.getChildren().add(MainController.veiw[1]);
             MainController.veiw[1].setTranslateY(0);
             MainController.veiw[1].setTranslateX(0);
 
         } catch (IOException ex) {
         }
 
-        // MainController.stackPane.getChildren().add(MainController.parent.get(1));
         MainController.stackPane.getChildren().remove(boilerminiRoot);
     }
 
