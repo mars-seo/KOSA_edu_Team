@@ -183,13 +183,11 @@ public class BoilerminiController implements Initializable {
     }
 
     public void fullscreen() {
-        Parent boilerview;
         try {
-            boilerview = FXMLLoader.load(getClass().getResource("boiler.fxml"));
-boilers=boilerview;
-            MainController.stackPane.getChildren().add(boilerview);
-            boilerview.setTranslateY(0);
-            boilerview.setTranslateX(0);
+            if(MainController.veiw[1]==null) MainController.veiw[1] = FXMLLoader.load(getClass().getResource(MainController.menuList.get(1)+".fxml"));
+			MainController.stackPane.getChildren().add(MainController.veiw[5]);
+            MainController.veiw[1].setTranslateY(0);
+            MainController.veiw[1].setTranslateX(0);
 
         } catch (IOException ex) {
         }

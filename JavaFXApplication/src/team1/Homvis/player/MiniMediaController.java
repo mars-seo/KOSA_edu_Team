@@ -387,8 +387,8 @@ public class MiniMediaController implements Initializable {
 
 	private void maximizeScreen() {
 		try {
-			Parent view = FXMLLoader.load(getClass().getResource(MainController.menuList.get(5)+".fxml"));
-			MainController.stackPane.getChildren().add(view);
+			if(MainController.veiw[5]==null) MainController.veiw[5] = FXMLLoader.load(getClass().getResource(MainController.menuList.get(5)+".fxml"));
+			MainController.stackPane.getChildren().add(MainController.veiw[5]);
 			MainController.stackPane.getChildren().remove(miniMediaRoot);
 		} catch (IOException ex) {
 			

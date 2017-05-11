@@ -133,8 +133,8 @@ public class ControlMiniController implements Initializable {
         exit.setImage(new Image(getClass().getResource("controlImg/exit_default.png").toString()));
         fullscreen.setImage(new Image(getClass().getResource("controlImg/fullscreen.png").toString()));
 		try {
-			Parent view = FXMLLoader.load(getClass().getResource(MainController.menuList.get(2)+".fxml"));
-			MainController.stackPane.getChildren().add(view);
+			if(MainController.veiw[2]==null) MainController.veiw[2] = FXMLLoader.load(getClass().getResource(MainController.menuList.get(2)+".fxml"));
+			MainController.stackPane.getChildren().add(MainController.veiw[2]);
 			MainController.stackPane.getChildren().remove(miniControlRoot);
 		} catch (IOException ex) {
 			

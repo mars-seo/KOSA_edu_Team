@@ -291,8 +291,8 @@ public class MiniInternetController implements Initializable {
 
     private void maximizeScreen() {
 		try {
-			Parent view = FXMLLoader.load(getClass().getResource(MainController.menuList.get(4)+".fxml"));
-			MainController.stackPane.getChildren().add(view);
+			if(MainController.veiw[4]==null) MainController.veiw[4] = FXMLLoader.load(getClass().getResource(MainController.menuList.get(4)+".fxml"));
+			MainController.stackPane.getChildren().add(MainController.veiw[4]);
 			MainController.stackPane.getChildren().remove(internetRoot);
 		} catch (IOException ex) {
 			

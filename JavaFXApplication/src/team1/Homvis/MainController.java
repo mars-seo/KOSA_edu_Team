@@ -67,10 +67,11 @@ public class MainController implements Initializable {
 	public static boolean menu8PasswordChk;
 
 	public static List<String> menuList = new ArrayList<>();
-
+public static Parent veiw[] = new Parent[7];
 	
 	private List<Parent> miniParent = new ArrayList<>();
 	private Parent miniVeiw[] = new Parent[7];
+	
 
 	public static boolean miniWindow;
 	private Parent preIndex1;

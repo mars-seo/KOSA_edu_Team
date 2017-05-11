@@ -127,8 +127,8 @@ public class RootMiniController implements Initializable {
 
     private void maximizeScreen() {
 		try {
-			Parent view = FXMLLoader.load(getClass().getResource(MainController.menuList.get(6)+".fxml"));
-			MainController.stackPane.getChildren().add(view);
+			if(MainController.veiw[6]==null) MainController.veiw[6] = FXMLLoader.load(getClass().getResource(MainController.menuList.get(6)+".fxml"));
+			MainController.stackPane.getChildren().add(MainController.veiw[6]);
 			MainController.stackPane.getChildren().remove(tariffRoot);
 		} catch (IOException ex) {
 			Logger.getLogger(RootMiniController.class.getName()).log(Level.SEVERE, null, ex);
