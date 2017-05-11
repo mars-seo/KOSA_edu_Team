@@ -12,8 +12,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="tariffRoot" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="240.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.tariff.RootMiniController">
-    <children>
+
+<StackPane fx:id="tariffRoot" prefHeight="240.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.tariff.RootMiniController">
+   <children>
         <ImageView fitHeight="240.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@tariffImg/boiler_background.png" />
@@ -66,5 +67,5 @@
                 <StackPane fx:id="changeableStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="300.0" BorderPane.alignment="CENTER" />
             </center>
         </BorderPane>
-    </children>
-</AnchorPane>
+   </children>
+</StackPane>
