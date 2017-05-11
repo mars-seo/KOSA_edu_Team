@@ -255,12 +255,13 @@ public class MainController implements Initializable {
 						}
 						miniView.setTranslateX(0);
 						miniView.setTranslateY(30);
-						miniView.setOpacity(0);
+						/*miniView.setOpacity(0);
 						KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
 						KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
 						timeline = new Timeline();
 						timeline.getKeyFrames().add(keyFrame);
 						timeline.play();
+						*/
 						preIndex1 = miniView;
 						preindex1 = index;
 					} else {
@@ -271,12 +272,13 @@ public class MainController implements Initializable {
 						}
 						miniView.setTranslateX(400);
 						miniView.setTranslateY(30);
-						miniView.setOpacity(0);
+						/*miniView.setOpacity(0);
 						KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
 						KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
 						timeline = new Timeline();
 						timeline.getKeyFrames().add(keyFrame);
 						timeline.play();
+						*/
 						preIndex2 = miniView;
 						preindex2 = index;
 					}
@@ -323,12 +325,14 @@ public class MainController implements Initializable {
 					}
 					secretview.setTranslateX(0);
 					secretview.setTranslateY(30);
+					/*
 					secretview.setOpacity(0);
 					KeyValue keyValue = new KeyValue(secretview.opacityProperty(), 1);
 					KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
 					timeline = new Timeline();
 					timeline.getKeyFrames().add(keyFrame);
 					timeline.play();
+					*/
 					if (secretCount > 1) {
 						VBox chkboxview = (VBox) secretview.lookup("#chkboxview");
 						Label txt1 = (Label) secretview.lookup("#txt1");
@@ -350,12 +354,14 @@ public class MainController implements Initializable {
 					}
 					secretview.setTranslateX(400);
 					secretview.setTranslateY(30);
+					/*
 					secretview.setOpacity(0);
 					KeyValue keyValue = new KeyValue(secretview.opacityProperty(), 1);
 					KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
 					timeline = new Timeline();
 					timeline.getKeyFrames().add(keyFrame);
 					timeline.play();
+					*/
 					if (secretCount > 1) {
 						VBox chkboxview = (VBox) secretview.lookup("#chkboxview");
 						Label txt1 = (Label) secretview.lookup("#txt1");
