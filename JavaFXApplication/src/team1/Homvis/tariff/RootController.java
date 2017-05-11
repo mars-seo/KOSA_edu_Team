@@ -109,7 +109,7 @@ public class RootController implements Initializable {
         } else if (num == 1) {
             btnElectricFee.setImage(new Image(getClass().getResource("tariffImg/elecNgas_lighticon_on.png").toString()));
         } else if (num == 2) {
-            btnWaterFee.setImage(new Image(getClass().getResource("tariffImg/boiler_hotwater_clicked.png").toString()));
+            btnWaterFee.setImage(new Image(getClass().getResource("tariffImg/elecNgas_water_clicked.png").toString()));
         }
     }
 
