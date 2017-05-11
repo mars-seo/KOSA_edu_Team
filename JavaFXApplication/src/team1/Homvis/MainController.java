@@ -70,6 +70,7 @@ public class MainController implements Initializable {
 
 	
 	private List<Parent> miniParent = new ArrayList<>();
+	private Parent miniVeiw[] = new Parent[7];
 
 	public static boolean miniWindow;
 	private Parent preIndex1;
@@ -243,9 +244,8 @@ public class MainController implements Initializable {
 		} else {
 			try {
 				if (!chk) {
-
-					Parent miniView = FXMLLoader.load(getClass().getResource(menuList.get(index)+"/Mini"+menuList.get(index)+".fxml"));
-					mainPane.getChildren().add(miniView);
+					 if(miniVeiw[index]==null) miniVeiw[index] = FXMLLoader.load(getClass().getResource(menuList.get(index)+"/Mini"+menuList.get(index)+".fxml"));
+					mainPane.getChildren().add(miniVeiw[index]);
 					if (!miniWindow) {
 
 						if (preIndex1 != null) {
@@ -253,8 +253,8 @@ public class MainController implements Initializable {
 							menuicon[preindex1].setImage(new Image(getClass().getResource("images/main_" + menuList.get(preindex1) + "_default.png").toString()));
 							menuicon[preindex1].setDisable(false);
 						}
-						miniView.setTranslateX(0);
-						miniView.setTranslateY(30);
+						miniVeiw[index].setTranslateX(0);
+						miniVeiw[index].setTranslateY(30);
 						/*miniView.setOpacity(0);
 						KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
 						KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
@@ -262,7 +262,7 @@ public class MainController implements Initializable {
 						timeline.getKeyFrames().add(keyFrame);
 						timeline.play();
 						*/
-						preIndex1 = miniView;
+						preIndex1 = miniVeiw[index];
 						preindex1 = index;
 					} else {
 						if (preIndex2 != null) {
@@ -270,8 +270,8 @@ public class MainController implements Initializable {
 							menuicon[preindex2].setImage(new Image(getClass().getResource("images/main_" + menuList.get(preindex2) + "_default.png").toString()));
 							menuicon[preindex2].setDisable(false);
 						}
-						miniView.setTranslateX(400);
-						miniView.setTranslateY(30);
+						miniVeiw[index].setTranslateX(400);
+						miniVeiw[index].setTranslateY(30);
 						/*miniView.setOpacity(0);
 						KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
 						KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
@@ -279,11 +279,11 @@ public class MainController implements Initializable {
 						timeline.getKeyFrames().add(keyFrame);
 						timeline.play();
 						*/
-						preIndex2 = miniView;
+						preIndex2 = miniVeiw[index];
 						preindex2 = index;
 					}
 					miniWindow = !miniWindow;
-					miniParent.add(miniView);
+					miniParent.add(miniVeiw[index]);
 					System.gc();
 
 				} else {
