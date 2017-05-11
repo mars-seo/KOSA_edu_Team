@@ -378,6 +378,7 @@ public class MediaController implements Initializable {
 			 mediaPlayer.stop();
 		 }
 		exit.setImage(new Image(getClass().getResource("playerImg/exit_default.png").toString()));
+		MainController.menuicon[5].setDisable(false);
     }
 	
 //	//선택이 되기위해 생성한 클래스

@@ -69,6 +69,7 @@ public class InterPhoneController implements Initializable {
 		MainController.menuicon[3].setImage(new Image(getClass().getResource("interphoneImg/main_interphone_default.png").toString()));
         MainController.stackPane.getChildren().remove(interphoneRoot);
 		closeBtn.setImage(new Image(getClass().getResource("interphoneImg/interphone_exit_default.png").toString()));
+		MainController.menuicon[3].setDisable(false);
     }
 
 	private void changeLocation() {
