@@ -5,19 +5,18 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import javafx.util.Duration;
 import team1.Homvis.MainController;
 
 public class ControlMiniController implements Initializable {
@@ -30,32 +29,44 @@ public class ControlMiniController implements Initializable {
     private ImageView btnDoor;
     @FXML
     private StackPane stackPane;
-
-    private static StackPane rootPane;
-    private List<Parent> parent = new ArrayList<>();
     @FXML
     private ImageView exit;
     @FXML
     private AnchorPane miniControlRoot;
     @FXML
     private ImageView fullscreen;
-	
-    public ControlMiniController() {
-        try {
-            this.parent.add(FXMLLoader.load(getClass().getResource("lightMini.fxml")));
-			System.gc();
-            this.parent.add(FXMLLoader.load(getClass().getResource("gasContMini.fxml")));
-			System.gc();
-            this.parent.add(FXMLLoader.load(getClass().getResource("securityMini.fxml")));
-			System.gc();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
+
+    List<String> fxmlList = new ArrayList<>();
+    Parent[] parent = new Parent[3];
+
+    // static 이 됨으로 두 파일 모두에 관여함
+    public static boolean securityState = true;
+    public static Label lblSecurityState = new Label("");
+    public static boolean gasState = true;
+    public static Label lblGasState = new Label("");
+    public static ObservableList<Light> list = FXCollections.observableArrayList();
+    public static ObservableList<Label> labelList = FXCollections.observableArrayList();
+    public static Label[] lblRoom = new Label[9];
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        rootPane = stackPane;
+        list.add(new Light("boiler", false));
+        list.add(new Light("utility", false));
+        list.add(new Light("room1", false));
+        list.add(new Light("room2", false));
+        list.add(new Light("room3", false));
+        list.add(new Light("bath", false));
+        list.add(new Light("kitchen", false));
+        list.add(new Light("living", false));
+        list.add(new Light("entrance", false));
+
+        for (int i = 0; i < lblRoom.length; i++) {
+            lblRoom[i] = new Label("");
+        }
+
+        fxmlList.add("lightMini.fxml");
+        fxmlList.add("gasContMini.fxml");
+        fxmlList.add("securityMini.fxml");
 
         btnLight.setOnMouseClicked(e -> handleBtn(e, 0));
         btnGas.setOnMouseClicked(e -> handleBtn(e, 1));
@@ -72,9 +83,16 @@ public class ControlMiniController implements Initializable {
     }
 
     private void handleBtn(MouseEvent e, int num) {
-        rootPane.getChildren().clear();
-        stackPane.getChildren().add(parent.get(num));
-//        translateX(num);
+        System.out.println("stackPane.getChildren().size(): " + stackPane.getChildren().size());
+        System.out.println("MainController.stackPane.getChildren().size(): " + MainController.stackPane.getChildren().size());
+        try {
+            stackPane.getChildren().clear();
+            parent[num] = FXMLLoader.load(getClass().getResource(fxmlList.get(num)));
+            stackPane.getChildren().add(parent[num]);
+            System.gc();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
 
         if (num == 0) {
             btnLight.setImage(new Image(getClass().getResource("controlImg/elecNgas_light_clicked.png").toString()));
@@ -97,15 +115,6 @@ public class ControlMiniController implements Initializable {
         }
     }
 
-    private void translateX(int num) {
-        parent.get(num).setTranslateX(800);
-        KeyValue keyValue = new KeyValue(parent.get(num).translateXProperty(), 0);
-        KeyFrame keyFrame = new KeyFrame(Duration.millis(100), keyValue);
-        Timeline timeline = new Timeline();
-        timeline.getKeyFrames().add(keyFrame);
-        timeline.play();
-    }
-
     private void handleBtnPressed(MouseEvent e, int num) {
         if (num == 0) {
             btnLight.setImage(new Image(getClass().getResource("controlImg/elecNgas_light_pressed.png").toString()));
@@ -126,19 +135,21 @@ public class ControlMiniController implements Initializable {
         MainController.menuicon[2].setImage(new Image(getClass().getResource("controlImg/main_elecNgas_default.png").toString()));
         MainController.stackPane.getChildren().remove(miniControlRoot);
         MainController.menuicon[2].setDisable(false);
-		System.out.println(MainController.menuList.get(2)+"/"+MainController.menuList.get(2)+".fxml");
+        System.out.println(MainController.menuList.get(2) + "/" + MainController.menuList.get(2) + ".fxml");
     }
 
     private void fullscreen() {
         exit.setImage(new Image(getClass().getResource("controlImg/exit_default.png").toString()));
         fullscreen.setImage(new Image(getClass().getResource("controlImg/fullscreen.png").toString()));
-		try {
-			if(MainController.veiw[2]==null) MainController.veiw[2] = FXMLLoader.load(getClass().getResource(MainController.menuList.get(2)+".fxml"));
-			MainController.stackPane.getChildren().add(MainController.veiw[2]);
-			MainController.stackPane.getChildren().remove(miniControlRoot);
-		} catch (IOException ex) {
-			
-		}
+        try {
+            if (MainController.veiw[2] == null) {
+                MainController.veiw[2] = FXMLLoader.load(getClass().getResource(MainController.menuList.get(2) + ".fxml"));
+            }
+            MainController.stackPane.getChildren().add(MainController.veiw[2]);
+            MainController.stackPane.getChildren().remove(miniControlRoot);
+        } catch (IOException ex) {
+
+        }
     }
 
 }

@@ -8,7 +8,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -57,39 +56,16 @@ public class LightController implements Initializable {
     @FXML
     private ImageView imgRoom9;
 
-    public static Label lblRoom1 = new Label("");
-    public static Label lblRoom2 = new Label("");
-    public static Label lblRoom3 = new Label("");
-    public static Label lblRoom4 = new Label("");
-    public static Label lblRoom5 = new Label("");
-    public static Label lblRoom6 = new Label("");
-    public static Label lblRoom7 = new Label("");
-    public static Label lblRoom8 = new Label("");
-    public static Label lblRoom9 = new Label("");
-
-    private ObservableList<Light> list;
     public ObservableList<BorderPane> borderList;
     private ObservableList<ImageView> imageViewList;
-    public static ObservableList<Label> labelList;
+
     private String bulbOn = "controlImg/elecNgas_lighticon_on.png";
     private String bulbOff = "controlImg/elecNgas_lighticon_off.png";
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        list = FXCollections.observableArrayList();
         borderList = FXCollections.observableArrayList();
         imageViewList = FXCollections.observableArrayList();
-        labelList = FXCollections.observableArrayList();
-
-        list.add(new Light("boiler", false));
-        list.add(new Light("utility", false));
-        list.add(new Light("room1", false));
-        list.add(new Light("room2", false));
-        list.add(new Light("room3", false));
-        list.add(new Light("bath", false));
-        list.add(new Light("kitchen", false));
-        list.add(new Light("living", false));
-        list.add(new Light("entrance", false));
 
         borderList.add(borderRoom1);
         borderList.add(borderRoom2);
@@ -111,29 +87,23 @@ public class LightController implements Initializable {
         imageViewList.add(imgRoom8);
         imageViewList.add(imgRoom9);
 
-        labelList.add(lblRoom1);
-        labelList.add(lblRoom2);
-        labelList.add(lblRoom3);
-        labelList.add(lblRoom4);
-        labelList.add(lblRoom5);
-        labelList.add(lblRoom6);
-        labelList.add(lblRoom7);
-        labelList.add(lblRoom8);
-        labelList.add(lblRoom9);
+        for (int i = 0; i < ControlMiniController.lblRoom.length; i++) {
+            ControlMiniController.labelList.add(ControlMiniController.lblRoom[i]);
+        }
 
         // 각 공간의 조명 터치
         for (int i = 0; i < borderList.size(); i++) {
             int num = i;
             borderList.get(i).setOnMouseClicked(e -> handleRoom(e, num));
-            labelList.get(i).textProperty().addListener(new ChangeListener<String>() {
+            ControlMiniController.labelList.get(i).textProperty().addListener(new ChangeListener<String>() {
                 @Override
                 public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                     if (newValue.equals("on")) {
                         imageViewList.get(num).setImage(new Image(getClass().getResource(bulbOn).toString()));
-                        list.get(num).setOnOff(true);
+                        ControlMiniController.list.get(num).setOnOff(true);
                     } else {
                         imageViewList.get(num).setImage(new Image(getClass().getResource(bulbOff).toString()));
-                        list.get(num).setOnOff(false);
+                        ControlMiniController.list.get(num).setOnOff(false);
                     }
                     System.out.println(num + ": " + newValue);
                 }
@@ -142,28 +112,41 @@ public class LightController implements Initializable {
 
         imgLightOn.setOnMouseClicked(e -> handleAllOn(e));
         imgLightOff.setOnMouseClicked(e -> handleAllOff(e));
-
+        handleRoom();
     }
 
     // 각 공간의 조명 on/off
     private void handleRoom(MouseEvent e, int num) {
-        if (list.get(num).getOnOff() == false) {
+        if (!ControlMiniController.list.get(num).getOnOff()) {
             imageViewList.get(num).setImage(new Image(getClass().getResource(bulbOn).toString()));
-            list.get(num).setOnOff(true);
-            labelList.get(num).setText("on");
-        } else if (list.get(num).getOnOff() == true) {
+            ControlMiniController.list.get(num).setOnOff(true);
+            ControlMiniController.labelList.get(num).setText("on");
+        } else if (ControlMiniController.list.get(num).getOnOff()) {
             imageViewList.get(num).setImage(new Image(getClass().getResource(bulbOff).toString()));
-            list.get(num).setOnOff(false);
-            labelList.get(num).setText("off");
+            ControlMiniController.list.get(num).setOnOff(false);
+            ControlMiniController.labelList.get(num).setText("off");
         }
+    }
+
+    private void handleRoom() {
+        for (int i = 0; i < ControlMiniController.list.size(); i++) {
+            if (ControlMiniController.list.get(i).getOnOff()) {
+                imageViewList.get(i).setImage(new Image(getClass().getResource(bulbOn).toString()));
+                ControlMiniController.list.get(i).setOnOff(true);
+            } else if (!ControlMiniController.list.get(i).getOnOff()) {
+                imageViewList.get(i).setImage(new Image(getClass().getResource(bulbOff).toString()));
+                ControlMiniController.list.get(i).setOnOff(false);
+            }
+        }
+
     }
 
     // 전체 조명 on
     private void handleAllOn(MouseEvent e) {
         for (int i = 0; i < imageViewList.size(); i++) {
             imageViewList.get(i).setImage(new Image(getClass().getResource(bulbOn).toString()));
-            list.get(i).setOnOff(true);
-            labelList.get(i).setText("on");
+            ControlMiniController.list.get(i).setOnOff(true);
+            ControlMiniController.labelList.get(i).setText("on");
         }
     }
 
@@ -171,8 +154,8 @@ public class LightController implements Initializable {
     private void handleAllOff(MouseEvent e) {
         for (int i = 0; i < imageViewList.size(); i++) {
             imageViewList.get(i).setImage(new Image(getClass().getResource(bulbOff).toString()));
-            list.get(i).setOnOff(false);
-            labelList.get(i).setText("off");
+            ControlMiniController.list.get(i).setOnOff(false);
+            ControlMiniController.labelList.get(i).setText("off");
         }
     }
 }
