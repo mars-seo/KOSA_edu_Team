@@ -126,13 +126,14 @@ public class ControlMiniController implements Initializable {
         MainController.menuicon[2].setImage(new Image(getClass().getResource("controlImg/main_elecNgas_default.png").toString()));
         MainController.stackPane.getChildren().remove(miniControlRoot);
         MainController.menuicon[2].setDisable(false);
+		System.out.println(MainController.menuList.get(2)+"/"+MainController.menuList.get(2)+".fxml");
     }
 
     private void fullscreen() {
         exit.setImage(new Image(getClass().getResource("controlImg/exit_default.png").toString()));
         fullscreen.setImage(new Image(getClass().getResource("controlImg/fullscreen.png").toString()));
 		try {
-			Parent view = FXMLLoader.load(getClass().getResource(MainController.menuList.get(2)+"/"+MainController.menuList.get(2)+".fxml"));
+			Parent view = FXMLLoader.load(getClass().getResource(MainController.menuList.get(2)+".fxml"));
 			MainController.stackPane.getChildren().add(view);
 			MainController.stackPane.getChildren().remove(miniControlRoot);
 		} catch (IOException ex) {
