@@ -90,7 +90,7 @@ public class MiniInterPhoneController implements Initializable {
 
 	private void maximizeScreen() {
 		try {
-			Parent view = FXMLLoader.load(getClass().getResource(MainController.menuList.get(3)+"/"+MainController.menuList.get(3)+".fxml"));
+			Parent view = FXMLLoader.load(getClass().getResource(MainController.menuList.get(3)+".fxml"));
 			MainController.stackPane.getChildren().add(view);
 			MainController.stackPane.getChildren().remove(miniInterphoneRoot);
 		} catch (IOException ex) {
