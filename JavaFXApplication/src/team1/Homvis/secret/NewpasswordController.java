@@ -294,7 +294,7 @@ public class NewpasswordController implements Initializable {
 
     private void miniScreenOpen(int value) {
 		try {
-			Parent miniView = FXMLLoader.load(getClass().getResource(MainController.menuList.get(7)+"/"+MainController.menuList.get(7)+".fxml"));
+			Parent miniView = FXMLLoader.load(getClass().getResource(MainController.menuList.get(value)+"/Mini"+MainController.menuList.get(value)+".fxml"));
 			
 			if (!windowState) {
 				stackPane.getChildren().add(miniView);
