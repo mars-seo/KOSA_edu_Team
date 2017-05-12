@@ -114,17 +114,21 @@ public class MiniMediaController implements Initializable {
 	private void handleAddList(MouseEvent e) {
 		
 		//파일을 확장자 필터로 걸러서 받고 객체로 받기
-		FileChooser fileChooser = new FileChooser();
-		fileChooser.getExtensionFilters().addAll(
-			new FileChooser.ExtensionFilter("media files", "*.mp4","*.avi","*.mkv","*.m4v","*.wav","*.mp3","*.wmv")
-		);
-		File mediaFile = fileChooser.showOpenDialog(((ImageView)e.getSource()).getScene().getWindow());
-		if(mediaFile!=null){
+//		FileChooser fileChooser = new FileChooser();
+//		fileChooser.getExtensionFilters().addAll(
+//			new FileChooser.ExtensionFilter("media files", "*.mp4","*.avi","*.mkv","*.m4v","*.wav","*.mp3","*.wmv")
+//		);
+//		File mediaFile = fileChooser.showOpenDialog(((ImageView)e.getSource()).getScene().getWindow());
+		File mediaFile[] = new File[3];
+		for(int i=0;i<3;i++){
+		mediaFile[i] = playList.getMediaFile().get(i);
+//		if(mediaFile!=null){
 			//받은 파일을 파일 리스트에 넣기
-			MiniMediaController.playList.getMediaFile().add(mediaFile);
+//			MiniMediaController.playList.getMediaFile().add(mediaFile);
 			//미디어의 이름을 얻어 리스트뷰에 넣어줌
-			String mediaName = mediaFile.getName();
+			String mediaName = mediaFile[i].getName();
 			MiniMediaController.playList.getFileName().add(mediaName);
+		}
 			mediaList.setItems(MiniMediaController.playList.getFileName());
 			if (MiniMediaController.playList.getFileName().size() < 2) {
 				handleMedia(MiniMediaController.playList.getMediaFile(), index);
@@ -132,7 +136,7 @@ public class MiniMediaController implements Initializable {
 			}
 			index += 1;
 			uploadBtn.setImage(new Image(getClass().getResource("playerImg/player_load_default.png").toString()));
-		}else fileEmptyCheck(e);
+//		}else fileEmptyCheck(e);
 		
 	}
 

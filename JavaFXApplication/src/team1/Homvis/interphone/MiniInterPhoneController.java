@@ -33,13 +33,15 @@ public class MiniInterPhoneController implements Initializable {
 	@FXML
 	private ImageView location;
 	
-	private boolean chkLocation;
-	public Location nowLocation;
+	public static boolean now;
+	private boolean cur;
 	
 
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
+		if(!now)location.setImage(new Image(getClass().getResource("interphoneImg/interphone_indoor.png").toString()));
+		else location.setImage(new Image(getClass().getResource("interphoneImg/interphone_outdoor.png").toString()));
 		locationBtn.setOnMouseClicked(e->changeLocation());
 		phoneBtn.setOnMousePressed(e->phoneBtn.setImage(new Image(getClass().getResource("interphoneImg/interphone_phonecall_clicked.png").toString())));
 		phoneBtn.setOnMouseClicked(e->callNopen(e, "call"));
@@ -75,23 +77,23 @@ public class MiniInterPhoneController implements Initializable {
 	}
 	private void exit() {
 		MainController.menuicon[3].setImage(new Image(getClass().getResource("interphoneImg/main_interphone_default.png").toString()));
-        MainController.stackPane.getChildren().remove(miniInterphoneRoot);
+		MainController.stackPane.getChildren().remove(miniInterphoneRoot);
 		closeBtn.setImage(new Image(getClass().getResource("interphoneImg/interphone_exit_default.png").toString()));
     }
 
 	private void changeLocation() {
-		if(!chkLocation){
-			location = nowLocation.getChImg("out");
-		}else{
-			location = nowLocation.getChImg("in");
-		}
-		chkLocation = !chkLocation;
+		if(cur)location.setImage(new Image(getClass().getResource("interphoneImg/interphone_indoor.png").toString()));
+		else location.setImage(new Image(getClass().getResource("interphoneImg/interphone_outdoor.png").toString()));
+		
+		cur = !cur;
 	}
 
 	private void maximizeScreen() {
-		try {
+		try {	
+			now = cur;
 			if(MainController.veiw[3]==null) MainController.veiw[3] = FXMLLoader.load(getClass().getResource(MainController.menuList.get(3)+".fxml"));
 			MainController.stackPane.getChildren().add(MainController.veiw[3]);
+			maximize.setImage(new Image(getClass().getResource("interphoneImg/interphone_expension_default.png").toString()));
 			MainController.stackPane.getChildren().remove(miniInterphoneRoot);
 		} catch (IOException ex) {
 			
