@@ -69,17 +69,17 @@ public class MainController implements Initializable {
 	public static List<String> menuList = new ArrayList<>();
 	public static Parent veiw[] = new Parent[7];
 
-	private List<Parent> miniParent = new ArrayList<>();
+	public static List<Parent> miniParent = new ArrayList<>();
 	public static Parent miniVeiw[] = new Parent[7];
 
 	public static boolean miniWindow;
-	private Parent preIndex1;
-	private Parent preIndex2;
-	private int preindex1 = -1;
-	private int preindex2 = -1;
+	public static Parent preIndex1;
+	public static Parent preIndex2;
+	public static int preindex1 = -1;
+	public static int preindex2 = -1;
 	private Parent secretview;
 	public static int secretCount;
-	private static int count = -1;
+	private int count = -1;
 	private Timeline timeline;
 
 	public MainController() {
@@ -315,7 +315,7 @@ public class MainController implements Initializable {
 		menuIcon8.setDisable(true);
 		if (chk) {
 			try {
-				secretview = FXMLLoader.load(getClass().getResource("secret/newpassword.fxml"));
+				secretview = FXMLLoader.load(getClass().getResource("newpassword.fxml"));
 
 				mainPane.getChildren().add(secretview);
 				secretview.setTranslateY(30);

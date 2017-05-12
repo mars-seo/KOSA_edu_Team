@@ -1,32 +1,32 @@
-package team1.Homvis.secret;
+package team1.Homvis;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import static team1.Homvis.MainController.secretCount;
-import team1.Homvis.MainController;
-import static team1.Homvis.MainController.stackPane;
+import static team1.Homvis.MainController.menuList;
+import static team1.Homvis.MainController.menuicon;
+import static team1.Homvis.MainController.miniVeiw;
+import static team1.Homvis.MainController.miniWindow;
+import static team1.Homvis.MainController.preIndex1;
+import static team1.Homvis.MainController.preIndex2;
+import static team1.Homvis.MainController.preindex1;
+import static team1.Homvis.MainController.preindex2;
 
 public class NewpasswordController implements Initializable {
 
@@ -294,29 +294,39 @@ public class NewpasswordController implements Initializable {
 
     private void miniScreenOpen(int value) {
 		try {
-			Parent miniView = FXMLLoader.load(getClass().getResource(MainController.menuList.get(value)+"/Mini"+MainController.menuList.get(value)+".fxml"));
-			
-			if (!windowState) {
-				stackPane.getChildren().add(miniView);
-				miniView.setTranslateX(0);
-				miniView.setTranslateY(30);
-				miniView.setOpacity(0);
-				KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
-				KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
-				Timeline timeline = new Timeline();
-				timeline.getKeyFrames().add(keyFrame);
-				timeline.play();
-			} else {
-				stackPane.getChildren().add(miniView);
-				miniView.setTranslateX(400);
-				miniView.setTranslateY(0);
-				miniView.setOpacity(0);
-				KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
-				KeyFrame keyFrame = new KeyFrame(Duration.millis(800), keyValue);
-				Timeline timeline = new Timeline();
-				timeline.getKeyFrames().add(keyFrame);
-				timeline.play();
-			}
+			if (miniVeiw[value] == null) {
+						miniVeiw[value] = FXMLLoader.load(getClass().getResource(menuList.get(value) + "/Mini" + menuList.get(value) + ".fxml"));
+						System.out.println("ssss");
+					}
+			System.out.println("ssss");
+					MainController.stackPane.getChildren().add(miniVeiw[value]);
+					if (!miniWindow) {
+
+						if (preIndex1 != null) {
+							MainController.stackPane.getChildren().remove(preIndex1);
+							menuicon[preindex1].setImage(new Image(getClass().getResource("images/main_" + menuList.get(preindex1) + "_default.png").toString()));
+							menuicon[preindex1].setDisable(false);
+						}
+						miniVeiw[value].setTranslateX(0);
+						miniVeiw[value].setTranslateY(30);
+						preIndex1 = miniVeiw[value];
+						preindex1 = value;
+					}else {
+						if (preIndex2 != null) {
+							MainController.stackPane.getChildren().remove(preIndex2);
+							menuicon[preindex2].setImage(new Image(getClass().getResource("images/main_" + menuList.get(preindex2) + "_default.png").toString()));
+							menuicon[preindex2].setDisable(false);
+						}
+						miniVeiw[value].setTranslateX(400);
+						miniVeiw[value].setTranslateY(30);
+						
+						preIndex2 = miniVeiw[value];
+						preindex2 = value;
+					}
+					miniWindow = !miniWindow;
+					MainController.miniParent.add(miniVeiw[value]);
+					System.gc();
+
 		} catch (IOException ex) {
 			
 		}
