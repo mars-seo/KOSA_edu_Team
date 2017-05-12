@@ -18,9 +18,9 @@
       </ImageView>
 		<HBox prefHeight="280.0" prefWidth="300.0">
 			<children>
-				<StackPane prefHeight="150.0" prefWidth="200.0">
+				<StackPane prefHeight="280.0" prefWidth="300.0">
 					<children>
-						<AnchorPane prefHeight="480.0" prefWidth="600.0">
+						<AnchorPane prefHeight="280.0" prefWidth="300.0">
 							<children>
 								<BorderPane fx:id="borderRoom3" layoutX="14.0" prefHeight="30.0" prefWidth="30.0">
 									<center>

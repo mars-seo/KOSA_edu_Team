@@ -53,11 +53,11 @@ public class ControlController implements Initializable {
     }
 
     private void handleBtn(MouseEvent e, int num) {
-//        System.out.println("stackPane.getChildren().size(): " + stackPane.getChildren().size());
-//        System.out.println("MainController.stackPane.getChildren().size(): " + MainController.stackPane.getChildren().size());
         try {
             stackPane.getChildren().clear();
-            parent[num] = FXMLLoader.load(getClass().getResource(fxmlList.get(num)));
+            if (parent[num] == null) {
+                parent[num] = FXMLLoader.load(getClass().getResource(fxmlList.get(num)));
+            }
             stackPane.getChildren().add(parent[num]);
             System.gc();
         } catch (IOException ex) {

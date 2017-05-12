@@ -25,8 +25,8 @@ public class SecurityController implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {        
-         handleSecurityOnOff();
+    public void initialize(URL url, ResourceBundle rb) {
+        handleSecurityOnOff();
         ControlMiniController.lblSecurityState.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -52,6 +52,7 @@ public class SecurityController implements Initializable {
             ControlMiniController.lblSecurityState.setText("off");
         }
     }
+
     private void handleSecurityOnOff() {
         if (isSecurityState()) {
             imgScurityOnoff.setImage(new Image(getClass().getResource("controlImg/elecNgas_security_on.png").toString()));
