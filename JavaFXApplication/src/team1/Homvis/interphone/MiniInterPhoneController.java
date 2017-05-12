@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -31,10 +30,11 @@ public class MiniInterPhoneController implements Initializable {
 	private AnchorPane miniInterphoneRoot;
 	@FXML
 	private ImageView maximize;
-	
-	private boolean chkLocation;
 	@FXML
 	private ImageView location;
+	
+	private boolean chkLocation;
+	public Location nowLocation;
 	
 
 
@@ -81,9 +81,9 @@ public class MiniInterPhoneController implements Initializable {
 
 	private void changeLocation() {
 		if(!chkLocation){
-			location.setImage(new Image(getClass().getResource("interphoneImg/interphone_outdoor.png").toString()));
+			location = nowLocation.getChImg("out");
 		}else{
-			location.setImage(new Image(getClass().getResource("interphoneImg/interphone_indoor.png").toString()));
+			location = nowLocation.getChImg("in");
 		}
 		chkLocation = !chkLocation;
 	}
