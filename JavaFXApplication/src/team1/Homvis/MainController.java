@@ -355,7 +355,7 @@ public class MainController implements Initializable {
 						menuicon[preindex2].setDisable(false);
 					}
 					secretview.setTranslateX(400);
-					secretview.setTranslateY(30);
+					secretview.setTranslateY(0);
 					/*
 					secretview.setOpacity(0);
 					KeyValue keyValue = new KeyValue(secretview.opacityProperty(), 1);
