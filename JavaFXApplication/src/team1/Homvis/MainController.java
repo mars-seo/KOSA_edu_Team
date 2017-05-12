@@ -67,11 +67,10 @@ public class MainController implements Initializable {
 	public static boolean menu8PasswordChk;
 
 	public static List<String> menuList = new ArrayList<>();
-public static Parent veiw[] = new Parent[7];
-	
+	public static Parent veiw[] = new Parent[7];
+
 	private List<Parent> miniParent = new ArrayList<>();
 	private Parent miniVeiw[] = new Parent[7];
-	
 
 	public static boolean miniWindow;
 	private Parent preIndex1;
@@ -85,14 +84,14 @@ public static Parent veiw[] = new Parent[7];
 
 	public MainController() {
 
-			this.menuList.add("home");
-			this.menuList.add("boiler");
-			this.menuList.add("elecNgas");
-			this.menuList.add("interphone");
-			this.menuList.add("internet");
-			this.menuList.add("player");
-			this.menuList.add("tariff");
-			this.menuList.add("secret");
+		this.menuList.add("home");
+		this.menuList.add("boiler");
+		this.menuList.add("elecNgas");
+		this.menuList.add("interphone");
+		this.menuList.add("internet");
+		this.menuList.add("player");
+		this.menuList.add("tariff");
+		this.menuList.add("secret");
 
 	}
 
@@ -148,8 +147,8 @@ public static Parent veiw[] = new Parent[7];
 		menuIcon6.setOnMouseClicked(event -> menuClicked(menuIcon6, 5, menu6PasswordChk));
 		menuIcon7.setOnMousePressed(event -> menuPressed(menuIcon7, 6));
 		menuIcon7.setOnMouseClicked(event -> menuClicked(menuIcon7, 6, menu7PasswordChk));
-		menuIcon8.setOnMousePressed(event -> secretPressed());
-		menuIcon8.setOnMouseClicked(event -> secretClicked(true)); //암호설정 서브메뉴이동
+		//menuIcon8.setOnMousePressed(event -> secretPressed());
+		menuIcon8.setOnMousePressed(event -> secretClicked(true)); //암호설정 서브메뉴이동
 		System.gc();
 		//메뉴시작위치
 		menu.setTranslateX(0);
@@ -200,7 +199,7 @@ public static Parent veiw[] = new Parent[7];
 			timeline.stop();
 		}
 		KeyValue keyValue = new KeyValue(menu.translateYProperty(), 0);
-		KeyFrame keyFrame = new KeyFrame(Duration.millis(700), keyValue);
+		KeyFrame keyFrame = new KeyFrame(Duration.millis(400), keyValue);
 		timeline = new Timeline();
 		timeline.getKeyFrames().add(keyFrame);
 		timeline.play();
@@ -212,7 +211,7 @@ public static Parent veiw[] = new Parent[7];
 			timeline.stop();
 		}
 		KeyValue keyValue = new KeyValue(menu.translateYProperty(), 200);
-		KeyFrame keyFrame = new KeyFrame(Duration.millis(700), keyValue);
+		KeyFrame keyFrame = new KeyFrame(Duration.millis(400), keyValue);
 		timeline = new Timeline();
 		timeline.getKeyFrames().add(keyFrame);
 		timeline.play();
@@ -245,7 +244,9 @@ public static Parent veiw[] = new Parent[7];
 		} else {
 			try {
 				if (!chk) {
-					 if(miniVeiw[index]==null) miniVeiw[index] = FXMLLoader.load(getClass().getResource(menuList.get(index)+"/Mini"+menuList.get(index)+".fxml"));
+					if (miniVeiw[index] == null) {
+						miniVeiw[index] = FXMLLoader.load(getClass().getResource(menuList.get(index) + "/Mini" + menuList.get(index) + ".fxml"));
+					}
 					mainPane.getChildren().add(miniVeiw[index]);
 					if (!miniWindow) {
 
@@ -262,7 +263,7 @@ public static Parent veiw[] = new Parent[7];
 						timeline = new Timeline();
 						timeline.getKeyFrames().add(keyFrame);
 						timeline.play();
-						*/
+						 */
 						preIndex1 = miniVeiw[index];
 						preindex1 = index;
 					} else {
@@ -279,7 +280,7 @@ public static Parent veiw[] = new Parent[7];
 						timeline = new Timeline();
 						timeline.getKeyFrames().add(keyFrame);
 						timeline.play();
-						*/
+						 */
 						preIndex2 = miniVeiw[index];
 						preindex2 = index;
 					}
@@ -299,12 +300,12 @@ public static Parent veiw[] = new Parent[7];
 		}
 
 	}
-
+/*
 	private void secretPressed() {
 		menuIcon8.setImage(new Image(getClass().getResource("images/main_secret_pressed.png").toString()));
 		System.gc();
 	}
-
+*/
 	private void secretClicked(boolean chk) {
 
 		if (timeline != null) {
@@ -333,7 +334,7 @@ public static Parent veiw[] = new Parent[7];
 					timeline = new Timeline();
 					timeline.getKeyFrames().add(keyFrame);
 					timeline.play();
-					*/
+					 */
 					if (secretCount > 1) {
 						VBox chkboxview = (VBox) secretview.lookup("#chkboxview");
 						Label txt1 = (Label) secretview.lookup("#txt1");
@@ -362,7 +363,7 @@ public static Parent veiw[] = new Parent[7];
 					timeline = new Timeline();
 					timeline.getKeyFrames().add(keyFrame);
 					timeline.play();
-					*/
+					 */
 					if (secretCount > 1) {
 						VBox chkboxview = (VBox) secretview.lookup("#chkboxview");
 						Label txt1 = (Label) secretview.lookup("#txt1");
@@ -392,7 +393,7 @@ public static Parent veiw[] = new Parent[7];
 			}
 		}
 	}
-	
+
 }
 /*
     private void passwordChk(int value) { //각각의 menuicon들의 번호를 넘겨받음, passwordcontroll에서 암호가 맞을시에 창띄울때 사용
