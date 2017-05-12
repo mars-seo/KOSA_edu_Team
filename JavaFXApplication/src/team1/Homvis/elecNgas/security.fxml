@@ -13,7 +13,7 @@
    <children>
       <ImageView fitHeight="480.0" fitWidth="653.0" layoutX="-53.0" pickOnBounds="true">
          <image>
-            <Image url="@controlImg/elecNgas_security_background.png" />
+            <Image url="@controlImg/elecNgas_security_background2.png" />
          </image>
       </ImageView>
 <!--      <ImageView fx:id="imgSecurityState" fitHeight="200.0" fitWidth="200.0" layoutX="8.0" pickOnBounds="true" preserveRatio="true">

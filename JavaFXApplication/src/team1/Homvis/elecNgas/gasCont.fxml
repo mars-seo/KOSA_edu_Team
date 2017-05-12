@@ -13,7 +13,7 @@
    <children>
       <ImageView fitHeight="480.0" fitWidth="653.0" layoutX="-53.0" pickOnBounds="true">
          <image>
-            <Image url="@controlImg/elecNgas_gas_background.png" />
+            <Image url="@controlImg/elecNgas_gas_background2.png" />
          </image>
       </ImageView>
       <ImageView fx:id="imgGasOnoff" fitWidth="250.0" layoutX="175.0" layoutY="315.0" pickOnBounds="true" preserveRatio="true">
