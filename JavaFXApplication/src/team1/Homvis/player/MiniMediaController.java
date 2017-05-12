@@ -116,7 +116,7 @@ public class MiniMediaController implements Initializable {
 		//파일을 확장자 필터로 걸러서 받고 객체로 받기
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.getExtensionFilters().addAll(
-			new FileChooser.ExtensionFilter("media files", "*.mp4","*.avi","*.mkv","*.m4v","*.wav","*.mp3","*.wmv")
+			new FileChooser.ExtensionFilter("media files", "*.mp4","*.avi","*.mkv","*.m4v","*.wav","*.mp3","*.wmv","*.flv")
 		);
 		File mediaFile = fileChooser.showOpenDialog(((ImageView)e.getSource()).getScene().getWindow());
 		
@@ -313,14 +313,14 @@ public class MiniMediaController implements Initializable {
 					Duration curTime = Duration.seconds(total*curSlider/100);
 
 					// 미디어 재생 시간에 따른 값을 조정하기 위한 값
-					double std = 10/total;
+					double std = 500/total;
 
 					//미디어 슬라이더가 값이 변경될 때만 시간을 찾음
 					if(mediaSlider.isValueChanging()){
 						mediaPlayer.seek(curTime);
 					}else{
 					//이전슬라이더 값과 현재 찾으려는 슬라이더의 값의 차이가 미세할 때 제외
-						if(Math.abs(preSlider-curSlider)>0.5){
+						if(Math.abs(preSlider-curSlider)>std){
 							mediaPlayer.seek(curTime);
 						}
 					}
