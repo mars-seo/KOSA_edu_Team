@@ -9,9 +9,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="240.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.elecNgas.GasContController">
+<AnchorPane id="AnchorPane" prefHeight="280.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.elecNgas.GasContController">
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="50.0" layoutY="45.0" pickOnBounds="true">
+      <ImageView fitHeight="180.0" fitWidth="220.0" layoutX="40.0" layoutY="50.0" pickOnBounds="true">
          <image>
             <Image url="@controlImg/white.png" />
          </image>
@@ -21,7 +21,7 @@
             <Image url="@controlImg/gason.png" />
          </image>
       </ImageView>-->
-      <ImageView fx:id="imgGasOnoff" fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgGasOnoff" fitWidth="220.0" layoutX="40.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@controlImg/elecNgas_gas_on.png" />
          </image>

@@ -105,7 +105,7 @@ public class LightController implements Initializable {
                         imageViewList.get(num).setImage(new Image(getClass().getResource(bulbOff).toString()));
                         ControlMiniController.list.get(num).setOnOff(false);
                     }
-                    System.out.println(num + ": " + newValue);
+//                    System.out.println(num + ": " + newValue);
                 }
             });
         }

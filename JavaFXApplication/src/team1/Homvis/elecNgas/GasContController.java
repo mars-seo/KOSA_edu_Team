@@ -36,7 +36,7 @@ public class GasContController implements Initializable {
                     imgGasOnoff.setImage(new Image(getClass().getResource("controlImg/elecNgas_gas_off.png").toString()));
                     setGasState(false);
                 }
-                System.out.println("Gas: " + isGasState());
+//                System.out.println("Gas: " + isGasState());
             }
         });
         imgGasOnoff.setOnMouseClicked(e -> handleGasOnOff(e));

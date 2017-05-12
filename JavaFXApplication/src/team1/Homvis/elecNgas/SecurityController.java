@@ -25,8 +25,7 @@ public class SecurityController implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        System.out.println("gas~~~~~~~~~~~~~~~~");
+    public void initialize(URL url, ResourceBundle rb) {        
          handleSecurityOnOff();
         ControlMiniController.lblSecurityState.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -38,7 +37,7 @@ public class SecurityController implements Initializable {
                     imgScurityOnoff.setImage(new Image(getClass().getResource("controlImg/elecNgas_security_off.png").toString()));
                     setSecurityState(false);
                 }
-                System.out.println("Security: " + isSecurityState());
+//                System.out.println("Security: " + isSecurityState());
             }
         });
         imgScurityOnoff.setOnMouseClicked(e -> handleSecurityOnOff(e));

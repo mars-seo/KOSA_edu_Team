@@ -83,8 +83,8 @@ public class ControlMiniController implements Initializable {
     }
 
     private void handleBtn(MouseEvent e, int num) {
-        System.out.println("stackPane.getChildren().size(): " + stackPane.getChildren().size());
-        System.out.println("MainController.stackPane.getChildren().size(): " + MainController.stackPane.getChildren().size());
+//        System.out.println("stackPane.getChildren().size(): " + stackPane.getChildren().size());
+//        System.out.println("MainController.stackPane.getChildren().size(): " + MainController.stackPane.getChildren().size());
         try {
             stackPane.getChildren().clear();
             parent[num] = FXMLLoader.load(getClass().getResource(fxmlList.get(num)));

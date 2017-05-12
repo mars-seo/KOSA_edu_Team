@@ -13,7 +13,7 @@
 	<children>
       <ImageView fitHeight="480.0" fitWidth="800.0" pickOnBounds="true">
          <image>
-            <Image url="@controlImg/elecNgas_main_background.png" />
+            <Image url="@controlImg/elecNgas_main_background3.png" />
          </image>
       </ImageView>
 		<HBox prefHeight="480.0" prefWidth="800.0">
