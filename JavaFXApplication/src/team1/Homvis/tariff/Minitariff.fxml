@@ -12,29 +12,28 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<StackPane fx:id="tariffRoot" prefHeight="240.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.tariff.RootMiniController">
+<StackPane fx:id="tariffRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.tariff.RootMiniController">
    <children>
-        <ImageView fitHeight="240.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="280.0" fitWidth="400.0" pickOnBounds="true">
             <image>
                 <Image url="@tariffImg/boiler_background.png" />
             </image>
         </ImageView>
-        <BorderPane prefHeight="240.0" prefWidth="400.0">
+        <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="400.0">
             <top>
-                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="15.0" prefWidth="400.0">
+                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="400.0">
                     <children>
-                        <Label contentDisplay="CENTER" layoutX="170.0" minHeight="-Infinity" prefHeight="12.0" prefWidth="50.0" text="요금조회" BorderPane.alignment="CENTER">
+                        <Label contentDisplay="CENTER" layoutX="170.0" minHeight="-Infinity" prefHeight="30.0" prefWidth="60.0" text="요금조회" BorderPane.alignment="CENTER">
                             <font>
-                                <Font name="System Bold Italic" size="12.0" />
+                                <Font name="System Bold Italic" size="14.0" />
                             </font>
                         </Label>
-                        <ImageView fx:id="exit" fitHeight="15.0" fitWidth="15.0" layoutX="380.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="exit" fitHeight="30.0" fitWidth="30.0" layoutX="370.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@tariffImg/icon.png" />
                             </image>
                         </ImageView>
-                        <ImageView fx:id="maximize" fitHeight="15.0" fitWidth="15.0" layoutX="359.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="maximize" fitHeight="30.0" fitWidth="30.0" layoutX="330.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@tariffImg/maximize.png" />
                             </image>
@@ -43,19 +42,19 @@
                 </AnchorPane>
             </top>
             <left>
-                <VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="50.0" BorderPane.alignment="CENTER">
+                <VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="60.0" spacing="10.0" BorderPane.alignment="CENTER">
                     <children>
-                        <ImageView fx:id="btnGasFee" fitHeight="70.0" fitWidth="50.0" pickOnBounds="true">
+                        <ImageView fx:id="btnGasFee" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@tariffImg/elecNgas_gas_default.png" />
                             </image>
                         </ImageView>
-                        <ImageView fx:id="btnElectricFee" fitHeight="70.0" fitWidth="50.0" pickOnBounds="true">
+                        <ImageView fx:id="btnElectricFee" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@tariffImg/elecNgas_lighticon_off.png" />
                             </image>
                         </ImageView>
-                        <ImageView fx:id="btnWaterFee" fitHeight="70.0" fitWidth="50.0" pickOnBounds="true">
+                        <ImageView fx:id="btnWaterFee" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@tariffImg/elecNgas_water_default.png" />
                             </image>
@@ -64,7 +63,7 @@
                 </VBox>
             </left>
             <center>
-                <StackPane fx:id="changeableStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="300.0" BorderPane.alignment="CENTER" />
+                <StackPane fx:id="changeableStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="340.0" BorderPane.alignment="CENTER" />
             </center>
         </BorderPane>
    </children>
