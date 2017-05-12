@@ -256,7 +256,7 @@ public class MainController implements Initializable {
 							menuicon[preindex1].setDisable(false);
 						}
 						miniVeiw[index].setTranslateX(0);
-						miniVeiw[index].setTranslateY(30);
+						miniVeiw[index].setTranslateY(0);
 						/*miniView.setOpacity(0);
 						KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
 						KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
@@ -273,7 +273,7 @@ public class MainController implements Initializable {
 							menuicon[preindex2].setDisable(false);
 						}
 						miniVeiw[index].setTranslateX(400);
-						miniVeiw[index].setTranslateY(30);
+						miniVeiw[index].setTranslateY(0);
 						/*miniView.setOpacity(0);
 						KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
 						KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
@@ -318,7 +318,7 @@ public class MainController implements Initializable {
 				secretview = FXMLLoader.load(getClass().getResource("newpassword.fxml"));
 
 				mainPane.getChildren().add(secretview);
-				secretview.setTranslateY(30);
+				secretview.setTranslateY(0);
 				if (!miniWindow) {
 					if (preIndex1 != null) {
 						mainPane.getChildren().remove(preIndex1);
@@ -326,7 +326,7 @@ public class MainController implements Initializable {
 						menuicon[preindex1].setDisable(false);
 					}
 					secretview.setTranslateX(0);
-					secretview.setTranslateY(30);
+					secretview.setTranslateY(0);
 					/*
 					secretview.setOpacity(0);
 					KeyValue keyValue = new KeyValue(secretview.opacityProperty(), 1);

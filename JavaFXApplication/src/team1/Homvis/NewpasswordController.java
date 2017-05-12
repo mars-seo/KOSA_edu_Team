@@ -308,7 +308,7 @@ public class NewpasswordController implements Initializable {
 							menuicon[preindex1].setDisable(false);
 						}
 						miniVeiw[value].setTranslateX(0);
-						miniVeiw[value].setTranslateY(30);
+						miniVeiw[value].setTranslateY(0);
 						preIndex1 = miniVeiw[value];
 						preindex1 = value;
 					}else {
@@ -318,7 +318,7 @@ public class NewpasswordController implements Initializable {
 							menuicon[preindex2].setDisable(false);
 						}
 						miniVeiw[value].setTranslateX(400);
-						miniVeiw[value].setTranslateY(30);
+						miniVeiw[value].setTranslateY(0);
 						
 						preIndex2 = miniVeiw[value];
 						preindex2 = value;
