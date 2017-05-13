@@ -44,8 +44,6 @@ public class MiniMediaController implements Initializable {
 	@FXML
 	private ImageView nextBtn;
 	@FXML
-	private ImageView uploadBtn;
-	@FXML
 	private ImageView imgSound;
 	@FXML
 	private Slider volumeSlider;
@@ -71,39 +69,32 @@ public class MiniMediaController implements Initializable {
 	private double volume;
 	private Media playMedia;
 	private MediaPlayer mediaPlayer;
-	private int index;
 	public static PlayerList playList= new PlayerList();
 	private String[] imgName = {"play","pause","stop","forward","backward"};
 			
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		
-		if(!playList.getMediaFile().isEmpty()){
-			mediaList.setItems(playList.getFileName());
-			if(playList.getCurrentPlay()!=null){
-				mediaPlayer = MiniMediaController.playList.getCurrentPlay();
-			}
-		}
-		uploadBtn.setOnMousePressed(e->uploadBtn.setImage(new Image(getClass().getResource("playerImg/player_load_clicked.png").toString())));
+		mediaList.setItems(playList.getFileName());
+		
 		playBtn.setOnMousePressed(e->playBtn.setImage(new Image(getClass().getResource("playerImg/player_play_clicked.png").toString())));
 		pauseBtn.setOnMousePressed(e->pauseBtn.setImage(new Image(getClass().getResource("playerImg/player_pause_clicked.png").toString())));
 		stopBtn.setOnMousePressed(e->stopBtn.setImage(new Image(getClass().getResource("playerImg/player_stop_clicked.png").toString())));
 		nextBtn.setOnMousePressed(e->nextBtn.setImage(new Image(getClass().getResource("playerImg/player_forward_clicked.png").toString())));
 		previousBtn.setOnMousePressed(e->previousBtn.setImage(new Image(getClass().getResource("playerImg/player_backward_clicked.png").toString())));
-		uploadBtn.setOnMouseClicked(e->handleAddList(e));
 		playBtn.setOnMouseClicked(e->fileCheck(e, playBtn, 0));
 		pauseBtn.setOnMouseClicked(e->fileCheck(e, pauseBtn, 1));
 		stopBtn.setOnMouseClicked(e->fileCheck(e, stopBtn, 2));
 		nextBtn.setOnMouseClicked(e->fileCheck(e, nextBtn, 3));
 		previousBtn.setOnMouseClicked(e->fileCheck(e, previousBtn, 4));
-		
+				
 		// listView 속성 감시하여 시작
 		mediaList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 System.out.println(newValue);
-                handleMedia(MiniMediaController.playList.getMediaFile(), MiniMediaController.playList.getFileName().indexOf(newValue));
-				deleteBtn.setOnMouseClicked(e->handleDelete(e, newValue));
+                handleMedia(playList.getMediaFile(), playList.getFileName().indexOf(newValue));
+		deleteBtn.setOnMouseClicked(e->handleDelete(e, newValue));
             }
         });
 		exit.setOnMousePressed(e->exit.setImage(new Image(getClass().getResource("playerImg/exit_clicked.png").toString())));
@@ -111,38 +102,12 @@ public class MiniMediaController implements Initializable {
 		maximize.setOnMousePressed(e->maximize.setImage(new Image(getClass().getResource("playerImg/expension_clicked.png").toString())));
 		maximize.setOnMouseClicked(e->maximizeScreen());
 	}	
-	private void handleAddList(MouseEvent e) {
-		
-		//파일을 확장자 필터로 걸러서 받고 객체로 받기
-		FileChooser fileChooser = new FileChooser();
-		fileChooser.getExtensionFilters().addAll(
-			new FileChooser.ExtensionFilter("media files", "*.mp4","*.avi","*.mkv","*.m4v","*.wav","*.mp3","*.wmv","*.flv")
-		);
-		File mediaFile = fileChooser.showOpenDialog(((ImageView)e.getSource()).getScene().getWindow());
-		
-		if(mediaFile!=null){
-			//받은 파일을 파일 리스트에 넣기
-			MiniMediaController.playList.getMediaFile().add(mediaFile);
-			//미디어의 이름을 얻어 리스트뷰에 넣어줌
-			String mediaName = mediaFile.getName();
-			MiniMediaController.playList.getFileName().add(mediaName);
-
-			mediaList.setItems(MiniMediaController.playList.getFileName());
-			if (MiniMediaController.playList.getFileName().size() < 2) {
-				handleMedia(MiniMediaController.playList.getMediaFile(), index);
-				mediaPlayer.play();
-			}
-			index += 1;
-			uploadBtn.setImage(new Image(getClass().getResource("playerImg/player_load_default.png").toString()));
-		}else fileEmptyCheck(e);
-		
-	}
-
+	
 	private void handleMedia(ObservableList<File> mediaFileList, int index) {
 		if(mediaFileList.isEmpty()||MiniMediaController.playList.getFileName().isEmpty()) return;
 		else{
-			uploadBtn.setImage(new Image(getClass().getResource("playerImg/player_load_default.png").toString()));
-			playMedia = new Media(mediaFileList.get(index).toURI().toString());
+			File newMedia = mediaFileList.get(index);
+			playMedia = new Media(newMedia.toURI().toString());
 			mediaPlayer = new MediaPlayer(playMedia);
 			mediaView.setMediaPlayer(mediaPlayer);
 			
@@ -151,7 +116,6 @@ public class MiniMediaController implements Initializable {
 				pauseBtn.setDisable(true);
 				stopBtn.setDisable(true);
 				//버튼화
-				uploadBtn.setOnMousePressed(e->uploadBtn.setImage(new Image(getClass().getResource("playerImg/player_load_clicked.png").toString())));
 				playBtn.setOnMousePressed(e->playBtn.setImage(new Image(getClass().getResource("playerImg/player_play_clicked.png").toString())));
 				nextBtn.setOnMousePressed(e->nextBtn.setImage(new Image(getClass().getResource("playerImg/player_forward_clicked.png").toString())));
 				previousBtn.setOnMousePressed(e->previousBtn.setImage(new Image(getClass().getResource("playerImg/player_backward_clicked.png").toString())));
@@ -162,7 +126,6 @@ public class MiniMediaController implements Initializable {
 				pauseBtn.setDisable(false);
 				stopBtn.setDisable(false);
 				//버튼화
-				uploadBtn.setOnMousePressed(e->uploadBtn.setImage(new Image(getClass().getResource("playerImg/player_load_clicked.png").toString())));
 				pauseBtn.setOnMousePressed(e->pauseBtn.setImage(new Image(getClass().getResource("playerImg/player_pause_clicked.png").toString())));
 				stopBtn.setOnMousePressed(e->stopBtn.setImage(new Image(getClass().getResource("playerImg/player_stop_clicked.png").toString())));
 				nextBtn.setOnMousePressed(e->nextBtn.setImage(new Image(getClass().getResource("playerImg/player_forward_clicked.png").toString())));
@@ -174,7 +137,6 @@ public class MiniMediaController implements Initializable {
 				pauseBtn.setDisable(true);
 				stopBtn.setDisable(false);
 				//버튼화
-				uploadBtn.setOnMousePressed(e->uploadBtn.setImage(new Image(getClass().getResource("playerImg/player_load_clicked.png").toString())));
 				playBtn.setOnMousePressed(e->playBtn.setImage(new Image(getClass().getResource("playerImg/player_play_clicked.png").toString())));
 				stopBtn.setOnMousePressed(e->stopBtn.setImage(new Image(getClass().getResource("playerImg/player_stop_clicked.png").toString())));
 				nextBtn.setOnMousePressed(e->nextBtn.setImage(new Image(getClass().getResource("playerImg/player_forward_clicked.png").toString())));
@@ -186,7 +148,6 @@ public class MiniMediaController implements Initializable {
 				pauseBtn.setDisable(true);
 				stopBtn.setDisable(true);
 				//버튼화
-				uploadBtn.setOnMousePressed(e->uploadBtn.setImage(new Image(getClass().getResource("playerImg/player_load_clicked.png").toString())));
 				playBtn.setOnMousePressed(e->playBtn.setImage(new Image(getClass().getResource("playerImg/player_play_clicked.png").toString())));
 				nextBtn.setOnMousePressed(e->nextBtn.setImage(new Image(getClass().getResource("playerImg/player_forward_clicked.png").toString())));
 				previousBtn.setOnMousePressed(e->previousBtn.setImage(new Image(getClass().getResource("playerImg/player_backward_clicked.png").toString())));
@@ -202,12 +163,10 @@ public class MiniMediaController implements Initializable {
 										handleMedia(mediaFileList, 0);
 										mediaPlayer.play();
 								}
-								uploadBtn.setOnMousePressed(e->uploadBtn.setImage(new Image(getClass().getResource("playerImg/player_load_clicked.png").toString())));
 								nextBtn.setOnMousePressed(e->nextBtn.setImage(new Image(getClass().getResource("playerImg/player_forward_clicked.png").toString())));
 								previousBtn.setOnMousePressed(e->previousBtn.setImage(new Image(getClass().getResource("playerImg/player_backward_clicked.png").toString())));
 						});
 			
-			uploadBtn.setOnMousePressed(e->uploadBtn.setImage(new Image(getClass().getResource("playerImg/player_load_clicked.png").toString())));
 			playBtn.setOnMousePressed(e->playBtn.setImage(new Image(getClass().getResource("playerImg/player_play_clicked.png").toString())));
 			pauseBtn.setOnMousePressed(e->pauseBtn.setImage(new Image(getClass().getResource("playerImg/player_pause_clicked.png").toString())));
 			stopBtn.setOnMousePressed(e->stopBtn.setImage(new Image(getClass().getResource("playerImg/player_stop_clicked.png").toString())));
@@ -230,12 +189,10 @@ public class MiniMediaController implements Initializable {
 								mediaPlayer.stop();
 								if (index == mediaFileList.size() - 1) {
 										handleMedia(mediaFileList, 0);
-//										mediaList.setSelectionModel(new selection(0));
 										mediaPlayer.play();
 										nextBtn.setImage(new Image(getClass().getResource("playerImg/player_forward_default.png").toString()));
 								} else {
 										handleMedia(mediaFileList, index + 1);
-//										mediaList.setSelectionModel(new selection(index+1));
 										mediaPlayer.play();
 										nextBtn.setImage(new Image(getClass().getResource("playerImg/player_forward_default.png").toString()));
 								}
@@ -244,12 +201,10 @@ public class MiniMediaController implements Initializable {
 								mediaPlayer.stop();
 								if (index == 0) {
 										handleMedia(mediaFileList, mediaFileList.size() - 1);
-//										mediaList.setSelectionModel(new selection(mediaFileList.size() - 1));
 										mediaPlayer.play();
 										previousBtn.setImage(new Image(getClass().getResource("playerImg/player_backward_default.png").toString()));
 								} else {
 										handleMedia(mediaFileList, index - 1);
-//										mediaList.setSelectionModel(new selection(index - 1));
 										mediaPlayer.play();
 										previousBtn.setImage(new Image(getClass().getResource("playerImg/player_backward_default.png").toString()));
 								}
@@ -340,50 +295,32 @@ public class MiniMediaController implements Initializable {
 				popup.show(((ImageView)e.getSource()).getScene().getWindow());
 				a.setImage(new Image(getClass().getResource("playerImg/player_"+imgName[index]+"_default.png").toString()));
 			} catch (IOException ex) {
-				ex.printStackTrace();
+
 			}
 		}else return;
 	}
 	
-	//파일 업로드를 하지 않거나 취소하면 뜨는 팝업
-	private void fileEmptyCheck(MouseEvent e) {
-			try {
-				Popup popup = new Popup();
-				HBox hbox = (HBox) FXMLLoader.load(getClass().getResource("mediaPopup.fxml"));
-				popup.getContent().add(hbox);
-				popup.setAutoHide(true);
-				popup.show(((ImageView)e.getSource()).getScene().getWindow());
-				uploadBtn.setImage(new Image(getClass().getResource("playerImg/player_load_default.png").toString()));
-			} catch (IOException ex) {
-				ex.printStackTrace();
-			}
-	}
+	
 	// 누르면 리스트뷰와 각각의 리스트 객체에서 해당 파일을 지운다.
 	private void handleDelete(MouseEvent e, String selectFile) {
 		if(MiniMediaController.playList.getFileName().isEmpty()||MiniMediaController.playList.getMediaFile().isEmpty()){
 			mediaPlayer.stop();
-			fileEmptyCheck(e);
 		}else{
 			int delIndex = MiniMediaController.playList.getFileName().indexOf(selectFile);
 			MiniMediaController.playList.getFileName().remove(delIndex);
 			MiniMediaController.playList.getMediaFile().remove(delIndex);
 			mediaList.setItems(MiniMediaController.playList.getFileName());
-			index--;
+
 			
-			if(MiniMediaController.playList.getFileName().isEmpty()||MiniMediaController.playList.getMediaFile().isEmpty()){
+			if(playList.getFileName().isEmpty()||playList.getMediaFile().isEmpty()){
 				mediaPlayer.stop();
 				mediaPlayer = null;
-				fileEmptyCheck(e);
 			}
 		}
 	}
 	private void exit() {
 		MainController.menuicon[5].setImage(new Image(getClass().getResource("playerImg/main_player_default.png").toString()));
-        MainController.stackPane.getChildren().remove(miniMediaRoot);
-		if(!(MiniMediaController.playList.getMediaFile().isEmpty() && MiniMediaController.playList.getFileName().isEmpty())){
-			 MiniMediaController.playList.setCurrentPlay(mediaPlayer);
-			 mediaPlayer.stop();
-		 }
+		MainController.stackPane.getChildren().remove(miniMediaRoot);
 		exit.setImage(new Image(getClass().getResource("playerImg/exit_default.png").toString()));
     }
 

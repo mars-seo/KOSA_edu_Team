@@ -3,15 +3,25 @@ package team1.Homvis.player;
 import java.io.File;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.media.MediaPlayer;
 
 
 public class PlayerList {
+	
 	private ObservableList<File> mediaFile = FXCollections.observableArrayList();
 	private ObservableList<String> fileName = FXCollections.observableArrayList();
-	private MediaPlayer currentPlay;
 	
+	public PlayerList(){
 	
+		mediaFile.add(new File(getClass().getResource("media/oow2010-2.flv").toString()));
+		mediaFile.add(new File(getClass().getResource("media/video.mp4").toString()));
+		mediaFile.add(new File(getClass().getResource("media/video.m4v").toString()));
+		mediaFile.add(new File(getClass().getResource("media/audio.wav").toString()));
+		
+		for(int i=0;i<mediaFile.size();i++){
+			fileName.add(mediaFile.get(i).getName());
+		}
+	}	
+		
 	public ObservableList<File> getMediaFile() {
 		return mediaFile;
 	}
@@ -27,14 +37,5 @@ public class PlayerList {
 	public void setFileName(ObservableList<String> fileName) {
 		this.fileName = fileName;
 	}
-
-	public MediaPlayer getCurrentPlay() {
-		return currentPlay;
-	}
-
-	public void setCurrentPlay(MediaPlayer currentPlay) {
-		this.currentPlay = currentPlay;
-	}
-	
 	
 }

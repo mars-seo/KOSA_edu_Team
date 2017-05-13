@@ -76,14 +76,6 @@
 												<Insets />
 											</HBox.margin>
 										</ImageView>
-										<ImageView fx:id="uploadBtn" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-											<image>
-												<Image url="@playerImg/player_load_default.png" />
-											</image>
-											<HBox.margin>
-												<Insets />
-											</HBox.margin>
-										</ImageView>
 									</children>
 									<BorderPane.margin>
 										<Insets left="20.0" />
