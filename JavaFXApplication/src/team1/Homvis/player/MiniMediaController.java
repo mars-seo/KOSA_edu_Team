@@ -76,7 +76,7 @@ public class MiniMediaController implements Initializable {
 	public void initialize(URL url, ResourceBundle rb) {
 		
 		mediaList.setItems(playList.getFileName());
-		
+						
 		playBtn.setOnMousePressed(e->playBtn.setImage(new Image(getClass().getResource("playerImg/player_play_clicked.png").toString())));
 		pauseBtn.setOnMousePressed(e->pauseBtn.setImage(new Image(getClass().getResource("playerImg/player_pause_clicked.png").toString())));
 		stopBtn.setOnMousePressed(e->stopBtn.setImage(new Image(getClass().getResource("playerImg/player_stop_clicked.png").toString())));
@@ -92,7 +92,6 @@ public class MiniMediaController implements Initializable {
 		mediaList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                System.out.println(newValue);
                 handleMedia(playList.getMediaFile(), playList.getFileName().indexOf(newValue));
 		deleteBtn.setOnMouseClicked(e->handleDelete(e, newValue));
             }
@@ -106,8 +105,10 @@ public class MiniMediaController implements Initializable {
 	private void handleMedia(ObservableList<File> mediaFileList, int index) {
 		if(mediaFileList.isEmpty()||MiniMediaController.playList.getFileName().isEmpty()) return;
 		else{
-			File newMedia = mediaFileList.get(index);
-			playMedia = new Media(newMedia.toURI().toString());
+			String path = mediaFileList.get(index).toURI().toString();
+			path = path.substring(66);
+			
+			playMedia = new Media(path);
 			mediaPlayer = new MediaPlayer(playMedia);
 			mediaView.setMediaPlayer(mediaPlayer);
 			

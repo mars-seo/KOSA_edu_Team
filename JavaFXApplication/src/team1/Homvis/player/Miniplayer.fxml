@@ -84,7 +84,7 @@
                <children>
                   <Slider fx:id="mediaSlider" layoutX="59.0" layoutY="238.0" prefHeight="14.0" prefWidth="245.0" />
                   <Label fx:id="playTime" layoutX="5.0" layoutY="237.0" text="00:00:00" />
-                  <MediaView fx:id="mediaView" fitHeight="180.0" fitWidth="305.0" layoutX="5.0" layoutY="7.0" preserveRatio="false" />
+                  <MediaView fx:id="mediaView" fitHeight="200.0" fitWidth="295.0" layoutX="5.0" layoutY="26.0" preserveRatio="false" />
                </children>
             </AnchorPane>
          </center>
@@ -97,12 +97,12 @@
                         <Image url="@playerImg/substract.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="exit" fitHeight="42.0" fitWidth="51.0" layoutX="47.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="exit" fitHeight="42.0" fitWidth="39.0" layoutX="56.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@playerImg/exit_default.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="maximize" fitHeight="50.0" fitWidth="79.0" layoutX="-25.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="maximize" fitHeight="46.0" fitWidth="68.0" layoutX="-12.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@playerImg/expension_default.png" />
                      </image>
