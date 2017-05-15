@@ -265,7 +265,7 @@ public class MiniMediaController implements Initializable {
 					Duration curTime = Duration.seconds(total*curSlider/100);
 
 					// 미디어 재생 시간에 따른 값을 조정하기 위한 값
-					double std = 500/total;
+					double std = 700/total;
 
 					//미디어 슬라이더가 값이 변경될 때만 시간을 찾음
 					if(mediaSlider.isValueChanging()){
