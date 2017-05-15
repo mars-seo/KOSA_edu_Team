@@ -4,15 +4,12 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Slider;
@@ -24,7 +21,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
-import javafx.stage.FileChooser;
 import javafx.stage.Popup;
 import javafx.util.Duration;
 import team1.Homvis.MainController;
@@ -269,7 +265,7 @@ public class MiniMediaController implements Initializable {
 					Duration curTime = Duration.seconds(total*curSlider/100);
 
 					// 미디어 재생 시간에 따른 값을 조정하기 위한 값
-					double std = 500/total;
+					double std = 700/total;
 
 					//미디어 슬라이더가 값이 변경될 때만 시간을 찾음
 					if(mediaSlider.isValueChanging()){
@@ -321,6 +317,7 @@ public class MiniMediaController implements Initializable {
 	}
 	private void exit() {
 		MainController.menuicon[5].setImage(new Image(getClass().getResource("playerImg/main_player_default.png").toString()));
+		mediaPlayer.stop();
 		MainController.stackPane.getChildren().remove(miniMediaRoot);
 		exit.setImage(new Image(getClass().getResource("playerImg/exit_default.png").toString()));
     }
@@ -328,6 +325,7 @@ public class MiniMediaController implements Initializable {
 	private void maximizeScreen() {
 		try {
 			if(MainController.veiw[5]==null) MainController.veiw[5] = FXMLLoader.load(getClass().getResource(MainController.menuList.get(5)+".fxml"));
+			mediaPlayer.stop();
 			MainController.stackPane.getChildren().add(MainController.veiw[5]);
 			MainController.stackPane.getChildren().remove(miniMediaRoot);
 		} catch (IOException ex) {
