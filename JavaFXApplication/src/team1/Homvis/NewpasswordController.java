@@ -382,7 +382,7 @@ public class NewpasswordController implements Initializable {
     }
 
     private String zeroClicked() {
-        keyClicked(key0, "1");
+        keyClicked(key0, "0");
         String input = "";
         input += key0.getUserData().toString();
         return input;
@@ -474,7 +474,7 @@ public class NewpasswordController implements Initializable {
         Timeline timeline = new Timeline();
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
-        key0.setOnMousePressed(event -> keyPressed(key0, "1"));
+        key0.setOnMousePressed(event -> keyPressed(key0, "0"));
         key1.setOnMousePressed(event -> keyPressed(key1, "1"));
         key2.setOnMousePressed(event -> keyPressed(key2, "2"));
         key3.setOnMousePressed(event -> keyPressed(key3, "3"));
@@ -485,7 +485,7 @@ public class NewpasswordController implements Initializable {
         key8.setOnMousePressed(event -> keyPressed(key8, "8"));
         key9.setOnMousePressed(event -> keyPressed(key9, "9"));
         keydelete.setOnMousePressed(event -> keyPressed(keydelete, "delete"));
-        key0.setOnMouseDragged(event -> keyDragged(key0, "1"));
+        key0.setOnMouseDragged(event -> keyDragged(key0, "0"));
         key1.setOnMouseDragged(event -> keyDragged(key1, "1"));
         key2.setOnMouseDragged(event -> keyDragged(key2, "2"));
         key3.setOnMouseDragged(event -> keyDragged(key3, "3"));
@@ -555,7 +555,7 @@ public class NewpasswordController implements Initializable {
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
 
-        key0.setOnMousePressed(event -> keyPressed(key0, "1"));
+        key0.setOnMousePressed(event -> keyPressed(key0, "0"));
         key1.setOnMousePressed(event -> keyPressed(key1, "1"));
         key2.setOnMousePressed(event -> keyPressed(key2, "2"));
         key3.setOnMousePressed(event -> keyPressed(key3, "3"));
@@ -565,7 +565,7 @@ public class NewpasswordController implements Initializable {
         key7.setOnMousePressed(event -> keyPressed(key7, "7"));
         key8.setOnMousePressed(event -> keyPressed(key8, "8"));
         key9.setOnMousePressed(event -> keyPressed(key9, "9"));
-        key0.setOnMouseDragged(event -> keyDragged(key0, "1"));
+        key0.setOnMouseDragged(event -> keyDragged(key0, "0"));
         key1.setOnMouseDragged(event -> keyDragged(key1, "1"));
         key2.setOnMouseDragged(event -> keyDragged(key2, "2"));
         key3.setOnMouseDragged(event -> keyDragged(key3, "3"));
