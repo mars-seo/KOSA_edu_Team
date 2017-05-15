@@ -90,5 +90,15 @@
             <Image url="@images/boiler_expension_default.png" />
          </image>
       </ImageView>
+      <ImageView fitHeight="19.0" fitWidth="66.0" layoutX="147.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Indoor%20temperature.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="55.0" layoutX="88.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/boiler_Desired%20temperature.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
