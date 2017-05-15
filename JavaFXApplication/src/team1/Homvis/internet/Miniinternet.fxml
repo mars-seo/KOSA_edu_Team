@@ -89,12 +89,12 @@
                         </VBox>
                     </children>
                 </StackPane>
-                  <ImageView fx:id="exit" fitHeight="15.0" fitWidth="15.0" layoutX="388.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="exit" fitHeight="40.0" fitWidth="70.0" layoutX="360.0" pickOnBounds="true" preserveRatio="true">
                       <image>
                           <Image url="@internetImg/icon.png" />
                       </image>
                   </ImageView>
-            <ImageView fx:id="maximize" fitHeight="15.0" fitWidth="15.0" layoutX="367.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="maximize" fitHeight="40.0" fitWidth="70.0" layoutX="320.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@internetImg/maximize.png" />
                </image>
