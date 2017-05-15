@@ -272,7 +272,7 @@ public class ModechangeController implements Initializable {
             if (BoilerminiController.barStateArray[value] == false) { //해당번호가 체크 되어있는지
                 number.setImage(new Image(getClass().getResource("images/" + imageName.get(value) + ".png").toString()));
                 BoilerController.barList.get(value).setOpacity(1);
-                //BoilerminiController.barStateArray[value] = true;
+                BoilerminiController.barStateArray[value] = true;
             } else {
                 number.setImage(new Image(getClass().getResource("images/" + imageName.get(value + 12) + ".png").toString()));
                 BoilerminiController.barStateArray[value] = false;
