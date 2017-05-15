@@ -650,6 +650,7 @@ public class NewpasswordController implements Initializable {
         password2.setText("");
         password1List.removeAll(password1List);
         password2List.removeAll(password2List);
+				keyreset.setImage(new Image(getClass().getResource("images/login_reset_default.png").toString()));
     }
 
 }
