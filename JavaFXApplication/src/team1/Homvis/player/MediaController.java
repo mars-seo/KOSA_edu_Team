@@ -98,8 +98,8 @@ public class MediaController implements Initializable {
 	private void handleMedia(ObservableList<File> mediaFileList, int index) {
 		if(mediaFileList.isEmpty()||MiniMediaController.playList.getFileName().isEmpty()) return;
 		else{
-			String path = mediaFileList.get(index).toURI().toString();
-			path = path.substring(66);
+			String path = mediaFileList.get(index).toString();
+			path = path.replace('\\', '/');
 			playMedia = new Media(path);
 			mediaPlayer = new MediaPlayer(playMedia);
 			mediaView.setMediaPlayer(mediaPlayer);
