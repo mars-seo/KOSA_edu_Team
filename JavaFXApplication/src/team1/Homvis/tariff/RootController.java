@@ -36,9 +36,11 @@ public class RootController implements Initializable {
     private ImageView exit;
     @FXML
     private AnchorPane tariffRoot;
+		public static Parent dongjuroot;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+			dongjuroot=tariffRoot;
         rootPane = changeableStackPane;
 
         btnGasFee.setOnMouseClicked((event) -> {
