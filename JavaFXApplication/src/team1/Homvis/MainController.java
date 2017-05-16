@@ -69,10 +69,10 @@ public class MainController implements Initializable {
 	public static List<String> menuList = new ArrayList<>();
 	public static Parent veiw[] = new Parent[7];
 
-	public static List<Parent> miniParent = new ArrayList<>();
+
 	public static Parent miniVeiw[] = new Parent[7];
 
-	public static boolean miniWindow;
+
 	public static Parent preIndex1;
 	public static Parent preIndex2;
 	public static int preindex1 = -1;
@@ -215,12 +215,12 @@ public class MainController implements Initializable {
 		timeline = new Timeline();
 		timeline.getKeyFrames().add(keyFrame);
 		timeline.play();
-		System.gc();
+
 	}
 
 	private void menuPressed(ImageView menuIcon, int index) {
 		menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_pressed.png").toString()));
-		System.gc();
+
 	}
 
 	private void menuClicked(ImageView menuIcon, int index, boolean chk) {
@@ -236,20 +236,18 @@ public class MainController implements Initializable {
 			}
 			menuicon[7].setImage(new Image(getClass().getResource("images/main_" + menuList.get(7) + "_default.png").toString()));
 			menuicon[7].setDisable(false);
-			mainPane.getChildren().removeAll(miniParent);
+			mainPane.getChildren().removeAll(miniVeiw);
 			mainPane.getChildren().remove(secretview);
 			preIndex1 = null;
 			preIndex2 = null;
-			System.gc();
 		} else {
 			try {
 				if (!chk) {
 					if (miniVeiw[index] == null) {
-						miniVeiw[index] = FXMLLoader.load(getClass().getResource(menuList.get(index) + "/Mini" + menuList.get(index) + ".fxml"));
+						miniVeiw[index] = FXMLLoader.load(getClass().getResource(menuList.get(index) + "/" + menuList.get(index) + ".fxml"));
 					}
 					mainPane.getChildren().add(miniVeiw[index]);
-					if (!miniWindow) {
-
+					
 						if (preIndex1 != null) {
 							mainPane.getChildren().remove(preIndex1);
 							menuicon[preindex1].setImage(new Image(getClass().getResource("images/main_" + menuList.get(preindex1) + "_default.png").toString()));
@@ -257,42 +255,12 @@ public class MainController implements Initializable {
 						}
 						miniVeiw[index].setTranslateX(0);
 						miniVeiw[index].setTranslateY(0);
-						/*miniView.setOpacity(0);
-						KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
-						KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
-						timeline = new Timeline();
-						timeline.getKeyFrames().add(keyFrame);
-						timeline.play();
-						 */
-						preIndex1 = miniVeiw[index];
-						preindex1 = index;
-					} else {
-						if (preIndex2 != null) {
-							mainPane.getChildren().remove(preIndex2);
-							menuicon[preindex2].setImage(new Image(getClass().getResource("images/main_" + menuList.get(preindex2) + "_default.png").toString()));
-							menuicon[preindex2].setDisable(false);
-						}
-						miniVeiw[index].setTranslateX(400);
-						miniVeiw[index].setTranslateY(0);
-						/*miniView.setOpacity(0);
-						KeyValue keyValue = new KeyValue(miniView.opacityProperty(), 1);
-						KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
-						timeline = new Timeline();
-						timeline.getKeyFrames().add(keyFrame);
-						timeline.play();
-						 */
-						preIndex2 = miniVeiw[index];
-						preindex2 = index;
-					}
-					miniWindow = !miniWindow;
-					miniParent.add(miniVeiw[index]);
-					System.gc();
-
+											
 				} else {
 					// passwordChk(index + 1);
 					secretCount = index + 1;
 					secretClicked(chk);
-					System.gc();
+
 				}
 			} catch (IOException ex) {
 				Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
@@ -319,22 +287,15 @@ public class MainController implements Initializable {
 
 				mainPane.getChildren().add(secretview);
 				secretview.setTranslateY(0);
-				if (!miniWindow) {
-					if (preIndex1 != null) {
+				
+					
 						mainPane.getChildren().remove(preIndex1);
 						menuicon[preindex1].setImage(new Image(getClass().getResource("images/main_" + menuList.get(preindex1) + "_default.png").toString()));
 						menuicon[preindex1].setDisable(false);
-					}
+					
 					secretview.setTranslateX(0);
 					secretview.setTranslateY(0);
-					/*
-					secretview.setOpacity(0);
-					KeyValue keyValue = new KeyValue(secretview.opacityProperty(), 1);
-					KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
-					timeline = new Timeline();
-					timeline.getKeyFrames().add(keyFrame);
-					timeline.play();
-					 */
+					
 					if (secretCount > 1) {
 						VBox chkboxview = (VBox) secretview.lookup("#chkboxview");
 						Label txt1 = (Label) secretview.lookup("#txt1");
@@ -346,47 +307,14 @@ public class MainController implements Initializable {
 						chkboxview.setOpacity(0);
 						password2.setOpacity(0);
 					}
-					preIndex1 = secretview;
-					preindex1 = 7;
-				} else {
-					if (preIndex2 != null) {
-						mainPane.getChildren().remove(preIndex1);
-						menuicon[preindex2].setImage(new Image(getClass().getResource("images/main_" + menuList.get(preindex2) + "_default.png").toString()));
-						menuicon[preindex2].setDisable(false);
-					}
-					secretview.setTranslateX(400);
-					secretview.setTranslateY(0);
-					/*
-					secretview.setOpacity(0);
-					KeyValue keyValue = new KeyValue(secretview.opacityProperty(), 1);
-					KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
-					timeline = new Timeline();
-					timeline.getKeyFrames().add(keyFrame);
-					timeline.play();
-					 */
-					if (secretCount > 1) {
-						VBox chkboxview = (VBox) secretview.lookup("#chkboxview");
-						Label txt1 = (Label) secretview.lookup("#txt1");
-						Label txt2 = (Label) secretview.lookup("#txt2");
-						PasswordField password2 = (PasswordField) secretview.lookup("#password2");
-
-						txt1.setText("비밀번호");
-						txt2.setText("");
-						chkboxview.setOpacity(0);
-						password2.setOpacity(0);
-					}
-					preIndex2 = secretview;
-					preindex2 = 7;
-				}
-				miniWindow = !miniWindow;
-				System.gc();
+				
 				Label txt1 = (Label) secretview.lookup("#txt1");
 				Label txt2 = (Label) secretview.lookup("#txt2");
 
 				if (secretCount == 1) {
 					txt1.setText("기존 비밀번호");
 					txt2.setText("신규 비밀번호");
-					System.gc();
+
 				}
 			} catch (IOException ex) {
 

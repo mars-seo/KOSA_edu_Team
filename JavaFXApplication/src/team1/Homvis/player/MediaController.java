@@ -313,7 +313,7 @@ public class MediaController implements Initializable {
 	private void exit() {
 		MainController.menuicon[5].setImage(new Image(getClass().getResource("playerImg/main_player_default.png").toString()));
 		MainController.stackPane.getChildren().remove(mediaRoot);
-		mediaPlayer.stop();
+		if(mediaPlayer !=null) mediaPlayer.stop();
 		exit.setImage(new Image(getClass().getResource("playerImg/exit_default.png").toString()));
 		MainController.menuicon[5].setDisable(false);
     }
