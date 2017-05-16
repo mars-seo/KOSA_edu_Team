@@ -317,7 +317,7 @@ public class MiniMediaController implements Initializable {
 	}
 	private void exit() {
 		MainController.menuicon[5].setImage(new Image(getClass().getResource("playerImg/main_player_default.png").toString()));
-		mediaPlayer.stop();
+		if(mediaPlayer != null) mediaPlayer.stop();
 		MainController.stackPane.getChildren().remove(miniMediaRoot);
 		exit.setImage(new Image(getClass().getResource("playerImg/exit_default.png").toString()));
     }
