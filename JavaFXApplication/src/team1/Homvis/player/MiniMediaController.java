@@ -317,7 +317,7 @@ public class MiniMediaController implements Initializable {
 	}
 	private void exit() {
 		MainController.menuicon[5].setImage(new Image(getClass().getResource("playerImg/main_player_default.png").toString()));
-		mediaPlayer.stop();
+		if(mediaPlayer != null) mediaPlayer.stop();
 		MainController.stackPane.getChildren().remove(miniMediaRoot);
 		exit.setImage(new Image(getClass().getResource("playerImg/exit_default.png").toString()));
     }
@@ -325,7 +325,7 @@ public class MiniMediaController implements Initializable {
 	private void maximizeScreen() {
 		try {
 			if(MainController.veiw[5]==null) MainController.veiw[5] = FXMLLoader.load(getClass().getResource(MainController.menuList.get(5)+".fxml"));
-			mediaPlayer.stop();
+			if(mediaPlayer != null) mediaPlayer.stop();
 			MainController.stackPane.getChildren().add(MainController.veiw[5]);
 			MainController.stackPane.getChildren().remove(miniMediaRoot);
 		} catch (IOException ex) {

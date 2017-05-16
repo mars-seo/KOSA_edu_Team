@@ -18,41 +18,41 @@
         <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="400.0">
             <children>
                 <WebView fx:id="newsWebView" layoutX="5.0" layoutY="40.0" prefHeight="236.0" prefWidth="390.0" />
-            <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="240.0">
+            <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="290.0">
                <children>
-                  <ImageView fitHeight="40.0" fitWidth="240.0" pickOnBounds="true">
+                  <ImageView fitHeight="40.0" fitWidth="290.0" pickOnBounds="true">
                      <image>
                         <Image url="@internetImg/internet_bar.png" />
                      </image>
                   </ImageView>
-                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="240.0">
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="290.0">
                      <children>
                               <ImageView fx:id="newsButton" fitHeight="40.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                                   <image>
                                       <Image url="@internetImg/internet_naver_default.png" />
                                   </image>
                               </ImageView>
-                              <ImageView fx:id="youtubeButton" fitHeight="40.0" fitWidth="70.0" layoutX="40.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="youtubeButton" fitHeight="40.0" fitWidth="70.0" layoutX="50.0" pickOnBounds="true" preserveRatio="true">
                                   <image>
                                       <Image url="@internetImg/internet_youtube_default.png" />
                                   </image>
                               </ImageView>
-                              <ImageView fx:id="refresh" fitHeight="40.0" fitWidth="70.0" layoutX="80.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="refresh" fitHeight="40.0" fitWidth="70.0" layoutX="100.0" pickOnBounds="true" preserveRatio="true">
                                   <image>
                                       <Image url="@internetImg/internet_refresh_default.png" />
                                   </image>
                               </ImageView>
-                              <ImageView fx:id="forwardButton" fitHeight="40.0" fitWidth="70.0" layoutX="120.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="forwardButton" fitHeight="40.0" fitWidth="70.0" layoutX="150.0" pickOnBounds="true" preserveRatio="true">
                                   <image>
                                       <Image url="@internetImg/internet_forward_default.png" />
                                   </image>
                               </ImageView>
-                              <ImageView fx:id="backButton" fitHeight="40.0" fitWidth="70.0" layoutX="160.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="backButton" fitHeight="40.0" fitWidth="70.0" layoutX="200.0" pickOnBounds="true" preserveRatio="true">
                                   <image>
                                       <Image url="@internetImg/internet_back_default.png" />
                                   </image>
                               </ImageView>
-                              <ImageView fx:id="favoriteToggle" fitHeight="40.0" fitWidth="70.0" layoutX="200.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="favoriteToggle" fitHeight="40.0" fitWidth="70.0" layoutX="250.0" pickOnBounds="true" preserveRatio="true">
                                   <image>
                                       <Image url="@internetImg/internet_favorite_default.png" />
                                   </image>
