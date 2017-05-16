@@ -97,7 +97,6 @@ public class NewpasswordController implements Initializable {
     private boolean temp8PasswordChk = MainController.menu8PasswordChk;
     private final int code = MainController.secretCount;  //secret콘트롤 생성된 순간의 secretcount를 기억하기 위해
 
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -292,23 +291,20 @@ public class NewpasswordController implements Initializable {
     }
 
     private void miniScreenOpen(int value) {
-		try {
-			if (miniVeiw[value] == null) {
-						miniVeiw[value] = FXMLLoader.load(getClass().getResource(menuList.get(value) + "/Mini" + menuList.get(value) + ".fxml"));
-						System.out.println("ssss");
-					}
-			System.out.println("ssss");
-					MainController.stackPane.getChildren().add(miniVeiw[value]);
-					
-					miniVeiw[value].setTranslateX(0);
-					miniVeiw[value].setTranslateY(0);
-					preIndex1 = miniVeiw[value];
-					preindex1 = value;
-					
+        try {
+            if (miniVeiw[value] == null) {
+                        miniVeiw[value] = FXMLLoader.load(getClass().getResource(menuList.get(value) + "/" + menuList.get(value) + ".fxml"));
+                    }
+            MainController.stackPane.getChildren().add(miniVeiw[value]);
 
-		} catch (IOException ex) {
-			
-		}
+            miniVeiw[value].setTranslateX(0);
+            miniVeiw[value].setTranslateY(0);
+            preIndex1 = miniVeiw[value];
+            preindex1 = value;
+
+        } catch (IOException ex) {
+
+        }
     }
 
     private void chkbox() {
@@ -629,7 +625,7 @@ public class NewpasswordController implements Initializable {
         password2.setText("");
         password1List.removeAll(password1List);
         password2List.removeAll(password2List);
-				keyreset.setImage(new Image(getClass().getResource("images/login_reset_default.png").toString()));
+        keyreset.setImage(new Image(getClass().getResource("images/login_reset_default.png").toString()));
     }
 
 }

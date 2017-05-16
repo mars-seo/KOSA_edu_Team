@@ -28,151 +28,149 @@ import javafx.util.Duration;
 
 public class MainController implements Initializable {
 
-	@FXML
-	private ImageView background;
-	@FXML
-	private HBox menu;
-	@FXML
-	private ImageView menuIcon1;
-	@FXML
-	private ImageView menuIcon2;
-	@FXML
-	private ImageView menuIcon3;
-	@FXML
-	private ImageView menuIcon4;
-	@FXML
-	private ImageView menuIcon5;
-	@FXML
-	private ImageView menuIcon6;
-	@FXML
-	private ImageView menuIcon7;
-	@FXML
-	private ImageView menuIcon8;
-	@FXML
-	private Label clock;
-	@FXML
-	private AnchorPane mainPane;
+    @FXML
+    private ImageView background;
+    @FXML
+    private HBox menu;
+    @FXML
+    private ImageView menuIcon1;
+    @FXML
+    private ImageView menuIcon2;
+    @FXML
+    private ImageView menuIcon3;
+    @FXML
+    private ImageView menuIcon4;
+    @FXML
+    private ImageView menuIcon5;
+    @FXML
+    private ImageView menuIcon6;
+    @FXML
+    private ImageView menuIcon7;
+    @FXML
+    private ImageView menuIcon8;
+    @FXML
+    private Label clock;
+    @FXML
+    private AnchorPane mainPane;
 
-	public static ImageView menuicon[] = new ImageView[8];
+    public static ImageView menuicon[] = new ImageView[8];
 
-	public static String password;
-	public static AnchorPane stackPane;
-	public static boolean menu1PasswordChk;
-	public static boolean menu2PasswordChk;
-	public static boolean menu3PasswordChk;
-	public static boolean menu4PasswordChk;
-	public static boolean menu5PasswordChk;
-	public static boolean menu6PasswordChk;
-	public static boolean menu7PasswordChk;
-	public static boolean menu8PasswordChk;
+    public static String password;
+    public static AnchorPane stackPane;
+    public static boolean menu1PasswordChk;
+    public static boolean menu2PasswordChk;
+    public static boolean menu3PasswordChk;
+    public static boolean menu4PasswordChk;
+    public static boolean menu5PasswordChk;
+    public static boolean menu6PasswordChk;
+    public static boolean menu7PasswordChk;
+    public static boolean menu8PasswordChk;
 
-	public static List<String> menuList = new ArrayList<>();
-	public static Parent veiw[] = new Parent[7];
+    public static List<String> menuList = new ArrayList<>();
+    public static Parent veiw[] = new Parent[7];
 
+    public static Parent miniVeiw[] = new Parent[7];
 
-	public static Parent miniVeiw[] = new Parent[7];
+    public static Parent preIndex1;
+    public static Parent preIndex2;
+    public static int preindex1 = -1;
+    public static int preindex2 = -1;
+    private Parent secretview;
+    public static int secretCount;
+    private int count = -1;
+    private Timeline timeline;
 
+    public MainController() {
 
-	public static Parent preIndex1;
-	public static Parent preIndex2;
-	public static int preindex1 = -1;
-	public static int preindex2 = -1;
-	private Parent secretview;
-	public static int secretCount;
-	private int count = -1;
-	private Timeline timeline;
+        this.menuList.add("home");
+        this.menuList.add("boiler");
+        this.menuList.add("elecNgas");
+        this.menuList.add("interphone");
+        this.menuList.add("internet");
+        this.menuList.add("player");
+        this.menuList.add("tariff");
+        this.menuList.add("secret");
 
-	public MainController() {
+    }
 
-		this.menuList.add("home");
-		this.menuList.add("boiler");
-		this.menuList.add("elecNgas");
-		this.menuList.add("interphone");
-		this.menuList.add("internet");
-		this.menuList.add("player");
-		this.menuList.add("tariff");
-		this.menuList.add("secret");
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        //나중에 디폴트로 만들기위해
+        menuicon[0] = menuIcon1;
+        menuicon[1] = menuIcon2;
+        menuicon[2] = menuIcon3;
+        menuicon[3] = menuIcon4;
+        menuicon[4] = menuIcon5;
+        menuicon[5] = menuIcon6;
+        menuicon[6] = menuIcon7;
+        menuicon[7] = menuIcon8;
 
-	}
+        stackPane = mainPane;
 
-	@Override
-	public void initialize(URL url, ResourceBundle rb) {
-		//나중에 디폴트로 만들기위해
-		menuicon[0] = menuIcon1;
-		menuicon[1] = menuIcon2;
-		menuicon[2] = menuIcon3;
-		menuicon[3] = menuIcon4;
-		menuicon[4] = menuIcon5;
-		menuicon[5] = menuIcon6;
-		menuicon[6] = menuIcon7;
-		menuicon[7] = menuIcon8;
+        //clock start
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+                while (true) {
+                    String strTime = sdf.format(new Date());
+                    Platform.runLater(() -> {
+                        clock.setText(strTime);
+                        System.gc();
+                    });
+                    try {
+                        Thread.sleep(100);
+                    } catch (Exception e) {
+                    }
+                }
 
-		stackPane = mainPane;
-
-		//clock start
-		Thread thread = new Thread() {
-			@Override
-			public void run() {
-				SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-				while (true) {
-					String strTime = sdf.format(new Date());
-					Platform.runLater(() -> {
-						clock.setText(strTime);
-						System.gc();
-					});
-					try {
-						Thread.sleep(100);
-					} catch (Exception e) {
-					}
-				}
-
-			}
-		};
-		thread.setDaemon(true);
-		thread.start();
-		////////////////////////////clock end
-		System.gc();
-		//아이콘 눌렀을때
-		menuIcon1.setOnMousePressed(event -> menuPressed(menuIcon1, 0));
-		menuIcon1.setOnMouseClicked(event -> menuClicked(menuIcon1, 0, menu1PasswordChk));
-		menuIcon2.setOnMousePressed(event -> menuPressed(menuIcon2, 1));
-		menuIcon2.setOnMouseClicked(event -> menuClicked(menuIcon2, 1, menu2PasswordChk));
-		menuIcon3.setOnMousePressed(event -> menuPressed(menuIcon3, 2));
-		menuIcon3.setOnMouseClicked(event -> menuClicked(menuIcon3, 2, menu3PasswordChk));
-		menuIcon4.setOnMousePressed(event -> menuPressed(menuIcon4, 3));
-		menuIcon4.setOnMouseClicked(event -> menuClicked(menuIcon4, 3, menu4PasswordChk));
-		menuIcon5.setOnMousePressed(event -> menuPressed(menuIcon5, 4));
-		menuIcon5.setOnMouseClicked(event -> menuClicked(menuIcon5, 4, menu5PasswordChk));
-		menuIcon6.setOnMousePressed(event -> menuPressed(menuIcon6, 5));
-		menuIcon6.setOnMouseClicked(event -> menuClicked(menuIcon6, 5, menu6PasswordChk));
-		menuIcon7.setOnMousePressed(event -> menuPressed(menuIcon7, 6));
-		menuIcon7.setOnMouseClicked(event -> menuClicked(menuIcon7, 6, menu7PasswordChk));
-		//menuIcon8.setOnMousePressed(event -> secretPressed());
-		menuIcon8.setOnMousePressed(event -> secretClicked(true)); //암호설정 서브메뉴이동
-		System.gc();
-		//메뉴시작위치
-		menu.setTranslateX(0);
-		menu.setTranslateY(200);
+            }
+        };
+        thread.setDaemon(true);
+        thread.start();
+        ////////////////////////////clock end
+        System.gc();
+        //아이콘 눌렀을때
+        menuIcon1.setOnMousePressed(event -> menuPressed(menuIcon1, 0));
+        menuIcon1.setOnMouseClicked(event -> menuClicked(menuIcon1, 0, menu1PasswordChk));
+        menuIcon2.setOnMousePressed(event -> menuPressed(menuIcon2, 1));
+        menuIcon2.setOnMouseClicked(event -> menuClicked(menuIcon2, 1, menu2PasswordChk));
+        menuIcon3.setOnMousePressed(event -> menuPressed(menuIcon3, 2));
+        menuIcon3.setOnMouseClicked(event -> menuClicked(menuIcon3, 2, menu3PasswordChk));
+        menuIcon4.setOnMousePressed(event -> menuPressed(menuIcon4, 3));
+        menuIcon4.setOnMouseClicked(event -> menuClicked(menuIcon4, 3, menu4PasswordChk));
+        menuIcon5.setOnMousePressed(event -> menuPressed(menuIcon5, 4));
+        menuIcon5.setOnMouseClicked(event -> menuClicked(menuIcon5, 4, menu5PasswordChk));
+        menuIcon6.setOnMousePressed(event -> menuPressed(menuIcon6, 5));
+        menuIcon6.setOnMouseClicked(event -> menuClicked(menuIcon6, 5, menu6PasswordChk));
+        menuIcon7.setOnMousePressed(event -> menuPressed(menuIcon7, 6));
+        menuIcon7.setOnMouseClicked(event -> menuClicked(menuIcon7, 6, menu7PasswordChk));
+        //menuIcon8.setOnMousePressed(event -> secretPressed());
+        menuIcon8.setOnMousePressed(event -> secretClicked(true)); //암호설정 서브메뉴이동
+        System.gc();
+        //메뉴시작위치
+        menu.setTranslateX(0);
+        menu.setTranslateY(200);
 ////////////////
-		System.gc();
-		background.setOnMouseClicked(event -> {
-			count = count * (-1);
-			if (count == 1) {
-				menuOpen();
-			} else {
-				menuClose();
-			}
-		});
+        System.gc();
+        background.setOnMouseClicked(event -> {
+            count = count * (-1);
+            if (count == 1) {
+                menuOpen();
+            } else {
+                menuClose();
+            }
+        });
 
-		//      menu.setOnSwipeRight(new EventHandler<SwipeEvent>() {   //터치패드사용
-		//         @Override
-		//        public void handle(SwipeEvent event) {
-		//            System.out.println("swipeRight");
-		//            event.consume();
-		//        }
-		//   });
-		//드래그할때 메뉴 옮기는거 부분, 시간있으면 진행
-		/*     menu.setOnMousePressed((event) -> {
+        //      menu.setOnSwipeRight(new EventHandler<SwipeEvent>() {   //터치패드사용
+        //         @Override
+        //        public void handle(SwipeEvent event) {
+        //            System.out.println("swipeRight");
+        //            event.consume();
+        //        }
+        //   });
+        //드래그할때 메뉴 옮기는거 부분, 시간있으면 진행
+        /*     menu.setOnMousePressed((event) -> {
             xValue = event.getSceneX();
         });
 
@@ -191,131 +189,131 @@ public class MainController implements Initializable {
             }
 
         });*/
-	}
+    }
 
-	private void menuOpen() {
-		//sstackPane.getChildren().add(menu);
-		if (timeline != null) {
-			timeline.stop();
-		}
-		KeyValue keyValue = new KeyValue(menu.translateYProperty(), 0);
-		KeyFrame keyFrame = new KeyFrame(Duration.millis(400), keyValue);
-		timeline = new Timeline();
-		timeline.getKeyFrames().add(keyFrame);
-		timeline.play();
-		System.gc();
-	}
+    private void menuOpen() {
+        //sstackPane.getChildren().add(menu);
+        if (timeline != null) {
+            timeline.stop();
+        }
+        KeyValue keyValue = new KeyValue(menu.translateYProperty(), 0);
+        KeyFrame keyFrame = new KeyFrame(Duration.millis(400), keyValue);
+        timeline = new Timeline();
+        timeline.getKeyFrames().add(keyFrame);
+        timeline.play();
+        System.gc();
+    }
 
-	private void menuClose() {
-		if (timeline != null) {
-			timeline.stop();
-		}
-		KeyValue keyValue = new KeyValue(menu.translateYProperty(), 200);
-		KeyFrame keyFrame = new KeyFrame(Duration.millis(400), keyValue);
-		timeline = new Timeline();
-		timeline.getKeyFrames().add(keyFrame);
-		timeline.play();
+    private void menuClose() {
+        if (timeline != null) {
+            timeline.stop();
+        }
+        KeyValue keyValue = new KeyValue(menu.translateYProperty(), 200);
+        KeyFrame keyFrame = new KeyFrame(Duration.millis(400), keyValue);
+        timeline = new Timeline();
+        timeline.getKeyFrames().add(keyFrame);
+        timeline.play();
 
-	}
+    }
 
-	private void menuPressed(ImageView menuIcon, int index) {
-		menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_pressed.png").toString()));
+    private void menuPressed(ImageView menuIcon, int index) {
+        menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_pressed.png").toString()));
 
-	}
+    }
 
-	private void menuClicked(ImageView menuIcon, int index, boolean chk) {
-		if (timeline != null) {
-			timeline.stop();
-		}
-		menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_clicked.png").toString()));
-		menuIcon.setDisable(true);
-		if (index == 0) {
-			for (int i = 0; i < menuList.size(); i++) {
-				menuicon[i].setImage(new Image(getClass().getResource("images/main_" + menuList.get(i) + "_default.png").toString()));
-				menuicon[i].setDisable(false);
-			}
-			menuicon[7].setImage(new Image(getClass().getResource("images/main_" + menuList.get(7) + "_default.png").toString()));
-			menuicon[7].setDisable(false);
-			mainPane.getChildren().removeAll(miniVeiw);
-			mainPane.getChildren().remove(secretview);
-			preIndex1 = null;
-			preIndex2 = null;
-			preindex1 = -1;
+    private void menuClicked(ImageView menuIcon, int index, boolean chk) {
+        if (timeline != null) {
+            timeline.stop();
+        }
+        menuIcon.setImage(new Image(getClass().getResource("images/main_" + menuList.get(index) + "_clicked.png").toString()));
+        menuIcon.setDisable(true);
+        if (index == 0) {
+            for (int i = 0; i < menuList.size(); i++) {
+                menuicon[i].setImage(new Image(getClass().getResource("images/main_" + menuList.get(i) + "_default.png").toString()));
+                menuicon[i].setDisable(false);
+            }
+            menuicon[7].setImage(new Image(getClass().getResource("images/main_" + menuList.get(7) + "_default.png").toString()));
+            menuicon[7].setDisable(false);
+            mainPane.getChildren().removeAll(miniVeiw);
+            mainPane.getChildren().remove(secretview);
+            preIndex1 = null;
+            preIndex2 = null;
+            preindex1 = -1;
 
-		} else {
-			try {
-				if (!chk) {
-					if (miniVeiw[index] == null) {
-						miniVeiw[index] = FXMLLoader.load(getClass().getResource(menuList.get(index) + "/" + menuList.get(index) + ".fxml"));
-					}
-					mainPane.getChildren().add(miniVeiw[index]);
-					
-						miniVeiw[index].setTranslateX(0);
-						miniVeiw[index].setTranslateY(0);
-						preindex1 = index;					
-				} else {
-					// passwordChk(index + 1);
-					secretCount = index + 1;
-					secretClicked(chk);
+        } else {
+            try {
+                if (!chk) {
+                    if (miniVeiw[index] == null) {
+                        miniVeiw[index] = FXMLLoader.load(getClass().getResource(menuList.get(index) + "/" + menuList.get(index) + ".fxml"));
+                    }
+                    mainPane.getChildren().add(miniVeiw[index]);
 
-				}
-			} catch (IOException ex) {
-				Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
-			}
-		}
+                    miniVeiw[index].setTranslateX(0);
+                    miniVeiw[index].setTranslateY(0);
+                    preindex1 = index;
+                } else {
+                    // passwordChk(index + 1);
+                    secretCount = index + 1;
+                    secretClicked(chk);
 
-	}
-/*
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+    }
+
+    /*
 	private void secretPressed() {
 		menuIcon8.setImage(new Image(getClass().getResource("images/main_secret_pressed.png").toString()));
 		System.gc();
 	}
-*/
-	private void secretClicked(boolean chk) {
+     */
+    private void secretClicked(boolean chk) {
 
-		if (timeline != null) {
-			timeline.stop();
-		}
-		menuIcon8.setImage(new Image(getClass().getResource("images/main_secret_clicked.png").toString()));
-		menuIcon8.setDisable(true);
-		if (chk) {
-			try {
-				secretview = FXMLLoader.load(getClass().getResource("newpassword.fxml"));
+        if (timeline != null) {
+            timeline.stop();
+        }
+        menuIcon8.setImage(new Image(getClass().getResource("images/main_secret_clicked.png").toString()));
+        menuIcon8.setDisable(true);
+        if (chk) {
+            try {
+                secretview = FXMLLoader.load(getClass().getResource("newpassword.fxml"));
 
-				mainPane.getChildren().add(secretview);
-				secretview.setTranslateY(0);
-				
-					
-					mainPane.getChildren().remove(preIndex1);
-					secretview.setTranslateX(200);
-					secretview.setTranslateY(80);
-					
-					if (secretCount > 1) {
-						VBox chkboxview = (VBox) secretview.lookup("#chkboxview");
-						Label txt1 = (Label) secretview.lookup("#txt1");
-						Label txt2 = (Label) secretview.lookup("#txt2");
-						PasswordField password2 = (PasswordField) secretview.lookup("#password2");
+                mainPane.getChildren().add(secretview);
+                secretview.setTranslateY(0);
 
-						txt1.setText("비밀번호");
-						txt2.setText("");
-						chkboxview.setOpacity(0);
-						password2.setOpacity(0);
-					}
-					
-				Label txt1 = (Label) secretview.lookup("#txt1");
-				Label txt2 = (Label) secretview.lookup("#txt2");
+                mainPane.getChildren().remove(preIndex1);
+                secretview.setTranslateX(200);
+                secretview.setTranslateY(80);
 
-				if (secretCount == 1) {
-					txt1.setText("기존 비밀번호");
-					txt2.setText("신규 비밀번호");
+                if (secretCount > 1) {
+                    VBox chkboxview = (VBox) secretview.lookup("#chkboxview");
+                    Label txt1 = (Label) secretview.lookup("#txt1");
+                    Label txt2 = (Label) secretview.lookup("#txt2");
+                    PasswordField password2 = (PasswordField) secretview.lookup("#password2");
 
-				}
-				preindex1=7;
-			} catch (IOException ex) {
+                    txt1.setText("비밀번호");
+                    txt2.setText("");
+                    chkboxview.setOpacity(0);
+                    password2.setOpacity(0);
+                }
 
-			}
-		}
-	}
+                Label txt1 = (Label) secretview.lookup("#txt1");
+                Label txt2 = (Label) secretview.lookup("#txt2");
+
+                if (secretCount == 1) {
+                    txt1.setText("기존 비밀번호");
+                    txt2.setText("신규 비밀번호");
+
+                }
+                preindex1 = 7;
+            } catch (IOException ex) {
+
+            }
+        }
+    }
 
 }
 /*
