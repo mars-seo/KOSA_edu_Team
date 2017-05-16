@@ -63,12 +63,12 @@ public class MediaController implements Initializable {
 	private Media playMedia;
 	private MediaPlayer mediaPlayer;
 	private String[] imgName = {"play","pause","stop","forward","backward"};
-
+	private PlayerList playList = new PlayerList();
 			
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		
-		mediaList.setItems(MiniMediaController.playList.getFileName());
+		mediaList.setItems(playList.getFileName());
 
 		playBtn.setOnMousePressed(e->playBtn.setImage(new Image(getClass().getResource("playerImg/player_play_clicked.png").toString())));
 		pauseBtn.setOnMousePressed(e->pauseBtn.setImage(new Image(getClass().getResource("playerImg/player_pause_clicked.png").toString())));
@@ -86,7 +86,7 @@ public class MediaController implements Initializable {
 		mediaList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                handleMedia(MiniMediaController.playList.getMediaFile(), MiniMediaController.playList.getFileName().indexOf(newValue));
+                handleMedia(playList.getMediaFile(), playList.getFileName().indexOf(newValue));
 				deleteBtn.setOnMouseClicked(e->handleDelete(e, newValue));
             }
         });
@@ -96,7 +96,7 @@ public class MediaController implements Initializable {
 	
 
 	private void handleMedia(ObservableList<File> mediaFileList, int index) {
-		if(mediaFileList.isEmpty()||MiniMediaController.playList.getFileName().isEmpty()) return;
+		if(mediaFileList.isEmpty()||playList.getFileName().isEmpty()) return;
 		else{
 			String path = mediaFileList.get(index).toString();
 			path = path.replace('\\', '/');
@@ -296,15 +296,15 @@ public class MediaController implements Initializable {
 	
 	// 누르면 리스트뷰와 각각의 리스트 객체에서 해당 파일을 지운다.
 	private void handleDelete(MouseEvent e, String selectFile) {
-		if(MiniMediaController.playList.getFileName().isEmpty()||MiniMediaController.playList.getMediaFile().isEmpty()){
+		if(playList.getFileName().isEmpty()||MiniMediaController.playList.getMediaFile().isEmpty()){
 			mediaPlayer.stop();
 		}else{
-			int delIndex = MiniMediaController.playList.getFileName().indexOf(selectFile);
-			MiniMediaController.playList.getFileName().remove(delIndex);
-			MiniMediaController.playList.getMediaFile().remove(delIndex);
+			int delIndex = playList.getFileName().indexOf(selectFile);
+			playList.getFileName().remove(delIndex);
+			playList.getMediaFile().remove(delIndex);
 			mediaList.setItems(MiniMediaController.playList.getFileName());
 			
-			if(MiniMediaController.playList.getFileName().isEmpty()||MiniMediaController.playList.getMediaFile().isEmpty()){
+			if(playList.getFileName().isEmpty()||playList.getMediaFile().isEmpty()){
 				mediaPlayer.stop();
 				mediaPlayer = null;
 			}

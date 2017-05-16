@@ -300,16 +300,10 @@ public class NewpasswordController implements Initializable {
 			System.out.println("ssss");
 					MainController.stackPane.getChildren().add(miniVeiw[value]);
 					
-
-						
-						MainController.stackPane.getChildren().remove(preIndex1);
-						menuicon[preindex1].setImage(new Image(getClass().getResource("images/main_" + menuList.get(preindex1) + "_default.png").toString()));
-						menuicon[preindex1].setDisable(false);
-						
-						miniVeiw[value].setTranslateX(0);
-						miniVeiw[value].setTranslateY(0);
-						preIndex1 = miniVeiw[value];
-						preindex1 = value;
+					miniVeiw[value].setTranslateX(0);
+					miniVeiw[value].setTranslateY(0);
+					preIndex1 = miniVeiw[value];
+					preindex1 = value;
 					
 
 		} catch (IOException ex) {

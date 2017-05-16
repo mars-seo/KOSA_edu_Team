@@ -240,6 +240,8 @@ public class MainController implements Initializable {
 			mainPane.getChildren().remove(secretview);
 			preIndex1 = null;
 			preIndex2 = null;
+			preindex1 = -1;
+
 		} else {
 			try {
 				if (!chk) {
@@ -248,14 +250,9 @@ public class MainController implements Initializable {
 					}
 					mainPane.getChildren().add(miniVeiw[index]);
 					
-						if (preIndex1 != null) {
-							mainPane.getChildren().remove(preIndex1);
-							menuicon[preindex1].setImage(new Image(getClass().getResource("images/main_" + menuList.get(preindex1) + "_default.png").toString()));
-							menuicon[preindex1].setDisable(false);
-						}
 						miniVeiw[index].setTranslateX(0);
 						miniVeiw[index].setTranslateY(0);
-											
+						preindex1 = index;					
 				} else {
 					// passwordChk(index + 1);
 					secretCount = index + 1;
@@ -289,12 +286,9 @@ public class MainController implements Initializable {
 				secretview.setTranslateY(0);
 				
 					
-						mainPane.getChildren().remove(preIndex1);
-						menuicon[preindex1].setImage(new Image(getClass().getResource("images/main_" + menuList.get(preindex1) + "_default.png").toString()));
-						menuicon[preindex1].setDisable(false);
-					
-					secretview.setTranslateX(0);
-					secretview.setTranslateY(0);
+					mainPane.getChildren().remove(preIndex1);
+					secretview.setTranslateX(200);
+					secretview.setTranslateY(80);
 					
 					if (secretCount > 1) {
 						VBox chkboxview = (VBox) secretview.lookup("#chkboxview");
@@ -307,7 +301,7 @@ public class MainController implements Initializable {
 						chkboxview.setOpacity(0);
 						password2.setOpacity(0);
 					}
-				
+					
 				Label txt1 = (Label) secretview.lookup("#txt1");
 				Label txt2 = (Label) secretview.lookup("#txt2");
 
@@ -316,6 +310,7 @@ public class MainController implements Initializable {
 					txt2.setText("신규 비밀번호");
 
 				}
+				preindex1=7;
 			} catch (IOException ex) {
 
 			}
