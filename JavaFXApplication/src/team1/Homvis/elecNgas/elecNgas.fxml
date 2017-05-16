@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="controlRoot" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.elecNgas.ControlController">
+<AnchorPane id="AnchorPane" fx:id="controlRoot" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.elecNgas.ControlMiniController">
 	<children>
       <ImageView fitHeight="480.0" fitWidth="800.0" pickOnBounds="true">
          <image>
@@ -35,7 +35,7 @@
                         <Image url="@controlImg/elecNgas_security_default.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="exit" fitHeight="40.0" fitWidth="40.0" layoutX="2.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="exit" fitHeight="42.0" fitWidth="42.0" layoutY="430.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@controlImg/exit_default.png" />
                      </image>
