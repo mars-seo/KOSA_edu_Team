@@ -19,12 +19,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.media.*;
-import javafx.stage.FileChooser;
-import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Popup;
 import javafx.util.Duration;
 import team1.Homvis.MainController;
-import static team1.Homvis.player.MiniMediaController.playList;
+
 
 public class MediaController implements Initializable {
 
@@ -296,13 +294,13 @@ public class MediaController implements Initializable {
 	
 	// 누르면 리스트뷰와 각각의 리스트 객체에서 해당 파일을 지운다.
 	private void handleDelete(MouseEvent e, String selectFile) {
-		if(playList.getFileName().isEmpty()||MiniMediaController.playList.getMediaFile().isEmpty()){
+		if(playList.getFileName().isEmpty()||playList.getMediaFile().isEmpty()){
 			mediaPlayer.stop();
 		}else{
 			int delIndex = playList.getFileName().indexOf(selectFile);
 			playList.getFileName().remove(delIndex);
 			playList.getMediaFile().remove(delIndex);
-			mediaList.setItems(MiniMediaController.playList.getFileName());
+			mediaList.setItems(playList.getFileName());
 			
 			if(playList.getFileName().isEmpty()||playList.getMediaFile().isEmpty()){
 				mediaPlayer.stop();

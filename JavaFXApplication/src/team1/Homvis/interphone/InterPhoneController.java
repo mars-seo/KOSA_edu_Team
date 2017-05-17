@@ -14,8 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Popup;
 import team1.Homvis.MainController;
-import team1.Homvis.interphone.MiniInterPhoneController;
-import static team1.Homvis.interphone.MiniInterPhoneController.now;
+
 
 public class InterPhoneController implements Initializable {
 
@@ -36,14 +35,7 @@ public class InterPhoneController implements Initializable {
 	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		if(!MiniInterPhoneController.now){
-			location.setImage(new Image(getClass().getResource("interphoneImg/interphone_indoor.png").toString()));
-			cur = now;
-		}
-		else {
-			location.setImage(new Image(getClass().getResource("interphoneImg/interphone_outdoor.png").toString()));
-			cur = now;
-		}
+		
 		locationBtn.setOnMouseClicked(e->changeLocation());
 		phoneBtn.setOnMousePressed(e->phoneBtn.setImage(new Image(getClass().getResource("interphoneImg/interphone_phonecall_clicked.png").toString())));
 		phoneBtn.setOnMouseClicked(e->callNopen(e, "call"));
@@ -76,7 +68,7 @@ public class InterPhoneController implements Initializable {
 			}
 	}
 	private void exit() {
-		now = cur;
+
 		MainController.menuicon[3].setImage(new Image(getClass().getResource("interphoneImg/main_interphone_default.png").toString()));
 		MainController.stackPane.getChildren().remove(interphoneRoot);
 		closeBtn.setImage(new Image(getClass().getResource("interphoneImg/interphone_exit_default.png").toString()));
