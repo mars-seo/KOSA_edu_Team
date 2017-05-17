@@ -189,7 +189,12 @@ public class InternetController implements Initializable {
 
 			}
 		});
-
+		
+		bookmarks.addAll(
+						new Bookmark("Google", "https://www.google.co.kr/"),
+						new Bookmark("Facebook", "https://www.facebook.com/"),
+						new Bookmark("Twitter", "https://twitter.com/")
+		);
 		siteColumn.setCellValueFactory(new PropertyValueFactory("site"));
 		urlColumn.setCellValueFactory(new PropertyValueFactory("url"));
 
