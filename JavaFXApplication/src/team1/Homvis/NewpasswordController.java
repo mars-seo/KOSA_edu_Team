@@ -22,7 +22,6 @@ import static team1.Homvis.MainController.secretCount;
 import static team1.Homvis.MainController.menuList;
 import static team1.Homvis.MainController.menuicon;
 import static team1.Homvis.MainController.miniVeiw;
-import static team1.Homvis.MainController.miniWindow;
 import static team1.Homvis.MainController.preIndex1;
 import static team1.Homvis.MainController.preIndex2;
 import static team1.Homvis.MainController.preindex1;
@@ -97,7 +96,6 @@ public class NewpasswordController implements Initializable {
     private boolean temp7PasswordChk = MainController.menu7PasswordChk;
     private boolean temp8PasswordChk = MainController.menu8PasswordChk;
     private final int code = MainController.secretCount;  //secret콘트롤 생성된 순간의 secretcount를 기억하기 위해
-    private final boolean windowState = MainController.miniWindow;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -293,43 +291,20 @@ public class NewpasswordController implements Initializable {
     }
 
     private void miniScreenOpen(int value) {
-		try {
-			if (miniVeiw[value] == null) {
-						miniVeiw[value] = FXMLLoader.load(getClass().getResource(menuList.get(value) + "/Mini" + menuList.get(value) + ".fxml"));
-						System.out.println("ssss");
-					}
-			System.out.println("ssss");
-					MainController.stackPane.getChildren().add(miniVeiw[value]);
-					if (!miniWindow) {
+        try {
+            if (miniVeiw[value] == null) {
+                        miniVeiw[value] = FXMLLoader.load(getClass().getResource(menuList.get(value) + "/" + menuList.get(value) + ".fxml"));
+                    }
+            MainController.stackPane.getChildren().add(miniVeiw[value]);
 
-						if (preIndex1 != null) {
-							MainController.stackPane.getChildren().remove(preIndex1);
-							menuicon[preindex1].setImage(new Image(getClass().getResource("images/main_" + menuList.get(preindex1) + "_default.png").toString()));
-							menuicon[preindex1].setDisable(false);
-						}
-						miniVeiw[value].setTranslateX(0);
-						miniVeiw[value].setTranslateY(0);
-						preIndex1 = miniVeiw[value];
-						preindex1 = value;
-					}else {
-						if (preIndex2 != null) {
-							MainController.stackPane.getChildren().remove(preIndex2);
-							menuicon[preindex2].setImage(new Image(getClass().getResource("images/main_" + menuList.get(preindex2) + "_default.png").toString()));
-							menuicon[preindex2].setDisable(false);
-						}
-						miniVeiw[value].setTranslateX(400);
-						miniVeiw[value].setTranslateY(0);
-						
-						preIndex2 = miniVeiw[value];
-						preindex2 = value;
-					}
-					miniWindow = !miniWindow;
-					MainController.miniParent.add(miniVeiw[value]);
-					System.gc();
+            miniVeiw[value].setTranslateX(0);
+            miniVeiw[value].setTranslateY(0);
+            preIndex1 = miniVeiw[value];
+            preindex1 = value;
 
-		} catch (IOException ex) {
-			
-		}
+        } catch (IOException ex) {
+
+        }
     }
 
     private void chkbox() {
@@ -650,7 +625,7 @@ public class NewpasswordController implements Initializable {
         password2.setText("");
         password1List.removeAll(password1List);
         password2List.removeAll(password2List);
-				keyreset.setImage(new Image(getClass().getResource("images/login_reset_default.png").toString()));
+        keyreset.setImage(new Image(getClass().getResource("images/login_reset_default.png").toString()));
     }
 
 }

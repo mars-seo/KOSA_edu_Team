@@ -8,9 +8,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane fx:id="internetRoot" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.internet.InternetController">
+<StackPane fx:id="internetRoot" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="465.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.Homvis.internet.InternetController">
     <children>
-      <ImageView fitHeight="450.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="465.0" fitWidth="800.0" pickOnBounds="true">
          <image>
             <Image url="@internetImg/internet_background.png" />
          </image>
