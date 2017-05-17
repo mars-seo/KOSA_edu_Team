@@ -87,7 +87,7 @@ public class RootController implements Initializable {
     private void handlerBtn(MouseEvent e, int num) {
         rootPane.getChildren().clear();
         changeableStackPane.getChildren().add(parent.get(num));
-        translateX(num);
+//        translateX(num);
         
          if (num == 0) {
             btnGasFee.setImage(new Image(getClass().getResource("tariffImg/elecNgas_gas_clicked.png").toString()));
@@ -115,14 +115,14 @@ public class RootController implements Initializable {
         }
     }
 
-    private void translateX(int num) {
-        parent.get(num).setTranslateX(840);
-        KeyValue keyValue = new KeyValue(parent.get(num).translateXProperty(), 0);
-        KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
-        Timeline timeline = new Timeline();
-        timeline.getKeyFrames().add(keyFrame);
-        timeline.play();
-    }
+//    private void translateX(int num) {
+//        parent.get(num).setTranslateX(840);
+//        KeyValue keyValue = new KeyValue(parent.get(num).translateXProperty(), 0);
+//        KeyFrame keyFrame = new KeyFrame(Duration.millis(500), keyValue);
+//        Timeline timeline = new Timeline();
+//        timeline.getKeyFrames().add(keyFrame);
+//        timeline.play();
+//    }
 
     private void exit() {
         MainController.menuicon[6].setImage(new Image(getClass().getResource("tariffImg/main_tariff_default.png").toString()));
