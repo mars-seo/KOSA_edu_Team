@@ -285,8 +285,8 @@ public class MainController implements Initializable {
                 secretview.setTranslateY(0);
 
                 mainPane.getChildren().remove(preIndex1);
-                secretview.setTranslateX(200);
-                secretview.setTranslateY(80);
+                secretview.setTranslateX(170);
+                secretview.setTranslateY(20);
 
                 if (secretCount > 1) {
                     VBox chkboxview = (VBox) secretview.lookup("#chkboxview");

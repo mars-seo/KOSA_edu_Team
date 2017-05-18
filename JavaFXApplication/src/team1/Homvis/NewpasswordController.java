@@ -177,10 +177,12 @@ public class NewpasswordController implements Initializable {
 
         btnok.setOnMouseClicked(event -> handleOk());
         password1.focusedProperty().addListener((observable) -> {
+			password1.setEditable(false);
             keypad();
         });
         password2.focusedProperty().addListener((observable) -> {
             keypad2();
+			password2.setEditable(false);
         });
 
         exit.setOnMouseClicked(event -> off());
